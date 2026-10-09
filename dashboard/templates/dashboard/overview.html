@@ -1,10 +1,10 @@
 {% extends "dashboard/base.html" %}
-{% block title %}WattBack — overview{% endblock %}
+{% block title %}WattBack — dashboard{% endblock %}
 {% block content %}
 <h1>{{ site.name }} <span class="pill">{{ site.kwp_dc }} kWp</span></h1>
 <p class="sub">Expected vs actual generation, decomposed into named losses — window
   {% if runmeta %}{{ runmeta.start_date }} → {{ runmeta.end_date }} ({{ runmeta.n_days }} days){% else %}not computed{% endif %}
-  · <a href="/site/{{ site.key }}/">full history →</a></p>
+  · <a href="/app/site/{{ site.key }}/">full history →</a></p>
 
 <div class="formrow">
   <form method="get">
@@ -15,10 +15,10 @@
 </div>
 
 <div class="grid g4">
-  <div class="card"><h3>Expected</h3><div class="big">{{ runmeta.totals_json.expected|floatformat:0 }}<small> kWh</small></div><div class="muted">physics model, clean &amp; corrected</div></div>
-  <div class="card"><h3>Actual</h3><div class="big">{{ runmeta.totals_json.actual|floatformat:0 }}<small> kWh</small></div><div class="muted">measured (PVOutput)</div></div>
-  <div class="card"><h3>Unexplained</h3><div class="big ok">{{ unexplained_pct|floatformat:2 }}<small>% of expected</small></div><div class="muted">residual after all named losses</div></div>
-  <div class="card"><h3>Soiling ratio</h3><div class="big {% if runmeta.soiling_ratio < 0.97 %}warn{% else %}ok{% endif %}">{{ runmeta.soiling_ratio|floatformat:3 }}</div><div class="muted">HSU model, rain × PM2.5/PM10</div></div>
+  <div class="card a-violet"><h3>Expected</h3><div class="big">{{ runmeta.totals_json.expected|floatformat:0 }}<small> kWh</small></div><div class="muted mono">physics model, clean &amp; corrected</div></div>
+  <div class="card a-acid"><h3>Actual</h3><div class="big">{{ runmeta.totals_json.actual|floatformat:0 }}<small> kWh</small></div><div class="muted mono">measured (PVOutput)</div></div>
+  <div class="card a-acid"><h3>Unexplained</h3><div class="big">{{ unexplained_pct|floatformat:2 }}<small>% of expected</small></div><div class="muted mono">residual after all named losses</div></div>
+  <div class="card a-amber"><h3>Soiling ratio</h3><div class="big">{{ runmeta.soiling_ratio|floatformat:3 }}</div><div class="muted mono">HSU · tiered rain wash · PM2.5/PM10</div></div>
 </div>
 
 {% if cf %}
@@ -32,21 +32,21 @@
     <span class="warn">WAIT FOR RAIN</span> — rain modelled within
     {{ cf.modelled_rain_interval_days|floatformat:0 }} day(s); cleaning now saves ≈ ₹{{ cf.gain_inr|floatformat:0 }} only.
   {% endif %}
-  <span class="muted">(sr={{ cf.soiling_ratio|floatformat:3 }}, horizon {{ cf.cleaning_worth_days }}d)</span>
+  <span class="muted mono">(sr={{ cf.soiling_ratio|floatformat:3 }}, horizon {{ cf.cleaning_worth_days }}d)</span>
 </div>
 {% endif %}
 
 <div class="grid g2">
-  <div class="card"><h3>Expected vs actual (window)</h3><div class="chart"><span class="chart-fallback">loading chart…</span><canvas id="c1" role="img" aria-label="Daily expected versus actual generation, window"></canvas></div></div>
-  <div class="card"><h3>Where the energy went (% of expected)</h3><div class="chart"><span class="chart-fallback">loading chart…</span><canvas id="c2" role="img" aria-label="Loss categories as percent of expected energy"></canvas></div></div>
+  <div class="card term"><h3>expected_vs_actual.log</h3><div class="chart"><span class="chart-fallback">loading chart…</span><canvas id="c1" role="img" aria-label="Daily expected versus actual generation, window"></canvas></div></div>
+  <div class="card term"><h3>where_energy_went.log</h3><div class="chart"><span class="chart-fallback">loading chart…</span><canvas id="c2" role="img" aria-label="Loss categories as percent of expected energy"></canvas></div></div>
 </div>
 
 <div class="grid g3">
-  <div class="card"><h3>Loss decomposition (kWh)</h3><div class="chart sm"><span class="chart-fallback">loading chart…</span><canvas id="c3" role="img" aria-label="Loss decomposition doughnut, kilowatt-hours"></canvas></div></div>
-  <div class="card"><h3>Recent outage alerts</h3>
+  <div class="card term"><h3>loss_decomposition.log</h3><div class="chart sm"><span class="chart-fallback">loading chart…</span><canvas id="c3" role="img" aria-label="Loss decomposition doughnut, kilowatt-hours"></canvas></div></div>
+  <div class="card term"><h3>recent_alerts.log</h3>
     <table><thead><tr><th>From</th><th>Days</th><th>Lost</th></tr></thead>
     <tbody id="alertbody"></tbody></table>
-    <p class="muted"><a href="/outages/">all alerts →</a> · SNS publish: <code>manage.py publish_alerts</code></p>
+    <p class="muted mono"><a href="/app/outages/">all alerts →</a> · SNS: <code>manage.py publish_alerts</code></p>
   </div>
   <div class="card"><h3>Impact at scale</h3>
     <div class="impact">
@@ -73,25 +73,25 @@ const totals = loss.reduce((a, r) => {
     a[k] = (a[k] || 0) + r[k];
   return a;
 }, {});
-const sun = '#ffb020', sun2 = '#ff7a45', info = '#4cc2ff', good = '#39d98a';
-Chart.defaults.color = '#8b97b0';
-Chart.defaults.borderColor = '#232d45';
+const acid = '#00FF88', amber = '#FF9800', violet = '#8A2BE2', paper = '#E5E1D8';
+Chart.defaults.color = '#9AA9C4';
+Chart.defaults.borderColor = 'rgba(255,255,255,.09)';
 new Chart(c1, { data: { labels, datasets: [
-  { type:'bar', label:'Expected', data: loss.map(r=>r.expected), backgroundColor:'#2b3b5e', borderRadius:3 },
-  { type:'bar', label:'Actual', data: loss.map(r=>r.actual), backgroundColor: sun, borderRadius:3 },
-  { type:'line', label:'Predicted (after losses)', data: loss.map(r=>r.predicted), borderColor: info, borderWidth:2, pointRadius:0, tension:.3 },
+  { type:'bar', label:'Expected', data: loss.map(r=>r.expected), backgroundColor:paper, borderRadius:2 },
+  { type:'bar', label:'Actual', data: loss.map(r=>r.actual), backgroundColor:acid, borderRadius:2 },
+  { type:'line', label:'Predicted (after losses)', data: loss.map(r=>r.predicted), borderColor:violet, borderWidth:2.5, pointRadius:0, tension:.3 },
 ]}, options:{ responsive:true, maintainAspectRatio:false, scales:{x:{ticks:{maxTicksLimit:10}}, y:{title:{display:true,text:'kWh'}}} }});
 const lossKeys = [['aoi','AOI'],['temp','Temperature'],['soiling','Soiling'],['dc_cable','DC cable'],['inv_conv','Inverter'],['clip','Clipping'],['ac_cable','AC cable'],['unexplained','Unexplained']];
 const exp = totals.expected || 1;
 new Chart(c2, { type:'bar', data:{ labels: lossKeys.map(k=>k[1]),
   datasets:[{ label:'% of expected', data: lossKeys.map(k=>100*Math.abs(totals[k[0]]||0)/exp),
-    backgroundColor: lossKeys.map(k=>k[0]==='unexplained' ? good : sun2), borderRadius:4 }]},
+    backgroundColor: lossKeys.map(k=>k[0]==='unexplained' ? acid : amber), borderRadius:3 }]},
   options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false,
     plugins:{legend:{display:false}}, scales:{x:{title:{display:true,text:'% of expected'}}} }});
 new Chart(c3, { type:'doughnut', data:{ labels: lossKeys.map(k=>k[1]).concat(['To actual']),
   datasets:[{ data: lossKeys.map(k=>+Math.abs(totals[k[0]]||0).toFixed(1)).concat([+(totals.actual).toFixed(1)]),
-    backgroundColor:['#ff7a45','#ff5d73','#ffb020','#8b7bff','#4cc2ff','#ffd166','#7bdff2','#39d98a','#2b3b5e'] }]},
-  options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'bottom'}} }});
+    backgroundColor:['#FF9800','#FF3B30','#FFD166','#8A2BE2','#4CC2FF','#7BDFF2','#E5E1D8','#00FF88','#DCD7CB'] }]},
+  options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'bottom',labels:{color:'#9AA9C4'}}} }});
 document.getElementById('alertbody').innerHTML = alerts.map(a =>
   `<tr><td>${a.start_date}</td><td>${a.days}</td><td>${a.est_lost_kwh} kWh</td></tr>`).join('') ||
   '<tr><td colspan="3" class="muted">none</td></tr>';

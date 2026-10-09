@@ -37,6 +37,10 @@ def _counterfactual(site: Site) -> dict | None:
         expected_per_day=per_day, soiling_ratio=rm.soiling_ratio)
 
 
+def story(request):
+    return render(request, "dashboard/story.html", {"active": "story"})
+
+
 def overview(request):
     key = request.GET.get("site", "bmt")
     site = get_object_or_404(Site, key=key)

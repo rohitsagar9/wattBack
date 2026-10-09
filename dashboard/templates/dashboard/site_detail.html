@@ -4,26 +4,28 @@
 {% block content %}
 <h1>{{ site.name }} <span class="pill">{{ site.kwp_dc }} kWp</span></h1>
 <p class="sub">{{ site.lat }}°, {{ site.lng }}° · tilt {{ site.tilt_deg }}° · az {{ site.azimuth_deg }}° ·
-  {{ site.role }} · <a href="/?site={{ site.key }}">overview →</a></p>
+  {{ site.role }} · <a href="/app/?site={{ site.key }}">overview →</a></p>
 
 <div class="grid g4">
-  <div class="card"><h3>Days on record</h3><div class="big">{{ totals.days }}</div></div>
-  <div class="card"><h3>Lifetime generation</h3><div class="big warn">{{ totals.total }}<small> kWh</small></div></div>
-  <div class="card"><h3>Best day</h3><div class="big">{{ totals.best }}<small> kWh</small></div></div>
-  <div class="card"><h3>Flagged days</h3><div class="big {% if totals.flagged %}warn{% else %}ok{% endif %}">{{ totals.flagged }}</div></div>
+  <div class="card a-violet"><h3>Days on record</h3><div class="big">{{ totals.days }}</div></div>
+  <div class="card a-amber"><h3>Lifetime generation</h3><div class="big">{{ totals.total }}<small> kWh</small></div></div>
+  <div class="card a-acid"><h3>Best day</h3><div class="big">{{ totals.best }}<small> kWh</small></div></div>
+  <div class="card a-coral"><h3>Flagged days</h3><div class="big">{{ totals.flagged }}</div></div>
 </div>
 
 <h2>Daily generation vs GHI (full record)</h2>
-<div class="card"><div class="chart"><span class="chart-fallback">loading chart…</span><canvas id="hist" role="img" aria-label="Daily generation and GHI over the full record"></canvas></div></div>
+<div class="card term"><h3>history_{{ site.key }}.log</h3>
+  <div class="chart"><span class="chart-fallback">loading chart…</span><canvas id="hist" role="img" aria-label="Daily generation and GHI over the full record"></canvas></div></div>
 
 <h2>Data-quality flags <span class="muted">(imported, audited)</span></h2>
-<div class="card">
+<div class="card term">
+  <h3>flag_audit.log</h3>
   {% if recent_flagged %}
   <table>
     <thead><tr><th>Date</th><th>Generated</th><th>Peak</th><th>Flag</th></tr></thead>
     <tbody>
     {% for r in recent_flagged %}
-      <tr><td class="mono">{{ r.date }}</td><td>{{ r.generated_kwh }} kWh</td>
+      <tr><td>{{ r.date }}</td><td>{{ r.generated_kwh }} kWh</td>
       <td>{% if r.peak_kw %}{{ r.peak_kw }} kW{% else %}—{% endif %}</td>
       <td>{% for f in r.flags|split %}<span class="pill {{ f }}">{{ f }}</span>{% endfor %}</td></tr>
     {% endfor %}
@@ -37,17 +39,17 @@
 <script id="hist-data" type="application/json">{{ daily_json|safe }}</script>
 <script>
 const rows = JSON.parse(document.getElementById('hist-data').textContent);
-Chart.defaults.color = '#8b97b0'; Chart.defaults.borderColor = '#232d45';
+Chart.defaults.color = '#9AA9C4'; Chart.defaults.borderColor = 'rgba(255,255,255,.09)';
 new Chart(hist, { data: { labels: rows.map(r=>r.date),
   datasets: [
     { type:'line', label:'Generated (kWh)', data: rows.map(r=>r.generated_kwh),
-      borderColor:'#ffb020', backgroundColor:'#ffb02033', fill:true, pointRadius:0, borderWidth:1.5, yAxisID:'y' },
+      borderColor:'#00FF88', backgroundColor:'rgba(0,255,136,.14)', fill:true, pointRadius:0, borderWidth:1.8, yAxisID:'y' },
     { type:'bar', label:'GHI (kWh/m²)', data: rows.map(r=>r.ghi_kwh_m2),
-      backgroundColor:'#2b3b5e88', pointRadius:0, yAxisID:'y1' },
+      backgroundColor:'rgba(229,225,216,.35)', pointRadius:0, yAxisID:'y1' },
   ]},
   options:{ responsive:true, maintainAspectRatio:false,
     interaction:{mode:'index',intersect:false},
-    scales:{ y:{position:'left',title:{display:true,text:'kWh'}},
+    scales:{ y:{position:'left',title:{display:true,text:'kWh'},grid:{color:'rgba(255,255,255,.07)'}},
              y1:{position:'right',grid:{drawOnChartArea:false},title:{display:true,text:'kWh/m²'}},
              x:{ticks:{maxTicksLimit:12}} } }});
 document.querySelectorAll('.chart-fallback').forEach(el => el.remove());

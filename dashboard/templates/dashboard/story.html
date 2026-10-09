@@ -1,0 +1,398 @@
+{% extends "dashboard/base.html" %}
+{% block title %}WattBack — the ₹1,100 crore dust tax{% endblock %}
+{% block content %}
+<section class="hero">
+  <span class="kicker">Environmental Hacks 2026 · Track 03 · Waste &amp; Energy</span>
+  <h1>THE ROOFTOP SOLAR DUST TAX</h1>
+  <p class="lede">India runs <b>32.59 GW of rooftop solar</b> — 53.8 TWh a year, enough to
+  power over a million homes. Almost nobody watches it work. Dust, heat, shade and silent
+  downtime bleed <b>3–10% off every panel</b>, every day, unnoticed: about
+  <b>₹1,100 crore a year</b> thrown away with the evening dust.</p>
+  <div class="grid g4" style="margin-top:30px">
+    <div class="card a-violet"><h3>Rooftop installed</h3><div class="big">32.59<small> GW</small></div><div class="muted mono">MNRE, Aug 2026</div></div>
+    <div class="card a-acid"><h3>Generated per year</h3><div class="big">53.8<small> TWh</small></div><div class="muted mono">≈1,650 kWh/kWp</div></div>
+    <div class="card a-amber"><h3>Lost silently</h3><div class="big">3–10<small>% of yield</small></div><div class="muted mono">soiling · heat · downtime</div></div>
+    <div class="card a-coral"><h3>Recoverable</h3><div class="big">₹1,100<small> cr/yr</small></div><div class="muted mono">if 3% is brought back</div></div>
+  </div>
+  <p class="sub" style="margin-top:14px">Scale the fleet 5× toward 2050 and the same 3%
+  leaks <b>₹5,500+ crore a year</b> (scenario, 3% of 5× today's output). The bigger the
+  roof fleet gets, the bigger the blind spot. <b>Every leak below is one your roof has today.</b></p>
+  <div class="cta-row">
+    <a class="btn btn-big" href="/app/">CHOOSE YOUR ROOF →</a>
+    <a class="btn ghost btn-big" href="/app/?site=bmt">DEMO: BMT PUNJAB 56.6 kWp</a>
+  </div>
+</section>
+
+<section class="act">
+  <span class="kicker">The leak list — scroll</span>
+  <h2 style="font-size:clamp(34px,5vw,58px);margin-top:6px">SEVENTEEN WAYS YOUR ROOF BLEEDS</h2>
+  <p class="sub">One scroll, one leak. Tags show what WattBack already measures daily from
+  physics + weather — and what we flag for you to inspect.</p>
+
+  <div class="leak" data-leak>
+    <div class="leak-card">
+      <span class="leak-num">2–10%+</span>
+      <h3>Soiling</h3>
+      <p>Dust, dirt, bird droppings and pollution film bake onto the glass. Dry regions
+      lose 2–10%+; a light drizzle can even smear the dust into mud spots instead of
+      washing it off.</p>
+      <div class="leak-meta"><span class="tag measured">measured daily</span>
+        <span class="muted mono">HSU dust model · tiered rain wash</span></div>
+    </div>
+    <div class="leak-fig"><svg viewBox="0 0 160 120" role="img" aria-label="Dust settling on a panel">
+      <rect x="34" y="56" width="94" height="40" fill="#fff" stroke="#0E131F" stroke-width="3"/>
+      <path d="M34 69h94M34 83h94M65 56v40M97 56v40" stroke="#0E131F" stroke-width="1.6"/>
+      <path d="M46 100v12M116 100v12" stroke="#0E131F" stroke-width="3"/>
+      <circle cx="48" cy="42" r="3" fill="#FF9800" stroke="#0E131F" stroke-width="2"/>
+      <circle cx="76" cy="34" r="4" fill="#FF9800" stroke="#0E131F" stroke-width="2"/>
+      <circle cx="104" cy="44" r="3" fill="#FF9800" stroke="#0E131F" stroke-width="2"/>
+      <circle cx="62" cy="47" r="2" fill="#0E131F"/><circle cx="92" cy="40" r="2" fill="#0E131F"/>
+      <path d="M40 60h100" stroke="#FF9800" stroke-width="4" stroke-dasharray="5 4"/>
+    </svg></div>
+  </div>
+
+  <div class="leak alt" data-leak>
+    <div class="leak-card">
+      <span class="leak-num">1–10%+</span>
+      <h3>Shading &amp; tilt</h3>
+      <p>Trees, poles, neighbouring modules and buildings clip the light — even partial
+      shade on one cell drags the string down. Wrong tilt or orientation costs the same
+      way, every single day.</p>
+      <div class="leak-meta"><span class="tag measured">measured daily</span>
+        <span class="muted mono">IAM on beam · horizon shading view</span></div>
+    </div>
+    <div class="leak-fig"><svg viewBox="0 0 160 120" role="img" aria-label="Tree shading a panel">
+      <rect x="70" y="62" width="74" height="34" fill="#fff" stroke="#0E131F" stroke-width="3"/>
+      <path d="M70 73h74M70 85h74" stroke="#0E131F" stroke-width="1.4"/>
+      <path d="M78 96v14M136 96v14" stroke="#0E131F" stroke-width="3"/>
+      <path d="M14 96V52" stroke="#0E131F" stroke-width="4"/>
+      <circle cx="14" cy="38" r="18" fill="#00FF88" stroke="#0E131F" stroke-width="3"/>
+      <path d="M32 30 L96 62 L96 96 L32 96 Z" fill="#0E131F" opacity=".22"/>
+      <circle cx="128" cy="24" r="12" fill="#FF9800" stroke="#0E131F" stroke-width="3"/>
+    </svg></div>
+  </div>
+
+  <div class="leak" data-leak>
+    <div class="leak-card">
+      <span class="leak-num">3–10%+</span>
+      <h3>High temperature</h3>
+      <p>Panel voltage falls as cells heat — output drops ~0.4% per °C above 25 °C.
+      Indian summers push cells past 65 °C: a clear, hot, “perfect” day is also the
+      day physics takes its cut.</p>
+      <div class="leak-meta"><span class="tag measured">measured daily</span>
+        <span class="muted mono">SAPM · γ = −0.4%/°C</span></div>
+    </div>
+    <div class="leak-fig"><svg viewBox="0 0 160 120" role="img" aria-label="Thermometer under a hot sun">
+      <circle cx="120" cy="32" r="18" fill="#FF3B30" stroke="#0E131F" stroke-width="3"/>
+      <path d="M120 6v8M120 50v8M94 32h8M138 32h8M101 13l6 6M133 45l6 6M101 51l6-6M133 19l6-6" stroke="#0E131F" stroke-width="3"/>
+      <rect x="42" y="14" width="16" height="70" rx="8" fill="#fff" stroke="#0E131F" stroke-width="3"/>
+      <rect x="47" y="46" width="6" height="34" fill="#FF3B30"/>
+      <circle cx="50" cy="94" r="14" fill="#FF3B30" stroke="#0E131F" stroke-width="3"/>
+      <path d="M64 30h10M64 46h14M64 62h8" stroke="#0E131F" stroke-width="2.4"/>
+    </svg></div>
+  </div>
+
+  <div class="leak alt" data-leak>
+    <div class="leak-card">
+      <span class="leak-num">1–3%</span>
+      <h3>DC cable loss</h3>
+      <p>Every metre of DC cable burns energy as heat — I²R losses that grow with
+      current. Undersized or long runs quietly tax 1–3% before the inverter ever sees it.</p>
+      <div class="leak-meta"><span class="tag measured">measured daily</span>
+        <span class="muted mono">I²R · temp-corrected resistivity</span></div>
+    </div>
+    <div class="leak-fig"><svg viewBox="0 0 160 120" role="img" aria-label="Cable with resistance zigzag">
+      <rect x="24" y="46" width="34" height="30" fill="#00FF88" stroke="#0E131F" stroke-width="3"/>
+      <path d="M30 62h6l4-9 6 18 5-9h5" stroke="#0E131F" stroke-width="2.2" fill="none"/>
+      <path d="M58 61h14l8-16 9 32 9-32 9 32 8-16h14" stroke="#0E131F" stroke-width="3.4" fill="none"/>
+      <rect x="136" y="46" width="4" height="0" fill="none"/>
+      <path d="M96 34c6 6 6 14 0 20M104 30c9 9 9 22 0 31" stroke="#FF9800" stroke-width="3" fill="none"/>
+      <circle cx="58" cy="61" r="4" fill="#FF9800" stroke="#0E131F" stroke-width="2"/>
+      <circle cx="134" cy="61" r="4" fill="#FF9800" stroke="#0E131F" stroke-width="2"/>
+    </svg></div>
+  </div>
+
+  <div class="leak" data-leak>
+    <div class="leak-card">
+      <span class="leak-num">&lt;1%</span>
+      <h3>Connectors &amp; fuses</h3>
+      <p>MC4 connectors, fuse holders, busbar joints — each adds a sliver of resistance.
+      A loose one doesn't fail outright; it heats, ages, and takes a little more each year.</p>
+      <div class="leak-meta"><span class="tag measured">measured daily</span>
+        <span class="muted mono">bundled into cable segments</span></div>
+    </div>
+    <div class="leak-fig"><svg viewBox="0 0 160 120" role="img" aria-label="Connector pair">
+      <rect x="30" y="48" width="44" height="26" fill="#fff" stroke="#0E131F" stroke-width="3"/>
+      <rect x="86" y="48" width="44" height="26" fill="#fff" stroke="#0E131F" stroke-width="3"/>
+      <path d="M74 56h12M74 66h12" stroke="#0E131F" stroke-width="4"/>
+      <path d="M40 61h20" stroke="#00FF88" stroke-width="4"/>
+      <path d="M96 61h24" stroke="#00FF88" stroke-width="4"/>
+      <path d="M112 40c6-6 16-6 22 0M112 82c6 6 16 6 22 0" stroke="#FF9800" stroke-width="3" fill="none"/>
+      <circle cx="52" cy="61" r="5" fill="#FF9800" stroke="#0E131F" stroke-width="2.4"/>
+      <circle cx="108" cy="61" r="5" fill="#FF9800" stroke="#0E131F" stroke-width="2.4"/>
+    </svg></div>
+  </div>
+
+  <div class="leak alt" data-leak>
+    <div class="leak-card">
+      <span class="leak-num">1–3%</span>
+      <h3>Inverter conversion</h3>
+      <p>DC to AC is never 100%. Modern inverters are excellent — and still tax 1–3% in
+      conversion losses, plus whatever age and dust on their own cooling fans add.</p>
+      <div class="leak-meta"><span class="tag measured">measured daily</span>
+        <span class="muted mono">nominal η per site config</span></div>
+    </div>
+    <div class="leak-fig"><svg viewBox="0 0 160 120" role="img" aria-label="DC to AC conversion box">
+      <rect x="52" y="40" width="56" height="44" fill="#080D1A" stroke="#0E131F" stroke-width="3"/>
+      <text x="80" y="67" text-anchor="middle" font-family="monospace" font-size="15" fill="#00FF88">INV</text>
+      <path d="M14 52h38M14 72h38" stroke="#0E131F" stroke-width="3.4"/>
+      <path d="M16 62h20v-8h16" stroke="#0E131F" stroke-width="3" fill="none"/>
+      <path d="M108 62h12c4 0 4-12 8-12s4 12 8 12 4-12 8-12 4 12 8 12" stroke="#FF9800" stroke-width="3.4" fill="none"/>
+      <circle cx="30" cy="46" r="3.4" fill="#00FF88" stroke="#0E131F" stroke-width="2"/>
+      <circle cx="30" cy="78" r="3.4" fill="#00FF88" stroke="#0E131F" stroke-width="2"/>
+    </svg></div>
+  </div>
+
+  <div class="leak" data-leak>
+    <div class="leak-card">
+      <span class="leak-num">0–5%</span>
+      <h3>Inverter clipping</h3>
+      <p>When DC output exceeds the inverter's AC rating, the extra is simply never
+      converted — clipped at the top of the best hours of the best days.</p>
+      <div class="leak-meta"><span class="tag measured">measured daily</span>
+        <span class="muted mono">hour-level clamp at AC rating</span></div>
+    </div>
+    <div class="leak-fig"><svg viewBox="0 0 160 120" role="img" aria-label="Clipped power curve">
+      <path d="M16 100h128" stroke="#0E131F" stroke-width="3"/>
+      <path d="M22 98C50 98 60 30 80 30s30 68 58 68" stroke="#00FF88" stroke-width="3.4" fill="none"/>
+      <path d="M16 44h128" stroke="#FF3B30" stroke-width="3" stroke-dasharray="7 5"/>
+      <path d="M64 44C70 34 74 32 80 30s10 12 16 14" stroke="#FF3B30" stroke-width="3.4" fill="none"/>
+      <rect x="108" y="34" width="34" height="14" fill="#FF3B30" stroke="#0E131F" stroke-width="2.4"/>
+      <text x="125" y="45" text-anchor="middle" font-family="monospace" font-size="9" fill="#0E131F">kWac</text>
+    </svg></div>
+  </div>
+
+  <div class="leak alt" data-leak>
+    <div class="leak-card">
+      <span class="leak-num">&lt;1%</span>
+      <h3>MPPT losses</h3>
+      <p>The tracker hunts for the panel's maximum power point — fast, smart, and never
+      perfect. Clouds and partial shade make it hunt harder, and every hunt costs a fraction.</p>
+      <div class="leak-meta"><span class="tag flagged">flagged</span>
+        <span class="muted mono">inverter-side · vendor data</span></div>
+    </div>
+    <div class="leak-fig"><svg viewBox="0 0 160 120" role="img" aria-label="Power curve with peak marker">
+      <path d="M16 100h128M16 100V20" stroke="#0E131F" stroke-width="3"/>
+      <path d="M20 96C44 94 54 42 84 38s40 34 56 52" stroke="#8A2BE2" stroke-width="3.4" fill="none"/>
+      <circle cx="84" cy="38" r="7" fill="#00FF88" stroke="#0E131F" stroke-width="3"/>
+      <path d="M84 38v62" stroke="#0E131F" stroke-width="2" stroke-dasharray="4 4"/>
+      <path d="M118 44l10 0M118 44l-4 4" stroke="#8A2BE2" stroke-width="2.6"/>
+      <text x="92" y="30" font-family="monospace" font-size="11" fill="#0E131F">Pmp</text>
+    </svg></div>
+  </div>
+
+  <div class="leak" data-leak>
+    <div class="leak-card">
+      <span class="leak-num">0.5–2%</span>
+      <h3>Transformer loss</h3>
+      <p>At park scale, every voltage step bleeds a little into core and copper losses —
+      small percentages sitting on top of very large numbers.</p>
+      <div class="leak-meta"><span class="tag flagged">flagged</span>
+        <span class="muted mono">utility-scale · in park configs</span></div>
+    </div>
+    <div class="leak-fig"><svg viewBox="0 0 160 120" role="img" aria-label="Transformer coils">
+      <rect x="46" y="40" width="68" height="46" fill="#fff" stroke="#0E131F" stroke-width="3"/>
+      <path d="M60 40v46M74 40v46M88 40v46" stroke="#FF9800" stroke-width="4"/>
+      <path d="M102 40v46" stroke="#8A2BE2" stroke-width="4"/>
+      <path d="M16 63h30M114 63h30" stroke="#0E131F" stroke-width="3.4"/>
+      <circle cx="34" cy="63" r="3" fill="#00FF88" stroke="#0E131F" stroke-width="2"/>
+      <circle cx="126" cy="63" r="3" fill="#00FF88" stroke="#0E131F" stroke-width="2"/>
+      <path d="M120 46c6 4 6 10 0 14M128 40c10 8 10 24 0 32" stroke="#FF3B30" stroke-width="2.6" fill="none"/>
+    </svg></div>
+  </div>
+
+  <div class="leak alt" data-leak>
+    <div class="leak-card">
+      <span class="leak-num">0.5–2%</span>
+      <h3>AC cable loss</h3>
+      <p>Same physics on the AC side: the run from inverter to meter burns I²R all the way —
+      the final stretch nobody inspects.</p>
+      <div class="leak-meta"><span class="tag measured">measured daily</span>
+        <span class="muted mono">I²R on AC run</span></div>
+    </div>
+    <div class="leak-fig"><svg viewBox="0 0 160 120" role="img" aria-label="AC line between posts">
+      <path d="M18 96V40h10v56M18 40h10" stroke="#0E131F" stroke-width="3" fill="none"/>
+      <path d="M132 96V40h10v56M132 40h10" stroke="#0E131F" stroke-width="3" fill="none"/>
+      <path d="M20 46C56 62 104 62 134 46" stroke="#0E131F" stroke-width="3" fill="none"/>
+      <path d="M20 60C56 78 104 78 134 60" stroke="#0E131F" stroke-width="3" fill="none"/>
+      <path d="M44 55c6 5 10 5 16 0M96 68c6-5 10-5 16 0" stroke="#FF9800" stroke-width="3" fill="none"/>
+      <circle cx="78" cy="67" r="5" fill="#FF3B30" stroke="#0E131F" stroke-width="2.4"/>
+    </svg></div>
+  </div>
+
+  <div class="leak" data-leak>
+    <div class="leak-card">
+      <span class="leak-num">0.5–2%</span>
+      <h3>Auxiliary consumption</h3>
+      <p>Pumps, cooling, monitoring, trackers, SCADA — the plant feeds itself before the
+      grid sees anything. Parasitic load is small, constant, and easy to forget.</p>
+      <div class="leak-meta"><span class="tag flagged">flagged</span>
+        <span class="muted mono">site-level balance</span></div>
+    </div>
+    <div class="leak-fig"><svg viewBox="0 0 160 120" role="img" aria-label="Fan and gear">
+      <circle cx="60" cy="62" r="26" fill="#fff" stroke="#0E131F" stroke-width="3"/>
+      <path d="M60 62L46 44M60 62l24 4M60 62l-14 22" stroke="#0E131F" stroke-width="4"/>
+      <circle cx="60" cy="62" r="6" fill="#00FF88" stroke="#0E131F" stroke-width="2.6"/>
+      <path d="M112 44l5 4 6-2 2 6 6 3-3 6 3 6-6 3-2 6-6-2-5 4-5-4-6 2-2-6-6-3 3-6-3-6 6-3 2-6 6 2z"
+        fill="#FF9800" stroke="#0E131F" stroke-width="2.6"/>
+      <circle cx="116" cy="64" r="7" fill="#F7F3E9" stroke="#0E131F" stroke-width="2.6"/>
+    </svg></div>
+  </div>
+
+  <div class="leak alt" data-leak>
+    <div class="leak-card">
+      <span class="leak-num">1–5%</span>
+      <h3>Availability &amp; downtime</h3>
+      <p>Inverters trip, strings go dark, breakers stick. Generation doesn't degrade — it
+      disappears for hours or days, and nobody notices until the bill.</p>
+      <div class="leak-meta"><span class="tag measured">measured daily</span>
+        <span class="muted mono">collapse detector · outage alerts</span></div>
+    </div>
+    <div class="leak-fig"><svg viewBox="0 0 160 120" role="img" aria-label="Panel with warning">
+      <rect x="30" y="58" width="76" height="36" fill="#fff" stroke="#0E131F" stroke-width="3"/>
+      <path d="M30 70h76M30 82h76M55 58v36M80 58v36" stroke="#0E131F" stroke-width="1.5"/>
+      <path d="M38 94v12M98 94v12" stroke="#0E131F" stroke-width="3"/>
+      <path d="M124 34l22 40h-44z" fill="#FF9800" stroke="#0E131F" stroke-width="3"/>
+      <path d="M124 48v12" stroke="#0E131F" stroke-width="3.4"/>
+      <circle cx="124" cy="66" r="2.4" fill="#0E131F"/>
+      <path d="M34 62l14 28" stroke="#FF3B30" stroke-width="4"/>
+    </svg></div>
+  </div>
+
+  <div class="leak" data-leak>
+    <div class="leak-card">
+      <span class="leak-num">varies</span>
+      <h3>Grid curtailment</h3>
+      <p>The grid says no: congestion or oversupply forces plants to throttle. Clean
+      electrons exist — the network just can't take them right now.</p>
+      <div class="leak-meta"><span class="tag flagged">flagged</span>
+        <span class="muted mono">needs meter/grid signals</span></div>
+    </div>
+    <div class="leak-fig"><svg viewBox="0 0 160 120" role="img" aria-label="Transmission towers with cut">
+      <path d="M24 100V34h12v66M24 34h12M18 46h24M18 58h24" stroke="#0E131F" stroke-width="3" fill="none"/>
+      <path d="M116 100V34h12v66M116 34h12M110 46h24M110 58h24" stroke="#0E131F" stroke-width="3" fill="none"/>
+      <path d="M30 44C64 58 96 58 122 44" stroke="#0E131F" stroke-width="3" fill="none"/>
+      <path d="M30 56C64 74 96 74 122 56" stroke="#0E131F" stroke-width="3" fill="none"/>
+      <path d="M74 46l14 26M88 46l-14 26" stroke="#FF3B30" stroke-width="5"/>
+      <circle cx="81" cy="59" r="15" fill="none" stroke="#FF3B30" stroke-width="4"/>
+    </svg></div>
+  </div>
+
+  <div class="leak alt" data-leak>
+    <div class="leak-card">
+      <span class="leak-num">very large</span>
+      <h3>Weather &amp; cloud cover</h3>
+      <p>Clouds cut irradiance faster than anything else — but that's weather, not waste.
+      WattBack separates “the sky gave less” from “your system lost what the sky gave”.</p>
+      <div class="leak-meta"><span class="tag measured">measured daily</span>
+        <span class="muted mono">ERA5 GHI · clear/cloudy factors</span></div>
+    </div>
+    <div class="leak-fig"><svg viewBox="0 0 160 120" role="img" aria-label="Sun behind cloud">
+      <circle cx="54" cy="44" r="22" fill="#FF9800" stroke="#0E131F" stroke-width="3"/>
+      <path d="M54 12v-8M54 84v-8M22 44h-8M94 44h-8M31 21l-6-6M77 67l6 6M31 67l-6 6M77 21l6-6" stroke="#0E131F" stroke-width="3"/>
+      <path d="M62 84c-10 0-16-6-16-14 0-7 5-12 12-13 2-9 9-15 18-15 10 0 17 7 19 16 8 1 13 6 13 13 0 8-7 13-16 13z"
+        fill="#fff" stroke="#0E131F" stroke-width="3"/>
+      <path d="M70 92l-4 10M86 92l-4 10M102 92l-4 10" stroke="#00FF88" stroke-width="3.4"/>
+    </svg></div>
+  </div>
+
+  <div class="leak" data-leak>
+    <div class="leak-card">
+      <span class="leak-num">0.3–0.8%/yr</span>
+      <h3>Module degradation</h3>
+      <p>Panels age: UV, heat cycles and moisture slowly take 0.3–0.8% a year, forever.
+      Year one's panels are never year ten's — if you never measure, you never see it.</p>
+      <div class="leak-meta"><span class="tag flagged">flagged</span>
+        <span class="muted mono">year-over-year trend</span></div>
+    </div>
+    <div class="leak-fig"><svg viewBox="0 0 160 120" role="img" aria-label="Declining output steps">
+      <path d="M16 100h128M16 100V18" stroke="#0E131F" stroke-width="3"/>
+      <path d="M24 30h22v14h22v13h22v14h22v15h24" stroke="#FF3B30" stroke-width="4" fill="none"/>
+      <path d="M24 34L136 86" stroke="#8A2BE2" stroke-width="2.4" stroke-dasharray="6 5"/>
+      <path d="M130 86l6 0-0-6" stroke="#8A2BE2" stroke-width="0"/>
+      <text x="96" y="40" font-family="monospace" font-size="11" fill="#0E131F">-0.5%/yr</text>
+    </svg></div>
+  </div>
+
+  <div class="leak alt" data-leak>
+    <div class="leak-card">
+      <span class="leak-num">site&nbsp;dep.</span>
+      <h3>Snow, water &amp; debris</h3>
+      <p>Storm residue, leaves, construction dust, standing water — physical obstructions
+      that arrive overnight and stay until someone looks up.</p>
+      <div class="leak-meta"><span class="tag flagged">flagged</span>
+        <span class="muted mono">rain + flag audit trail</span></div>
+    </div>
+    <div class="leak-fig"><svg viewBox="0 0 160 120" role="img" aria-label="Debris on panel">
+      <rect x="34" y="58" width="94" height="38" fill="#fff" stroke="#0E131F" stroke-width="3"/>
+      <path d="M34 71h94M34 85h94M65 58v38M97 58v38" stroke="#0E131F" stroke-width="1.5"/>
+      <path d="M46 96v12M116 96v12" stroke="#0E131F" stroke-width="3"/>
+      <path d="M52 64c6-4 12-2 14 2s-2 8-8 8-10-6-6-10z" fill="#00FF88" stroke="#0E131F" stroke-width="2.4"/>
+      <path d="M92 62l10 6-8 6z" fill="#FF9800" stroke="#0E131F" stroke-width="2.4"/>
+      <path d="M112 66l6 4-6 4z" fill="#FF9800" stroke="#0E131F" stroke-width="2.4"/>
+      <path d="M74 44l4 8M96 40l4 8M114 46l4 8" stroke="#4CC2FF" stroke-width="3.4"/>
+    </svg></div>
+  </div>
+
+  <div class="leak" data-leak>
+    <div class="leak-card">
+      <span class="leak-num">site&nbsp;dep.</span>
+      <h3>Tilt &amp; orientation</h3>
+      <p>A panel pointed wrong is a panel that never catches its best hour. Latitude sets
+      the ideal tilt; installers and obstacles decide the real one — we extract both and
+      show you the gap.</p>
+      <div class="leak-meta"><span class="tag measured">measured daily</span>
+        <span class="muted mono">geometry from lat/long + your tilt</span></div>
+    </div>
+    <div class="leak-fig"><svg viewBox="0 0 160 120" role="img" aria-label="Tilted panel with compass">
+      <path d="M34 94 L94 94 L112 58 L52 58 Z" fill="#fff" stroke="#0E131F" stroke-width="3"/>
+      <path d="M42 84h60M50 74h56" stroke="#0E131F" stroke-width="1.6"/>
+      <path d="M44 94v12M84 94v12" stroke="#0E131F" stroke-width="3"/>
+      <path d="M66 94l14-30" stroke="#8A2BE2" stroke-width="3" stroke-dasharray="5 4"/>
+      <path d="M24 94h112" stroke="#0E131F" stroke-width="3"/>
+      <circle cx="130" cy="40" r="18" fill="#F7F3E9" stroke="#0E131F" stroke-width="3"/>
+      <path d="M130 40l0-12M130 40l8 6" stroke="#0E131F" stroke-width="3"/>
+      <path d="M130 22l3 6h-6z" fill="#FF3B30" stroke="#0E131F" stroke-width="1.6"/>
+      <text x="130" y="64" text-anchor="middle" font-family="monospace" font-size="9" fill="#0E131F">N</text>
+    </svg></div>
+  </div>
+</section>
+
+<section class="finale">
+  <span class="kicker">and now the fix</span>
+  <h2>EVERY LEAK, MEASURED<br>EVERY SINGLE DAY.</h2>
+  <p class="sub" style="margin:10px auto 0">WattBack models your roof's expected output hour by hour —
+  irradiance, temperature, dust, cables, inverter — then names exactly where each missing unit went.
+  When it says clean, it means rupees.</p>
+  <div class="cta-row" style="justify-content:center">
+    <a class="btn btn-big" href="/app/">CHOOSE YOUR ROOF →</a>
+    <a class="btn ghost btn-big" href="/app/?site=bmt">SEE THE FULL ENGINE</a>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function () {
+  if (window.innerWidth >= 861) document.documentElement.style.scrollSnapType = 'y proximity';
+  var leaks = document.querySelectorAll('[data-leak]');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      e.target.classList.toggle('focus', e.isIntersecting && e.intersectionRatio > 0.55);
+    });
+  }, { threshold: [0.3, 0.55, 0.85] });
+  leaks.forEach(function (l) { io.observe(l); });
+  if (leaks[0]) leaks[0].classList.add('focus');
+})();
+</script>
+{% endblock %}

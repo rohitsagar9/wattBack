@@ -5,7 +5,8 @@ Sequential hourly chain (every step closes exactly):
     expected (clean DC at STC, corrected irradiance)
       - aoi       IAM on beam (pvlib physical model)
       - temp      SAPM cell temperature vs 25 C counterfactual
-      - soiling   HSU model (hourly rain + PM2.5/PM10 deposition)
+      - soiling   HSU model, tiered rain wash (drizzle <1mm does not clean,
+                  1-10mm partial, >10mm full reset) + PM2.5/PM10 deposition
       - dc_cable  I^2R, temperature-corrected resistivity
       - inv_conv  nominal inverter efficiency
       - clip      hour-level clamp at AC rating
@@ -25,12 +26,12 @@ from datetime import timedelta
 
 import numpy as np
 import pandas as pd
+from scipy.special import erf
 
 import pvlib
 from pvlib.iam import physical as iam_physical
 from pvlib.irradiance import aoi as pvlib_aoi, get_extra_radiation, get_total_irradiance
 from pvlib.location import Location
-from pvlib.soiling import hsu
 from pvlib.temperature import TEMPERATURE_MODEL_PARAMETERS, sapm_cell
 
 from wattback.config import RAW_DIR, site
@@ -47,7 +48,12 @@ TEMP_PARAMS = TEMPERATURE_MODEL_PARAMETERS["sapm"]["open_rack_glass_glass"]
 RESISTIVITY = {"cu": 0.017241, "al": 0.0282}
 TEMP_COEF_R = {"cu": 0.00393, "al": 0.00403}
 DEPO_VELOC = {"2_5": 0.002, "10": 0.008}
-CLEANING_THRESHOLD = 1.0
+# Tiered rain wash (field insight): a drizzle (<1 mm) does NOT clean -- it can
+# smear dust into mud spots; 1-10 mm gives a partial wash (~30% of the
+# accumulated mass removed); >10 mm fully resets the panel.
+RAIN_PARTIAL_MIN_MM = 1.0
+RAIN_PARTIAL_MAX_MM = 10.0
+PARTIAL_WASH_FRAC = 0.30
 
 
 def _load_actuals(key: str, start: str, end: str) -> pd.DataFrame:
@@ -202,14 +208,54 @@ def _fit_factors(daily: pd.DataFrame, actual: pd.Series, seg: pd.Series,
     return factors
 
 
+def _hsu_tiered(rainfall: pd.Series, surface_tilt: float,
+                pm2_5: np.ndarray, pm10: np.ndarray) -> pd.Series:
+    """HSU soiling model with tiered rain wash (see RAIN_* constants).
+
+    Same deposition physics as pvlib.soiling.hsu, but rainfall cleans in
+    three tiers instead of one binary threshold:
+        rain < 1 mm            -> no cleaning (drizzle smears, not washes)
+        1 mm <= rain <= 10 mm  -> partial wash: 30% of accumulated mass removed
+        rain > 10 mm           -> full reset (panel considered clean)
+    """
+    dt = rainfall.index
+    dt_diff = (dt[1:] - dt[:-1]).total_seconds()
+    dt_sec = np.append(dt_diff[0], dt_diff).astype("float64")
+    horiz = (pm2_5 * DEPO_VELOC["2_5"]
+             + np.maximum(pm10 - pm2_5, 0.0) * DEPO_VELOC["10"]) * dt_sec
+    tilted = horiz * pvlib.tools.cosd(surface_tilt)
+    mass = np.cumsum(tilted)
+    mass_s = pd.Series(mass, index=dt)
+
+    rain = rainfall.fillna(0.0)
+    full_ev = rain.index[rain > RAIN_PARTIAL_MAX_MM]
+    part_ev = rain.index[(rain >= RAIN_PARTIAL_MIN_MM)
+                         & (rain <= RAIN_PARTIAL_MAX_MM)]
+    events = sorted([(t, "full") for t in full_ev]
+                    + [(t, "part") for t in part_ev])
+    removed, marks = 0.0, []
+    for t, kind in events:
+        m = float(mass_s.loc[t])
+        if kind == "full":
+            removed = m
+        else:
+            removed = PARTIAL_WASH_FRAC * m + (1 - PARTIAL_WASH_FRAC) * removed
+        marks.append((t, removed))
+    if marks:
+        rem = pd.Series([m[1] for m in marks], index=[m[0] for m in marks])
+        removed_s = rem.reindex(dt).ffill().fillna(0.0)
+    else:
+        removed_s = pd.Series(0.0, index=dt)
+    accum = np.clip(mass_s.to_numpy() - removed_s.to_numpy(), 0.0, None)
+    return pd.Series(1 - 0.3437 * erf(0.17 * accum ** 0.8473), index=dt)
+
+
 def _soiling_series(wx: pd.DataFrame, cfg: dict) -> pd.Series:
-    sr = hsu(
+    sr = _hsu_tiered(
         rainfall=wx["precip_mm"].fillna(0),
-        cleaning_threshold=CLEANING_THRESHOLD,
         surface_tilt=cfg["tilt_deg"],
         pm2_5=wx["pm2_5"].to_numpy() * 1e-6,
         pm10=wx["pm10"].to_numpy() * 1e-6,
-        depo_veloc=DEPO_VELOC,
     )
     return sr.fillna(1.0)
 

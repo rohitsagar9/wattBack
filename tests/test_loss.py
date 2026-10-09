@@ -28,7 +28,8 @@ def test_bmt_oracle(bmt):
     ue_pct = 100 * abs(t["unexplained"]) / t["expected"]
     assert ue_pct < 1.0, ue_pct
     assert 100 * t["temp"] / t["expected"] == pytest.approx(6.78, abs=1.0)
-    assert 100 * t["soiling"] / t["expected"] == pytest.approx(0.73, abs=0.5)
+    # tiered rain wash (1-10mm partial) leaves more dust than binary resets
+    assert 100 * t["soiling"] / t["expected"] == pytest.approx(1.36, abs=0.5)
     assert 100 * t["inv_conv"] / t["expected"] == pytest.approx(3.62, abs=0.5)
     assert all(t[c] >= 0 for c in LOSS_COLS)
 

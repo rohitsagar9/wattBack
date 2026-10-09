@@ -7,13 +7,14 @@
   (<span class="mono">manage.py publish_alerts</span>) so owners get an email.</p>
 
 <div class="grid g3">
-  <div class="card"><h3>Alerts</h3><div class="big">{{ alerts|length }}</div></div>
-  <div class="card"><h3>Energy lost (est.)</h3><div class="big bad">{{ total_lost }}<small> kWh</small></div></div>
-  <div class="card"><h3>Published to SNS</h3><div class="big">{{ published }}/{{ alerts|length }}</div></div>
+  <div class="card a-coral"><h3>Alerts</h3><div class="big">{{ alerts|length }}</div></div>
+  <div class="card a-amber"><h3>Energy lost (est.)</h3><div class="big">{{ total_lost }}<small> kWh</small></div></div>
+  <div class="card a-acid"><h3>Published to SNS</h3><div class="big">{{ published }}/{{ alerts|length }}</div></div>
 </div>
 
 <h2>All detected outages</h2>
-<div class="card">
+<div class="card term">
+  <h3>outage_ledger.log</h3>
   <table>
     <thead><tr><th>Site</th><th>From</th><th>To</th><th>Days</th>
       <th>Lost</th><th>≈ ₹{{ inr }}/kWh</th><th>SNS</th></tr></thead>
@@ -21,12 +22,12 @@
     {% for a in alerts %}
       <tr>
         <td>{{ a.site.name }}</td>
-        <td class="mono">{{ a.start_date|date:"Y-m-d" }}</td>
-        <td class="mono">{{ a.end_date|date:"Y-m-d" }}</td>
+        <td>{{ a.start_date|date:"Y-m-d" }}</td>
+        <td>{{ a.end_date|date:"Y-m-d" }}</td>
         <td>{{ a.days }}</td>
         <td>{{ a.est_lost_kwh }} kWh</td>
         {% widthratio a.est_lost_kwh 1 inr as rupees %}
-        <td class="warn">₹{{ rupees|floatformat:0 }}</td>
+        <td><span class="warn">₹{{ rupees|floatformat:0 }}</span></td>
         <td>{% if a.published_at %}<span class="ok">published</span>{% else %}<span class="muted">pending</span>{% endif %}</td>
       </tr>
     {% empty %}

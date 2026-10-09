@@ -19,29 +19,30 @@
 
 {% if cf %}
 <div class="grid g4">
-  <div class="card"><h3>Recommendation</h3>
-    <div class="big {% if cf.recommendation == 'clean now' %}ok{% else %}warn{% endif %}">
-      {{ cf.recommendation|upper }}</div></div>
-  <div class="card"><h3>Washing is worth</h3>
-    <div class="big warn">{{ cf.gain_kwh|floatformat:1 }}<small> kWh</small></div>
-    <div class="muted">≈ ₹{{ cf.gain_inr|floatformat:0 }} at ₹{{ inr }}/kWh</div></div>
-  <div class="card"><h3>Soiling ratio now</h3>
-    <div class="big {% if cf.soiling_ratio < 0.97 %}warn{% else %}ok{% endif %}">{{ cf.soiling_ratio|floatformat:3 }}</div>
-    <div class="muted">{{ cf.days_since_rain }} day(s) since last rain</div></div>
-  <div class="card"><h3>Benefit window</h3>
+  <div class="card {% if cf.recommendation == 'clean now' %}a-acid{% else %}a-amber{% endif %}"><h3>Recommendation</h3>
+    <div class="big"><span class="{% if cf.recommendation == 'clean now' %}ok{% else %}warn{% endif %}">{{ cf.recommendation|upper }}</span></div></div>
+  <div class="card a-amber"><h3>Washing is worth</h3>
+    <div class="big">{{ cf.gain_kwh|floatformat:1 }}<small> kWh</small></div>
+    <div class="muted mono">≈ ₹{{ cf.gain_inr|floatformat:0 }} at ₹{{ inr }}/kWh</div></div>
+  <div class="card a-acid"><h3>Soiling ratio now</h3>
+    <div class="big">{{ cf.soiling_ratio|floatformat:3 }}</div>
+    <div class="muted mono">{{ cf.days_since_rain }} day(s) since last rain</div></div>
+  <div class="card a-violet"><h3>Benefit window</h3>
     <div class="big">{{ cf.cleaning_worth_days }}<small> days</small></div>
-    <div class="muted">rain modelled every ~{{ cf.modelled_rain_interval_days|floatformat:0 }}d</div></div>
+    <div class="muted mono">rain modelled every ~{{ cf.modelled_rain_interval_days|floatformat:0 }}d</div></div>
 </div>
 
 <h2>How it works</h2>
-<div class="card">
-  <p>The HSU soiling model accumulates dust from PM2.5/PM10 deposition and removes it
-  with rainfall ≥1 mm. As of <span class="mono">{{ cf.as_of }}</span> on
+<div class="card term">
+  <h3>diagnostic_model.log</h3>
+  <p>The HSU soiling model accumulates dust from PM2.5/PM10 deposition and removes it with
+  <b>tiered rain wash</b>: drizzle (&lt;1 mm) does <b>not</b> clean (it smears), 1–10 mm gives a
+  partial ~30% wash, &gt;10 mm resets the panel. As of <span class="mono">{{ cf.as_of }}</span> on
   <b>{{ site.name }}</b>, panels sit at ratio <b>{{ cf.soiling_ratio }}</b>
   (1.0 = perfectly clean). Every day until the next wash, that ratio is a direct
   multiplier on expected generation — so cleaning captures
   <b>expected × (1 − sr)</b> per day.</p>
-  <p class="muted">Run window: {% if runmeta %}{{ runmeta.start_date }} → {{ runmeta.end_date }}
+  <p class="muted mono">Run window: {% if runmeta %}{{ runmeta.start_date }} → {{ runmeta.end_date }}
   (engine, ratio from HSU chain){% endif %} · Data: ERA5 precipitation + CAMS aerosols.</p>
 </div>
 {% endif %}

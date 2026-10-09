@@ -39,29 +39,38 @@ class WattBackEndToEnd(TestCase):
         self.assertGreaterEqual(OutageAlert.objects.filter(site__key="manalil").count(), 3)
 
     # ---- pages -----------------------------------------------------------
-    def test_overview_page(self):
+    def test_story_page(self):
         r = self.client.get("/")
+        self.assertEqual(r.status_code, 200)
+        self.assertContains(r, "WattBack")
+        self.assertContains(r, "Soiling")
+        self.assertContains(r, "CHOOSE YOUR ROOF")
+        self.assertContains(r, "Dust, dirt, bird droppings")
+
+    def test_overview_page(self):
+        r = self.client.get("/app/")
         self.assertEqual(r.status_code, 200)
         self.assertContains(r, "WattBack")
         self.assertContains(r, "Expected")
         self.assertContains(r, "Cleaning counterfactual")
 
     def test_site_detail_page(self):
-        r = self.client.get("/site/bmt/")
+        r = self.client.get("/app/site/bmt/")
         self.assertEqual(r.status_code, 200)
         self.assertContains(r, "BMT Punjab")
-        self.assertContains(r, "2096" if False else "Days on record")
+        self.assertContains(r, "Days on record")
 
     def test_outages_page(self):
-        r = self.client.get("/outages/")
+        r = self.client.get("/app/outages/")
         self.assertEqual(r.status_code, 200)
         self.assertContains(r, "Outage alerts")
         self.assertContains(r, "2026-02-17")
 
     def test_cleaning_page(self):
-        r = self.client.get("/cleaning/?site=bmt")
+        r = self.client.get("/app/cleaning/?site=bmt")
         self.assertEqual(r.status_code, 200)
         self.assertContains(r, "counterfactual")
+        self.assertContains(r, "tiered rain wash")
 
     # ---- API -------------------------------------------------------------
     def test_api_sites(self):
