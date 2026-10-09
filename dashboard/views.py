@@ -1,12 +1,14 @@
 import json
+from datetime import date as date_cls, timedelta
 
+from django.db.models import Sum
 from django.shortcuts import get_object_or_404, render
 from django.utils.text import slugify
 
 from wattback.loss.counterfactual import cleaning_counterfactual
 
 from . import storage
-from .models import DailyRecord, LossRecord, OutageAlert, RunMeta, Site
+from .models import CleaningEvent, DailyRecord, LossRecord, OutageAlert, RunMeta, Site
 
 ORACLE_START = "2026-09-01"
 ORACLE_END = "2026-09-29"
@@ -261,11 +263,126 @@ def outages(request):
     return render(request, "dashboard/outages.html", ctx)
 
 
+def _ladder(site: Site, sr, recent_flags, dc_pct, inv_pct, grid_alert) -> list:
+    steps = []
+
+    def add(key, title, status, detail):
+        steps.append({"key": key, "title": title, "status": status,
+                      "detail": detail})
+
+    if sr is None:
+        add("soiling", "Soiling / wash", "watch",
+            "soiling ratio unknown; run the engine (load_wattback) first")
+    elif sr < 0.97:
+        add("soiling", "Soiling / wash", "act",
+            f"ratio {sr:.3f}: panels are losing {100 * (1 - sr):.1f}% every "
+            "sunny day, wash while dry")
+    elif sr < 0.995:
+        add("soiling", "Soiling / wash", "watch",
+            f"ratio {sr:.3f}: dust is accumulating, schedule a wash")
+    else:
+        add("soiling", "Soiling / wash", "ok",
+            f"ratio {sr:.3f}: rain or washes have kept panels clean")
+
+    if recent_flags >= 4:
+        add("shading", "Shading / strings", "act",
+            f"{recent_flags} of the last 30 days flagged low or partial "
+            "output: walk the array at midday, look for trees, poles and "
+            "shaded strings")
+    elif recent_flags:
+        add("shading", "Shading / strings", "watch",
+            f"{recent_flags} low-output day(s) in the last 30: verify at "
+            "noon, one string down looks like this")
+    else:
+        add("shading", "Shading / strings", "ok",
+            "no low-output flags in the last 30 days")
+
+    if dc_pct is None:
+        add("wiring", "DC wiring", "watch",
+            "loss window not computed yet")
+    elif dc_pct > 2:
+        add("wiring", "DC wiring", "act",
+            f"DC cable losses at {dc_pct:.1f}% of expected: inspect MC4 "
+            "connectors, fuse holders and combiner joints")
+    elif dc_pct > 1:
+        add("wiring", "DC wiring", "watch",
+            f"DC cable losses at {dc_pct:.1f}%: watch connectors through "
+            "the season")
+    else:
+        add("wiring", "DC wiring", "ok",
+            f"DC cable losses at {dc_pct:.1f}%: within spec")
+
+    if inv_pct is None:
+        add("inverter", "Inverter", "watch",
+            "loss window not computed yet")
+    elif inv_pct > 3.5:
+        add("inverter", "Inverter", "act",
+            f"conversion losses at {inv_pct:.1f}%: check fans, filters and "
+            "MPPT tracking against the datasheet curve")
+    elif inv_pct > 2.5:
+        add("inverter", "Inverter", "watch",
+            f"conversion losses at {inv_pct:.1f}%: slightly high, recheck "
+            "after the next service")
+    else:
+        add("inverter", "Inverter", "ok",
+            f"conversion losses at {inv_pct:.1f}%: healthy")
+
+    if grid_alert:
+        add("grid", "Grid / DISCOM", "act",
+            f"outage detected {grid_alert[0]}..{grid_alert[1]} "
+            f"({grid_alert[2]} days, {grid_alert[3]:.0f} kWh lost): raise a "
+            "DISCOM complaint, this is not your plant's fault")
+    else:
+        add("grid", "Grid / DISCOM", "ok",
+            "no outage alerts in the current window")
+    return steps
+
+
 def cleaning(request):
     key = request.GET.get("site", "bmt")
     site = get_object_or_404(Site, key=key)
     cf = _counterfactual(site)
     runmeta = RunMeta.objects.filter(site=site).first()
+    msg, err = "", ""
+
+    if request.method == "POST":
+        action = request.POST.get("action", "")
+        raw_date = (request.POST.get("date") or "").strip() or \
+            date_cls.today().isoformat()
+        try:
+            d = date_cls.fromisoformat(raw_date)
+        except ValueError:
+            d = None
+            err = "Invalid date (use YYYY-MM-DD)."
+        if action == "cleaned" and d is not None:
+            method = (request.POST.get("method") or "wash")[:40]
+            note = (request.POST.get("note") or "")[:200]
+            CleaningEvent.objects.update_or_create(
+                site=site, date=d,
+                defaults={"method": method, "note": note})
+            msg = f"Cleaning recorded for {d} ({method})."
+        elif action == "kwh" and d is not None:
+            try:
+                kwh = float(request.POST.get("kwh") or "")
+            except ValueError:
+                kwh = None
+            if kwh is None or kwh < 0:
+                err = "Enter today's generation in kWh (0 or more)."
+            else:
+                rec, created = DailyRecord.objects.get_or_create(
+                    site=site, date=d,
+                    defaults={"generated_kwh": kwh,
+                              "source": "manual entry",
+                              "conditions": "logged via cleaning page"})
+                if not created:
+                    rec.generated_kwh = kwh
+                    rec.source = "manual entry"
+                    rec.save(update_fields=["generated_kwh", "source"])
+                msg = (f"Logged {kwh:g} kWh for {d}"
+                       + (" (new record)." if created else " (record updated)."))
+        elif not err:
+            err = "Unknown action."
+
     sr_value = (request.GET.get("sr") or "").strip()
     if request.GET.get("recalc") and sr_value:
         per_day = 0.0
@@ -279,6 +396,41 @@ def cleaning(request):
             sr = None
         if sr is not None:
             cf = cleaning_counterfactual(site.key, end, per_day, sr)
+
+    loss_agg = LossRecord.objects.filter(site=site).aggregate(
+        exp=Sum("expected"), dc=Sum("dc_cable"), inv=Sum("inv_conv"))
+    exp = loss_agg["exp"] or 0
+    dc_pct = (100 * abs(loss_agg["dc"] or 0) / exp) if exp else None
+    inv_pct = (100 * abs(loss_agg["inv"] or 0) / exp) if exp else None
+
+    recent = list(DailyRecord.objects.filter(site=site)
+                  .order_by("-date")[:90])
+    low_days = sum(
+        1 for r in recent[:30]
+        if "low_output" in r.flags or "partial" in r.flags)
+    bake_days = sum(1 for r in recent
+                    if (r.ghi_kwh_m2 or 0) >= 7 and (r.tmean_c or 0) >= 30)
+    rain_days = sum(1 for r in recent if (r.precip_mm or 0) >= 1)
+    suspect_days = sum(1 for r in recent if "outage_suspect" in r.flags)
+
+    grid_alert = None
+    cutoff = date_cls.today() - timedelta(days=45)
+    last_alert = (OutageAlert.objects
+                  .filter(site=site, start_date__gte=cutoff)
+                  .order_by("-start_date").first())
+    if last_alert:
+        grid_alert = (last_alert.start_date.isoformat(),
+                      last_alert.end_date.isoformat(),
+                      last_alert.days, last_alert.est_lost_kwh)
+
+    sr = None
+    if cf:
+        sr = cf.get("soiling_ratio")
+    elif runmeta:
+        sr = runmeta.soiling_ratio
+    ladder = _ladder(site, sr, low_days, dc_pct, inv_pct, grid_alert)
+    events = list(CleaningEvent.objects.filter(site=site)[:6])
+
     ctx = {
         "sites": Site.objects.order_by("key"),
         "site": site,
@@ -286,6 +438,12 @@ def cleaning(request):
         "runmeta": runmeta,
         "sr_value": sr_value,
         "inr": IMPACT["inr_per_kwh"],
+        "ladder": ladder,
+        "events": events,
+        "tags": {"bake_days": bake_days, "rain_days": rain_days,
+                 "suspect_days": suspect_days, "low_days": low_days},
+        "msg": msg, "err": err,
+        "today": date_cls.today().isoformat(),
         "active": "cleaning",
     }
     return render(request, "dashboard/cleaning.html", ctx)

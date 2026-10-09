@@ -176,3 +176,21 @@ table.heat td span{display:block;padding:7px 3px;border:2px solid var(--ink);fon
 .heat td span.hna{background:transparent;border-color:rgba(255,255,255,.15);color:var(--mut-term)}
 .heatlegend span{display:inline-block;padding:2px 9px;border:2px solid var(--ink);color:var(--ink);font-weight:700;font-family:'Space Mono',monospace;font-size:11px}
 .heatlegend span.hna{border-color:rgba(255,255,255,.25);color:var(--mut-term)}
+
+/* ---- cleaning: action ladder + driver tags ---- */
+ol.ladder{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+ol.ladder li{display:grid;grid-template-columns:78px 172px 1fr;gap:12px;
+  align-items:baseline;padding:9px 10px;border:2px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.03)}
+ol.ladder li .ok,ol.ladder li .warn,ol.ladder li .bad{text-align:center}
+ol.ladder li b{color:var(--paper);font-size:14px}
+.formrow.tags{display:flex;flex-wrap:wrap;gap:9px;align-items:center}
+.tag-hot,.tag-rain,.tag-watch{font:700 11px "Space Mono",monospace;
+  letter-spacing:.08em;text-transform:uppercase;border:2px solid var(--ink);
+  padding:5px 10px;box-shadow:2px 2px 0 var(--ink);color:var(--ink)}
+.tag-hot{background:var(--coral)}
+.tag-rain{background:var(--acid)}
+.tag-watch{background:var(--amber)}
+@media (max-width:760px){
+  ol.ladder li{grid-template-columns:1fr;gap:4px}
+}

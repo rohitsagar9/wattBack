@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from .models import DailyRecord, LossRecord, OutageAlert, RunMeta, Site
+from .models import (CleaningEvent, DailyRecord, LossRecord, OutageAlert,
+                     RunMeta, Site)
 
 
 @admin.register(Site)
@@ -30,3 +31,9 @@ class LossRecordAdmin(admin.ModelAdmin):
 
 
 admin.site.register(RunMeta)
+
+
+@admin.register(CleaningEvent)
+class CleaningEventAdmin(admin.ModelAdmin):
+    list_display = ("site", "date", "method", "note")
+    list_filter = ("site", "method")

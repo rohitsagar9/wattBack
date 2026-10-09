@@ -19,6 +19,21 @@ class Site(models.Model):
         return self.name
 
 
+class CleaningEvent(models.Model):
+    site = models.ForeignKey(Site, on_delete=models.CASCADE, related_name="cleanings")
+    date = models.DateField()
+    method = models.CharField(max_length=40, default="wash")
+    note = models.CharField(max_length=200, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-date"]
+        unique_together = [("site", "date")]
+
+    def __str__(self) -> str:
+        return f"{self.site.key} cleaned {self.date} ({self.method})"
+
+
 class DailyRecord(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE, related_name="daily")
     date = models.DateField()

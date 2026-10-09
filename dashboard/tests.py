@@ -159,6 +159,36 @@ class WattBackEndToEnd(TestCase):
         self.assertContains(r, "heatmap_pr.log")
         self.assertContains(r, "PVGIS cross-check")
 
+    # ---- P2 cleaning intelligence ---------------------------------------
+    def test_cleaning_ladder_renders(self):
+        r = self.client.get("/app/cleaning/")
+        self.assertEqual(r.status_code, 200)
+        self.assertContains(r, "action_ladder.log")
+        self.assertContains(r, "Have you cleaned?")
+        self.assertContains(r, "Log today")
+        self.assertContains(r, "bake risk")
+
+    def test_cleaning_log_kwh(self):
+        r = self.client.post("/app/cleaning/?site=bmt", {
+            "action": "kwh", "date": "2026-10-09", "kwh": "17.5"})
+        self.assertEqual(r.status_code, 200)
+        self.assertContains(r, "Logged 17.5 kWh")
+        rec = DailyRecord.objects.get(site__key="bmt", date="2026-10-09")
+        self.assertEqual(rec.generated_kwh, 17.5)
+        self.assertEqual(rec.source, "manual entry")
+        rec.delete()
+
+    def test_cleaning_record_event(self):
+        r = self.client.post("/app/cleaning/?site=bmt", {
+            "action": "cleaned", "date": "2026-10-08", "method": "wash",
+            "note": "left half only"})
+        self.assertEqual(r.status_code, 200)
+        self.assertContains(r, "Cleaning recorded for 2026-10-08")
+        self.assertContains(r, "left half only")
+        from dashboard.models import CleaningEvent
+        self.assertTrue(CleaningEvent.objects.filter(
+            site__key="bmt", date="2026-10-08", method="wash").exists())
+
     def test_storage_dual_mode_db_only(self):
         from unittest.mock import patch
 
