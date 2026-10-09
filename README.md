@@ -45,23 +45,29 @@ CSV export exists.
 5. **Residual model** — LightGBM (log-target, lag-safe features, expanding
    walk-forward) beats a weekly-seasonal naive baseline by **33% RMSE**
    (0.246 vs 0.368 log-RMSE, 3,143 out-of-fold predictions)
-6. **Django dashboard + JSON API** — expected-vs-actual charts, loss waterfall,
-   soiling gauge, outage alerts, cleaning counterfactual, impact panel;
-   `/api/v1/` for machines (see below)
+6. **Story → onboard → dashboard → cleaning** — a four-surface web app: a story page
+   naming all 17 leak vectors, a 3-step onboarding wizard (map, PVGIS baseline,
+   terrain-horizon × sun-path shading view), the dashboard + analytics heatmap, and a
+   cleaning page with a five-rung **action ladder** (soiling → shading → wiring →
+   inverter → grid); JSON API under `/api/v1/` for machines
 
 ### Web app & API
 
 | Page | What it shows |
 |---|---|
-| `/` | Expected vs actual per day, loss decomposition, soiling gauge, live counterfactual, ₹-impact panel |
-| `/site/<key>/` | Full 6-year generation vs GHI + data-quality flag audit |
-| `/outages/` | Detected outages with duration, kWh and ₹ lost, SNS publish state |
-| `/cleaning/` | "Clean now vs wait for rain" calculator |
+| `/` | Story: the ₹1,100 cr dust tax + 17 leak vectors, each tagged measured/flagged |
+| `/onboard/` | Add your roof: coordinates (geolocation or 10 Indian presets), kWp/tilt/az, optional PVOutput key; live extract + shading view; saves via DynamoDB dual-mode adapter |
+| `/app/` | Expected vs actual, loss decomposition, soiling gauge, live counterfactual, ₹-impact |
+| `/app/site/<key>/` | Full 6-year generation vs GHI + data-quality flag audit |
+| `/app/outages/` | Detected outages with duration, kWh and ₹ lost, SNS publish state |
+| `/app/cleaning/` | Counterfactual calculator + action ladder + wash log + manual kWh entry |
+| `/app/analytics/` | Yearly generation, month×year PR heatmap, gen-vs-GHI, PVGIS cross-check, site map |
 | `/admin/` | Django admin over all imported data |
 
 JSON under **`/api/v1/`**: `sites/` · `daily/?site=&start=&end=` ·
 `loss/?site=&start=&end=` (physics engine, DB-cached) · `outages/` ·
-`cleaning/` · `impact/`.
+`cleaning/` · `impact/` · `extract/?lat=&lon=&tilt=&az=&kwp=` (ERA5 + Atlas +
+PVGIS + horizon + sun path for any point).
 
 ### Where AWS fits
 
@@ -70,7 +76,8 @@ JSON under **`/api/v1/`**: `sites/` · `daily/?site=&start=&end=` ·
 | **Elastic Beanstalk** → **EC2** (t3.micro, free tier) | Runs Django behind nginx/gunicorn |
 | **S3** | Stores every deploy bundle (application versions) |
 | **CloudWatch** | EB logs (`eb logs`, `eb logs --stream`) |
-| **SNS** | `manage.py publish_alerts` → outage alert emails |
+| **SNS** | `publish_alerts` (outage emails) + `publish_digest` (daily email digest) |
+| **DynamoDB** | Dual-write mirror of onboarded systems (`wattback-systems`, on-demand; falls back to DB-only when no AWS creds) |
 | **IAM** | Deploy credentials + EB service role |
 
 ### First results (frozen as oracle tests, 2026-09-01 → 09-29)
@@ -102,15 +109,18 @@ Data-quality flags are computed at import: `partial`, `gap_filled`, `zero`,
 PVOutput (CSV/HTML) ─┐
 ERA5 (Open-Meteo)  ─┼─▶ src/wattback/ingest/  ─▶ data/raw/*_daily.csv
 Global Solar Atlas ─┘        (validated daily panel: flags, contiguity, junk-dropped)
-                                     │
-              ┌──────────────────────┼──────────────────────┐
-              ▼                      ▼                      ▼
-     loss engine (closes       residual LightGBM      Django app (dashboard/
-     to 0.000000 kWh)          walk-forward,          templates + /api/v1/)
-     + outage detector          33% vs naive                │
-     + counterfactual               │                      ▼
-              └──────────────────────┴───────────▶  AWS Elastic Beanstalk
-                                                    (EC2 · S3 · CloudWatch · SNS)
+        │                             │
+        │  PVGIS (EU JRC) ───────────┤ baseline + terrain horizon (onboarding extract)
+        ▼                             ▼
+ loss engine (closes            Django app: story / onboard / dashboard /
+ to 0.000000 kWh)               analytics / cleaning + /api/v1/
+ + outage detector                     │
+ + counterfactual        ┌─────────────┼──────────────┐
+        │                ▼             ▼              ▼
+        └──────▶ LightGBM       AWS Elastic      DynamoDB mirror
+          walk-forward          Beanstalk        (dual-mode adapter,
+          33% vs naive          EC2 · S3 ·       DB fallback)
+                               CloudWatch · SNS
 ```
 
 ## Quickstart
@@ -121,8 +131,9 @@ python scripts/import_raw.py   # merge + flag source JSONs → data/raw/
 python scripts/seed.py         # Atlas + ERA5 (PVOutput window needs a logged-in session)
 python manage.py migrate       # web app schema
 python manage.py load_wattback # sites + daily + alerts + loss window (offline)
-python manage.py runserver     # http://127.0.0.1:8000
-pytest                         # 38 tests: data, parser, loss oracles, web, API, model
+python manage.py runserver     # http://127.0.0.1:8000  (story at /, onboard at /onboard/)
+python manage.py publish_digest            # daily SNS digest (dry-run without AWS)
+pytest                         # 50 tests: data, parser, loss oracles, web, API, model
 ```
 
 Deployment: see [DEPLOY.md](DEPLOY.md) (Elastic Beanstalk, free-tier
@@ -142,8 +153,11 @@ single-instance, ~3 commands).
 - **Day 1–2 (done)** — data layer (6-year panels), loss engine + oracle tests,
   cleaning counterfactual, outage detector, LightGBM residual model
 - **Day 3 (done)** — Django dashboard + JSON API + SNS alert publisher, 38 tests
-- **Day 4** — Elastic Beanstalk deployment (see [DEPLOY.md](DEPLOY.md)),
-  3-min demo video, writeup, submission audit; then "Add your system":
+- **Day 4 (done)** — RetroUI × OSINT redesign, story page (17 leaks), onboarding
+  wizard with map + PVGIS shading view, analytics heatmap, cleaning action ladder,
+  DynamoDB dual-mode adapter, SNS daily digest — **50 tests green**
+- **Remaining** — Elastic Beanstalk deployment (see [DEPLOY.md](DEPLOY.md)),
+  3-min demo video, submission audit; then "Add your system":
   - *Tier 1* — paste a PVOutput system link
   - *Tier 2* — upload a PVOutput/monitor CSV export
   - *Tier 3 (roadmap)* — vendor API / hardware sync (Enphase, Growatt, etc.)
@@ -161,4 +175,5 @@ reviewed and verified locally (pytest) before committing.
 - [PVOutput.org](https://pvoutput.org) — community solar output sharing
 - [Open-Meteo](https://open-meteo.com) — free ERA5-based weather archive API
 - [Global Solar Atlas](https://globalsolaratlas.info) — World Bank / Solargis LTA data
-- pvlib-python — PVWatts / system modeling
+- [PVGIS](https://re.jrc.ec.europa.eu/pvg_tools/en/) — EU Commission JRC satellite baseline + terrain horizon
+- pvlib-python — PVWatts / system modeling + `get_pvgis_hourly` / `get_pvgis_horizon`
