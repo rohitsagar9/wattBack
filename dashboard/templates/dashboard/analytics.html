@@ -1,0 +1,142 @@
+{% extends "dashboard/base.html" %}
+{% block title %}Analytics — WattBack{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+{% endblock %}
+{% block content %}
+<h1>Analytics · {{ site.name }}</h1>
+<p class="sub">Yearly yield, month-by-month performance ratio, generation versus
+irradiance, and a PVGIS cross-check of the physics model.</p>
+
+<div class="formrow">
+  <form method="get">
+    <select name="site" onchange="this.form.submit()">
+      {% for s in sites %}<option value="{{ s.key }}" {% if s.key == site.key %}selected{% endif %}>{{ s.name }}</option>{% endfor %}
+    </select>
+  </form>
+</div>
+
+<div class="grid g4">
+  <div class="card a-acid"><h3>Years of data</h3><div class="big">{{ years|length }}</div>
+    <div class="muted mono">{{ y0 }} → {{ y1 }}</div></div>
+  <div class="card a-violet"><h3>Lifetime generation</h3>
+    <div class="big">{{ lifetime|floatformat:0 }}</div>
+    <div class="muted mono">kWh, all records</div></div>
+  <div class="card a-amber"><h3>Annual estimate</h3>
+    <div class="big">{{ annual_est|default:"—" }}</div>
+    <div class="muted mono">kWh/yr from physics run{% if runmeta %} · {{ runmeta.n_days }}d window{% endif %}</div></div>
+  <div class="card"><h3>PVGIS baseline</h3>
+    <div class="big">{% if pvgis and pvgis.annual_kwh %}{{ pvgis.annual_kwh|floatformat:0 }}{% else %}—{% endif %}</div>
+    <div class="muted mono">{% if pvgis and pvgis.annual_kwh %}kWh/yr · EU JRC{% else %}{{ pvgis_err|default:"not available" }}{% endif %}</div></div>
+</div>
+
+<div class="grid g2">
+  <div class="card term"><h3>yearly_generation.log</h3>
+    <div class="chart"><span class="chart-fallback">loading chart…</span><canvas id="c1" role="img" aria-label="Yearly generation bars"></canvas></div></div>
+  <div class="card term"><h3>gen_vs_ghi.log · last 90 days</h3>
+    <div class="chart"><span class="chart-fallback">loading chart…</span><canvas id="c2" role="img" aria-label="Daily generation versus GHI, last 90 days"></canvas></div></div>
+</div>
+
+<div class="card term">
+  <h3>heatmap_pr.log · performance ratio by month (gen ÷ GHI ÷ kWp)</h3>
+  <div class="heatwrap">
+  <table class="heat">
+    <thead><tr><th></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th></tr></thead>
+    <tbody>
+    {% for row in heatmap %}
+      <tr><th>{{ row.year }}</th>
+      {% for c in row.cells %}
+        <td>{% if c is None %}<span class="hna">·</span>
+            {% else %}<span class="h{% if c >= 0.8 %}3{% elif c >= 0.7 %}2{% elif c >= 0.6 %}1{% else %}0{% endif %}"
+              title="PR {{ c }}">{{ c|floatformat:2 }}</span>{% endif %}</td>
+      {% endfor %}</tr>
+    {% empty %}
+      <tr><td colspan="13" class="muted">no daily records for this site yet</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+  <p class="muted mono heatlegend"><span class="h0">0.60</span> low &nbsp;<span class="h1">0.70</span>
+&nbsp;<span class="h2">0.80</span> &nbsp;<span class="h3">0.90+</span> healthy ·
+<span class="hna">·</span> no data · cells capped at PR 1.2 (cloud-edge effects)</p>
+</div>
+
+<div class="grid g2">
+  <div class="card a-violet">
+    <h3>PVGIS cross-check</h3>
+    {% if pvgis and pvgis.annual_kwh and annual_est %}
+      <div class="impact">
+        <div><b>{{ pvgis.annual_kwh|floatformat:0 }} kWh</b><span>PVGIS satellite baseline</span></div>
+        <div><b>{{ annual_est }} kWh</b><span>our physics model (scaled)</span></div>
+        <div><b>{{ gap_pct }}%</b><span>model vs PVGIS gap</span></div>
+      </div>
+      <p class="muted">Two independent engines within {{ gap_abs }}% of each other.
+      PVGIS is our external validator: if our expected value drifts from satellite
+      truth, the residual we blame on dust or faults is suspect.</p>
+    {% else %}
+      <p class="muted">PVGIS baseline unavailable for this point
+      {% if pvgis_err %}<span class="mono">({{ pvgis_err }})</span>{% endif %}.
+      The physics model estimate above still applies.</p>
+    {% endif %}
+    <p class="muted mono">source: PVGIS-SARAH3 / ERA5 fallback · EU Commission JRC</p>
+  </div>
+  <div class="card term"><h3>site_map.log</h3>
+    <div id="amap" style="height:300px;border:2px solid #0E131F"></div>
+    <p class="muted mono">{{ site.lat }}, {{ site.lng }} · tilt {{ site.tilt_deg }}° ·
+      az {{ site.azimuth_deg }}° · {{ site.kwp_dc }} kWp</p>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script id="years-data" type="application/json">{{ years_json|safe }}</script>
+<script id="recent-data" type="application/json">{{ recent_json|safe }}</script>
+<script>
+(function () {
+  const years = JSON.parse(document.getElementById('years-data').textContent);
+  const recent = JSON.parse(document.getElementById('recent-data').textContent);
+  const acid = '#00FF88', amber = '#FF9800', paper = '#E5E1D8';
+  Chart.defaults.color = '#9AA9C4';
+  Chart.defaults.borderColor = 'rgba(255,255,255,.09)';
+  new Chart(c1, {
+    data: { labels: years.map(y => y.year),
+      datasets: [
+        { type:'bar', label:'Generation (kWh)', data: years.map(y => Math.round(y.gen)),
+          backgroundColor: acid, borderColor:'#0E131F', borderWidth:2, borderRadius:2 },
+        { type:'line', label:'GHI sum (kWh/m²)', data: years.map(y => Math.round(y.ghi)),
+          borderColor: amber, borderWidth:2.5, pointRadius:4, pointBackgroundColor: amber,
+          yAxisID:'y1', tension:.25 }]},
+    options:{ responsive:true, maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'#9AA9C4'}}},
+      scales:{ y:{title:{display:true,text:'kWh'}},
+               y1:{position:'right',grid:{display:false},title:{display:true,text:'kWh/m²'}} } }});
+  new Chart(c2, {
+    data: { labels: recent.map(r => r.date.slice(5)),
+      datasets: [
+        { type:'line', label:'Generated (kWh)', data: recent.map(r => r.gen),
+          borderColor: acid, backgroundColor:'rgba(0,255,136,.15)', fill:true,
+          borderWidth:2, pointRadius:0, tension:.25, yAxisID:'y' },
+        { type:'line', label:'GHI (kWh/m²)', data: recent.map(r => r.ghi),
+          borderColor: amber, borderWidth:2, pointRadius:0, tension:.25, yAxisID:'y1' }]},
+    options:{ responsive:true, maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'#9AA9C4'}}},
+      scales:{ y:{title:{display:true,text:'kWh'}},
+               y1:{position:'right',grid:{display:false},title:{display:true,text:'kWh/m²'}},
+               x:{ticks:{maxTicksLimit:12}} } }});
+  document.querySelectorAll('.chart-fallback').forEach(el => el.remove());
+  if (typeof L !== 'undefined') {
+    const lat = {{ site.lat|default:"20.5" }}, lng = {{ site.lng|default:"78.9" }};
+    const map = L.map('amap').setView([lat, lng], 13);
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+      { maxZoom: 18, attribution: 'Imagery © Esri · Maxar' }).addTo(map);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+      { maxZoom: 19, attribution: '© OpenStreetMap', opacity: .55 }).addTo(map);
+    L.marker([lat, lng]).addTo(map).bindPopup('{{ site.name|escapejs }}').openPopup();
+  } else {
+    document.getElementById('amap').innerHTML =
+      '<p class="muted mono">map library unavailable; check connection</p>';
+  }
+})();
+</script>
+{% endblock %}

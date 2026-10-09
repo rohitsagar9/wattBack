@@ -175,6 +175,77 @@ def site_detail(request, key):
     return render(request, "dashboard/site_detail.html", ctx)
 
 
+def analytics(request):
+    key = request.GET.get("site", "bmt")
+    site = get_object_or_404(Site, key=key)
+    kwp = site.kwp_dc or 1.0
+    recs = list(DailyRecord.objects.filter(site=site)
+                .order_by("date").values("date", "generated_kwh", "ghi_kwh_m2"))
+    yearly: dict = {}
+    pr: dict = {}
+    for r in recs:
+        y, m = r["date"].year, r["date"].month - 1
+        d = yearly.setdefault(y, {"gen": 0.0, "days": 0, "ghi": 0.0})
+        d["gen"] += r["generated_kwh"]
+        d["days"] += 1
+        if r["ghi_kwh_m2"]:
+            d["ghi"] += r["ghi_kwh_m2"]
+            if r["ghi_kwh_m2"] > 0.5:
+                pratio = r["generated_kwh"] / (r["ghi_kwh_m2"] * kwp)
+                if 0 <= pratio <= 1.2:
+                    cell = pr.setdefault(y, {}).setdefault(m, [0.0, 0])
+                    cell[0] += pratio
+                    cell[1] += 1
+    years_json = [{"year": y, **yearly[y]} for y in sorted(yearly)]
+    heatmap = [{"year": y,
+                "cells": [round(pr.get(y, {}).get(m, [0, 0])[0]
+                                / pr[y][m][1], 2)
+                          if m in pr.get(y, {}) and pr[y][m][1] else None
+                          for m in range(12)]}
+               for y in sorted(yearly)]
+    recent = [{"date": r["date"].isoformat(), "gen": r["generated_kwh"],
+               "ghi": r["ghi_kwh_m2"] or 0}
+              for r in recs[-90:]]
+    runmeta = RunMeta.objects.filter(site=site).first()
+    annual_est = None
+    if runmeta and runmeta.n_days and (runmeta.totals_json or {}).get("predicted"):
+        annual_est = round(runmeta.totals_json["predicted"] * 365 / runmeta.n_days)
+    pvgis, pvgis_err = None, ""
+    if site.lat is not None and site.lng is not None:
+        try:
+            from wattback.ingest.pvgis import pvgis_baseline
+            pvgis = pvgis_baseline(site.lat, site.lng,
+                                   site.tilt_deg or 28, site.azimuth_deg or 180,
+                                   kwp)
+            if "error" in pvgis:
+                pvgis_err = pvgis.pop("error")
+        except Exception as exc:  # noqa: BLE001
+            pvgis_err = f"{type(exc).__name__}: {exc}"
+    gap_pct = None
+    if pvgis and pvgis.get("annual_kwh") and annual_est:
+        gap_pct = round(100 * (pvgis["annual_kwh"] - annual_est)
+                        / pvgis["annual_kwh"], 1)
+    ctx = {
+        "sites": Site.objects.order_by("key"),
+        "site": site,
+        "years_json": json.dumps(years_json),
+        "heatmap": heatmap,
+        "recent_json": json.dumps(recent),
+        "years": years_json,
+        "y0": years_json[0]["year"] if years_json else "—",
+        "y1": years_json[-1]["year"] if years_json else "—",
+        "lifetime": round(sum(y["gen"] for y in years_json), 1),
+        "runmeta": runmeta,
+        "annual_est": annual_est,
+        "pvgis": pvgis,
+        "pvgis_err": pvgis_err,
+        "gap_pct": gap_pct,
+        "gap_abs": abs(gap_pct) if gap_pct is not None else None,
+        "active": "analytics",
+    }
+    return render(request, "dashboard/analytics.html", ctx)
+
+
 def outages(request):
     alerts = OutageAlert.objects.select_related("site").order_by("-start_date")
     total_lost = sum(a.est_lost_kwh for a in alerts)

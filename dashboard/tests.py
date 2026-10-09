@@ -153,6 +153,12 @@ class WattBackEndToEnd(TestCase):
         self.assertEqual(r.status_code, 400)
         self.assertIn("error", r.json())
 
+    def test_analytics_page(self):
+        r = self.client.get("/app/analytics/")
+        self.assertEqual(r.status_code, 200)
+        self.assertContains(r, "heatmap_pr.log")
+        self.assertContains(r, "PVGIS cross-check")
+
     def test_storage_dual_mode_db_only(self):
         from unittest.mock import patch
 

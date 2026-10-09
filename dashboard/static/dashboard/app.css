@@ -162,3 +162,17 @@ footer .aws{margin-top:5px;color:var(--mut);font:11px "Space Mono",monospace}
   .leak.alt .leak-fig{order:0}
   .leak-fig svg{max-width:300px}
 }
+
+/* ---- analytics heatmap ---- */
+.heatwrap{overflow-x:auto}
+table.heat{border-collapse:collapse;width:100%;min-width:620px}
+table.heat th{font-family:'Space Mono',monospace;font-size:11px;color:var(--mut-term);padding:5px 6px;text-align:center;font-weight:700}
+table.heat td{text-align:center;padding:3px}
+table.heat td span{display:block;padding:7px 3px;border:2px solid var(--ink);font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--ink);background:#4CC2FF}
+.heat .h0{background:#FF3B30}
+.heat .h1{background:#FFD166}
+.heat .h2{background:#FF9800}
+.heat .h3{background:#00FF88}
+.heat td span.hna{background:transparent;border-color:rgba(255,255,255,.15);color:var(--mut-term)}
+.heatlegend span{display:inline-block;padding:2px 9px;border:2px solid var(--ink);color:var(--ink);font-weight:700;font-family:'Space Mono',monospace;font-size:11px}
+.heatlegend span.hna{border-color:rgba(255,255,255,.25);color:var(--mut-term)}
