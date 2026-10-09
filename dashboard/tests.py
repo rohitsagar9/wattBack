@@ -122,6 +122,23 @@ class WattBackEndToEnd(TestCase):
         self.assertIn("DRY RUN", text)
         self.assertIn("WattBack outage alert", text)
 
+    # ---- P3 daily digest -------------------------------------------------
+    def test_publish_digest_dry_run(self):
+        out = StringIO()
+        call_command("publish_digest", stdout=out)
+        text = out.getvalue()
+        self.assertIn("DRY RUN", text)
+        self.assertIn("daily digest", text)
+        self.assertIn("BMT Punjab", text)
+        self.assertIn("top loss driver", text)
+
+    def test_publish_digest_single_site(self):
+        out = StringIO()
+        call_command("publish_digest", site="manalil", stdout=out)
+        text = out.getvalue()
+        self.assertIn("Manalil", text)
+        self.assertNotIn("BMT Punjab", text)
+
     # ---- onboarding (P1) -------------------------------------------------
     def test_onboard_page(self):
         r = self.client.get("/onboard/")
