@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}WattBack{% endblock %}</title>
+<link rel="stylesheet" href="{% static 'dashboard/app.css' %}">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="/">☀ <b>WattBack</b><span>every unit back</span></a>
+  <nav>
+    <a href="/" class="{% if active == 'overview' %}on{% endif %}">Overview</a>
+    <a href="/site/bmt/" class="{% if active == 'site' %}on{% endif %}">Sites</a>
+    <a href="/outages/" class="{% if active == 'outages' %}on{% endif %}">Outages</a>
+    <a href="/cleaning/" class="{% if active == 'cleaning' %}on{% endif %}">Cleaning</a>
+    <a href="/admin/" class="adm">Admin</a>
+  </nav>
+</header>
+<main>
+{% block content %}{% endblock %}
+</main>
+<footer>
+  <div>Track 03 · Waste &amp; Energy — rooftop solar · Environmental Hacks 2026</div>
+  <div class="aws">Deployed on AWS: Elastic Beanstalk · EC2 · S3 · CloudWatch · SNS &nbsp;|&nbsp; Built with Django · pvlib · LightGBM · AI: opencode</div>
+</footer>
+{% block scripts %}{% endblock %}
+</body>
+</html>

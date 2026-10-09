@@ -45,7 +45,33 @@ CSV export exists.
 5. **Residual model** — LightGBM (log-target, lag-safe features, expanding
    walk-forward) beats a weekly-seasonal naive baseline by **33% RMSE**
    (0.246 vs 0.368 log-RMSE, 3,143 out-of-fold predictions)
-6. **Dashboard on AWS** — Day 3
+6. **Django dashboard + JSON API** — expected-vs-actual charts, loss waterfall,
+   soiling gauge, outage alerts, cleaning counterfactual, impact panel;
+   `/api/v1/` for machines (see below)
+
+### Web app & API
+
+| Page | What it shows |
+|---|---|
+| `/` | Expected vs actual per day, loss decomposition, soiling gauge, live counterfactual, ₹-impact panel |
+| `/site/<key>/` | Full 6-year generation vs GHI + data-quality flag audit |
+| `/outages/` | Detected outages with duration, kWh and ₹ lost, SNS publish state |
+| `/cleaning/` | "Clean now vs wait for rain" calculator |
+| `/admin/` | Django admin over all imported data |
+
+JSON under **`/api/v1/`**: `sites/` · `daily/?site=&start=&end=` ·
+`loss/?site=&start=&end=` (physics engine, DB-cached) · `outages/` ·
+`cleaning/` · `impact/`.
+
+### Where AWS fits
+
+| Service | Role |
+|---|---|
+| **Elastic Beanstalk** → **EC2** (t3.micro, free tier) | Runs Django behind nginx/gunicorn |
+| **S3** | Stores every deploy bundle (application versions) |
+| **CloudWatch** | EB logs (`eb logs`, `eb logs --stream`) |
+| **SNS** | `manage.py publish_alerts` → outage alert emails |
+| **IAM** | Deploy credentials + EB service role |
 
 ### First results (frozen as oracle tests, 2026-09-01 → 09-29)
 
@@ -77,10 +103,14 @@ PVOutput (CSV/HTML) ─┐
 ERA5 (Open-Meteo)  ─┼─▶ src/wattback/ingest/  ─▶ data/raw/*_daily.csv
 Global Solar Atlas ─┘        (validated daily panel: flags, contiguity, junk-dropped)
                                      │
-                    ┌────────────────┴─────────────────┐
-                    ▼                                  ▼
-        loss engine + oracle tests             [Day 3] dashboard on AWS
-                    └──▶ residual LightGBM (walk-forward, leakage-safe)
+              ┌──────────────────────┼──────────────────────┐
+              ▼                      ▼                      ▼
+     loss engine (closes       residual LightGBM      Django app (dashboard/
+     to 0.000000 kWh)          walk-forward,          templates + /api/v1/)
+     + outage detector          33% vs naive                │
+     + counterfactual               │                      ▼
+              └──────────────────────┴───────────▶  AWS Elastic Beanstalk
+                                                    (EC2 · S3 · CloudWatch · SNS)
 ```
 
 ## Quickstart
@@ -89,9 +119,14 @@ Global Solar Atlas ─┘        (validated daily panel: flags, contiguity, junk
 pip install -r requirements.txt
 python scripts/import_raw.py   # merge + flag source JSONs → data/raw/
 python scripts/seed.py         # Atlas + ERA5 (PVOutput window needs a logged-in session)
-python scripts/run_loss.py --site bmt --start 2026-09-01 --end 2026-09-29
-pytest                         # 23 tests: data, parser, loss oracles, outages, model
+python manage.py migrate       # web app schema
+python manage.py load_wattback # sites + daily + alerts + loss window (offline)
+python manage.py runserver     # http://127.0.0.1:8000
+pytest                         # 38 tests: data, parser, loss oracles, web, API, model
 ```
+
+Deployment: see [DEPLOY.md](DEPLOY.md) (Elastic Beanstalk, free-tier
+single-instance, ~3 commands).
 
 ## Reproducibility
 
@@ -104,13 +139,14 @@ pytest                         # 23 tests: data, parser, loss oracles, outages, 
 
 ## Roadmap
 
-- **Day 2 (done)** — loss engine + oracle tests, cleaning counterfactual,
-  outage detector, LightGBM residual model
-- **Day 3** — AWS deployment (Lambda/API + static dashboard), "Add your system":
+- **Day 1–2 (done)** — data layer (6-year panels), loss engine + oracle tests,
+  cleaning counterfactual, outage detector, LightGBM residual model
+- **Day 3 (done)** — Django dashboard + JSON API + SNS alert publisher, 38 tests
+- **Day 4** — Elastic Beanstalk deployment (see [DEPLOY.md](DEPLOY.md)),
+  3-min demo video, writeup, submission audit; then "Add your system":
   - *Tier 1* — paste a PVOutput system link
   - *Tier 2* — upload a PVOutput/monitor CSV export
   - *Tier 3 (roadmap)* — vendor API / hardware sync (Enphase, Growatt, etc.)
-- **Day 4** — 3-min demo video, writeup, submission audit
 
 ## AI disclosure
 

@@ -1,0 +1,98 @@
+{% extends "dashboard/base.html" %}
+{% block title %}WattBack — overview{% endblock %}
+{% block content %}
+<h1>{{ site.name }} <span class="pill">{{ site.kwp_dc }} kWp</span></h1>
+<p class="sub">Expected vs actual generation, decomposed into named losses — window
+  {% if runmeta %}{{ runmeta.start_date }} → {{ runmeta.end_date }} ({{ runmeta.n_days }} days){% else %}not computed{% endif %}
+  · <a href="/site/{{ site.key }}/">full history →</a></p>
+
+<div class="formrow">
+  <form method="get">
+    <select name="site" onchange="this.form.submit()">
+      {% for s in sites %}<option value="{{ s.key }}" {% if s.key == site.key %}selected{% endif %}>{{ s.name }}</option>{% endfor %}
+    </select>
+  </form>
+</div>
+
+<div class="grid g4">
+  <div class="card"><h3>Expected</h3><div class="big">{{ runmeta.totals_json.expected|floatformat:0 }}<small> kWh</small></div><div class="muted">physics model, clean &amp; corrected</div></div>
+  <div class="card"><h3>Actual</h3><div class="big">{{ runmeta.totals_json.actual|floatformat:0 }}<small> kWh</small></div><div class="muted">measured (PVOutput)</div></div>
+  <div class="card"><h3>Unexplained</h3><div class="big ok">{{ unexplained_pct|floatformat:2 }}<small>% of expected</small></div><div class="muted">residual after all named losses</div></div>
+  <div class="card"><h3>Soiling ratio</h3><div class="big {% if runmeta.soiling_ratio < 0.97 %}warn{% else %}ok{% endif %}">{{ runmeta.soiling_ratio|floatformat:3 }}</div><div class="muted">HSU model, rain × PM2.5/PM10</div></div>
+</div>
+
+{% if cf %}
+<div class="banner">
+  <b>🧼 Cleaning counterfactual:</b>
+  {% if cf.recommendation == "clean now" %}
+    <span class="ok">CLEAN NOW</span> — washing today is worth ≈
+    <b>{{ cf.gain_kwh }} kWh (₹{{ cf.gain_inr|floatformat:0 }})</b>
+    over the next {{ cf.cleaning_worth_days }} day(s) before the modelled rain wash.
+  {% else %}
+    <span class="warn">WAIT FOR RAIN</span> — rain modelled within
+    {{ cf.modelled_rain_interval_days }} day(s); cleaning now saves ≈ ₹{{ cf.gain_inr|floatformat:0 }} only.
+  {% endif %}
+  <span class="muted">(sr={{ cf.soiling_ratio }}, horizon {{ cf.cleaning_worth_days }}d)</span>
+</div>
+{% endif %}
+
+<div class="grid g2">
+  <div class="card"><h3>Expected vs actual (window)</h3><div class="chart"><canvas id="c1"></canvas></div></div>
+  <div class="card"><h3>Where the energy went (% of expected)</h3><div class="chart"><canvas id="c2"></canvas></div></div>
+</div>
+
+<div class="grid g3">
+  <div class="card"><h3>Loss decomposition (kWh)</h3><div class="chart sm"><canvas id="c3"></canvas></div></div>
+  <div class="card"><h3>Recent outage alerts</h3>
+    <table><thead><tr><th>From</th><th>Days</th><th>Lost</th></tr></thead>
+    <tbody id="alertbody"></tbody></table>
+    <p class="muted"><a href="/outages/">all alerts →</a> · SNS publish: <code>manage.py publish_alerts</code></p>
+  </div>
+  <div class="card"><h3>Impact at scale</h3>
+    <div class="impact">
+      <div><b>{{ impact.india_rooftop_gw }} GW</b><span>India rooftop installed (MNRE)</span></div>
+      <div><b>{{ impact.annual_twh }} TWh</b><span>annual rooftop generation</span></div>
+      <div><b>{{ impact.recoverable_pct }}%</b><span>typical recoverable loss</span></div>
+      <div><b>₹{{ impact.inr_cr_per_year }} cr/yr</b><span>if 3% is recovered</span></div>
+      <div><b>{{ impact.global_solar_gw }} GW</b><span>global solar (IRENA)</span></div>
+      <div><b>{{ impact.soiling_nrel_pct }}%</b><span>avg soiling loss (NREL)</span></div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script id="loss-data" type="application/json">{{ loss_json|safe }}</script>
+<script id="alerts-data" type="application/json">{{ alerts_json|safe }}</script>
+<script>
+const loss = JSON.parse(document.getElementById('loss-data').textContent);
+const alerts = JSON.parse(document.getElementById('alerts-data').textContent);
+const labels = loss.map(r => r.date.slice(5));
+const totals = loss.reduce((a, r) => {
+  for (const k of ['expected','predicted','actual','aoi','temp','soiling','dc_cable','inv_conv','clip','ac_cable','unexplained'])
+    a[k] = (a[k] || 0) + r[k];
+  return a;
+}, {});
+const sun = '#ffb020', sun2 = '#ff7a45', info = '#4cc2ff', good = '#39d98a';
+Chart.defaults.color = '#8b97b0';
+Chart.defaults.borderColor = '#232d45';
+new Chart(c1, { data: { labels, datasets: [
+  { type:'bar', label:'Expected', data: loss.map(r=>r.expected), backgroundColor:'#2b3b5e', borderRadius:3 },
+  { type:'bar', label:'Actual', data: loss.map(r=>r.actual), backgroundColor: sun, borderRadius:3 },
+  { type:'line', label:'Predicted (after losses)', data: loss.map(r=>r.predicted), borderColor: info, borderWidth:2, pointRadius:0, tension:.3 },
+]}, options:{ responsive:true, maintainAspectRatio:false, scales:{x:{ticks:{maxTicksLimit:10}}, y:{title:{display:true,text:'kWh'}}} }});
+const lossKeys = [['aoi','AOI'],['temp','Temperature'],['soiling','Soiling'],['dc_cable','DC cable'],['inv_conv','Inverter'],['clip','Clipping'],['ac_cable','AC cable']];
+const exp = totals.expected || 1;
+new Chart(c2, { type:'bar', data:{ labels: lossKeys.map(k=>k[1]),
+  datasets:[{ label:'% of expected', data: lossKeys.map(k=>100*totals[k[0]]/exp), backgroundColor: sun2, borderRadius:4 },
+            { label:'Unexplained %', data: lossKeys.map(()=>100*Math.abs(totals.unexplained)/exp), backgroundColor: good, borderRadius:4 }]},
+  options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false, scales:{x:{title:{display:true,text:'% of expected'}}} }});
+new Chart(c3, { type:'doughnut', data:{ labels: lossKeys.map(k=>k[1]).concat(['To actual']),
+  datasets:[{ data: lossKeys.map(k=>+totals[k[0]].toFixed(1)).concat([+(totals.actual).toFixed(1)]),
+    backgroundColor:['#ff7a45','#ff5d73','#ffb020','#8b7bff','#4cc2ff','#ffd166','#7bdff2','#39d98a'] }]},
+  options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'right'}} }});
+document.getElementById('alertbody').innerHTML = alerts.map(a =>
+  `<tr><td>${a.start_date}</td><td>${a.days}</td><td>${a.est_lost_kwh} kWh</td></tr>`).join('') ||
+  '<tr><td colspan="3" class="muted">none</td></tr>';
+</script>
+{% endblock %}

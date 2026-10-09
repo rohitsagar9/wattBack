@@ -6,3 +6,9 @@ lightgbm
 scikit-learn
 pyarrow
 pytest
+pytest-django
+django
+gunicorn
+whitenoise
+boto3
+awsebcli

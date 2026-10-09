@@ -1,3 +1,5 @@
+.git/
+.gitignore
 __pycache__/
 *.pyc
 .pytest_cache/
@@ -9,3 +11,5 @@ venv/
 *.log
 db.sqlite3
 staticfiles/
+*.png
+*.ipynb
