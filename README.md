@@ -33,16 +33,29 @@ CSV export exists.
 
 ## What it does
 
-1. **Expected vs actual** — physics baseline (pvlib PVWatts, ERA5 GHI, Global Solar
-   Atlas LTA) blended with a leakage-safe LightGBM trained walk-forward on real output
-2. **Loss decomposition** — temperature, inverter clipping, AOI, soiling, outage →
-   a daily waterfall that closes to ~0.1% on held-out systems
-3. **Cleaning counterfactual** — "how many days until the next rain, and what is a
-   clean worth in ₹?"
-4. **Outage detection** — rules over residual + raw output → alerts for multi-day
-   generation collapses
-5. **Global extrapolation** — headline recoverable energy at India / world scale
+1. **Expected vs actual** — hourly physics chain (pvlib: POA irradiance, physical
+   IAM, SAPM cell temperature, HSU soiling) plus two global clear/cloudy irradiance
+   bias factors fitted per window (never per-day)
+2. **Loss decomposition** — AOI, temperature, soiling, DC/AC cabling, inverter
+   conversion, clipping → a waterfall that closes **exactly** (0.000000 kWh drift)
+3. **Cleaning counterfactual** — "clean now vs wait for rain" with kWh and ₹ value,
+   rain timing modelled from the site's own 90-day rain rhythm
+4. **Outage detection** — collapse-vs-trailing-median rule over the raw series →
+   alerts with duration and estimated energy lost
+5. **Residual model** — LightGBM (log-target, lag-safe features, expanding
+   walk-forward) beats a weekly-seasonal naive baseline by **33% RMSE**
+   (0.246 vs 0.368 log-RMSE, 3,143 out-of-fold predictions)
 6. **Dashboard on AWS** — Day 3
+
+### First results (frozen as oracle tests, 2026-09-01 → 09-29)
+
+| System | Expected | Actual | Temp | Inverter | Soiling | AOI | Unexplained |
+|---|---|---|---|---|---|---|---|
+| BMT Punjab (56.6 kWp) | 5,670.0 kWh | 4,917.0 kWh | 6.78% | 3.62% | 0.73% | 1.97% | **0.09%** |
+| Manalil Veedu (3.09 kWp) | 384.9 kWh | 335.8 kWh | 6.99% | 3.61% | 0.22% | 2.06% | **0.72%** |
+
+The detector also found historical outages in the 6-year record (e.g. BMT
+2024-07-20..28 — 9 days, 2025-10-04..10 — 7 days, 2026-07-09..11 — 590 kWh lost).
 
 ## Data
 
@@ -66,8 +79,8 @@ Global Solar Atlas ─┘        (validated daily panel: flags, contiguity, junk
                                      │
                     ┌────────────────┴─────────────────┐
                     ▼                                  ▼
-        [Day 2] loss engine + oracle tests    [Day 3] dashboard on AWS
-                    └─▶ LightGBM (walk-forward, leakage-safe)
+        loss engine + oracle tests             [Day 3] dashboard on AWS
+                    └──▶ residual LightGBM (walk-forward, leakage-safe)
 ```
 
 ## Quickstart
@@ -76,7 +89,8 @@ Global Solar Atlas ─┘        (validated daily panel: flags, contiguity, junk
 pip install -r requirements.txt
 python scripts/import_raw.py   # merge + flag source JSONs → data/raw/
 python scripts/seed.py         # Atlas + ERA5 (PVOutput window needs a logged-in session)
-pytest                         # data-integrity + parser tests
+python scripts/run_loss.py --site bmt --start 2026-09-01 --end 2026-09-29
+pytest                         # 23 tests: data, parser, loss oracles, outages, model
 ```
 
 ## Reproducibility
@@ -90,8 +104,8 @@ pytest                         # data-integrity + parser tests
 
 ## Roadmap
 
-- **Day 2 (in progress)** — loss engine → oracle tests → cleaning counterfactual →
-  outage detector → LightGBM residual model
+- **Day 2 (done)** — loss engine + oracle tests, cleaning counterfactual,
+  outage detector, LightGBM residual model
 - **Day 3** — AWS deployment (Lambda/API + static dashboard), "Add your system":
   - *Tier 1* — paste a PVOutput system link
   - *Tier 2* — upload a PVOutput/monitor CSV export

@@ -8,10 +8,31 @@
       "azimuth_deg": 180,
       "kwp_dc": 56.6,
       "ac_kw": 55.0,
+      "tz": "Asia/Kolkata",
+      "module_w": 400,
+      "gamma_pdc": -0.004,
+      "eta_inv_nom": 0.96,
+      "dc_cable": {
+        "length_m": 50,
+        "area_mm2": 25.0,
+        "material": "cu",
+        "temp_c": 60
+      },
+      "ac_cable": {
+        "length_m": 50,
+        "area_mm2": 70.0,
+        "material": "al",
+        "temp_c": 60,
+        "phases": 3,
+        "v_ll": 415,
+        "pf": 0.95
+      },
       "pvoutput_uid": 63115,
       "pvoutput_sid": 56151,
       "role": "held-out + training after backfill",
-      "data_policy": "public 30-day window + viewer-session backfill (not our system)"
+      "data_policy": "public 30-day window + viewer-session backfill (not our system)",
+      "modules_per_string": 20,
+      "vmp_string": 33.0
     },
     "manalil": {
       "name": "Manalil Veedu",
@@ -21,11 +42,32 @@
       "azimuth_deg": 0,
       "kwp_dc": 3.09,
       "ac_kw": 3.0,
+      "tz": "Asia/Kolkata",
+      "module_w": 515,
+      "gamma_pdc": -0.004,
+      "eta_inv_nom": 0.96,
+      "dc_cable": {
+        "length_m": 20,
+        "area_mm2": 4.0,
+        "material": "cu",
+        "temp_c": 50
+      },
+      "ac_cable": {
+        "length_m": 10,
+        "area_mm2": 4.0,
+        "material": "cu",
+        "temp_c": 50,
+        "phases": 1,
+        "v_ll": 230,
+        "pf": 0.98
+      },
+      "install_date": "2023-06-13",
       "pvoutput_uid": 114530,
       "pvoutput_sid": 99833,
-      "install_date": "2023-06-13",
       "role": "primary training site",
-      "data_policy": "own system"
+      "data_policy": "own system",
+      "modules_per_string": 6,
+      "vmp_string": 41.9
     },
     "maha_ref": {
       "name": "Maharashtra reference site (modelled only)",
