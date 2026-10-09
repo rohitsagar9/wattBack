@@ -14,7 +14,7 @@
 </div>
 
 <h2>Daily generation vs GHI (full record)</h2>
-<div class="card"><div class="chart"><canvas id="hist"></canvas></div></div>
+<div class="card"><div class="chart"><span class="chart-fallback">loading chart…</span><canvas id="hist" role="img" aria-label="Daily generation and GHI over the full record"></canvas></div></div>
 
 <h2>Data-quality flags <span class="muted">(imported, audited)</span></h2>
 <div class="card">
@@ -50,5 +50,6 @@ new Chart(hist, { data: { labels: rows.map(r=>r.date),
     scales:{ y:{position:'left',title:{display:true,text:'kWh'}},
              y1:{position:'right',grid:{drawOnChartArea:false},title:{display:true,text:'kWh/m²'}},
              x:{ticks:{maxTicksLimit:12}} } }});
+document.querySelectorAll('.chart-fallback').forEach(el => el.remove());
 </script>
 {% endblock %}

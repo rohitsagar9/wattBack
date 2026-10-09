@@ -4,12 +4,19 @@
   --good:#39d98a; --bad:#ff5d73; --info:#4cc2ff;
 }
 *{box-sizing:border-box}
+::selection{background:#ffb02040;color:#fff}
+html{scrollbar-color:#2b3b5e transparent;scrollbar-width:thin}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:#2b3b5e;border-radius:8px}
+::-webkit-scrollbar-track{background:transparent}
+:focus-visible{outline:2px solid var(--info);outline-offset:2px}
 body{margin:0;background:radial-gradient(1200px 500px at 80% -10%,#1c2742 0%,var(--bg) 55%);
   color:var(--ink);font:15px/1.5 "Segoe UI",system-ui,sans-serif}
 a{color:var(--info);text-decoration:none}
 .top{display:flex;align-items:center;justify-content:space-between;gap:16px;
   padding:14px 22px;border-bottom:1px solid var(--line);background:#0d121cee;position:sticky;top:0;z-index:5}
 .brand{color:var(--ink);font-size:20px}
+.brand svg{color:var(--sun);vertical-align:-3px;margin-right:7px}
 .brand span{margin-left:10px;color:var(--mut);font-size:12px;letter-spacing:2px;text-transform:uppercase}
 nav{display:flex;gap:4px;flex-wrap:wrap}
 nav a{color:var(--mut);padding:8px 14px;border-radius:9px}
@@ -30,10 +37,10 @@ h2{font-size:17px;margin:26px 0 10px;color:#cfd8ea}
   border:1px solid var(--line);border-radius:14px;padding:16px 18px}
 .card h3{margin:0 0 6px;font-size:13px;color:var(--mut);font-weight:600;
   text-transform:uppercase;letter-spacing:1px}
-.big{font-size:28px;font-weight:700}
+.big{font-size:28px;font-weight:700;font-variant-numeric:tabular-nums}
 .big small{font-size:13px;color:var(--mut);font-weight:500}
 .ok{color:var(--good)} .warn{color:var(--sun)} .bad{color:var(--bad)}
-table{width:100%;border-collapse:collapse;font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
 th{color:var(--mut);text-align:left;font-weight:600;font-size:12px;
   text-transform:uppercase;letter-spacing:.6px;padding:8px 10px;border-bottom:1px solid var(--line)}
 td{padding:8px 10px;border-bottom:1px solid #1b2337}
@@ -51,6 +58,8 @@ select,input{background:var(--panel2);color:var(--ink);border:1px solid var(--li
   border-radius:9px;padding:9px 12px;font-size:14px}
 .chart{position:relative;height:300px}
 .chart.sm{height:230px}
+.chart-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  color:var(--mut);font-size:13px;pointer-events:none}
 .banner{background:linear-gradient(135deg,#13233a,#182b1f);border:1px solid #27506e;
   border-radius:14px;padding:16px 18px;margin:8px 0 18px}
 .impact{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
@@ -61,6 +70,6 @@ select,input{background:var(--panel2);color:var(--ink);border:1px solid var(--li
 .formrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:10px 0 16px}
 footer{border-top:1px solid var(--line);color:var(--mut);font-size:13px;
   padding:18px 22px;text-align:center}
-footer .aws{margin-top:4px;color:#5f6c88;font-size:12px}
+footer .aws{margin-top:4px;color:#7a88a8;font-size:12px}
 .mono{font-family:Consolas,monospace}
 .muted{color:var(--mut)}

@@ -23,26 +23,26 @@
 
 {% if cf %}
 <div class="banner">
-  <b>🧼 Cleaning counterfactual:</b>
+  <b>Cleaning counterfactual:</b>
   {% if cf.recommendation == "clean now" %}
     <span class="ok">CLEAN NOW</span> — washing today is worth ≈
-    <b>{{ cf.gain_kwh }} kWh (₹{{ cf.gain_inr|floatformat:0 }})</b>
+    <b>{{ cf.gain_kwh|floatformat:1 }} kWh (₹{{ cf.gain_inr|floatformat:0 }})</b>
     over the next {{ cf.cleaning_worth_days }} day(s) before the modelled rain wash.
   {% else %}
     <span class="warn">WAIT FOR RAIN</span> — rain modelled within
-    {{ cf.modelled_rain_interval_days }} day(s); cleaning now saves ≈ ₹{{ cf.gain_inr|floatformat:0 }} only.
+    {{ cf.modelled_rain_interval_days|floatformat:0 }} day(s); cleaning now saves ≈ ₹{{ cf.gain_inr|floatformat:0 }} only.
   {% endif %}
-  <span class="muted">(sr={{ cf.soiling_ratio }}, horizon {{ cf.cleaning_worth_days }}d)</span>
+  <span class="muted">(sr={{ cf.soiling_ratio|floatformat:3 }}, horizon {{ cf.cleaning_worth_days }}d)</span>
 </div>
 {% endif %}
 
 <div class="grid g2">
-  <div class="card"><h3>Expected vs actual (window)</h3><div class="chart"><canvas id="c1"></canvas></div></div>
-  <div class="card"><h3>Where the energy went (% of expected)</h3><div class="chart"><canvas id="c2"></canvas></div></div>
+  <div class="card"><h3>Expected vs actual (window)</h3><div class="chart"><span class="chart-fallback">loading chart…</span><canvas id="c1" role="img" aria-label="Daily expected versus actual generation, window"></canvas></div></div>
+  <div class="card"><h3>Where the energy went (% of expected)</h3><div class="chart"><span class="chart-fallback">loading chart…</span><canvas id="c2" role="img" aria-label="Loss categories as percent of expected energy"></canvas></div></div>
 </div>
 
 <div class="grid g3">
-  <div class="card"><h3>Loss decomposition (kWh)</h3><div class="chart sm"><canvas id="c3"></canvas></div></div>
+  <div class="card"><h3>Loss decomposition (kWh)</h3><div class="chart sm"><span class="chart-fallback">loading chart…</span><canvas id="c3" role="img" aria-label="Loss decomposition doughnut, kilowatt-hours"></canvas></div></div>
   <div class="card"><h3>Recent outage alerts</h3>
     <table><thead><tr><th>From</th><th>Days</th><th>Lost</th></tr></thead>
     <tbody id="alertbody"></tbody></table>
@@ -81,18 +81,20 @@ new Chart(c1, { data: { labels, datasets: [
   { type:'bar', label:'Actual', data: loss.map(r=>r.actual), backgroundColor: sun, borderRadius:3 },
   { type:'line', label:'Predicted (after losses)', data: loss.map(r=>r.predicted), borderColor: info, borderWidth:2, pointRadius:0, tension:.3 },
 ]}, options:{ responsive:true, maintainAspectRatio:false, scales:{x:{ticks:{maxTicksLimit:10}}, y:{title:{display:true,text:'kWh'}}} }});
-const lossKeys = [['aoi','AOI'],['temp','Temperature'],['soiling','Soiling'],['dc_cable','DC cable'],['inv_conv','Inverter'],['clip','Clipping'],['ac_cable','AC cable']];
+const lossKeys = [['aoi','AOI'],['temp','Temperature'],['soiling','Soiling'],['dc_cable','DC cable'],['inv_conv','Inverter'],['clip','Clipping'],['ac_cable','AC cable'],['unexplained','Unexplained']];
 const exp = totals.expected || 1;
 new Chart(c2, { type:'bar', data:{ labels: lossKeys.map(k=>k[1]),
-  datasets:[{ label:'% of expected', data: lossKeys.map(k=>100*totals[k[0]]/exp), backgroundColor: sun2, borderRadius:4 },
-            { label:'Unexplained %', data: lossKeys.map(()=>100*Math.abs(totals.unexplained)/exp), backgroundColor: good, borderRadius:4 }]},
-  options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false, scales:{x:{title:{display:true,text:'% of expected'}}} }});
+  datasets:[{ label:'% of expected', data: lossKeys.map(k=>100*Math.abs(totals[k[0]]||0)/exp),
+    backgroundColor: lossKeys.map(k=>k[0]==='unexplained' ? good : sun2), borderRadius:4 }]},
+  options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{display:false}}, scales:{x:{title:{display:true,text:'% of expected'}}} }});
 new Chart(c3, { type:'doughnut', data:{ labels: lossKeys.map(k=>k[1]).concat(['To actual']),
-  datasets:[{ data: lossKeys.map(k=>+totals[k[0]].toFixed(1)).concat([+(totals.actual).toFixed(1)]),
-    backgroundColor:['#ff7a45','#ff5d73','#ffb020','#8b7bff','#4cc2ff','#ffd166','#7bdff2','#39d98a'] }]},
-  options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'right'}} }});
+  datasets:[{ data: lossKeys.map(k=>+Math.abs(totals[k[0]]||0).toFixed(1)).concat([+(totals.actual).toFixed(1)]),
+    backgroundColor:['#ff7a45','#ff5d73','#ffb020','#8b7bff','#4cc2ff','#ffd166','#7bdff2','#39d98a','#2b3b5e'] }]},
+  options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'bottom'}} }});
 document.getElementById('alertbody').innerHTML = alerts.map(a =>
   `<tr><td>${a.start_date}</td><td>${a.days}</td><td>${a.est_lost_kwh} kWh</td></tr>`).join('') ||
   '<tr><td colspan="3" class="muted">none</td></tr>';
+document.querySelectorAll('.chart-fallback').forEach(el => el.remove());
 </script>
 {% endblock %}

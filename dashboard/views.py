@@ -118,22 +118,26 @@ def cleaning(request):
     site = get_object_or_404(Site, key=key)
     cf = _counterfactual(site)
     runmeta = RunMeta.objects.filter(site=site).first()
-    if request.GET.get("recalc") and request.GET.get("sr") is not None:
+    sr_value = (request.GET.get("sr") or "").strip()
+    if request.GET.get("recalc") and sr_value:
         per_day = 0.0
         if runmeta and runmeta.n_days:
             per_day = (runmeta.totals_json or {}).get("predicted", 0) / runmeta.n_days
         end = request.GET.get("end") or (
             runmeta.end_date.isoformat() if runmeta else ORACLE_END)
         try:
-            sr = float(request.GET["sr"])
+            sr = float(sr_value)
         except ValueError:
-            sr = 1.0
-        cf = cleaning_counterfactual(site.key, end, per_day, sr)
+            sr = None
+        if sr is not None:
+            cf = cleaning_counterfactual(site.key, end, per_day, sr)
     ctx = {
         "sites": Site.objects.order_by("key"),
         "site": site,
         "cf": cf,
         "runmeta": runmeta,
+        "sr_value": sr_value,
+        "inr": IMPACT["inr_per_kwh"],
         "active": "cleaning",
     }
     return render(request, "dashboard/cleaning.html", ctx)

@@ -7,12 +7,13 @@
 
 <div class="formrow">
   <form method="get">
-    <select name="site">
+    <input type="hidden" name="recalc" value="1">
+    <select name="site" onchange="this.form.submit()">
       {% for s in sites %}<option value="{{ s.key }}" {% if s.key == site.key %}selected{% endif %}>{{ s.name }}</option>{% endfor %}
     </select>
     <label class="muted">or force soiling ratio:
-      <input name="sr" size="5" placeholder="0.95" value=""></label>
-    <button class="btn" name="recalc" value="1">Compute</button>
+      <input name="sr" size="5" placeholder="0.95" value="{{ sr_value }}"></label>
+    <button class="btn" type="submit">Compute</button>
   </form>
 </div>
 
@@ -22,14 +23,14 @@
     <div class="big {% if cf.recommendation == 'clean now' %}ok{% else %}warn{% endif %}">
       {{ cf.recommendation|upper }}</div></div>
   <div class="card"><h3>Washing is worth</h3>
-    <div class="big warn">{{ cf.gain_kwh }}<small> kWh</small></div>
-    <div class="muted">≈ ₹{{ cf.gain_inr|floatformat:0 }} at ₹{{ 8 }}/kWh</div></div>
+    <div class="big warn">{{ cf.gain_kwh|floatformat:1 }}<small> kWh</small></div>
+    <div class="muted">≈ ₹{{ cf.gain_inr|floatformat:0 }} at ₹{{ inr }}/kWh</div></div>
   <div class="card"><h3>Soiling ratio now</h3>
-    <div class="big {% if cf.soiling_ratio < 0.97 %}warn{% else %}ok{% endif %}">{{ cf.soiling_ratio }}</div>
+    <div class="big {% if cf.soiling_ratio < 0.97 %}warn{% else %}ok{% endif %}">{{ cf.soiling_ratio|floatformat:3 }}</div>
     <div class="muted">{{ cf.days_since_rain }} day(s) since last rain</div></div>
   <div class="card"><h3>Benefit window</h3>
     <div class="big">{{ cf.cleaning_worth_days }}<small> days</small></div>
-    <div class="muted">rain modelled every ~{{ cf.modelled_rain_interval_days }}d</div></div>
+    <div class="muted">rain modelled every ~{{ cf.modelled_rain_interval_days|floatformat:0 }}d</div></div>
 </div>
 
 <h2>How it works</h2>
