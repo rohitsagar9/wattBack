@@ -1,0 +1,9314 @@
+[
+ {
+  "date": "20230624",
+  "generated": "11.624kWh",
+  "peak": "2.302kW",
+  "time": "11:35AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "43 to 74C"
+ },
+ {
+  "date": "20230625",
+  "generated": "12.070kWh",
+  "peak": "2.572kW",
+  "time": "2:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20230626",
+  "generated": "12.950kWh",
+  "peak": "2.234kW",
+  "time": "12:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20230627",
+  "generated": "4.964kWh",
+  "peak": "1.412kW",
+  "time": "12:35PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 53C"
+ },
+ {
+  "date": "20230628",
+  "generated": "10.562kWh",
+  "peak": "2.538kW",
+  "time": "11:30AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20230629",
+  "generated": "10.290kWh",
+  "peak": "2.761kW",
+  "time": "2:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 70C"
+ },
+ {
+  "date": "20230630",
+  "generated": "14.543kWh",
+  "peak": "2.430kW",
+  "time": "1:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20230701",
+  "generated": "14.133kWh",
+  "peak": "2.391kW",
+  "time": "11:40AM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20230702",
+  "generated": "10.920kWh",
+  "peak": "2.042kW",
+  "time": "2:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 70C"
+ },
+ {
+  "date": "20230703",
+  "generated": "0.054kWh",
+  "peak": "0.011kW",
+  "time": "7:30PM",
+  "conditions": "Showers",
+  "temp": "38 to 38C"
+ },
+ {
+  "date": "20230704",
+  "generated": "3.998kWh",
+  "peak": "1.025kW",
+  "time": "1:25PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 50C"
+ },
+ {
+  "date": "20230705",
+  "generated": "9.362kWh",
+  "peak": "2.588kW",
+  "time": "12:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20230706",
+  "generated": "8.026kWh",
+  "peak": "2.148kW",
+  "time": "12:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 66C"
+ },
+ {
+  "date": "20230707",
+  "generated": "9.633kWh",
+  "peak": "2.615kW",
+  "time": "11:50AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 68C"
+ },
+ {
+  "date": "20230708",
+  "generated": "13.186kWh",
+  "peak": "2.741kW",
+  "time": "1:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20230709",
+  "generated": "12.190kWh",
+  "peak": "2.479kW",
+  "time": "10:40AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20230710",
+  "generated": "13.472kWh",
+  "peak": "2.248kW",
+  "time": "1:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20230711",
+  "generated": "12.244kWh",
+  "peak": "2.254kW",
+  "time": "2:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20230712",
+  "generated": "14.742kWh",
+  "peak": "2.226kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20230713",
+  "generated": "13.883kWh",
+  "peak": "2.551kW",
+  "time": "12:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20230714",
+  "generated": "11.160kWh",
+  "peak": "2.818kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20230715",
+  "generated": "14.703kWh",
+  "peak": "2.462kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20230716",
+  "generated": "13.413kWh",
+  "peak": "2.544kW",
+  "time": "11:55AM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 72C"
+ },
+ {
+  "date": "20230717",
+  "generated": "14.542kWh",
+  "peak": "2.259kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20230718",
+  "generated": "11.060kWh",
+  "peak": "2.269kW",
+  "time": "11:25AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 67C"
+ },
+ {
+  "date": "20230719",
+  "generated": "13.724kWh",
+  "peak": "2.626kW",
+  "time": "11:45AM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20230720",
+  "generated": "15.066kWh",
+  "peak": "2.493kW",
+  "time": "11:25AM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20230721",
+  "generated": "15.298kWh",
+  "peak": "2.322kW",
+  "time": "12:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20230722",
+  "generated": "14.528kWh",
+  "peak": "2.242kW",
+  "time": "11:50AM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20230723",
+  "generated": "13.286kWh",
+  "peak": "2.685kW",
+  "time": "1:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20230724",
+  "generated": "12.116kWh",
+  "peak": "2.611kW",
+  "time": "11:30AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20230725",
+  "generated": "9.785kWh",
+  "peak": "2.034kW",
+  "time": "9:55AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 67C"
+ },
+ {
+  "date": "20230726",
+  "generated": "10.922kWh",
+  "peak": "2.440kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 70C"
+ },
+ {
+  "date": "20230727",
+  "generated": "10.438kWh",
+  "peak": "2.473kW",
+  "time": "12:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 71C"
+ },
+ {
+  "date": "20230728",
+  "generated": "15.168kWh",
+  "peak": "2.352kW",
+  "time": "12:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20230729",
+  "generated": "14.884kWh",
+  "peak": "2.536kW",
+  "time": "11:30AM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20230730",
+  "generated": "13.321kWh",
+  "peak": "2.312kW",
+  "time": "11:45AM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20230731",
+  "generated": "13.890kWh",
+  "peak": "2.280kW",
+  "time": "12:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20230801",
+  "generated": "13.994kWh",
+  "peak": "2.466kW",
+  "time": "12:55PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20230802",
+  "generated": "13.540kWh",
+  "peak": "2.390kW",
+  "time": "12:15PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20230803",
+  "generated": "14.167kWh",
+  "peak": "2.364kW",
+  "time": "12:15PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20230804",
+  "generated": "15.046kWh",
+  "peak": "2.394kW",
+  "time": "12:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20230805",
+  "generated": "12.868kWh",
+  "peak": "2.383kW",
+  "time": "12:15PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20230806",
+  "generated": "14.796kWh",
+  "peak": "2.567kW",
+  "time": "11:45AM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20230807",
+  "generated": "14.122kWh",
+  "peak": "2.445kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20230808",
+  "generated": "14.422kWh",
+  "peak": "2.373kW",
+  "time": "12:15PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20230809",
+  "generated": "10.962kWh",
+  "peak": "2.041kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 70C"
+ },
+ {
+  "date": "20230810",
+  "generated": "9.274kWh",
+  "peak": "2.428kW",
+  "time": "12:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 72C"
+ },
+ {
+  "date": "20230811",
+  "generated": "13.974kWh",
+  "peak": "2.401kW",
+  "time": "12:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20230812",
+  "generated": "14.828kWh",
+  "peak": "2.361kW",
+  "time": "12:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20230813",
+  "generated": "14.233kWh",
+  "peak": "2.441kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20230814",
+  "generated": "13.640kWh",
+  "peak": "2.252kW",
+  "time": "12:50PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20230815",
+  "generated": "14.304kWh",
+  "peak": "2.315kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20230816",
+  "generated": "14.084kWh",
+  "peak": "2.325kW",
+  "time": "11:55AM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20230817",
+  "generated": "13.958kWh",
+  "peak": "2.357kW",
+  "time": "12:05PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20230818",
+  "generated": "13.248kWh",
+  "peak": "2.291kW",
+  "time": "1:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20230819",
+  "generated": "14.000kWh",
+  "peak": "2.473kW",
+  "time": "12:15PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20230820",
+  "generated": "14.406kWh",
+  "peak": "2.397kW",
+  "time": "12:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20230821",
+  "generated": "14.103kWh",
+  "peak": "2.492kW",
+  "time": "11:55AM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20230822",
+  "generated": "14.628kWh",
+  "peak": "2.351kW",
+  "time": "12:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20230823",
+  "generated": "13.636kWh",
+  "peak": "2.444kW",
+  "time": "1:05PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20230824",
+  "generated": "14.274kWh",
+  "peak": "2.410kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20230825",
+  "generated": "13.859kWh",
+  "peak": "2.383kW",
+  "time": "12:05PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20230826",
+  "generated": "14.340kWh",
+  "peak": "2.401kW",
+  "time": "12:15PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20230827",
+  "generated": "13.596kWh",
+  "peak": "2.387kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20230828",
+  "generated": "14.092kWh",
+  "peak": "2.362kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20230829",
+  "generated": "12.646kWh",
+  "peak": "2.557kW",
+  "time": "1:05PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20230830",
+  "generated": "12.862kWh",
+  "peak": "2.508kW",
+  "time": "1:15PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20230831",
+  "generated": "11.284kWh",
+  "peak": "2.576kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20230901",
+  "generated": "14.142kWh",
+  "peak": "2.425kW",
+  "time": "12:40PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20230902",
+  "generated": "7.198kWh",
+  "peak": "1.632kW",
+  "time": "12:30PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 60C"
+ },
+ {
+  "date": "20230903",
+  "generated": "8.174kWh",
+  "peak": "2.698kW",
+  "time": "2:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 71C"
+ },
+ {
+  "date": "20230904",
+  "generated": "12.242kWh",
+  "peak": "2.560kW",
+  "time": "12:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20230905",
+  "generated": "9.608kWh",
+  "peak": "2.180kW",
+  "time": "2:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 68C"
+ },
+ {
+  "date": "20230906",
+  "generated": "10.316kWh",
+  "peak": "2.534kW",
+  "time": "12:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20230907",
+  "generated": "7.917kWh",
+  "peak": "2.400kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 71C"
+ },
+ {
+  "date": "20230908",
+  "generated": "8.490kWh",
+  "peak": "1.939kW",
+  "time": "2:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 64C"
+ },
+ {
+  "date": "20230909",
+  "generated": "13.531kWh",
+  "peak": "2.882kW",
+  "time": "12:45PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20230910",
+  "generated": "10.986kWh",
+  "peak": "2.415kW",
+  "time": "2:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 70C"
+ },
+ {
+  "date": "20230911",
+  "generated": "8.736kWh",
+  "peak": "2.769kW",
+  "time": "2:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 66C"
+ },
+ {
+  "date": "20230912",
+  "generated": "12.641kWh",
+  "peak": "2.736kW",
+  "time": "12:45PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20230913",
+  "generated": "11.151kWh",
+  "peak": "2.674kW",
+  "time": "12:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20230914",
+  "generated": "11.278kWh",
+  "peak": "2.413kW",
+  "time": "12:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20230915",
+  "generated": "11.796kWh",
+  "peak": "2.793kW",
+  "time": "12:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20230916",
+  "generated": "5.202kWh",
+  "peak": "1.349kW",
+  "time": "10:35AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 54C"
+ },
+ {
+  "date": "20230917",
+  "generated": "8.672kWh",
+  "peak": "1.616kW",
+  "time": "1:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 62C"
+ },
+ {
+  "date": "20230918",
+  "generated": "10.730kWh",
+  "peak": "2.691kW",
+  "time": "1:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20230919",
+  "generated": "9.058kWh",
+  "peak": "2.617kW",
+  "time": "12:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20230920",
+  "generated": "11.772kWh",
+  "peak": "2.756kW",
+  "time": "12:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20230921",
+  "generated": "9.118kWh",
+  "peak": "2.454kW",
+  "time": "12:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20230922",
+  "generated": "9.488kWh",
+  "peak": "2.714kW",
+  "time": "12:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20230923",
+  "generated": "12.824kWh",
+  "peak": "2.394kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20230924",
+  "generated": "12.091kWh",
+  "peak": "2.418kW",
+  "time": "12:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20230925",
+  "generated": "12.448kWh",
+  "peak": "2.507kW",
+  "time": "12:40PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20230926",
+  "generated": "11.854kWh",
+  "peak": "2.406kW",
+  "time": "12:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20230927",
+  "generated": "11.980kWh",
+  "peak": "2.698kW",
+  "time": "12:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20230928",
+  "generated": "10.144kWh",
+  "peak": "2.586kW",
+  "time": "12:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20230929",
+  "generated": "2.100kWh",
+  "peak": "0.443kW",
+  "time": "2:30PM",
+  "conditions": "Showers",
+  "temp": "0 to 43C"
+ },
+ {
+  "date": "20230930",
+  "generated": "5.501kWh",
+  "peak": "1.355kW",
+  "time": "11:40AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 56C"
+ },
+ {
+  "date": "20231001",
+  "generated": "8.958kWh",
+  "peak": "2.608kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20231002",
+  "generated": "7.920kWh",
+  "peak": "2.324kW",
+  "time": "12:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 71C"
+ },
+ {
+  "date": "20231003",
+  "generated": "1.535kWh",
+  "peak": "0.751kW",
+  "time": "9:40AM",
+  "conditions": "Showers",
+  "temp": "0 to 45C"
+ },
+ {
+  "date": "20231004",
+  "generated": "9.214kWh",
+  "peak": "2.578kW",
+  "time": "12:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 65C"
+ },
+ {
+  "date": "20231005",
+  "generated": "12.365kWh",
+  "peak": "2.357kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20231006",
+  "generated": "12.314kWh",
+  "peak": "2.404kW",
+  "time": "12:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20231007",
+  "generated": "11.047kWh",
+  "peak": "2.363kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20231008",
+  "generated": "8.362kWh",
+  "peak": "2.259kW",
+  "time": "12:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20231009",
+  "generated": "11.008kWh",
+  "peak": "2.409kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20231010",
+  "generated": "9.858kWh",
+  "peak": "2.528kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20231011",
+  "generated": "10.606kWh",
+  "peak": "2.358kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20231012",
+  "generated": "6.618kWh",
+  "peak": "2.284kW",
+  "time": "12:35PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 63C"
+ },
+ {
+  "date": "20231013",
+  "generated": "10.141kWh",
+  "peak": "2.344kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20231014",
+  "generated": "7.960kWh",
+  "peak": "2.339kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 70C"
+ },
+ {
+  "date": "20231015",
+  "generated": "6.988kWh",
+  "peak": "1.879kW",
+  "time": "1:25PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 65C"
+ },
+ {
+  "date": "20231016",
+  "generated": "9.494kWh",
+  "peak": "2.484kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20231017",
+  "generated": "6.990kWh",
+  "peak": "2.680kW",
+  "time": "1:15PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20231018",
+  "generated": "8.153kWh",
+  "peak": "2.342kW",
+  "time": "12:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 69C"
+ },
+ {
+  "date": "20231019",
+  "generated": "8.512kWh",
+  "peak": "2.229kW",
+  "time": "2:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 72C"
+ },
+ {
+  "date": "20231020",
+  "generated": "9.872kWh",
+  "peak": "2.048kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20231021",
+  "generated": "10.106kWh",
+  "peak": "2.069kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20231022",
+  "generated": "9.038kWh",
+  "peak": "2.061kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 72C"
+ },
+ {
+  "date": "20231023",
+  "generated": "5.570kWh",
+  "peak": "1.932kW",
+  "time": "12:55PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 68C"
+ },
+ {
+  "date": "20231024",
+  "generated": "8.270kWh",
+  "peak": "2.058kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 71C"
+ },
+ {
+  "date": "20231025",
+  "generated": "0.288kWh",
+  "peak": "0.012kW",
+  "time": "12:00AM",
+  "conditions": "Showers",
+  "temp": "43 to 43C"
+ },
+ {
+  "date": "20231026",
+  "generated": "2.305kWh",
+  "peak": "1.373kW",
+  "time": "3:05PM",
+  "conditions": "Showers",
+  "temp": "43 to 62C"
+ },
+ {
+  "date": "20231027",
+  "generated": "9.042kWh",
+  "peak": "2.010kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20231028",
+  "generated": "8.665kWh",
+  "peak": "1.820kW",
+  "time": "1:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 71C"
+ },
+ {
+  "date": "20231029",
+  "generated": "7.729kWh",
+  "peak": "2.219kW",
+  "time": "2:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 69C"
+ },
+ {
+  "date": "20231030",
+  "generated": "21.690kWh",
+  "peak": "1.518kW",
+  "time": "12:15PM",
+  "conditions": "Fine",
+  "temp": "0 to 62C"
+ },
+ {
+  "date": "20231031",
+  "generated": "25.061kWh",
+  "peak": "1.518kW",
+  "time": "12:00AM",
+  "conditions": "Fine",
+  "temp": "44 to 62C"
+ },
+ {
+  "date": "20231101",
+  "generated": "6.673kWh",
+  "peak": "1.989kW",
+  "time": "12:35PM",
+  "conditions": "Cloudy",
+  "temp": "43 to 70C"
+ },
+ {
+  "date": "20231102",
+  "generated": "2.261kWh",
+  "peak": "2.448kW",
+  "time": "2:25PM",
+  "conditions": "Showers",
+  "temp": "43 to 67C"
+ },
+ {
+  "date": "20231103",
+  "generated": "3.539kWh",
+  "peak": "1.643kW",
+  "time": "12:20PM",
+  "conditions": "Cloudy",
+  "temp": "40 to 64C"
+ },
+ {
+  "date": "20231104",
+  "generated": "7.384kWh",
+  "peak": "1.405kW",
+  "time": "2:05PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 58C"
+ },
+ {
+  "date": "20231105",
+  "generated": "9.112kWh",
+  "peak": "2.246kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20231106",
+  "generated": "8.173kWh",
+  "peak": "2.188kW",
+  "time": "2:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20231107",
+  "generated": "7.650kWh",
+  "peak": "1.881kW",
+  "time": "12:35PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 72C"
+ },
+ {
+  "date": "20231108",
+  "generated": "5.585kWh",
+  "peak": "1.690kW",
+  "time": "1:35PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 63C"
+ },
+ {
+  "date": "20231109",
+  "generated": "8.681kWh",
+  "peak": "2.230kW",
+  "time": "2:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 72C"
+ },
+ {
+  "date": "20231110",
+  "generated": "6.208kWh",
+  "peak": "1.924kW",
+  "time": "12:35PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 64C"
+ },
+ {
+  "date": "20231111",
+  "generated": "7.622kWh",
+  "peak": "2.019kW",
+  "time": "12:55PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20231112",
+  "generated": "8.181kWh",
+  "peak": "1.739kW",
+  "time": "1:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 72C"
+ },
+ {
+  "date": "20231113",
+  "generated": "6.459kWh",
+  "peak": "1.372kW",
+  "time": "11:55AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 61C"
+ },
+ {
+  "date": "20231114",
+  "generated": "5.424kWh",
+  "peak": "1.450kW",
+  "time": "11:45AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 58C"
+ },
+ {
+  "date": "20231115",
+  "generated": "8.370kWh",
+  "peak": "1.895kW",
+  "time": "2:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 72C"
+ },
+ {
+  "date": "20231116",
+  "generated": "9.305kWh",
+  "peak": "1.955kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20231117",
+  "generated": "8.759kWh",
+  "peak": "1.958kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20231118",
+  "generated": "8.584kWh",
+  "peak": "1.868kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20231119",
+  "generated": "2.110kWh",
+  "peak": "0.358kW",
+  "time": "9:05AM",
+  "conditions": "Showers",
+  "temp": "0 to 48C"
+ },
+ {
+  "date": "20231120",
+  "generated": "7.424kWh",
+  "peak": "2.094kW",
+  "time": "1:35PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20231121",
+  "generated": "8.156kWh",
+  "peak": "1.889kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20231122",
+  "generated": "4.298kWh",
+  "peak": "1.161kW",
+  "time": "12:15PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 59C"
+ },
+ {
+  "date": "20231123",
+  "generated": "6.495kWh",
+  "peak": "1.864kW",
+  "time": "12:25PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 69C"
+ },
+ {
+  "date": "20231124",
+  "generated": "5.538kWh",
+  "peak": "2.089kW",
+  "time": "12:45PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 62C"
+ },
+ {
+  "date": "20231125",
+  "generated": "6.135kWh",
+  "peak": "2.128kW",
+  "time": "1:35PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20231126",
+  "generated": "8.267kWh",
+  "peak": "1.978kW",
+  "time": "1:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20231127",
+  "generated": "6.941kWh",
+  "peak": "2.019kW",
+  "time": "2:05PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20231128",
+  "generated": "6.082kWh",
+  "peak": "0.974kW",
+  "time": "12:35PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 58C"
+ },
+ {
+  "date": "20231129",
+  "generated": "8.347kWh",
+  "peak": "1.963kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 71C"
+ },
+ {
+  "date": "20231130",
+  "generated": "7.941kWh",
+  "peak": "2.653kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20231201",
+  "generated": "7.601kWh",
+  "peak": "2.099kW",
+  "time": "2:30PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20231202",
+  "generated": "8.765kWh",
+  "peak": "2.400kW",
+  "time": "1:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20231203",
+  "generated": "8.968kWh",
+  "peak": "2.158kW",
+  "time": "1:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20231204",
+  "generated": "8.214kWh",
+  "peak": "2.030kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20231205",
+  "generated": "7.580kWh",
+  "peak": "2.226kW",
+  "time": "1:30PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20231206",
+  "generated": "8.200kWh",
+  "peak": "2.037kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 80C"
+ },
+ {
+  "date": "20231207",
+  "generated": "7.859kWh",
+  "peak": "1.935kW",
+  "time": "1:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20231208",
+  "generated": "9.798kWh",
+  "peak": "2.031kW",
+  "time": "1:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20231209",
+  "generated": "8.423kWh",
+  "peak": "1.904kW",
+  "time": "1:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 71C"
+ },
+ {
+  "date": "20231210",
+  "generated": "5.621kWh",
+  "peak": "1.014kW",
+  "time": "11:40AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 59C"
+ },
+ {
+  "date": "20231211",
+  "generated": "8.436kWh",
+  "peak": "1.902kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20231212",
+  "generated": "5.835kWh",
+  "peak": "1.212kW",
+  "time": "2:00PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 60C"
+ },
+ {
+  "date": "20231213",
+  "generated": "8.308kWh",
+  "peak": "1.844kW",
+  "time": "1:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20231214",
+  "generated": "8.577kWh",
+  "peak": "1.994kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20231215",
+  "generated": "4.728kWh",
+  "peak": "1.369kW",
+  "time": "11:55AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 68C"
+ },
+ {
+  "date": "20231216",
+  "generated": "2.535kWh",
+  "peak": "0.514kW",
+  "time": "9:10AM",
+  "conditions": "Showers",
+  "temp": "0 to 46C"
+ },
+ {
+  "date": "20231217",
+  "generated": "0.556kWh",
+  "peak": "0.300kW",
+  "time": "12:50PM",
+  "conditions": "Showers",
+  "temp": "0 to 40C"
+ },
+ {
+  "date": "20231218",
+  "generated": "8.624kWh",
+  "peak": "2.003kW",
+  "time": "2:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 71C"
+ },
+ {
+  "date": "20231219",
+  "generated": "8.112kWh",
+  "peak": "1.915kW",
+  "time": "1:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20231220",
+  "generated": "8.569kWh",
+  "peak": "2.009kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 80C"
+ },
+ {
+  "date": "20231221",
+  "generated": "7.006kWh",
+  "peak": "1.823kW",
+  "time": "2:00PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 72C"
+ },
+ {
+  "date": "20231222",
+  "generated": "6.892kWh",
+  "peak": "1.881kW",
+  "time": "12:40PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20231223",
+  "generated": "8.706kWh",
+  "peak": "1.902kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20231224",
+  "generated": "8.113kWh",
+  "peak": "1.925kW",
+  "time": "1:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20231225",
+  "generated": "6.204kWh",
+  "peak": "1.702kW",
+  "time": "3:00PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20231226",
+  "generated": "8.776kWh",
+  "peak": "1.958kW",
+  "time": "1:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 80C"
+ },
+ {
+  "date": "20231227",
+  "generated": "8.262kWh",
+  "peak": "2.071kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20231228",
+  "generated": "8.330kWh",
+  "peak": "2.112kW",
+  "time": "1:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20231229",
+  "generated": "7.916kWh",
+  "peak": "2.213kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20231230",
+  "generated": "8.423kWh",
+  "peak": "1.947kW",
+  "time": "2:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20231231",
+  "generated": "8.107kWh",
+  "peak": "1.942kW",
+  "time": "1:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20240101",
+  "generated": "5.180kWh",
+  "peak": "1.097kW",
+  "time": "1:35PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 58C"
+ },
+ {
+  "date": "20240102",
+  "generated": "7.537kWh",
+  "peak": "1.949kW",
+  "time": "1:45PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20240103",
+  "generated": "7.408kWh",
+  "peak": "2.113kW",
+  "time": "1:25PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240104",
+  "generated": "8.774kWh",
+  "peak": "1.742kW",
+  "time": "2:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240105",
+  "generated": "8.391kWh",
+  "peak": "1.822kW",
+  "time": "2:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 70C"
+ },
+ {
+  "date": "20240106",
+  "generated": "6.263kWh",
+  "peak": "2.069kW",
+  "time": "2:20PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240107",
+  "generated": "8.199kWh",
+  "peak": "2.171kW",
+  "time": "2:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20240108",
+  "generated": "6.390kWh",
+  "peak": "1.638kW",
+  "time": "2:00PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 57C"
+ },
+ {
+  "date": "20240109",
+  "generated": "4.531kWh",
+  "peak": "2.243kW",
+  "time": "1:40PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 62C"
+ },
+ {
+  "date": "20240110",
+  "generated": "6.528kWh",
+  "peak": "1.903kW",
+  "time": "2:20PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 67C"
+ },
+ {
+  "date": "20240111",
+  "generated": "8.291kWh",
+  "peak": "2.034kW",
+  "time": "1:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240112",
+  "generated": "7.994kWh",
+  "peak": "1.736kW",
+  "time": "1:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 68C"
+ },
+ {
+  "date": "20240113",
+  "generated": "8.296kWh",
+  "peak": "1.889kW",
+  "time": "2:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20240114",
+  "generated": "8.681kWh",
+  "peak": "1.826kW",
+  "time": "2:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20240115",
+  "generated": "9.150kWh",
+  "peak": "1.938kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240116",
+  "generated": "9.319kWh",
+  "peak": "1.894kW",
+  "time": "2:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240117",
+  "generated": "9.353kWh",
+  "peak": "1.963kW",
+  "time": "1:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240118",
+  "generated": "8.726kWh",
+  "peak": "2.018kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240119",
+  "generated": "8.106kWh",
+  "peak": "2.169kW",
+  "time": "1:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240120",
+  "generated": "6.788kWh",
+  "peak": "1.874kW",
+  "time": "2:50PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 68C"
+ },
+ {
+  "date": "20240121",
+  "generated": "8.074kWh",
+  "peak": "1.942kW",
+  "time": "2:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20240122",
+  "generated": "8.975kWh",
+  "peak": "2.013kW",
+  "time": "2:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240123",
+  "generated": "8.862kWh",
+  "peak": "1.942kW",
+  "time": "2:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240124",
+  "generated": "9.112kWh",
+  "peak": "1.960kW",
+  "time": "2:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240125",
+  "generated": "8.700kWh",
+  "peak": "1.806kW",
+  "time": "2:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240126",
+  "generated": "8.972kWh",
+  "peak": "1.951kW",
+  "time": "2:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20240127",
+  "generated": "8.952kWh",
+  "peak": "2.062kW",
+  "time": "1:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240128",
+  "generated": "8.862kWh",
+  "peak": "2.081kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20240129",
+  "generated": "8.348kWh",
+  "peak": "1.976kW",
+  "time": "2:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20240130",
+  "generated": "8.694kWh",
+  "peak": "1.995kW",
+  "time": "1:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240131",
+  "generated": "9.455kWh",
+  "peak": "1.839kW",
+  "time": "2:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20240201",
+  "generated": "9.129kWh",
+  "peak": "2.034kW",
+  "time": "2:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240202",
+  "generated": "9.048kWh",
+  "peak": "1.788kW",
+  "time": "2:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 72C"
+ },
+ {
+  "date": "20240203",
+  "generated": "7.402kWh",
+  "peak": "1.856kW",
+  "time": "2:30PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 72C"
+ },
+ {
+  "date": "20240204",
+  "generated": "9.187kWh",
+  "peak": "2.076kW",
+  "time": "2:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240205",
+  "generated": "9.464kWh",
+  "peak": "2.086kW",
+  "time": "2:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240206",
+  "generated": "8.780kWh",
+  "peak": "1.947kW",
+  "time": "2:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20240207",
+  "generated": "8.883kWh",
+  "peak": "1.929kW",
+  "time": "2:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240208",
+  "generated": "9.060kWh",
+  "peak": "2.097kW",
+  "time": "1:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240209",
+  "generated": "8.831kWh",
+  "peak": "1.985kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240210",
+  "generated": "8.987kWh",
+  "peak": "1.938kW",
+  "time": "2:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20240211",
+  "generated": "9.050kWh",
+  "peak": "1.974kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240212",
+  "generated": "8.984kWh",
+  "peak": "1.890kW",
+  "time": "2:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20240213",
+  "generated": "8.914kWh",
+  "peak": "1.911kW",
+  "time": "2:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240214",
+  "generated": "8.838kWh",
+  "peak": "1.959kW",
+  "time": "2:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20240215",
+  "generated": "8.726kWh",
+  "peak": "2.050kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240216",
+  "generated": "8.614kWh",
+  "peak": "1.902kW",
+  "time": "2:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240217",
+  "generated": "8.663kWh",
+  "peak": "1.935kW",
+  "time": "2:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240218",
+  "generated": "8.857kWh",
+  "peak": "1.934kW",
+  "time": "1:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240219",
+  "generated": "9.193kWh",
+  "peak": "2.087kW",
+  "time": "1:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240220",
+  "generated": "9.672kWh",
+  "peak": "2.049kW",
+  "time": "2:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240221",
+  "generated": "9.410kWh",
+  "peak": "1.988kW",
+  "time": "2:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240222",
+  "generated": "10.244kWh",
+  "peak": "2.152kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240223",
+  "generated": "9.798kWh",
+  "peak": "2.185kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240224",
+  "generated": "10.008kWh",
+  "peak": "2.044kW",
+  "time": "2:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240225",
+  "generated": "9.734kWh",
+  "peak": "1.981kW",
+  "time": "2:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20240226",
+  "generated": "9.740kWh",
+  "peak": "2.106kW",
+  "time": "2:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20240227",
+  "generated": "9.325kWh",
+  "peak": "2.054kW",
+  "time": "2:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240228",
+  "generated": "9.402kWh",
+  "peak": "2.155kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240229",
+  "generated": "9.493kWh",
+  "peak": "2.146kW",
+  "time": "2:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240301",
+  "generated": "8.172kWh",
+  "peak": "1.612kW",
+  "time": "2:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 67C"
+ },
+ {
+  "date": "20240302",
+  "generated": "9.870kWh",
+  "peak": "2.225kW",
+  "time": "1:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240303",
+  "generated": "9.347kWh",
+  "peak": "2.159kW",
+  "time": "1:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240304",
+  "generated": "9.737kWh",
+  "peak": "2.095kW",
+  "time": "1:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240305",
+  "generated": "9.760kWh",
+  "peak": "2.069kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240306",
+  "generated": "9.794kWh",
+  "peak": "2.239kW",
+  "time": "2:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240307",
+  "generated": "10.053kWh",
+  "peak": "2.077kW",
+  "time": "1:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240308",
+  "generated": "10.658kWh",
+  "peak": "2.065kW",
+  "time": "1:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240309",
+  "generated": "10.290kWh",
+  "peak": "2.066kW",
+  "time": "1:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240310",
+  "generated": "9.666kWh",
+  "peak": "2.002kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240311",
+  "generated": "10.246kWh",
+  "peak": "2.027kW",
+  "time": "1:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240312",
+  "generated": "9.941kWh",
+  "peak": "2.096kW",
+  "time": "1:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240313",
+  "generated": "10.516kWh",
+  "peak": "2.081kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240314",
+  "generated": "10.680kWh",
+  "peak": "2.008kW",
+  "time": "1:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240315",
+  "generated": "11.194kWh",
+  "peak": "2.093kW",
+  "time": "1:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240316",
+  "generated": "10.940kWh",
+  "peak": "2.144kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20240317",
+  "generated": "10.360kWh",
+  "peak": "2.098kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240318",
+  "generated": "10.676kWh",
+  "peak": "2.074kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240319",
+  "generated": "10.400kWh",
+  "peak": "2.215kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240320",
+  "generated": "10.499kWh",
+  "peak": "2.079kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240321",
+  "generated": "10.902kWh",
+  "peak": "2.104kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240322",
+  "generated": "10.541kWh",
+  "peak": "2.174kW",
+  "time": "1:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240323",
+  "generated": "11.543kWh",
+  "peak": "2.190kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240324",
+  "generated": "11.238kWh",
+  "peak": "2.203kW",
+  "time": "1:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240325",
+  "generated": "11.590kWh",
+  "peak": "2.234kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240326",
+  "generated": "11.358kWh",
+  "peak": "2.124kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240327",
+  "generated": "12.056kWh",
+  "peak": "2.252kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20240328",
+  "generated": "12.146kWh",
+  "peak": "2.240kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20240329",
+  "generated": "11.454kWh",
+  "peak": "2.260kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240330",
+  "generated": "11.658kWh",
+  "peak": "2.176kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240331",
+  "generated": "12.558kWh",
+  "peak": "2.280kW",
+  "time": "1:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20240401",
+  "generated": "12.916kWh",
+  "peak": "2.292kW",
+  "time": "12:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240402",
+  "generated": "12.263kWh",
+  "peak": "2.242kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240403",
+  "generated": "10.722kWh",
+  "peak": "1.951kW",
+  "time": "11:55AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 72C"
+ },
+ {
+  "date": "20240404",
+  "generated": "11.531kWh",
+  "peak": "2.265kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240405",
+  "generated": "9.950kWh",
+  "peak": "1.761kW",
+  "time": "11:45AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 70C"
+ },
+ {
+  "date": "20240406",
+  "generated": "13.141kWh",
+  "peak": "2.278kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240407",
+  "generated": "13.088kWh",
+  "peak": "2.308kW",
+  "time": "12:45PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20240408",
+  "generated": "13.560kWh",
+  "peak": "2.234kW",
+  "time": "12:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240409",
+  "generated": "12.996kWh",
+  "peak": "2.276kW",
+  "time": "12:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20240410",
+  "generated": "13.524kWh",
+  "peak": "2.277kW",
+  "time": "12:50PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240411",
+  "generated": "13.498kWh",
+  "peak": "2.286kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240412",
+  "generated": "6.756kWh",
+  "peak": "2.102kW",
+  "time": "12:10PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 69C"
+ },
+ {
+  "date": "20240413",
+  "generated": "12.749kWh",
+  "peak": "2.376kW",
+  "time": "11:55AM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 80C"
+ },
+ {
+  "date": "20240414",
+  "generated": "12.618kWh",
+  "peak": "2.300kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20240415",
+  "generated": "10.460kWh",
+  "peak": "2.626kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240416",
+  "generated": "11.255kWh",
+  "peak": "2.442kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240417",
+  "generated": "13.604kWh",
+  "peak": "2.223kW",
+  "time": "12:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240418",
+  "generated": "12.856kWh",
+  "peak": "2.232kW",
+  "time": "12:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240419",
+  "generated": "14.258kWh",
+  "peak": "2.236kW",
+  "time": "12:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20240420",
+  "generated": "13.334kWh",
+  "peak": "2.303kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 80C"
+ },
+ {
+  "date": "20240421",
+  "generated": "14.936kWh",
+  "peak": "2.257kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 80C"
+ },
+ {
+  "date": "20240422",
+  "generated": "15.212kWh",
+  "peak": "2.315kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 80C"
+ },
+ {
+  "date": "20240423",
+  "generated": "13.954kWh",
+  "peak": "2.279kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20240424",
+  "generated": "12.988kWh",
+  "peak": "2.244kW",
+  "time": "11:35AM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240425",
+  "generated": "14.624kWh",
+  "peak": "2.174kW",
+  "time": "12:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20240426",
+  "generated": "12.682kWh",
+  "peak": "2.243kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20240427",
+  "generated": "13.728kWh",
+  "peak": "2.140kW",
+  "time": "12:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20240428",
+  "generated": "13.402kWh",
+  "peak": "2.235kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 80C"
+ },
+ {
+  "date": "20240429",
+  "generated": "11.520kWh",
+  "peak": "2.171kW",
+  "time": "11:50AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20240430",
+  "generated": "7.393kWh",
+  "peak": "2.337kW",
+  "time": "11:40AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240501",
+  "generated": "14.700kWh",
+  "peak": "2.217kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240502",
+  "generated": "13.886kWh",
+  "peak": "2.146kW",
+  "time": "1:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240503",
+  "generated": "14.541kWh",
+  "peak": "2.344kW",
+  "time": "11:35AM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20240504",
+  "generated": "13.498kWh",
+  "peak": "2.282kW",
+  "time": "12:05PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20240505",
+  "generated": "13.022kWh",
+  "peak": "2.162kW",
+  "time": "12:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240506",
+  "generated": "14.715kWh",
+  "peak": "2.173kW",
+  "time": "12:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240507",
+  "generated": "15.469kWh",
+  "peak": "2.364kW",
+  "time": "11:55AM",
+  "conditions": "Fine",
+  "temp": "0 to 82C"
+ },
+ {
+  "date": "20240508",
+  "generated": "14.042kWh",
+  "peak": "2.185kW",
+  "time": "11:45AM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240509",
+  "generated": "13.076kWh",
+  "peak": "2.297kW",
+  "time": "12:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20240510",
+  "generated": "13.160kWh",
+  "peak": "2.231kW",
+  "time": "12:40PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240511",
+  "generated": "13.738kWh",
+  "peak": "2.043kW",
+  "time": "11:10AM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240512",
+  "generated": "13.654kWh",
+  "peak": "2.223kW",
+  "time": "1:55PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20240513",
+  "generated": "9.590kWh",
+  "peak": "2.476kW",
+  "time": "12:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 82C"
+ },
+ {
+  "date": "20240514",
+  "generated": "10.894kWh",
+  "peak": "2.281kW",
+  "time": "11:05AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 72C"
+ },
+ {
+  "date": "20240515",
+  "generated": "9.364kWh",
+  "peak": "2.533kW",
+  "time": "12:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20240516",
+  "generated": "8.282kWh",
+  "peak": "2.153kW",
+  "time": "11:30AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240517",
+  "generated": "7.536kWh",
+  "peak": "1.658kW",
+  "time": "9:00AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 62C"
+ },
+ {
+  "date": "20240518",
+  "generated": "8.432kWh",
+  "peak": "1.814kW",
+  "time": "12:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 67C"
+ },
+ {
+  "date": "20240519",
+  "generated": "10.072kWh",
+  "peak": "2.144kW",
+  "time": "12:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 70C"
+ },
+ {
+  "date": "20240520",
+  "generated": "4.320kWh",
+  "peak": "1.972kW",
+  "time": "1:30PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 62C"
+ },
+ {
+  "date": "20240521",
+  "generated": "7.599kWh",
+  "peak": "2.259kW",
+  "time": "1:25PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 68C"
+ },
+ {
+  "date": "20240522",
+  "generated": "4.126kWh",
+  "peak": "1.516kW",
+  "time": "11:25AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 64C"
+ },
+ {
+  "date": "20240523",
+  "generated": "4.376kWh",
+  "peak": "1.037kW",
+  "time": "2:25PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 53C"
+ },
+ {
+  "date": "20240524",
+  "generated": "4.944kWh",
+  "peak": "1.761kW",
+  "time": "1:55PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 58C"
+ },
+ {
+  "date": "20240525",
+  "generated": "7.716kWh",
+  "peak": "2.092kW",
+  "time": "1:25PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 70C"
+ },
+ {
+  "date": "20240526",
+  "generated": "4.500kWh",
+  "peak": "1.632kW",
+  "time": "3:25PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 58C"
+ },
+ {
+  "date": "20240527",
+  "generated": "10.996kWh",
+  "peak": "2.235kW",
+  "time": "12:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20240528",
+  "generated": "4.483kWh",
+  "peak": "1.379kW",
+  "time": "1:25PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 55C"
+ },
+ {
+  "date": "20240529",
+  "generated": "3.499kWh",
+  "peak": "0.974kW",
+  "time": "11:40AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 50C"
+ },
+ {
+  "date": "20240530",
+  "generated": "8.965kWh",
+  "peak": "2.327kW",
+  "time": "11:35AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 70C"
+ },
+ {
+  "date": "20240531",
+  "generated": "14.039kWh",
+  "peak": "2.252kW",
+  "time": "12:15PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240601",
+  "generated": "10.468kWh",
+  "peak": "2.170kW",
+  "time": "12:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240602",
+  "generated": "11.628kWh",
+  "peak": "2.173kW",
+  "time": "12:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20240603",
+  "generated": "11.452kWh",
+  "peak": "2.264kW",
+  "time": "10:35AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 71C"
+ },
+ {
+  "date": "20240604",
+  "generated": "13.839kWh",
+  "peak": "2.183kW",
+  "time": "12:55PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240605",
+  "generated": "13.820kWh",
+  "peak": "2.521kW",
+  "time": "10:45AM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240606",
+  "generated": "10.426kWh",
+  "peak": "2.554kW",
+  "time": "12:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240607",
+  "generated": "10.841kWh",
+  "peak": "2.687kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240608",
+  "generated": "4.863kWh",
+  "peak": "1.372kW",
+  "time": "1:45PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 54C"
+ },
+ {
+  "date": "20240609",
+  "generated": "10.302kWh",
+  "peak": "2.831kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 68C"
+ },
+ {
+  "date": "20240610",
+  "generated": "14.858kWh",
+  "peak": "2.606kW",
+  "time": "12:05PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240611",
+  "generated": "14.622kWh",
+  "peak": "2.360kW",
+  "time": "2:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240612",
+  "generated": "10.476kWh",
+  "peak": "2.182kW",
+  "time": "11:40AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20240613",
+  "generated": "10.732kWh",
+  "peak": "2.265kW",
+  "time": "1:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 69C"
+ },
+ {
+  "date": "20240614",
+  "generated": "14.633kWh",
+  "peak": "2.225kW",
+  "time": "11:55AM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240615",
+  "generated": "12.942kWh",
+  "peak": "2.203kW",
+  "time": "1:55PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240616",
+  "generated": "13.730kWh",
+  "peak": "2.385kW",
+  "time": "12:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240617",
+  "generated": "14.532kWh",
+  "peak": "2.214kW",
+  "time": "12:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240618",
+  "generated": "9.016kWh",
+  "peak": "2.249kW",
+  "time": "2:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240619",
+  "generated": "3.896kWh",
+  "peak": "1.757kW",
+  "time": "2:35PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 61C"
+ },
+ {
+  "date": "20240620",
+  "generated": "6.020kWh",
+  "peak": "1.856kW",
+  "time": "3:25PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 60C"
+ },
+ {
+  "date": "20240621",
+  "generated": "6.620kWh",
+  "peak": "2.414kW",
+  "time": "11:55AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 63C"
+ },
+ {
+  "date": "20240622",
+  "generated": "10.162kWh",
+  "peak": "2.692kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 71C"
+ },
+ {
+  "date": "20240623",
+  "generated": "8.561kWh",
+  "peak": "2.330kW",
+  "time": "2:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 64C"
+ },
+ {
+  "date": "20240624",
+  "generated": "10.454kWh",
+  "peak": "2.484kW",
+  "time": "11:35AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240625",
+  "generated": "7.580kWh",
+  "peak": "2.148kW",
+  "time": "10:25AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 62C"
+ },
+ {
+  "date": "20240626",
+  "generated": "6.659kWh",
+  "peak": "2.392kW",
+  "time": "11:25AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 70C"
+ },
+ {
+  "date": "20240627",
+  "generated": "9.498kWh",
+  "peak": "2.289kW",
+  "time": "2:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 67C"
+ },
+ {
+  "date": "20240628",
+  "generated": "15.610kWh",
+  "peak": "2.212kW",
+  "time": "11:30AM",
+  "conditions": "Fine",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240629",
+  "generated": "13.899kWh",
+  "peak": "2.287kW",
+  "time": "12:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240630",
+  "generated": "15.492kWh",
+  "peak": "2.346kW",
+  "time": "12:55PM",
+  "conditions": "Fine",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240701",
+  "generated": "6.910kWh",
+  "peak": "1.469kW",
+  "time": "11:55AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 56C"
+ },
+ {
+  "date": "20240702",
+  "generated": "14.898kWh",
+  "peak": "2.219kW",
+  "time": "12:55PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240703",
+  "generated": "13.744kWh",
+  "peak": "2.578kW",
+  "time": "12:40PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240704",
+  "generated": "13.828kWh",
+  "peak": "2.230kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240705",
+  "generated": "13.058kWh",
+  "peak": "2.530kW",
+  "time": "12:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240706",
+  "generated": "8.389kWh",
+  "peak": "1.415kW",
+  "time": "9:20AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 60C"
+ },
+ {
+  "date": "20240707",
+  "generated": "14.144kWh",
+  "peak": "2.515kW",
+  "time": "1:50PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240708",
+  "generated": "9.988kWh",
+  "peak": "1.929kW",
+  "time": "1:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 66C"
+ },
+ {
+  "date": "20240709",
+  "generated": "10.840kWh",
+  "peak": "2.182kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 70C"
+ },
+ {
+  "date": "20240710",
+  "generated": "14.626kWh",
+  "peak": "2.351kW",
+  "time": "12:40PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240711",
+  "generated": "13.802kWh",
+  "peak": "2.262kW",
+  "time": "11:45AM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240712",
+  "generated": "11.701kWh",
+  "peak": "2.696kW",
+  "time": "12:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240713",
+  "generated": "3.974kWh",
+  "peak": "0.970kW",
+  "time": "2:00PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 51C"
+ },
+ {
+  "date": "20240714",
+  "generated": "11.752kWh",
+  "peak": "1.978kW",
+  "time": "2:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 68C"
+ },
+ {
+  "date": "20240715",
+  "generated": "4.984kWh",
+  "peak": "2.537kW",
+  "time": "11:00AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 60C"
+ },
+ {
+  "date": "20240716",
+  "generated": "10.190kWh",
+  "peak": "2.134kW",
+  "time": "12:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 67C"
+ },
+ {
+  "date": "20240717",
+  "generated": "5.266kWh",
+  "peak": "2.294kW",
+  "time": "9:40AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 60C"
+ },
+ {
+  "date": "20240718",
+  "generated": "7.926kWh",
+  "peak": "2.152kW",
+  "time": "2:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 61C"
+ },
+ {
+  "date": "20240719",
+  "generated": "10.358kWh",
+  "peak": "2.024kW",
+  "time": "11:40AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 70C"
+ },
+ {
+  "date": "20240720",
+  "generated": "10.578kWh",
+  "peak": "2.626kW",
+  "time": "12:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240721",
+  "generated": "12.049kWh",
+  "peak": "2.217kW",
+  "time": "10:50AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 72C"
+ },
+ {
+  "date": "20240722",
+  "generated": "7.680kWh",
+  "peak": "1.939kW",
+  "time": "12:50PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 67C"
+ },
+ {
+  "date": "20240723",
+  "generated": "14.690kWh",
+  "peak": "2.503kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240724",
+  "generated": "14.164kWh",
+  "peak": "2.278kW",
+  "time": "12:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240725",
+  "generated": "12.349kWh",
+  "peak": "2.098kW",
+  "time": "12:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 72C"
+ },
+ {
+  "date": "20240726",
+  "generated": "11.588kWh",
+  "peak": "2.503kW",
+  "time": "12:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240727",
+  "generated": "7.901kWh",
+  "peak": "1.779kW",
+  "time": "3:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 68C"
+ },
+ {
+  "date": "20240728",
+  "generated": "10.658kWh",
+  "peak": "2.635kW",
+  "time": "12:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 69C"
+ },
+ {
+  "date": "20240729",
+  "generated": "5.428kWh",
+  "peak": "1.479kW",
+  "time": "10:55AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 56C"
+ },
+ {
+  "date": "20240730",
+  "generated": "8.509kWh",
+  "peak": "2.102kW",
+  "time": "12:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 62C"
+ },
+ {
+  "date": "20240731",
+  "generated": "12.158kWh",
+  "peak": "2.750kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240801",
+  "generated": "14.839kWh",
+  "peak": "2.254kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240802",
+  "generated": "13.039kWh",
+  "peak": "2.749kW",
+  "time": "11:55AM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240803",
+  "generated": "12.621kWh",
+  "peak": "2.665kW",
+  "time": "11:35AM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240804",
+  "generated": "16.060kWh",
+  "peak": "2.504kW",
+  "time": "11:25AM",
+  "conditions": "Fine",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20240805",
+  "generated": "13.806kWh",
+  "peak": "2.306kW",
+  "time": "11:25AM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240806",
+  "generated": "10.856kWh",
+  "peak": "2.124kW",
+  "time": "2:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 68C"
+ },
+ {
+  "date": "20240807",
+  "generated": "13.844kWh",
+  "peak": "2.357kW",
+  "time": "12:15PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240808",
+  "generated": "13.177kWh",
+  "peak": "2.410kW",
+  "time": "1:45PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240809",
+  "generated": "15.558kWh",
+  "peak": "2.280kW",
+  "time": "12:35PM",
+  "conditions": "Fine",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240810",
+  "generated": "12.376kWh",
+  "peak": "2.709kW",
+  "time": "2:05PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20240811",
+  "generated": "12.637kWh",
+  "peak": "2.838kW",
+  "time": "12:40PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240812",
+  "generated": "12.472kWh",
+  "peak": "2.283kW",
+  "time": "12:50PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240813",
+  "generated": "10.498kWh",
+  "peak": "2.391kW",
+  "time": "2:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240814",
+  "generated": "11.893kWh",
+  "peak": "2.781kW",
+  "time": "12:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20240815",
+  "generated": "10.314kWh",
+  "peak": "2.696kW",
+  "time": "11:55AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240816",
+  "generated": "10.440kWh",
+  "peak": "2.602kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240817",
+  "generated": "12.215kWh",
+  "peak": "2.562kW",
+  "time": "12:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240818",
+  "generated": "15.001kWh",
+  "peak": "2.433kW",
+  "time": "12:40PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20240819",
+  "generated": "12.922kWh",
+  "peak": "2.616kW",
+  "time": "12:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240820",
+  "generated": "14.472kWh",
+  "peak": "2.360kW",
+  "time": "12:40PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20240821",
+  "generated": "11.167kWh",
+  "peak": "2.730kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240822",
+  "generated": "9.336kWh",
+  "peak": "2.711kW",
+  "time": "1:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240823",
+  "generated": "12.986kWh",
+  "peak": "2.393kW",
+  "time": "1:45PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240824",
+  "generated": "13.974kWh",
+  "peak": "2.653kW",
+  "time": "1:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20240825",
+  "generated": "14.713kWh",
+  "peak": "2.367kW",
+  "time": "12:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240826",
+  "generated": "15.195kWh",
+  "peak": "2.526kW",
+  "time": "12:55PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20240827",
+  "generated": "13.356kWh",
+  "peak": "2.404kW",
+  "time": "1:15PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240828",
+  "generated": "11.596kWh",
+  "peak": "1.785kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 71C"
+ },
+ {
+  "date": "20240829",
+  "generated": "14.399kWh",
+  "peak": "2.548kW",
+  "time": "1:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240830",
+  "generated": "3.979kWh",
+  "peak": "1.100kW",
+  "time": "11:40AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 54C"
+ },
+ {
+  "date": "20240831",
+  "generated": "9.447kWh",
+  "peak": "2.477kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20240901",
+  "generated": "8.200kWh",
+  "peak": "2.131kW",
+  "time": "12:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 64C"
+ },
+ {
+  "date": "20240902",
+  "generated": "13.613kWh",
+  "peak": "2.463kW",
+  "time": "12:55PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240903",
+  "generated": "11.238kWh",
+  "peak": "2.833kW",
+  "time": "11:35AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240904",
+  "generated": "14.618kWh",
+  "peak": "2.418kW",
+  "time": "1:05PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20240905",
+  "generated": "13.670kWh",
+  "peak": "2.527kW",
+  "time": "11:15AM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20240906",
+  "generated": "13.186kWh",
+  "peak": "2.360kW",
+  "time": "12:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240907",
+  "generated": "12.562kWh",
+  "peak": "2.361kW",
+  "time": "12:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240908",
+  "generated": "13.223kWh",
+  "peak": "2.233kW",
+  "time": "12:15PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20240909",
+  "generated": "12.040kWh",
+  "peak": "2.502kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240910",
+  "generated": "14.008kWh",
+  "peak": "2.495kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240911",
+  "generated": "11.514kWh",
+  "peak": "2.599kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240912",
+  "generated": "12.284kWh",
+  "peak": "2.477kW",
+  "time": "12:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20240913",
+  "generated": "13.374kWh",
+  "peak": "2.392kW",
+  "time": "1:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20240914",
+  "generated": "13.130kWh",
+  "peak": "2.383kW",
+  "time": "12:50PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240915",
+  "generated": "13.320kWh",
+  "peak": "2.495kW",
+  "time": "1:40PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20240916",
+  "generated": "13.664kWh",
+  "peak": "2.404kW",
+  "time": "12:40PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20240917",
+  "generated": "14.351kWh",
+  "peak": "2.412kW",
+  "time": "12:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 80C"
+ },
+ {
+  "date": "20240918",
+  "generated": "13.630kWh",
+  "peak": "2.366kW",
+  "time": "12:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20240919",
+  "generated": "13.718kWh",
+  "peak": "2.312kW",
+  "time": "12:45PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20240920",
+  "generated": "12.882kWh",
+  "peak": "2.428kW",
+  "time": "12:40PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 80C"
+ },
+ {
+  "date": "20240921",
+  "generated": "13.432kWh",
+  "peak": "2.537kW",
+  "time": "12:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20240922",
+  "generated": "10.448kWh",
+  "peak": "2.261kW",
+  "time": "2:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240923",
+  "generated": "10.756kWh",
+  "peak": "2.522kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240924",
+  "generated": "11.974kWh",
+  "peak": "2.492kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20240925",
+  "generated": "8.286kWh",
+  "peak": "2.436kW",
+  "time": "2:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20240926",
+  "generated": "12.100kWh",
+  "peak": "2.308kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240927",
+  "generated": "12.602kWh",
+  "peak": "2.374kW",
+  "time": "12:50PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240928",
+  "generated": "9.570kWh",
+  "peak": "2.655kW",
+  "time": "1:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20240929",
+  "generated": "11.707kWh",
+  "peak": "2.271kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20240930",
+  "generated": "11.392kWh",
+  "peak": "2.665kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20241001",
+  "generated": "8.026kWh",
+  "peak": "2.421kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20241002",
+  "generated": "5.993kWh",
+  "peak": "1.056kW",
+  "time": "1:45PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 57C"
+ },
+ {
+  "date": "20241003",
+  "generated": "10.087kWh",
+  "peak": "2.019kW",
+  "time": "1:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "42 to 71C"
+ },
+ {
+  "date": "20241004",
+  "generated": "10.074kWh",
+  "peak": "2.590kW",
+  "time": "12:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20241005",
+  "generated": "9.116kWh",
+  "peak": "1.830kW",
+  "time": "1:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 68C"
+ },
+ {
+  "date": "20241006",
+  "generated": "8.508kWh",
+  "peak": "1.975kW",
+  "time": "2:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 65C"
+ },
+ {
+  "date": "20241007",
+  "generated": "8.830kWh",
+  "peak": "1.961kW",
+  "time": "12:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 67C"
+ },
+ {
+  "date": "20241008",
+  "generated": "9.858kWh",
+  "peak": "2.162kW",
+  "time": "2:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 71C"
+ },
+ {
+  "date": "20241009",
+  "generated": "9.398kWh",
+  "peak": "2.677kW",
+  "time": "12:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20241010",
+  "generated": "11.826kWh",
+  "peak": "2.570kW",
+  "time": "12:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20241011",
+  "generated": "5.826kWh",
+  "peak": "1.817kW",
+  "time": "12:30PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 59C"
+ },
+ {
+  "date": "20241012",
+  "generated": "11.060kWh",
+  "peak": "2.744kW",
+  "time": "12:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20241013",
+  "generated": "11.062kWh",
+  "peak": "2.673kW",
+  "time": "12:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20241014",
+  "generated": "7.192kWh",
+  "peak": "1.592kW",
+  "time": "1:10PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 63C"
+ },
+ {
+  "date": "20241015",
+  "generated": "7.938kWh",
+  "peak": "2.173kW",
+  "time": "12:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 69C"
+ },
+ {
+  "date": "20241016",
+  "generated": "9.750kWh",
+  "peak": "2.190kW",
+  "time": "12:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20241017",
+  "generated": "0.007kWh",
+  "peak": "0.010kW",
+  "time": "12:00AM",
+  "conditions": "Showers",
+  "temp": "0 to 44C"
+ },
+ {
+  "date": "20241018",
+  "generated": "17.054kWh",
+  "peak": "2.321kW",
+  "time": "12:30PM",
+  "conditions": "Fine",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20241019",
+  "generated": "21.093kWh",
+  "peak": "0.885kW",
+  "time": "12:00AM",
+  "conditions": "Fine",
+  "temp": "43 to 69C"
+ },
+ {
+  "date": "20241020",
+  "generated": "9.237kWh",
+  "peak": "2.510kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20241021",
+  "generated": "9.328kWh",
+  "peak": "2.474kW",
+  "time": "12:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20241022",
+  "generated": "7.858kWh",
+  "peak": "2.270kW",
+  "time": "12:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20241023",
+  "generated": "3.615kWh",
+  "peak": "2.506kW",
+  "time": "12:55PM",
+  "conditions": "Cloudy",
+  "temp": "40 to 76C"
+ },
+ {
+  "date": "20241024",
+  "generated": "6.936kWh",
+  "peak": "1.790kW",
+  "time": "12:25PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 66C"
+ },
+ {
+  "date": "20241025",
+  "generated": "1.699kWh",
+  "peak": "0.521kW",
+  "time": "4:00PM",
+  "conditions": "Showers",
+  "temp": "0 to 44C"
+ },
+ {
+  "date": "20241026",
+  "generated": "10.546kWh",
+  "peak": "2.776kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 72C"
+ },
+ {
+  "date": "20241027",
+  "generated": "10.231kWh",
+  "peak": "2.748kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20241028",
+  "generated": "9.199kWh",
+  "peak": "2.299kW",
+  "time": "12:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20241029",
+  "generated": "12.525kWh",
+  "peak": "2.279kW",
+  "time": "12:05PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20241030",
+  "generated": "10.936kWh",
+  "peak": "2.200kW",
+  "time": "12:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20241031",
+  "generated": "8.396kWh",
+  "peak": "2.126kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20241101",
+  "generated": "0.031kWh",
+  "peak": "0.011kW",
+  "time": "9:25PM",
+  "conditions": "Showers",
+  "temp": "0 to 42C"
+ },
+ {
+  "date": "20241102",
+  "generated": "4.824kWh",
+  "peak": "2.479kW",
+  "time": "12:10PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20241103",
+  "generated": "7.124kWh",
+  "peak": "2.531kW",
+  "time": "11:50AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20241104",
+  "generated": "5.243kWh",
+  "peak": "2.365kW",
+  "time": "12:50PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 71C"
+ },
+ {
+  "date": "20241105",
+  "generated": "10.148kWh",
+  "peak": "2.288kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20241106",
+  "generated": "10.720kWh",
+  "peak": "2.161kW",
+  "time": "11:55AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20241107",
+  "generated": "10.974kWh",
+  "peak": "2.032kW",
+  "time": "12:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20241108",
+  "generated": "4.586kWh",
+  "peak": "1.207kW",
+  "time": "12:00PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 61C"
+ },
+ {
+  "date": "20241109",
+  "generated": "9.633kWh",
+  "peak": "2.345kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20241110",
+  "generated": "6.295kWh",
+  "peak": "2.123kW",
+  "time": "12:30PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20241111",
+  "generated": "10.116kWh",
+  "peak": "2.046kW",
+  "time": "12:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20241112",
+  "generated": "25.976kWh",
+  "peak": "2.060kW",
+  "time": "12:40PM",
+  "conditions": "Fine",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20241113",
+  "generated": "30.034kWh",
+  "peak": "1.916kW",
+  "time": "12:00AM",
+  "conditions": "Fine",
+  "temp": "45 to 75C"
+ },
+ {
+  "date": "20241114",
+  "generated": "7.451kWh",
+  "peak": "0.799kW",
+  "time": "10:40AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 57C"
+ },
+ {
+  "date": "20241115",
+  "generated": "1.866kWh",
+  "peak": "0.117kW",
+  "time": "9:15AM",
+  "conditions": "Showers",
+  "temp": "0 to 42C"
+ },
+ {
+  "date": "20241116",
+  "generated": "4.943kWh",
+  "peak": "2.584kW",
+  "time": "12:50PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 69C"
+ },
+ {
+  "date": "20241117",
+  "generated": "8.884kWh",
+  "peak": "2.305kW",
+  "time": "12:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20241118",
+  "generated": "8.241kWh",
+  "peak": "2.244kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20241119",
+  "generated": "5.693kWh",
+  "peak": "1.476kW",
+  "time": "1:55PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 59C"
+ },
+ {
+  "date": "20241120",
+  "generated": "3.331kWh",
+  "peak": "0.592kW",
+  "time": "1:55PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 47C"
+ },
+ {
+  "date": "20241121",
+  "generated": "4.492kWh",
+  "peak": "1.085kW",
+  "time": "1:45PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 52C"
+ },
+ {
+  "date": "20241122",
+  "generated": "8.218kWh",
+  "peak": "2.301kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20241123",
+  "generated": "7.958kWh",
+  "peak": "2.323kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 71C"
+ },
+ {
+  "date": "20241124",
+  "generated": "7.462kWh",
+  "peak": "1.919kW",
+  "time": "1:05PM",
+  "conditions": "Cloudy",
+  "temp": "42 to 68C"
+ },
+ {
+  "date": "20241125",
+  "generated": "5.522kWh",
+  "peak": "1.673kW",
+  "time": "12:00PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 65C"
+ },
+ {
+  "date": "20241126",
+  "generated": "4.222kWh",
+  "peak": "0.750kW",
+  "time": "1:40PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 50C"
+ },
+ {
+  "date": "20241127",
+  "generated": "3.296kWh",
+  "peak": "0.597kW",
+  "time": "10:40AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 47C"
+ },
+ {
+  "date": "20241128",
+  "generated": "7.086kWh",
+  "peak": "2.501kW",
+  "time": "12:30PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20241129",
+  "generated": "6.621kWh",
+  "peak": "1.476kW",
+  "time": "2:00PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 60C"
+ },
+ {
+  "date": "20241130",
+  "generated": "7.406kWh",
+  "peak": "1.710kW",
+  "time": "12:10PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 70C"
+ },
+ {
+  "date": "20241201",
+  "generated": "5.966kWh",
+  "peak": "2.645kW",
+  "time": "12:35PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 66C"
+ },
+ {
+  "date": "20241202",
+  "generated": "7.116kWh",
+  "peak": "1.968kW",
+  "time": "12:25PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 63C"
+ },
+ {
+  "date": "20241203",
+  "generated": "9.922kWh",
+  "peak": "2.157kW",
+  "time": "12:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 80C"
+ },
+ {
+  "date": "20241204",
+  "generated": "4.893kWh",
+  "peak": "2.015kW",
+  "time": "12:35PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20241205",
+  "generated": "7.818kWh",
+  "peak": "2.224kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20241206",
+  "generated": "9.098kWh",
+  "peak": "2.061kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20241207",
+  "generated": "8.547kWh",
+  "peak": "2.368kW",
+  "time": "12:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 81C"
+ },
+ {
+  "date": "20241208",
+  "generated": "9.212kWh",
+  "peak": "2.071kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20241209",
+  "generated": "8.866kWh",
+  "peak": "1.973kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20241210",
+  "generated": "8.398kWh",
+  "peak": "2.079kW",
+  "time": "12:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20241211",
+  "generated": "8.827kWh",
+  "peak": "1.836kW",
+  "time": "1:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20241212",
+  "generated": "3.371kWh",
+  "peak": "0.640kW",
+  "time": "2:55PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 47C"
+ },
+ {
+  "date": "20241213",
+  "generated": "6.718kWh",
+  "peak": "2.289kW",
+  "time": "1:55PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20241214",
+  "generated": "4.501kWh",
+  "peak": "0.902kW",
+  "time": "10:15AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 49C"
+ },
+ {
+  "date": "20241215",
+  "generated": "8.677kWh",
+  "peak": "2.308kW",
+  "time": "1:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20241216",
+  "generated": "6.520kWh",
+  "peak": "2.154kW",
+  "time": "2:25PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 68C"
+ },
+ {
+  "date": "20241217",
+  "generated": "8.729kWh",
+  "peak": "2.105kW",
+  "time": "1:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20241218",
+  "generated": "9.188kWh",
+  "peak": "2.044kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20241219",
+  "generated": "9.287kWh",
+  "peak": "2.052kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20241220",
+  "generated": "8.853kWh",
+  "peak": "2.105kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 81C"
+ },
+ {
+  "date": "20241221",
+  "generated": "7.444kWh",
+  "peak": "1.695kW",
+  "time": "12:15PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 67C"
+ },
+ {
+  "date": "20241222",
+  "generated": "9.030kWh",
+  "peak": "2.277kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 81C"
+ },
+ {
+  "date": "20241223",
+  "generated": "9.150kWh",
+  "peak": "2.189kW",
+  "time": "12:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 82C"
+ },
+ {
+  "date": "20241224",
+  "generated": "9.496kWh",
+  "peak": "2.191kW",
+  "time": "12:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 83C"
+ },
+ {
+  "date": "20241225",
+  "generated": "9.356kWh",
+  "peak": "2.161kW",
+  "time": "12:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 80C"
+ },
+ {
+  "date": "20241226",
+  "generated": "8.998kWh",
+  "peak": "2.057kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20241227",
+  "generated": "9.418kWh",
+  "peak": "2.023kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20241228",
+  "generated": "8.772kWh",
+  "peak": "2.098kW",
+  "time": "12:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20241229",
+  "generated": "9.020kWh",
+  "peak": "2.039kW",
+  "time": "1:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20241230",
+  "generated": "5.968kWh",
+  "peak": "1.897kW",
+  "time": "12:50PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 65C"
+ },
+ {
+  "date": "20241231",
+  "generated": "6.806kWh",
+  "peak": "2.198kW",
+  "time": "1:40PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20250101",
+  "generated": "8.600kWh",
+  "peak": "2.207kW",
+  "time": "1:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 72C"
+ },
+ {
+  "date": "20250102",
+  "generated": "9.076kWh",
+  "peak": "1.998kW",
+  "time": "1:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20250103",
+  "generated": "8.388kWh",
+  "peak": "1.926kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20250104",
+  "generated": "8.892kWh",
+  "peak": "1.942kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20250105",
+  "generated": "6.860kWh",
+  "peak": "2.000kW",
+  "time": "1:05PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20250106",
+  "generated": "8.591kWh",
+  "peak": "1.981kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20250107",
+  "generated": "9.114kWh",
+  "peak": "1.904kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20250108",
+  "generated": "8.854kWh",
+  "peak": "2.024kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20250109",
+  "generated": "9.102kWh",
+  "peak": "2.009kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20250110",
+  "generated": "8.656kWh",
+  "peak": "1.985kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20250111",
+  "generated": "9.222kWh",
+  "peak": "2.048kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20250112",
+  "generated": "7.164kWh",
+  "peak": "2.682kW",
+  "time": "1:30PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20250113",
+  "generated": "9.674kWh",
+  "peak": "2.274kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20250114",
+  "generated": "6.179kWh",
+  "peak": "2.828kW",
+  "time": "1:00PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 67C"
+ },
+ {
+  "date": "20250115",
+  "generated": "10.105kWh",
+  "peak": "2.243kW",
+  "time": "1:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 82C"
+ },
+ {
+  "date": "20250116",
+  "generated": "10.177kWh",
+  "peak": "2.651kW",
+  "time": "12:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20250117",
+  "generated": "9.642kWh",
+  "peak": "2.069kW",
+  "time": "12:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20250118",
+  "generated": "7.061kWh",
+  "peak": "2.111kW",
+  "time": "12:40PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20250119",
+  "generated": "4.672kWh",
+  "peak": "0.983kW",
+  "time": "11:15AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 54C"
+ },
+ {
+  "date": "20250120",
+  "generated": "8.570kWh",
+  "peak": "2.423kW",
+  "time": "12:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20250121",
+  "generated": "9.597kWh",
+  "peak": "2.022kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20250122",
+  "generated": "7.822kWh",
+  "peak": "2.348kW",
+  "time": "1:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20250123",
+  "generated": "9.780kWh",
+  "peak": "2.094kW",
+  "time": "1:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20250124",
+  "generated": "9.141kWh",
+  "peak": "2.157kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20250125",
+  "generated": "7.238kWh",
+  "peak": "1.870kW",
+  "time": "2:50PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 69C"
+ },
+ {
+  "date": "20250126",
+  "generated": "9.340kWh",
+  "peak": "2.118kW",
+  "time": "1:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20250127",
+  "generated": "10.173kWh",
+  "peak": "2.288kW",
+  "time": "12:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 80C"
+ },
+ {
+  "date": "20250128",
+  "generated": "9.099kWh",
+  "peak": "2.248kW",
+  "time": "1:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20250129",
+  "generated": "6.974kWh",
+  "peak": "1.461kW",
+  "time": "2:25PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 62C"
+ },
+ {
+  "date": "20250130",
+  "generated": "8.502kWh",
+  "peak": "1.689kW",
+  "time": "1:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 67C"
+ },
+ {
+  "date": "20250131",
+  "generated": "8.922kWh",
+  "peak": "2.360kW",
+  "time": "1:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20250201",
+  "generated": "9.900kWh",
+  "peak": "2.124kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20250202",
+  "generated": "9.840kWh",
+  "peak": "2.110kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20250203",
+  "generated": "9.778kWh",
+  "peak": "2.097kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20250204",
+  "generated": "9.456kWh",
+  "peak": "2.122kW",
+  "time": "12:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20250205",
+  "generated": "9.874kWh",
+  "peak": "2.045kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20250206",
+  "generated": "9.446kWh",
+  "peak": "2.003kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20250207",
+  "generated": "9.742kWh",
+  "peak": "2.078kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20250208",
+  "generated": "9.606kWh",
+  "peak": "2.176kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20250209",
+  "generated": "9.112kWh",
+  "peak": "1.826kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 71C"
+ },
+ {
+  "date": "20250210",
+  "generated": "9.790kWh",
+  "peak": "2.051kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20250211",
+  "generated": "10.016kWh",
+  "peak": "2.150kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20250212",
+  "generated": "9.798kWh",
+  "peak": "2.052kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20250213",
+  "generated": "9.834kWh",
+  "peak": "2.120kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20250214",
+  "generated": "9.486kWh",
+  "peak": "2.037kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20250215",
+  "generated": "9.666kWh",
+  "peak": "2.075kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20250216",
+  "generated": "9.857kWh",
+  "peak": "2.124kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20250217",
+  "generated": "9.817kWh",
+  "peak": "2.017kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20250218",
+  "generated": "9.851kWh",
+  "peak": "2.114kW",
+  "time": "12:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20250219",
+  "generated": "9.610kWh",
+  "peak": "2.043kW",
+  "time": "1:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20250220",
+  "generated": "9.840kWh",
+  "peak": "2.059kW",
+  "time": "12:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20250221",
+  "generated": "10.152kWh",
+  "peak": "2.085kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20250222",
+  "generated": "9.747kWh",
+  "peak": "2.076kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20250223",
+  "generated": "10.202kWh",
+  "peak": "2.043kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 72C"
+ },
+ {
+  "date": "20250224",
+  "generated": "10.166kWh",
+  "peak": "2.106kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20250225",
+  "generated": "10.836kWh",
+  "peak": "2.127kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20250226",
+  "generated": "7.262kWh",
+  "peak": "2.096kW",
+  "time": "2:00PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 69C"
+ },
+ {
+  "date": "20250227",
+  "generated": "10.662kWh",
+  "peak": "2.135kW",
+  "time": "1:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20250228",
+  "generated": "9.260kWh",
+  "peak": "2.503kW",
+  "time": "1:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20250301",
+  "generated": "8.774kWh",
+  "peak": "2.627kW",
+  "time": "3:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20250302",
+  "generated": "3.745kWh",
+  "peak": "1.467kW",
+  "time": "11:50AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 56C"
+ },
+ {
+  "date": "20250303",
+  "generated": "7.401kWh",
+  "peak": "2.387kW",
+  "time": "12:45PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 71C"
+ },
+ {
+  "date": "20250304",
+  "generated": "10.186kWh",
+  "peak": "2.374kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20250305",
+  "generated": "11.786kWh",
+  "peak": "2.265kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20250306",
+  "generated": "11.767kWh",
+  "peak": "2.216kW",
+  "time": "12:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20250307",
+  "generated": "11.574kWh",
+  "peak": "2.156kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20250308",
+  "generated": "12.188kWh",
+  "peak": "2.191kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20250309",
+  "generated": "11.528kWh",
+  "peak": "2.166kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20250310",
+  "generated": "11.714kWh",
+  "peak": "2.349kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 80C"
+ },
+ {
+  "date": "20250311",
+  "generated": "4.982kWh",
+  "peak": "1.310kW",
+  "time": "11:40AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 60C"
+ },
+ {
+  "date": "20250312",
+  "generated": "5.593kWh",
+  "peak": "1.077kW",
+  "time": "1:25PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 57C"
+ },
+ {
+  "date": "20250313",
+  "generated": "12.008kWh",
+  "peak": "2.156kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20250314",
+  "generated": "12.018kWh",
+  "peak": "2.431kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 80C"
+ },
+ {
+  "date": "20250315",
+  "generated": "12.180kWh",
+  "peak": "2.342kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 80C"
+ },
+ {
+  "date": "20250316",
+  "generated": "11.046kWh",
+  "peak": "2.439kW",
+  "time": "12:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20250317",
+  "generated": "10.879kWh",
+  "peak": "2.705kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20250318",
+  "generated": "12.809kWh",
+  "peak": "2.298kW",
+  "time": "12:45PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20250319",
+  "generated": "12.573kWh",
+  "peak": "2.394kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20250320",
+  "generated": "13.259kWh",
+  "peak": "2.310kW",
+  "time": "1:05PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20250321",
+  "generated": "13.940kWh",
+  "peak": "2.314kW",
+  "time": "12:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 80C"
+ },
+ {
+  "date": "20250322",
+  "generated": "6.248kWh",
+  "peak": "1.664kW",
+  "time": "11:15AM",
+  "conditions": "Cloudy",
+  "temp": "0 to 65C"
+ },
+ {
+  "date": "20250323",
+  "generated": "12.364kWh",
+  "peak": "2.400kW",
+  "time": "1:05PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 81C"
+ },
+ {
+  "date": "20250324",
+  "generated": "13.090kWh",
+  "peak": "2.264kW",
+  "time": "12:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20250325",
+  "generated": "11.782kWh",
+  "peak": "2.234kW",
+  "time": "12:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20250326",
+  "generated": "13.030kWh",
+  "peak": "2.239kW",
+  "time": "12:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20250327",
+  "generated": "13.700kWh",
+  "peak": "2.222kW",
+  "time": "12:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20250328",
+  "generated": "13.119kWh",
+  "peak": "2.130kW",
+  "time": "12:05PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20250329",
+  "generated": "12.339kWh",
+  "peak": "2.320kW",
+  "time": "12:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20250330",
+  "generated": "14.054kWh",
+  "peak": "2.270kW",
+  "time": "12:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 80C"
+ },
+ {
+  "date": "20250331",
+  "generated": "13.208kWh",
+  "peak": "2.183kW",
+  "time": "12:15PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20250401",
+  "generated": "12.174kWh",
+  "peak": "2.172kW",
+  "time": "12:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20250402",
+  "generated": "12.566kWh",
+  "peak": "2.262kW",
+  "time": "12:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20250403",
+  "generated": "11.453kWh",
+  "peak": "2.331kW",
+  "time": "1:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 79C"
+ },
+ {
+  "date": "20250404",
+  "generated": "9.502kWh",
+  "peak": "2.365kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 80C"
+ },
+ {
+  "date": "20250405",
+  "generated": "12.153kWh",
+  "peak": "2.371kW",
+  "time": "12:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20250406",
+  "generated": "14.516kWh",
+  "peak": "2.210kW",
+  "time": "1:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20250407",
+  "generated": "13.194kWh",
+  "peak": "2.603kW",
+  "time": "12:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 81C"
+ },
+ {
+  "date": "20250408",
+  "generated": "13.160kWh",
+  "peak": "2.214kW",
+  "time": "12:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20250409",
+  "generated": "11.304kWh",
+  "peak": "2.636kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 73C"
+ },
+ {
+  "date": "20250410",
+  "generated": "1.730kWh",
+  "peak": "0.830kW",
+  "time": "4:20PM",
+  "conditions": "Showers",
+  "temp": "0 to 51C"
+ },
+ {
+  "date": "20250411",
+  "generated": "0.002kWh",
+  "peak": "0.012kW",
+  "time": "12:00AM",
+  "conditions": "Showers",
+  "temp": "0 to 43C"
+ },
+ {
+  "date": "20250412",
+  "generated": "0.000kWh",
+  "peak": "0.000kW",
+  "time": "12:00AM",
+  "conditions": "Not Sure",
+  "temp": "0 to 36C"
+ },
+ {
+  "date": "20250413",
+  "generated": "0.000kWh",
+  "peak": "0.000kW",
+  "time": "12:00AM",
+  "conditions": "Not Sure",
+  "temp": "0 to 0C"
+ },
+ {
+  "date": "20250414",
+  "generated": "0.000kWh",
+  "peak": "0.000kW",
+  "time": "12:00AM",
+  "conditions": "Not Sure",
+  "temp": "0 to 0C"
+ },
+ {
+  "date": "20250415",
+  "generated": "12.690kWh",
+  "peak": "2.227kW",
+  "time": "12:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 76C"
+ },
+ {
+  "date": "20250416",
+  "generated": "13.445kWh",
+  "peak": "2.240kW",
+  "time": "11:55AM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 78C"
+ },
+ {
+  "date": "20250417",
+  "generated": "14.097kWh",
+  "peak": "2.161kW",
+  "time": "12:15PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20250418",
+  "generated": "11.572kWh",
+  "peak": "2.126kW",
+  "time": "12:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20250419",
+  "generated": "0.000kWh",
+  "peak": "0.000kW",
+  "time": "12:00AM",
+  "conditions": "Not Sure",
+  "temp": "0 to 45C"
+ },
+ {
+  "date": "20250420",
+  "generated": "3.651kWh",
+  "peak": "1.849kW",
+  "time": "2:25PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 64C"
+ },
+ {
+  "date": "20250421",
+  "generated": "13.798kWh",
+  "peak": "2.163kW",
+  "time": "11:45AM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 77C"
+ },
+ {
+  "date": "20250422",
+  "generated": "0.001kWh",
+  "peak": "0.012kW",
+  "time": "12:00AM",
+  "conditions": "Showers",
+  "temp": "0 to 45C"
+ },
+ {
+  "date": "20250423",
+  "generated": "14.406kWh",
+  "peak": "1.814kW",
+  "time": "3:05PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 48C"
+ },
+ {
+  "date": "20250424",
+  "generated": "0.619kWh",
+  "peak": "1.611kW",
+  "time": "12:00AM",
+  "conditions": "Showers",
+  "temp": "0 to 48C"
+ },
+ {
+  "date": "20250425",
+  "generated": "10.792kWh",
+  "peak": "2.176kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 72C"
+ },
+ {
+  "date": "20250426",
+  "generated": "0.001kWh",
+  "peak": "0.010kW",
+  "time": "12:00AM",
+  "conditions": "Showers",
+  "temp": "0 to 43C"
+ },
+ {
+  "date": "20250427",
+  "generated": "0.000kWh",
+  "peak": "0.000kW",
+  "time": "12:00AM",
+  "conditions": "Not Sure",
+  "temp": "0 to 30C"
+ },
+ {
+  "date": "20250428",
+  "generated": "3.344kWh",
+  "peak": "2.102kW",
+  "time": "2:30PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 69C"
+ },
+ {
+  "date": "20250429",
+  "generated": "14.018kWh",
+  "peak": "2.280kW",
+  "time": "1:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "0 to 75C"
+ },
+ {
+  "date": "20250430",
+  "generated": "0.000kWh",
+  "peak": "0.000kW",
+  "time": "12:00AM",
+  "conditions": "Not Sure",
+  "temp": "0 to 44C"
+ },
+ {
+  "date": "20250501",
+  "generated": "0.000kWh",
+  "peak": "0.000kW",
+  "time": "12:00AM",
+  "conditions": "Not Sure",
+  "temp": "0 to 35C"
+ },
+ {
+  "date": "20250502",
+  "generated": "0.000kWh",
+  "peak": "0.000kW",
+  "time": "12:00AM",
+  "conditions": "Not Sure",
+  "temp": "0 to 33C"
+ },
+ {
+  "date": "20250503",
+  "generated": "0.000kWh",
+  "peak": "0.000kW",
+  "time": "12:00AM",
+  "conditions": "Not Sure",
+  "temp": "0 to 0C"
+ },
+ {
+  "date": "20250504",
+  "generated": "0.000kWh",
+  "peak": "0.000kW",
+  "time": "12:00AM",
+  "conditions": "Not Sure",
+  "temp": "0 to 0C"
+ },
+ {
+  "date": "20250505",
+  "generated": "5.644kWh",
+  "peak": "1.645kW",
+  "time": "12:50PM",
+  "conditions": "Cloudy",
+  "temp": "0 to 61C"
+ },
+ {
+  "date": "20250506",
+  "generated": "8.963kWh",
+  "peak": "2.287kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 71C"
+ },
+ {
+  "date": "20250507",
+  "generated": "10.654kWh",
+  "peak": "2.432kW",
+  "time": "11:20AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20250508",
+  "generated": "11.830kWh",
+  "peak": "2.648kW",
+  "time": "1:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "0 to 74C"
+ },
+ {
+  "date": "20250509",
+  "generated": "13.983kWh",
+  "peak": "2.406kW",
+  "time": "12:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "27 to 34C"
+ },
+ {
+  "date": "20250510",
+  "generated": "15.482kWh",
+  "peak": "2.254kW",
+  "time": "12:25PM",
+  "conditions": "Fine",
+  "temp": "28 to 33C"
+ },
+ {
+  "date": "20250511",
+  "generated": "14.715kWh",
+  "peak": "2.252kW",
+  "time": "11:50AM",
+  "conditions": "Partly Cloudy",
+  "temp": "27 to 33C"
+ },
+ {
+  "date": "20250512",
+  "generated": "14.561kWh",
+  "peak": "2.291kW",
+  "time": "12:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "27 to 33C"
+ },
+ {
+  "date": "20250513",
+  "generated": "13.071kWh",
+  "peak": "2.261kW",
+  "time": "1:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 31C"
+ },
+ {
+  "date": "20250514",
+  "generated": "15.127kWh",
+  "peak": "2.315kW",
+  "time": "1:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 30C"
+ },
+ {
+  "date": "20250515",
+  "generated": "12.979kWh",
+  "peak": "2.323kW",
+  "time": "10:30AM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20250516",
+  "generated": "13.409kWh",
+  "peak": "2.468kW",
+  "time": "10:40AM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 30C"
+ },
+ {
+  "date": "20250517",
+  "generated": "6.580kWh",
+  "peak": "1.421kW",
+  "time": "1:20PM",
+  "conditions": "Cloudy",
+  "temp": "25 to 28C"
+ },
+ {
+  "date": "20250518",
+  "generated": "10.907kWh",
+  "peak": "2.471kW",
+  "time": "11:20AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 27C"
+ },
+ {
+  "date": "20250519",
+  "generated": "11.117kWh",
+  "peak": "2.114kW",
+  "time": "10:40AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "22 to 32C"
+ },
+ {
+  "date": "20250520",
+  "generated": "12.275kWh",
+  "peak": "2.251kW",
+  "time": "12:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 29C"
+ },
+ {
+  "date": "20250521",
+  "generated": "8.515kWh",
+  "peak": "2.673kW",
+  "time": "1:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20250522",
+  "generated": "13.437kWh",
+  "peak": "2.206kW",
+  "time": "12:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20250523",
+  "generated": "12.164kWh",
+  "peak": "2.334kW",
+  "time": "12:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 33C"
+ },
+ {
+  "date": "20250524",
+  "generated": "5.956kWh",
+  "peak": "1.926kW",
+  "time": "11:05AM",
+  "conditions": "Cloudy",
+  "temp": "24 to 30C"
+ },
+ {
+  "date": "20250525",
+  "generated": "6.909kWh",
+  "peak": "2.028kW",
+  "time": "11:10AM",
+  "conditions": "Cloudy",
+  "temp": "24 to 30C"
+ },
+ {
+  "date": "20250526",
+  "generated": "3.923kWh",
+  "peak": "1.082kW",
+  "time": "11:50AM",
+  "conditions": "Cloudy",
+  "temp": "24 to 31C"
+ },
+ {
+  "date": "20250527",
+  "generated": "4.571kWh",
+  "peak": "1.165kW",
+  "time": "10:00AM",
+  "conditions": "Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "date": "20250528",
+  "generated": "14.455kWh",
+  "peak": "2.346kW",
+  "time": "10:20AM",
+  "conditions": "Partly Cloudy",
+  "temp": "28 to 32C"
+ },
+ {
+  "date": "20250529",
+  "generated": "7.920kWh",
+  "peak": "1.700kW",
+  "time": "10:55AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20250530",
+  "generated": "3.306kWh",
+  "peak": "1.242kW",
+  "time": "11:20AM",
+  "conditions": "Cloudy",
+  "temp": "24 to 28C"
+ },
+ {
+  "date": "20250531",
+  "generated": "4.453kWh",
+  "peak": "1.310kW",
+  "time": "4:10PM",
+  "conditions": "Cloudy",
+  "temp": "24 to 28C"
+ },
+ {
+  "date": "20250601",
+  "generated": "13.445kWh",
+  "peak": "2.202kW",
+  "time": "11:45AM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20250602",
+  "generated": "14.583kWh",
+  "peak": "2.386kW",
+  "time": "1:15PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20250603",
+  "generated": "13.747kWh",
+  "peak": "2.666kW",
+  "time": "11:35AM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20250604",
+  "generated": "10.049kWh",
+  "peak": "2.637kW",
+  "time": "10:35AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 29C"
+ },
+ {
+  "date": "20250605",
+  "generated": "14.273kWh",
+  "peak": "2.117kW",
+  "time": "12:05PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20250606",
+  "generated": "15.091kWh",
+  "peak": "2.145kW",
+  "time": "11:55AM",
+  "conditions": "Partly Cloudy",
+  "temp": "27 to 31C"
+ },
+ {
+  "date": "20250607",
+  "generated": "14.929kWh",
+  "peak": "2.164kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "27 to 32C"
+ },
+ {
+  "date": "20250608",
+  "generated": "15.011kWh",
+  "peak": "2.175kW",
+  "time": "12:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20250609",
+  "generated": "12.748kWh",
+  "peak": "2.696kW",
+  "time": "11:20AM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20250610",
+  "generated": "12.055kWh",
+  "peak": "2.697kW",
+  "time": "11:50AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20250611",
+  "generated": "10.199kWh",
+  "peak": "2.432kW",
+  "time": "2:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20250612",
+  "generated": "12.194kWh",
+  "peak": "2.600kW",
+  "time": "12:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20250613",
+  "generated": "5.119kWh",
+  "peak": "1.637kW",
+  "time": "10:45AM",
+  "conditions": "Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "date": "20250614",
+  "generated": "8.202kWh",
+  "peak": "2.548kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 30C"
+ },
+ {
+  "date": "20250615",
+  "generated": "6.466kWh",
+  "peak": "2.276kW",
+  "time": "12:25PM",
+  "conditions": "Cloudy",
+  "temp": "24 to 30C"
+ },
+ {
+  "date": "20250616",
+  "generated": "8.033kWh",
+  "peak": "1.718kW",
+  "time": "11:55AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 30C"
+ },
+ {
+  "date": "20250617",
+  "generated": "13.745kWh",
+  "peak": "2.880kW",
+  "time": "11:10AM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20250618",
+  "generated": "14.033kWh",
+  "peak": "2.221kW",
+  "time": "11:40AM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20250619",
+  "generated": "12.913kWh",
+  "peak": "2.554kW",
+  "time": "12:50PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 30C"
+ },
+ {
+  "date": "20250620",
+  "generated": "13.687kWh",
+  "peak": "2.200kW",
+  "time": "12:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20250621",
+  "generated": "14.784kWh",
+  "peak": "2.366kW",
+  "time": "12:40PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20250622",
+  "generated": "12.244kWh",
+  "peak": "2.467kW",
+  "time": "2:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20250623",
+  "generated": "9.846kWh",
+  "peak": "1.504kW",
+  "time": "11:15AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "date": "20250624",
+  "generated": "13.079kWh",
+  "peak": "2.381kW",
+  "time": "12:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "27 to 31C"
+ },
+ {
+  "date": "20250625",
+  "generated": "11.816kWh",
+  "peak": "2.340kW",
+  "time": "10:50AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "27 to 32C"
+ },
+ {
+  "date": "20250626",
+  "generated": "3.070kWh",
+  "peak": "1.089kW",
+  "time": "1:10PM",
+  "conditions": "Showers",
+  "temp": "24 to 28C"
+ },
+ {
+  "date": "20250627",
+  "generated": "14.159kWh",
+  "peak": "2.571kW",
+  "time": "12:50PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 31C"
+ },
+ {
+  "date": "20250628",
+  "generated": "14.107kWh",
+  "peak": "2.713kW",
+  "time": "12:50PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 31C"
+ },
+ {
+  "date": "20250629",
+  "generated": "13.567kWh",
+  "peak": "2.610kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 32C"
+ },
+ {
+  "date": "20250630",
+  "generated": "15.031kWh",
+  "peak": "2.217kW",
+  "time": "12:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20250701",
+  "generated": "13.505kWh",
+  "peak": "2.112kW",
+  "time": "12:40PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20250702",
+  "generated": "11.687kWh",
+  "peak": "2.113kW",
+  "time": "12:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20250703",
+  "generated": "12.303kWh",
+  "peak": "2.480kW",
+  "time": "12:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20250704",
+  "generated": "13.486kWh",
+  "peak": "2.321kW",
+  "time": "11:10AM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 31C"
+ },
+ {
+  "date": "20250705",
+  "generated": "14.771kWh",
+  "peak": "2.194kW",
+  "time": "11:40AM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20250706",
+  "generated": "14.487kWh",
+  "peak": "2.345kW",
+  "time": "1:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 31C"
+ },
+ {
+  "date": "20250707",
+  "generated": "14.647kWh",
+  "peak": "2.244kW",
+  "time": "12:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20250708",
+  "generated": "15.123kWh",
+  "peak": "2.274kW",
+  "time": "11:40AM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20250709",
+  "generated": "14.193kWh",
+  "peak": "2.403kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20250710",
+  "generated": "14.533kWh",
+  "peak": "2.400kW",
+  "time": "11:30AM",
+  "conditions": "Partly Cloudy",
+  "temp": "27 to 33C"
+ },
+ {
+  "date": "20250711",
+  "generated": "14.399kWh",
+  "peak": "2.149kW",
+  "time": "12:15PM",
+  "conditions": "Partly Cloudy",
+  "temp": "27 to 32C"
+ },
+ {
+  "date": "20250712",
+  "generated": "15.443kWh",
+  "peak": "2.335kW",
+  "time": "1:15PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20250713",
+  "generated": "13.883kWh",
+  "peak": "2.407kW",
+  "time": "1:05PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 31C"
+ },
+ {
+  "date": "20250714",
+  "generated": "12.277kWh",
+  "peak": "2.564kW",
+  "time": "12:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "23 to 31C"
+ },
+ {
+  "date": "20250715",
+  "generated": "12.898kWh",
+  "peak": "2.786kW",
+  "time": "12:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "23 to 30C"
+ },
+ {
+  "date": "20250716",
+  "generated": "7.881kWh",
+  "peak": "1.698kW",
+  "time": "11:30AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 28C"
+ },
+ {
+  "date": "20250717",
+  "generated": "7.451kWh",
+  "peak": "1.565kW",
+  "time": "3:25PM",
+  "conditions": "Cloudy",
+  "temp": "24 to 28C"
+ },
+ {
+  "date": "20250718",
+  "generated": "10.159kWh",
+  "peak": "2.716kW",
+  "time": "12:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 30C"
+ },
+ {
+  "date": "20250719",
+  "generated": "6.512kWh",
+  "peak": "2.275kW",
+  "time": "1:20PM",
+  "conditions": "Cloudy",
+  "temp": "23 to 27C"
+ },
+ {
+  "date": "20250720",
+  "generated": "5.763kWh",
+  "peak": "1.741kW",
+  "time": "11:50AM",
+  "conditions": "Cloudy",
+  "temp": "24 to 27C"
+ },
+ {
+  "date": "20250721",
+  "generated": "10.585kWh",
+  "peak": "2.642kW",
+  "time": "11:00AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 28C"
+ },
+ {
+  "date": "20250722",
+  "generated": "10.617kWh",
+  "peak": "2.605kW",
+  "time": "2:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 28C"
+ },
+ {
+  "date": "20250723",
+  "generated": "11.179kWh",
+  "peak": "2.786kW",
+  "time": "12:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "23 to 28C"
+ },
+ {
+  "date": "20250724",
+  "generated": "7.880kWh",
+  "peak": "1.922kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "23 to 28C"
+ },
+ {
+  "date": "20250725",
+  "generated": "11.319kWh",
+  "peak": "2.168kW",
+  "time": "12:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 30C"
+ },
+ {
+  "date": "20250726",
+  "generated": "8.823kWh",
+  "peak": "2.209kW",
+  "time": "11:50AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "22 to 29C"
+ },
+ {
+  "date": "20250727",
+  "generated": "13.982kWh",
+  "peak": "2.287kW",
+  "time": "1:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "23 to 30C"
+ },
+ {
+  "date": "20250728",
+  "generated": "13.914kWh",
+  "peak": "2.480kW",
+  "time": "12:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 30C"
+ },
+ {
+  "date": "20250729",
+  "generated": "15.445kWh",
+  "peak": "2.330kW",
+  "time": "12:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 32C"
+ },
+ {
+  "date": "20250730",
+  "generated": "13.741kWh",
+  "peak": "2.828kW",
+  "time": "11:50AM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20250731",
+  "generated": "11.803kWh",
+  "peak": "2.616kW",
+  "time": "11:40AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "date": "20250801",
+  "generated": "11.063kWh",
+  "peak": "2.203kW",
+  "time": "11:15AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 30C"
+ },
+ {
+  "date": "20250802",
+  "generated": "12.032kWh",
+  "peak": "2.633kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20250803",
+  "generated": "4.255kWh",
+  "peak": "1.036kW",
+  "time": "10:35AM",
+  "conditions": "Cloudy",
+  "temp": "24 to 26C"
+ },
+ {
+  "date": "20250804",
+  "generated": "16.123kWh",
+  "peak": "2.303kW",
+  "time": "12:45PM",
+  "conditions": "Fine",
+  "temp": "24 to 29C"
+ },
+ {
+  "date": "20250805",
+  "generated": "11.475kWh",
+  "peak": "2.789kW",
+  "time": "12:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 30C"
+ },
+ {
+  "date": "20250806",
+  "generated": "15.031kWh",
+  "peak": "2.322kW",
+  "time": "12:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "date": "20250807",
+  "generated": "14.704kWh",
+  "peak": "2.258kW",
+  "time": "1:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "date": "20250808",
+  "generated": "12.346kWh",
+  "peak": "2.688kW",
+  "time": "12:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "date": "20250809",
+  "generated": "14.072kWh",
+  "peak": "2.255kW",
+  "time": "11:45AM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 30C"
+ },
+ {
+  "date": "20250810",
+  "generated": "12.357kWh",
+  "peak": "2.253kW",
+  "time": "11:05AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 30C"
+ },
+ {
+  "date": "20250811",
+  "generated": "8.014kWh",
+  "peak": "1.644kW",
+  "time": "12:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 28C"
+ },
+ {
+  "date": "20250812",
+  "generated": "11.639kWh",
+  "peak": "2.697kW",
+  "time": "11:40AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 29C"
+ },
+ {
+  "date": "20250813",
+  "generated": "13.166kWh",
+  "peak": "2.498kW",
+  "time": "11:45AM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 29C"
+ },
+ {
+  "date": "20250814",
+  "generated": "7.511kWh",
+  "peak": "2.339kW",
+  "time": "12:35PM",
+  "conditions": "Cloudy",
+  "temp": "24 to 30C"
+ },
+ {
+  "date": "20250815",
+  "generated": "13.738kWh",
+  "peak": "2.736kW",
+  "time": "1:05PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 29C"
+ },
+ {
+  "date": "20250816",
+  "generated": "10.633kWh",
+  "peak": "2.311kW",
+  "time": "12:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 30C"
+ },
+ {
+  "date": "20250817",
+  "generated": "10.973kWh",
+  "peak": "1.866kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 29C"
+ },
+ {
+  "date": "20250818",
+  "generated": "13.669kWh",
+  "peak": "2.513kW",
+  "time": "11:55AM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 30C"
+ },
+ {
+  "date": "20250819",
+  "generated": "15.361kWh",
+  "peak": "2.413kW",
+  "time": "12:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 30C"
+ },
+ {
+  "date": "20250820",
+  "generated": "14.646kWh",
+  "peak": "2.594kW",
+  "time": "12:50PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 30C"
+ },
+ {
+  "date": "20250821",
+  "generated": "14.676kWh",
+  "peak": "2.502kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 30C"
+ },
+ {
+  "date": "20250822",
+  "generated": "13.049kWh",
+  "peak": "2.435kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20250823",
+  "generated": "15.098kWh",
+  "peak": "2.285kW",
+  "time": "12:05PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "date": "20250824",
+  "generated": "15.382kWh",
+  "peak": "2.273kW",
+  "time": "12:05PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "date": "20250825",
+  "generated": "15.940kWh",
+  "peak": "2.336kW",
+  "time": "12:15PM",
+  "conditions": "Fine",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20250826",
+  "generated": "14.350kWh",
+  "peak": "2.403kW",
+  "time": "12:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 30C"
+ },
+ {
+  "date": "20250827",
+  "generated": "13.878kWh",
+  "peak": "2.623kW",
+  "time": "1:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20250828",
+  "generated": "12.424kWh",
+  "peak": "2.770kW",
+  "time": "11:55AM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 30C"
+ },
+ {
+  "date": "20250829",
+  "generated": "8.316kWh",
+  "peak": "2.662kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "date": "20250830",
+  "generated": "11.800kWh",
+  "peak": "2.778kW",
+  "time": "11:15AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "date": "20250831",
+  "generated": "14.205kWh",
+  "peak": "2.670kW",
+  "time": "10:40AM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "date": "20250901",
+  "generated": "12.900kWh",
+  "peak": "2.570kW",
+  "time": "11:30AM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 30C"
+ },
+ {
+  "date": "20250902",
+  "generated": "14.369kWh",
+  "peak": "2.379kW",
+  "time": "11:55AM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 30C"
+ },
+ {
+  "date": "20250903",
+  "generated": "15.161kWh",
+  "peak": "2.467kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 30C"
+ },
+ {
+  "date": "20250904",
+  "generated": "15.265kWh",
+  "peak": "2.378kW",
+  "time": "11:55AM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20250905",
+  "generated": "14.482kWh",
+  "peak": "2.444kW",
+  "time": "11:15AM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20250906",
+  "generated": "15.389kWh",
+  "peak": "2.349kW",
+  "time": "12:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 30C"
+ },
+ {
+  "date": "20250907",
+  "generated": "14.703kWh",
+  "peak": "2.396kW",
+  "time": "11:40AM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 31C"
+ },
+ {
+  "date": "20250908",
+  "generated": "11.112kWh",
+  "peak": "2.524kW",
+  "time": "10:55AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 31C"
+ },
+ {
+  "date": "20250909",
+  "generated": "8.631kWh",
+  "peak": "2.143kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20250910",
+  "generated": "14.674kWh",
+  "peak": "2.468kW",
+  "time": "1:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 31C"
+ },
+ {
+  "date": "20250911",
+  "generated": "12.724kWh",
+  "peak": "2.318kW",
+  "time": "12:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20250912",
+  "generated": "14.954kWh",
+  "peak": "2.587kW",
+  "time": "11:30AM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20250913",
+  "generated": "5.807kWh",
+  "peak": "2.175kW",
+  "time": "11:25AM",
+  "conditions": "Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20250914",
+  "generated": "13.903kWh",
+  "peak": "2.330kW",
+  "time": "12:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20250915",
+  "generated": "13.391kWh",
+  "peak": "2.654kW",
+  "time": "12:50PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20250916",
+  "generated": "14.716kWh",
+  "peak": "2.276kW",
+  "time": "11:55AM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20250917",
+  "generated": "10.402kWh",
+  "peak": "2.643kW",
+  "time": "12:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 30C"
+ },
+ {
+  "date": "20250918",
+  "generated": "14.690kWh",
+  "peak": "2.515kW",
+  "time": "12:50PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20250919",
+  "generated": "8.990kWh",
+  "peak": "2.076kW",
+  "time": "11:30AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20250920",
+  "generated": "14.504kWh",
+  "peak": "2.280kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20250921",
+  "generated": "13.063kWh",
+  "peak": "2.424kW",
+  "time": "12:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20250922",
+  "generated": "14.073kWh",
+  "peak": "2.308kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20250923",
+  "generated": "12.827kWh",
+  "peak": "2.522kW",
+  "time": "12:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 31C"
+ },
+ {
+  "date": "20250924",
+  "generated": "12.029kWh",
+  "peak": "2.832kW",
+  "time": "12:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20250925",
+  "generated": "3.663kWh",
+  "peak": "1.386kW",
+  "time": "1:35PM",
+  "conditions": "Cloudy",
+  "temp": "24 to 28C"
+ },
+ {
+  "date": "20250926",
+  "generated": "4.272kWh",
+  "peak": "1.781kW",
+  "time": "2:00PM",
+  "conditions": "Cloudy",
+  "temp": "24 to 27C"
+ },
+ {
+  "date": "20250927",
+  "generated": "13.247kWh",
+  "peak": "2.482kW",
+  "time": "11:50AM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 31C"
+ },
+ {
+  "date": "20250928",
+  "generated": "11.936kWh",
+  "peak": "2.529kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20250929",
+  "generated": "12.534kWh",
+  "peak": "2.383kW",
+  "time": "11:30AM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20250930",
+  "generated": "9.755kWh",
+  "peak": "2.223kW",
+  "time": "1:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20251001",
+  "generated": "13.333kWh",
+  "peak": "2.353kW",
+  "time": "12:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 31C"
+ },
+ {
+  "date": "20251002",
+  "generated": "12.653kWh",
+  "peak": "2.444kW",
+  "time": "12:40PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20251003",
+  "generated": "12.816kWh",
+  "peak": "2.254kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 32C"
+ },
+ {
+  "date": "20251004",
+  "generated": "9.402kWh",
+  "peak": "2.211kW",
+  "time": "12:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20251005",
+  "generated": "12.255kWh",
+  "peak": "2.483kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 30C"
+ },
+ {
+  "date": "20251006",
+  "generated": "10.923kWh",
+  "peak": "2.235kW",
+  "time": "12:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "23 to 32C"
+ },
+ {
+  "date": "20251007",
+  "generated": "11.746kWh",
+  "peak": "2.312kW",
+  "time": "11:55AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20251008",
+  "generated": "11.081kWh",
+  "peak": "2.355kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 32C"
+ },
+ {
+  "date": "20251009",
+  "generated": "11.026kWh",
+  "peak": "2.408kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 32C"
+ },
+ {
+  "date": "20251010",
+  "generated": "11.895kWh",
+  "peak": "2.246kW",
+  "time": "12:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20251011",
+  "generated": "11.609kWh",
+  "peak": "2.250kW",
+  "time": "12:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 33C"
+ },
+ {
+  "date": "20251012",
+  "generated": "7.463kWh",
+  "peak": "2.507kW",
+  "time": "1:15PM",
+  "conditions": "Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20251013",
+  "generated": "11.155kWh",
+  "peak": "2.425kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "23 to 32C"
+ },
+ {
+  "date": "20251014",
+  "generated": "4.990kWh",
+  "peak": "1.704kW",
+  "time": "12:20PM",
+  "conditions": "Cloudy",
+  "temp": "24 to 31C"
+ },
+ {
+  "date": "20251015",
+  "generated": "6.107kWh",
+  "peak": "2.331kW",
+  "time": "2:15PM",
+  "conditions": "Cloudy",
+  "temp": "24 to 31C"
+ },
+ {
+  "date": "20251016",
+  "generated": "5.720kWh",
+  "peak": "2.085kW",
+  "time": "2:05PM",
+  "conditions": "Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "date": "20251017",
+  "generated": "6.920kWh",
+  "peak": "2.122kW",
+  "time": "11:40AM",
+  "conditions": "Cloudy",
+  "temp": "26 to 30C"
+ },
+ {
+  "date": "20251018",
+  "generated": "10.791kWh",
+  "peak": "2.072kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20251019",
+  "generated": "6.651kWh",
+  "peak": "1.461kW",
+  "time": "11:45AM",
+  "conditions": "Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "date": "20251020",
+  "generated": "7.894kWh",
+  "peak": "1.755kW",
+  "time": "12:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20251021",
+  "generated": "3.854kWh",
+  "peak": "0.565kW",
+  "time": "10:55AM",
+  "conditions": "Cloudy",
+  "temp": "24 to 29C"
+ },
+ {
+  "date": "20251022",
+  "generated": "7.673kWh",
+  "peak": "2.501kW",
+  "time": "1:25PM",
+  "conditions": "Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20251023",
+  "generated": "6.992kWh",
+  "peak": "2.148kW",
+  "time": "12:55PM",
+  "conditions": "Cloudy",
+  "temp": "24 to 31C"
+ },
+ {
+  "date": "20251024",
+  "generated": "3.234kWh",
+  "peak": "1.204kW",
+  "time": "11:20AM",
+  "conditions": "Cloudy",
+  "temp": "24 to 29C"
+ },
+ {
+  "date": "20251025",
+  "generated": "9.555kWh",
+  "peak": "2.701kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20251026",
+  "generated": "9.703kWh",
+  "peak": "2.397kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20251027",
+  "generated": "7.243kWh",
+  "peak": "1.318kW",
+  "time": "11:15AM",
+  "conditions": "Cloudy",
+  "temp": "24 to 31C"
+ },
+ {
+  "date": "20251028",
+  "generated": "6.550kWh",
+  "peak": "2.037kW",
+  "time": "11:50AM",
+  "conditions": "Cloudy",
+  "temp": "24 to 30C"
+ },
+ {
+  "date": "20251029",
+  "generated": "10.116kWh",
+  "peak": "2.173kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 31C"
+ },
+ {
+  "date": "20251030",
+  "generated": "9.976kWh",
+  "peak": "2.194kW",
+  "time": "12:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20251031",
+  "generated": "9.916kWh",
+  "peak": "2.099kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 31C"
+ },
+ {
+  "date": "20251101",
+  "generated": "10.266kWh",
+  "peak": "2.184kW",
+  "time": "12:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20251102",
+  "generated": "9.655kWh",
+  "peak": "2.194kW",
+  "time": "12:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20251103",
+  "generated": "9.865kWh",
+  "peak": "2.234kW",
+  "time": "1:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20251104",
+  "generated": "10.269kWh",
+  "peak": "2.264kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20251105",
+  "generated": "8.357kWh",
+  "peak": "1.839kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 30C"
+ },
+ {
+  "date": "20251106",
+  "generated": "8.937kWh",
+  "peak": "2.246kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20251107",
+  "generated": "0.047kWh",
+  "peak": "0.010kW",
+  "time": "8:05PM",
+  "conditions": "Showers",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20251108",
+  "generated": "9.329kWh",
+  "peak": "2.174kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20251109",
+  "generated": "8.296kWh",
+  "peak": "2.310kW",
+  "time": "12:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 31C"
+ },
+ {
+  "date": "20251110",
+  "generated": "7.255kWh",
+  "peak": "2.005kW",
+  "time": "1:35PM",
+  "conditions": "Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20251111",
+  "generated": "6.108kWh",
+  "peak": "2.100kW",
+  "time": "1:10PM",
+  "conditions": "Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20251112",
+  "generated": "8.987kWh",
+  "peak": "1.884kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 32C"
+ },
+ {
+  "date": "20251113",
+  "generated": "7.263kWh",
+  "peak": "1.749kW",
+  "time": "2:35PM",
+  "conditions": "Cloudy",
+  "temp": "24 to 30C"
+ },
+ {
+  "date": "20251114",
+  "generated": "6.720kWh",
+  "peak": "2.463kW",
+  "time": "1:00PM",
+  "conditions": "Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20251115",
+  "generated": "10.397kWh",
+  "peak": "1.971kW",
+  "time": "12:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20251116",
+  "generated": "9.669kWh",
+  "peak": "1.971kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20251117",
+  "generated": "5.645kWh",
+  "peak": "2.221kW",
+  "time": "12:20PM",
+  "conditions": "Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20251118",
+  "generated": "2.551kWh",
+  "peak": "0.783kW",
+  "time": "10:15AM",
+  "conditions": "Showers",
+  "temp": "24 to 28C"
+ },
+ {
+  "date": "20251119",
+  "generated": "9.442kWh",
+  "peak": "2.148kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 30C"
+ },
+ {
+  "date": "20251120",
+  "generated": "9.178kWh",
+  "peak": "2.043kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20251121",
+  "generated": "9.273kWh",
+  "peak": "2.042kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20251122",
+  "generated": "1.967kWh",
+  "peak": "0.437kW",
+  "time": "2:35PM",
+  "conditions": "Showers",
+  "temp": "25 to 27C"
+ },
+ {
+  "date": "20251123",
+  "generated": "4.298kWh",
+  "peak": "1.078kW",
+  "time": "12:10PM",
+  "conditions": "Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "date": "20251124",
+  "generated": "3.258kWh",
+  "peak": "0.786kW",
+  "time": "10:15AM",
+  "conditions": "Cloudy",
+  "temp": "25 to 28C"
+ },
+ {
+  "date": "20251125",
+  "generated": "8.766kWh",
+  "peak": "1.958kW",
+  "time": "2:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20251126",
+  "generated": "5.843kWh",
+  "peak": "2.149kW",
+  "time": "1:55PM",
+  "conditions": "Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20251127",
+  "generated": "6.574kWh",
+  "peak": "1.307kW",
+  "time": "2:15PM",
+  "conditions": "Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20251128",
+  "generated": "2.681kWh",
+  "peak": "0.606kW",
+  "time": "9:40AM",
+  "conditions": "Showers",
+  "temp": "23 to 28C"
+ },
+ {
+  "date": "20251129",
+  "generated": "3.614kWh",
+  "peak": "0.680kW",
+  "time": "11:40AM",
+  "conditions": "Cloudy",
+  "temp": "23 to 28C"
+ },
+ {
+  "date": "20251130",
+  "generated": "9.182kWh",
+  "peak": "1.915kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "23 to 31C"
+ },
+ {
+  "date": "20251201",
+  "generated": "8.832kWh",
+  "peak": "2.055kW",
+  "time": "12:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20251202",
+  "generated": "9.607kWh",
+  "peak": "1.909kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20251203",
+  "generated": "9.303kWh",
+  "peak": "1.990kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20251204",
+  "generated": "8.754kWh",
+  "peak": "2.025kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20251205",
+  "generated": "8.408kWh",
+  "peak": "2.182kW",
+  "time": "12:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20251206",
+  "generated": "9.210kWh",
+  "peak": "1.907kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20251207",
+  "generated": "7.137kWh",
+  "peak": "2.217kW",
+  "time": "1:35PM",
+  "conditions": "Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20251208",
+  "generated": "9.260kWh",
+  "peak": "2.084kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20251209",
+  "generated": "8.866kWh",
+  "peak": "1.954kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 32C"
+ },
+ {
+  "date": "20251210",
+  "generated": "1.021kWh",
+  "peak": "1.020kW",
+  "time": "3:35PM",
+  "conditions": "Showers",
+  "temp": "26 to 33C"
+ },
+ {
+  "date": "20251211",
+  "generated": "8.949kWh",
+  "peak": "1.935kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20251212",
+  "generated": "8.777kWh",
+  "peak": "1.937kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20251213",
+  "generated": "8.880kWh",
+  "peak": "1.946kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20251214",
+  "generated": "9.238kWh",
+  "peak": "1.916kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20251215",
+  "generated": "8.845kWh",
+  "peak": "1.916kW",
+  "time": "12:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 31C"
+ },
+ {
+  "date": "20251216",
+  "generated": "5.338kWh",
+  "peak": "1.820kW",
+  "time": "12:35PM",
+  "conditions": "Cloudy",
+  "temp": "22 to 31C"
+ },
+ {
+  "date": "20251217",
+  "generated": "5.496kWh",
+  "peak": "1.849kW",
+  "time": "1:20PM",
+  "conditions": "Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20251218",
+  "generated": "8.683kWh",
+  "peak": "2.139kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 32C"
+ },
+ {
+  "date": "20251219",
+  "generated": "8.603kWh",
+  "peak": "1.994kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 33C"
+ },
+ {
+  "date": "20251220",
+  "generated": "7.936kWh",
+  "peak": "1.969kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "23 to 31C"
+ },
+ {
+  "date": "20251221",
+  "generated": "8.925kWh",
+  "peak": "2.044kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "22 to 31C"
+ },
+ {
+  "date": "20251222",
+  "generated": "8.855kWh",
+  "peak": "1.897kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "22 to 32C"
+ },
+ {
+  "date": "20251223",
+  "generated": "9.150kWh",
+  "peak": "1.935kW",
+  "time": "1:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "23 to 31C"
+ },
+ {
+  "date": "20251224",
+  "generated": "8.872kWh",
+  "peak": "1.943kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 32C"
+ },
+ {
+  "date": "20251225",
+  "generated": "8.689kWh",
+  "peak": "1.914kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 32C"
+ },
+ {
+  "date": "20251226",
+  "generated": "8.832kWh",
+  "peak": "1.848kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "23 to 32C"
+ },
+ {
+  "date": "20251227",
+  "generated": "8.831kWh",
+  "peak": "1.937kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20251228",
+  "generated": "9.231kWh",
+  "peak": "1.965kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20251229",
+  "generated": "8.692kWh",
+  "peak": "1.937kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 32C"
+ },
+ {
+  "date": "20251230",
+  "generated": "8.106kWh",
+  "peak": "1.777kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20251231",
+  "generated": "8.695kWh",
+  "peak": "1.681kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20260101",
+  "generated": "8.920kWh",
+  "peak": "1.895kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20260102",
+  "generated": "4.824kWh",
+  "peak": "1.568kW",
+  "time": "1:05PM",
+  "conditions": "Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20260103",
+  "generated": "8.692kWh",
+  "peak": "1.823kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20260104",
+  "generated": "8.180kWh",
+  "peak": "1.858kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 33C"
+ },
+ {
+  "date": "20260105",
+  "generated": "8.819kWh",
+  "peak": "1.999kW",
+  "time": "12:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 32C"
+ },
+ {
+  "date": "20260106",
+  "generated": "7.581kWh",
+  "peak": "1.892kW",
+  "time": "1:40PM",
+  "conditions": "Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20260107",
+  "generated": "7.419kWh",
+  "peak": "1.948kW",
+  "time": "12:50PM",
+  "conditions": "Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20260108",
+  "generated": "7.768kWh",
+  "peak": "1.461kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20260109",
+  "generated": "8.424kWh",
+  "peak": "1.947kW",
+  "time": "1:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "23 to 31C"
+ },
+ {
+  "date": "20260110",
+  "generated": "8.356kWh",
+  "peak": "1.875kW",
+  "time": "1:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 31C"
+ },
+ {
+  "date": "20260111",
+  "generated": "9.761kWh",
+  "peak": "2.165kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20260112",
+  "generated": "8.547kWh",
+  "peak": "1.982kW",
+  "time": "12:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20260113",
+  "generated": "6.239kWh",
+  "peak": "2.242kW",
+  "time": "1:25PM",
+  "conditions": "Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260114",
+  "generated": "8.329kWh",
+  "peak": "1.936kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20260115",
+  "generated": "8.703kWh",
+  "peak": "1.944kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "23 to 32C"
+ },
+ {
+  "date": "20260116",
+  "generated": "8.449kWh",
+  "peak": "1.846kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20260117",
+  "generated": "9.249kWh",
+  "peak": "1.966kW",
+  "time": "2:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 32C"
+ },
+ {
+  "date": "20260118",
+  "generated": "8.970kWh",
+  "peak": "1.753kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20260119",
+  "generated": "5.564kWh",
+  "peak": "1.699kW",
+  "time": "2:10PM",
+  "conditions": "Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20260120",
+  "generated": "8.875kWh",
+  "peak": "1.755kW",
+  "time": "1:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20260121",
+  "generated": "9.056kWh",
+  "peak": "1.804kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 32C"
+ },
+ {
+  "date": "20260122",
+  "generated": "9.145kWh",
+  "peak": "1.878kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20260123",
+  "generated": "9.178kWh",
+  "peak": "1.978kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "23 to 32C"
+ },
+ {
+  "date": "20260124",
+  "generated": "8.957kWh",
+  "peak": "1.868kW",
+  "time": "1:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 32C"
+ },
+ {
+  "date": "20260125",
+  "generated": "6.116kWh",
+  "peak": "2.297kW",
+  "time": "3:15PM",
+  "conditions": "Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20260126",
+  "generated": "9.977kWh",
+  "peak": "2.216kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260127",
+  "generated": "9.887kWh",
+  "peak": "2.153kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 32C"
+ },
+ {
+  "date": "20260128",
+  "generated": "9.653kWh",
+  "peak": "2.106kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20260129",
+  "generated": "9.721kWh",
+  "peak": "1.998kW",
+  "time": "1:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20260130",
+  "generated": "10.182kWh",
+  "peak": "2.133kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20260131",
+  "generated": "10.067kWh",
+  "peak": "2.276kW",
+  "time": "2:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20260201",
+  "generated": "10.155kWh",
+  "peak": "2.146kW",
+  "time": "2:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20260202",
+  "generated": "9.811kWh",
+  "peak": "2.111kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "27 to 33C"
+ },
+ {
+  "date": "20260203",
+  "generated": "8.926kWh",
+  "peak": "2.251kW",
+  "time": "1:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260204",
+  "generated": "10.176kWh",
+  "peak": "2.119kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260205",
+  "generated": "9.393kWh",
+  "peak": "2.335kW",
+  "time": "2:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 32C"
+ },
+ {
+  "date": "20260206",
+  "generated": "7.634kWh",
+  "peak": "2.192kW",
+  "time": "1:25PM",
+  "conditions": "Cloudy",
+  "temp": "26 to 33C"
+ },
+ {
+  "date": "20260207",
+  "generated": "9.766kWh",
+  "peak": "2.151kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 33C"
+ },
+ {
+  "date": "20260208",
+  "generated": "9.699kWh",
+  "peak": "2.107kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 33C"
+ },
+ {
+  "date": "20260209",
+  "generated": "9.837kWh",
+  "peak": "1.976kW",
+  "time": "1:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20260210",
+  "generated": "9.817kWh",
+  "peak": "1.934kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20260211",
+  "generated": "10.066kWh",
+  "peak": "2.141kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 32C"
+ },
+ {
+  "date": "20260212",
+  "generated": "9.552kWh",
+  "peak": "2.162kW",
+  "time": "1:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "23 to 32C"
+ },
+ {
+  "date": "20260213",
+  "generated": "9.560kWh",
+  "peak": "1.992kW",
+  "time": "1:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 32C"
+ },
+ {
+  "date": "20260214",
+  "generated": "9.562kWh",
+  "peak": "2.240kW",
+  "time": "1:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260215",
+  "generated": "9.264kWh",
+  "peak": "2.229kW",
+  "time": "1:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 33C"
+ },
+ {
+  "date": "20260216",
+  "generated": "9.593kWh",
+  "peak": "2.009kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 33C"
+ },
+ {
+  "date": "20260217",
+  "generated": "9.921kWh",
+  "peak": "1.997kW",
+  "time": "1:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 34C"
+ },
+ {
+  "date": "20260218",
+  "generated": "9.412kWh",
+  "peak": "2.214kW",
+  "time": "1:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "28 to 33C"
+ },
+ {
+  "date": "20260219",
+  "generated": "9.585kWh",
+  "peak": "2.095kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 33C"
+ },
+ {
+  "date": "20260220",
+  "generated": "9.908kWh",
+  "peak": "2.104kW",
+  "time": "1:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "27 to 33C"
+ },
+ {
+  "date": "20260221",
+  "generated": "8.068kWh",
+  "peak": "2.042kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 33C"
+ },
+ {
+  "date": "20260222",
+  "generated": "9.674kWh",
+  "peak": "2.141kW",
+  "time": "2:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20260223",
+  "generated": "10.598kWh",
+  "peak": "2.135kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20260224",
+  "generated": "11.421kWh",
+  "peak": "2.051kW",
+  "time": "1:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20260225",
+  "generated": "11.132kWh",
+  "peak": "2.163kW",
+  "time": "1:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260226",
+  "generated": "10.861kWh",
+  "peak": "2.112kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260227",
+  "generated": "8.877kWh",
+  "peak": "2.303kW",
+  "time": "1:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "27 to 32C"
+ },
+ {
+  "date": "20260228",
+  "generated": "0.000kWh",
+  "peak": "0.000kW",
+  "time": "12:00AM",
+  "conditions": "Not Sure",
+  "temp": "24 to 32C"
+ },
+ {
+  "date": "20260301",
+  "generated": "10.909kWh",
+  "peak": "2.158kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 32C"
+ },
+ {
+  "date": "20260302",
+  "generated": "11.055kWh",
+  "peak": "2.140kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20260303",
+  "generated": "10.807kWh",
+  "peak": "2.123kW",
+  "time": "1:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20260304",
+  "generated": "10.846kWh",
+  "peak": "2.257kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 32C"
+ },
+ {
+  "date": "20260305",
+  "generated": "11.323kWh",
+  "peak": "2.144kW",
+  "time": "1:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260306",
+  "generated": "10.684kWh",
+  "peak": "2.185kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260307",
+  "generated": "11.200kWh",
+  "peak": "2.118kW",
+  "time": "1:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "27 to 32C"
+ },
+ {
+  "date": "20260308",
+  "generated": "11.130kWh",
+  "peak": "2.074kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260309",
+  "generated": "11.006kWh",
+  "peak": "2.086kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "27 to 32C"
+ },
+ {
+  "date": "20260310",
+  "generated": "11.843kWh",
+  "peak": "2.216kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 33C"
+ },
+ {
+  "date": "20260311",
+  "generated": "11.031kWh",
+  "peak": "2.467kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260312",
+  "generated": "11.821kWh",
+  "peak": "2.207kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260313",
+  "generated": "10.572kWh",
+  "peak": "2.606kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "27 to 32C"
+ },
+ {
+  "date": "20260314",
+  "generated": "12.121kWh",
+  "peak": "2.231kW",
+  "time": "1:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 33C"
+ },
+ {
+  "date": "20260315",
+  "generated": "12.352kWh",
+  "peak": "2.277kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260316",
+  "generated": "11.916kWh",
+  "peak": "2.167kW",
+  "time": "1:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "27 to 33C"
+ },
+ {
+  "date": "20260317",
+  "generated": "11.659kWh",
+  "peak": "2.185kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "27 to 32C"
+ },
+ {
+  "date": "20260318",
+  "generated": "10.691kWh",
+  "peak": "2.411kW",
+  "time": "1:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "27 to 33C"
+ },
+ {
+  "date": "20260319",
+  "generated": "11.701kWh",
+  "peak": "2.234kW",
+  "time": "12:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "27 to 32C"
+ },
+ {
+  "date": "20260320",
+  "generated": "12.666kWh",
+  "peak": "2.202kW",
+  "time": "12:55PM",
+  "conditions": "Partly Cloudy",
+  "temp": "27 to 33C"
+ },
+ {
+  "date": "20260321",
+  "generated": "12.353kWh",
+  "peak": "2.168kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "27 to 33C"
+ },
+ {
+  "date": "20260322",
+  "generated": "12.176kWh",
+  "peak": "2.170kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "28 to 33C"
+ },
+ {
+  "date": "20260323",
+  "generated": "12.225kWh",
+  "peak": "2.202kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "27 to 33C"
+ },
+ {
+  "date": "20260324",
+  "generated": "12.409kWh",
+  "peak": "2.207kW",
+  "time": "1:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "27 to 34C"
+ },
+ {
+  "date": "20260325",
+  "generated": "11.565kWh",
+  "peak": "2.196kW",
+  "time": "1:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 33C"
+ },
+ {
+  "date": "20260326",
+  "generated": "12.203kWh",
+  "peak": "2.230kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 33C"
+ },
+ {
+  "date": "20260327",
+  "generated": "12.493kWh",
+  "peak": "2.178kW",
+  "time": "1:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 33C"
+ },
+ {
+  "date": "20260328",
+  "generated": "11.276kWh",
+  "peak": "2.108kW",
+  "time": "12:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "28 to 33C"
+ },
+ {
+  "date": "20260329",
+  "generated": "12.812kWh",
+  "peak": "2.153kW",
+  "time": "12:40PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 34C"
+ },
+ {
+  "date": "20260330",
+  "generated": "12.712kWh",
+  "peak": "2.167kW",
+  "time": "12:45PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 33C"
+ },
+ {
+  "date": "20260331",
+  "generated": "12.486kWh",
+  "peak": "2.157kW",
+  "time": "12:55PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 34C"
+ },
+ {
+  "date": "20260401",
+  "generated": "12.613kWh",
+  "peak": "2.152kW",
+  "time": "12:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 33C"
+ },
+ {
+  "date": "20260402",
+  "generated": "12.757kWh",
+  "peak": "2.195kW",
+  "time": "12:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 33C"
+ },
+ {
+  "date": "20260403",
+  "generated": "5.402kWh",
+  "peak": "1.922kW",
+  "time": "2:05PM",
+  "conditions": "Cloudy",
+  "temp": "28 to 34C"
+ },
+ {
+  "date": "20260404",
+  "generated": "12.126kWh",
+  "peak": "2.303kW",
+  "time": "12:05PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "27 to 34C"
+ },
+ {
+  "date": "20260405",
+  "generated": "11.034kWh",
+  "peak": "2.176kW",
+  "time": "12:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "28 to 34C"
+ },
+ {
+  "date": "20260406",
+  "generated": "8.200kWh",
+  "peak": "2.519kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "27 to 34C"
+ },
+ {
+  "date": "20260407",
+  "generated": "9.290kWh",
+  "peak": "2.260kW",
+  "time": "12:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 33C"
+ },
+ {
+  "date": "20260408",
+  "generated": "14.380kWh",
+  "peak": "2.254kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 33C"
+ },
+ {
+  "date": "20260409",
+  "generated": "12.454kWh",
+  "peak": "2.132kW",
+  "time": "12:40PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 33C"
+ },
+ {
+  "date": "20260410",
+  "generated": "12.423kWh",
+  "peak": "2.132kW",
+  "time": "12:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 34C"
+ },
+ {
+  "date": "20260411",
+  "generated": "14.067kWh",
+  "peak": "2.515kW",
+  "time": "11:10AM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 33C"
+ },
+ {
+  "date": "20260412",
+  "generated": "13.253kWh",
+  "peak": "2.254kW",
+  "time": "1:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 34C"
+ },
+ {
+  "date": "20260413",
+  "generated": "2.361kWh",
+  "peak": "1.341kW",
+  "time": "9:50AM",
+  "conditions": "Showers",
+  "temp": "26 to 33C"
+ },
+ {
+  "date": "20260414",
+  "generated": "11.816kWh",
+  "peak": "2.404kW",
+  "time": "11:30AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 33C"
+ },
+ {
+  "date": "20260415",
+  "generated": "14.358kWh",
+  "peak": "2.238kW",
+  "time": "12:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 33C"
+ },
+ {
+  "date": "20260416",
+  "generated": "5.973kWh",
+  "peak": "1.787kW",
+  "time": "10:15AM",
+  "conditions": "Cloudy",
+  "temp": "26 to 34C"
+ },
+ {
+  "date": "20260417",
+  "generated": "12.323kWh",
+  "peak": "2.231kW",
+  "time": "1:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 33C"
+ },
+ {
+  "date": "20260418",
+  "generated": "13.353kWh",
+  "peak": "2.221kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20260419",
+  "generated": "14.124kWh",
+  "peak": "2.193kW",
+  "time": "12:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260420",
+  "generated": "14.067kWh",
+  "peak": "2.217kW",
+  "time": "12:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260421",
+  "generated": "13.574kWh",
+  "peak": "2.253kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260422",
+  "generated": "14.964kWh",
+  "peak": "2.254kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 34C"
+ },
+ {
+  "date": "20260423",
+  "generated": "11.721kWh",
+  "peak": "2.283kW",
+  "time": "12:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 33C"
+ },
+ {
+  "date": "20260424",
+  "generated": "11.059kWh",
+  "peak": "2.685kW",
+  "time": "1:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "28 to 35C"
+ },
+ {
+  "date": "20260425",
+  "generated": "14.671kWh",
+  "peak": "2.270kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "28 to 33C"
+ },
+ {
+  "date": "20260426",
+  "generated": "14.843kWh",
+  "peak": "2.223kW",
+  "time": "11:55AM",
+  "conditions": "Partly Cloudy",
+  "temp": "28 to 34C"
+ },
+ {
+  "date": "20260427",
+  "generated": "4.736kWh",
+  "peak": "2.000kW",
+  "time": "10:25AM",
+  "conditions": "Cloudy",
+  "temp": "28 to 34C"
+ },
+ {
+  "date": "20260428",
+  "generated": "9.045kWh",
+  "peak": "2.233kW",
+  "time": "11:40AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "27 to 34C"
+ },
+ {
+  "date": "20260429",
+  "generated": "8.304kWh",
+  "peak": "2.392kW",
+  "time": "12:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "28 to 33C"
+ },
+ {
+  "date": "20260430",
+  "generated": "13.412kWh",
+  "peak": "2.224kW",
+  "time": "12:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "27 to 34C"
+ },
+ {
+  "date": "20260501",
+  "generated": "14.772kWh",
+  "peak": "2.205kW",
+  "time": "12:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "28 to 34C"
+ },
+ {
+  "date": "20260502",
+  "generated": "11.578kWh",
+  "peak": "2.134kW",
+  "time": "12:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "29 to 34C"
+ },
+ {
+  "date": "20260503",
+  "generated": "11.316kWh",
+  "peak": "2.243kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "28 to 34C"
+ },
+ {
+  "date": "20260504",
+  "generated": "10.824kWh",
+  "peak": "1.988kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "28 to 33C"
+ },
+ {
+  "date": "20260505",
+  "generated": "12.132kWh",
+  "peak": "1.982kW",
+  "time": "1:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "28 to 33C"
+ },
+ {
+  "date": "20260506",
+  "generated": "10.360kWh",
+  "peak": "2.130kW",
+  "time": "12:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "27 to 34C"
+ },
+ {
+  "date": "20260507",
+  "generated": "10.923kWh",
+  "peak": "2.005kW",
+  "time": "12:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260508",
+  "generated": "12.949kWh",
+  "peak": "2.437kW",
+  "time": "11:00AM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20260509",
+  "generated": "6.410kWh",
+  "peak": "2.666kW",
+  "time": "11:40AM",
+  "conditions": "Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "date": "20260510",
+  "generated": "9.422kWh",
+  "peak": "1.822kW",
+  "time": "11:50AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260511",
+  "generated": "12.641kWh",
+  "peak": "2.534kW",
+  "time": "11:55AM",
+  "conditions": "Partly Cloudy",
+  "temp": "27 to 33C"
+ },
+ {
+  "date": "20260512",
+  "generated": "12.637kWh",
+  "peak": "2.130kW",
+  "time": "11:25AM",
+  "conditions": "Partly Cloudy",
+  "temp": "28 to 33C"
+ },
+ {
+  "date": "20260513",
+  "generated": "10.304kWh",
+  "peak": "1.858kW",
+  "time": "12:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "27 to 33C"
+ },
+ {
+  "date": "20260514",
+  "generated": "10.057kWh",
+  "peak": "2.554kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "28 to 32C"
+ },
+ {
+  "date": "20260515",
+  "generated": "6.689kWh",
+  "peak": "1.504kW",
+  "time": "3:30PM",
+  "conditions": "Cloudy",
+  "temp": "26 to 30C"
+ },
+ {
+  "date": "20260516",
+  "generated": "6.885kWh",
+  "peak": "1.907kW",
+  "time": "2:25PM",
+  "conditions": "Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "date": "20260517",
+  "generated": "6.021kWh",
+  "peak": "2.702kW",
+  "time": "12:00PM",
+  "conditions": "Cloudy",
+  "temp": "26 to 29C"
+ },
+ {
+  "date": "20260518",
+  "generated": "11.291kWh",
+  "peak": "2.763kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20260519",
+  "generated": "14.292kWh",
+  "peak": "2.566kW",
+  "time": "12:40PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20260520",
+  "generated": "14.008kWh",
+  "peak": "2.565kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "27 to 32C"
+ },
+ {
+  "date": "20260521",
+  "generated": "11.905kWh",
+  "peak": "2.699kW",
+  "time": "11:00AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260522",
+  "generated": "9.882kWh",
+  "peak": "2.629kW",
+  "time": "11:00AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20260523",
+  "generated": "14.061kWh",
+  "peak": "2.307kW",
+  "time": "1:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "27 to 32C"
+ },
+ {
+  "date": "20260524",
+  "generated": "9.480kWh",
+  "peak": "2.670kW",
+  "time": "12:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "date": "20260525",
+  "generated": "11.610kWh",
+  "peak": "2.301kW",
+  "time": "1:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20260526",
+  "generated": "12.096kWh",
+  "peak": "2.732kW",
+  "time": "12:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "27 to 32C"
+ },
+ {
+  "date": "20260527",
+  "generated": "9.566kWh",
+  "peak": "2.761kW",
+  "time": "1:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "27 to 31C"
+ },
+ {
+  "date": "20260528",
+  "generated": "5.197kWh",
+  "peak": "2.760kW",
+  "time": "11:40AM",
+  "conditions": "Cloudy",
+  "temp": "27 to 30C"
+ },
+ {
+  "date": "20260529",
+  "generated": "9.594kWh",
+  "peak": "2.698kW",
+  "time": "10:50AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20260530",
+  "generated": "4.571kWh",
+  "peak": "2.274kW",
+  "time": "9:25AM",
+  "conditions": "Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20260531",
+  "generated": "10.986kWh",
+  "peak": "2.658kW",
+  "time": "11:05AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 30C"
+ },
+ {
+  "date": "20260601",
+  "generated": "16.007kWh",
+  "peak": "2.258kW",
+  "time": "10:35AM",
+  "conditions": "Fine",
+  "temp": "27 to 32C"
+ },
+ {
+  "date": "20260602",
+  "generated": "14.317kWh",
+  "peak": "2.904kW",
+  "time": "1:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260603",
+  "generated": "13.053kWh",
+  "peak": "2.611kW",
+  "time": "10:25AM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 28C"
+ },
+ {
+  "date": "20260604",
+  "generated": "7.390kWh",
+  "peak": "2.712kW",
+  "time": "11:15AM",
+  "conditions": "Cloudy",
+  "temp": "26 to 28C"
+ },
+ {
+  "date": "20260605",
+  "generated": "11.051kWh",
+  "peak": "2.590kW",
+  "time": "12:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 28C"
+ },
+ {
+  "date": "20260606",
+  "generated": "13.432kWh",
+  "peak": "2.599kW",
+  "time": "12:05PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 28C"
+ },
+ {
+  "date": "20260607",
+  "generated": "9.204kWh",
+  "peak": "2.731kW",
+  "time": "12:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 28C"
+ },
+ {
+  "date": "20260608",
+  "generated": "8.215kWh",
+  "peak": "2.135kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 28C"
+ },
+ {
+  "date": "20260609",
+  "generated": "13.197kWh",
+  "peak": "2.559kW",
+  "time": "12:45PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 28C"
+ },
+ {
+  "date": "20260610",
+  "generated": "5.010kWh",
+  "peak": "2.577kW",
+  "time": "10:50AM",
+  "conditions": "Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "date": "20260611",
+  "generated": "7.902kWh",
+  "peak": "2.378kW",
+  "time": "12:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 29C"
+ },
+ {
+  "date": "20260612",
+  "generated": "8.073kWh",
+  "peak": "2.639kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 28C"
+ },
+ {
+  "date": "20260613",
+  "generated": "8.956kWh",
+  "peak": "2.570kW",
+  "time": "11:35AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "date": "20260614",
+  "generated": "9.986kWh",
+  "peak": "2.253kW",
+  "time": "11:30AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 29C"
+ },
+ {
+  "date": "20260615",
+  "generated": "13.750kWh",
+  "peak": "2.331kW",
+  "time": "1:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "date": "20260616",
+  "generated": "14.049kWh",
+  "peak": "2.293kW",
+  "time": "11:15AM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 29C"
+ },
+ {
+  "date": "20260617",
+  "generated": "5.707kWh",
+  "peak": "2.737kW",
+  "time": "12:20PM",
+  "conditions": "Cloudy",
+  "temp": "26 to 29C"
+ },
+ {
+  "date": "20260618",
+  "generated": "11.638kWh",
+  "peak": "2.716kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "date": "20260619",
+  "generated": "14.238kWh",
+  "peak": "2.247kW",
+  "time": "12:55PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 29C"
+ },
+ {
+  "date": "20260620",
+  "generated": "12.721kWh",
+  "peak": "2.269kW",
+  "time": "11:40AM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 29C"
+ },
+ {
+  "date": "20260621",
+  "generated": "13.453kWh",
+  "peak": "2.266kW",
+  "time": "11:15AM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "date": "20260622",
+  "generated": "11.884kWh",
+  "peak": "2.793kW",
+  "time": "10:55AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 28C"
+ },
+ {
+  "date": "20260623",
+  "generated": "9.922kWh",
+  "peak": "2.140kW",
+  "time": "2:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "date": "20260624",
+  "generated": "14.714kWh",
+  "peak": "2.404kW",
+  "time": "12:50PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "date": "20260625",
+  "generated": "14.355kWh",
+  "peak": "2.453kW",
+  "time": "11:40AM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "date": "20260626",
+  "generated": "7.912kWh",
+  "peak": "2.299kW",
+  "time": "10:05AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "date": "20260627",
+  "generated": "15.053kWh",
+  "peak": "2.289kW",
+  "time": "11:55AM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "date": "20260628",
+  "generated": "6.705kWh",
+  "peak": "2.497kW",
+  "time": "11:25AM",
+  "conditions": "Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "date": "20260629",
+  "generated": "8.879kWh",
+  "peak": "2.960kW",
+  "time": "1:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "date": "20260630",
+  "generated": "12.076kWh",
+  "peak": "3.016kW",
+  "time": "12:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "date": "20260701",
+  "generated": "13.603kWh",
+  "peak": "2.739kW",
+  "time": "11:55AM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "date": "20260702",
+  "generated": "14.838kWh",
+  "peak": "2.736kW",
+  "time": "1:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 29C"
+ },
+ {
+  "date": "20260703",
+  "generated": "12.776kWh",
+  "peak": "2.553kW",
+  "time": "12:40PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "date": "20260704",
+  "generated": "5.355kWh",
+  "peak": "2.700kW",
+  "time": "12:00PM",
+  "conditions": "Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "date": "20260705",
+  "generated": "14.674kWh",
+  "peak": "2.479kW",
+  "time": "1:45PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "date": "20260706",
+  "generated": "15.560kWh",
+  "peak": "2.293kW",
+  "time": "12:55PM",
+  "conditions": "Fine",
+  "temp": "25 to 29C"
+ },
+ {
+  "date": "20260707",
+  "generated": "14.706kWh",
+  "peak": "2.134kW",
+  "time": "12:50PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "date": "20260708",
+  "generated": "14.869kWh",
+  "peak": "2.329kW",
+  "time": "2:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 30C"
+ },
+ {
+  "date": "20260709",
+  "generated": "12.605kWh",
+  "peak": "2.472kW",
+  "time": "1:05PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "date": "20260710",
+  "generated": "7.156kWh",
+  "peak": "2.575kW",
+  "time": "1:55PM",
+  "conditions": "Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "date": "20260711",
+  "generated": "14.739kWh",
+  "peak": "2.475kW",
+  "time": "12:05PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "date": "20260712",
+  "generated": "14.557kWh",
+  "peak": "2.201kW",
+  "time": "12:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "date": "20260713",
+  "generated": "13.473kWh",
+  "peak": "2.314kW",
+  "time": "1:45PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "date": "20260714",
+  "generated": "13.861kWh",
+  "peak": "2.397kW",
+  "time": "11:20AM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "date": "20260715",
+  "generated": "12.977kWh",
+  "peak": "2.106kW",
+  "time": "10:55AM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 30C"
+ },
+ {
+  "date": "20260716",
+  "generated": "12.098kWh",
+  "peak": "2.078kW",
+  "time": "1:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 29C"
+ },
+ {
+  "date": "20260717",
+  "generated": "14.427kWh",
+  "peak": "2.218kW",
+  "time": "12:40PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 29C"
+ },
+ {
+  "date": "20260718",
+  "generated": "14.938kWh",
+  "peak": "2.427kW",
+  "time": "11:55AM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 29C"
+ },
+ {
+  "date": "20260719",
+  "generated": "14.445kWh",
+  "peak": "2.195kW",
+  "time": "12:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 29C"
+ },
+ {
+  "date": "20260720",
+  "generated": "14.326kWh",
+  "peak": "2.381kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 29C"
+ },
+ {
+  "date": "20260721",
+  "generated": "9.364kWh",
+  "peak": "2.432kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 29C"
+ },
+ {
+  "date": "20260831",
+  "generated": "11.036kWh",
+  "peak": "2.373kW",
+  "time": "12:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 30C"
+ },
+ {
+  "date": "20260901",
+  "generated": "14.689kWh",
+  "peak": "2.354kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20260902",
+  "generated": "13.738kWh",
+  "peak": "2.313kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 30C"
+ },
+ {
+  "date": "20260903",
+  "generated": "13.281kWh",
+  "peak": "2.553kW",
+  "time": "12:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20260904",
+  "generated": "13.601kWh",
+  "peak": "2.233kW",
+  "time": "12:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20260905",
+  "generated": "13.018kWh",
+  "peak": "2.234kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260906",
+  "generated": "12.431kWh",
+  "peak": "2.222kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260907",
+  "generated": "12.774kWh",
+  "peak": "2.159kW",
+  "time": "12:45PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260908",
+  "generated": "13.028kWh",
+  "peak": "2.266kW",
+  "time": "12:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260909",
+  "generated": "13.240kWh",
+  "peak": "2.253kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20260910",
+  "generated": "12.546kWh",
+  "peak": "2.254kW",
+  "time": "12:50PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260911",
+  "generated": "13.009kWh",
+  "peak": "2.224kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260912",
+  "generated": "13.276kWh",
+  "peak": "2.305kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 34C"
+ },
+ {
+  "date": "20260913",
+  "generated": "9.162kWh",
+  "peak": "2.245kW",
+  "time": "12:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260914",
+  "generated": "10.938kWh",
+  "peak": "2.567kW",
+  "time": "1:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "27 to 32C"
+ },
+ {
+  "date": "20260915",
+  "generated": "11.733kWh",
+  "peak": "2.130kW",
+  "time": "1:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260916",
+  "generated": "11.612kWh",
+  "peak": "2.346kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260917",
+  "generated": "12.439kWh",
+  "peak": "2.516kW",
+  "time": "12:15PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20260918",
+  "generated": "12.349kWh",
+  "peak": "2.220kW",
+  "time": "12:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260919",
+  "generated": "9.199kWh",
+  "peak": "2.461kW",
+  "time": "12:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "27 to 32C"
+ },
+ {
+  "date": "20260920",
+  "generated": "6.441kWh",
+  "peak": "2.721kW",
+  "time": "12:10PM",
+  "conditions": "Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "date": "20260921",
+  "generated": "7.201kWh",
+  "peak": "2.054kW",
+  "time": "2:55PM",
+  "conditions": "Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "date": "20260922",
+  "generated": "12.142kWh",
+  "peak": "2.230kW",
+  "time": "12:55PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20260923",
+  "generated": "11.416kWh",
+  "peak": "2.217kW",
+  "time": "12:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20260924",
+  "generated": "9.647kWh",
+  "peak": "2.488kW",
+  "time": "12:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20260925",
+  "generated": "8.200kWh",
+  "peak": "1.294kW",
+  "time": "2:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "27 to 30C"
+ },
+ {
+  "date": "20260926",
+  "generated": "9.958kWh",
+  "peak": "2.753kW",
+  "time": "12:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20260927",
+  "generated": "12.137kWh",
+  "peak": "2.242kW",
+  "time": "12:45PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20260928",
+  "generated": "10.711kWh",
+  "peak": "2.131kW",
+  "time": "12:50PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260929",
+  "generated": "11.930kWh",
+  "peak": "2.184kW",
+  "time": "12:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20260930",
+  "generated": "12.026kWh",
+  "peak": "2.220kW",
+  "time": "12:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "27 to 32C"
+ },
+ {
+  "date": "20261001",
+  "generated": "6.835kWh",
+  "peak": "2.090kW",
+  "time": "1:00PM",
+  "conditions": "Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20261002",
+  "generated": "9.195kWh",
+  "peak": "2.255kW",
+  "time": "12:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 31C"
+ },
+ {
+  "date": "20261003",
+  "generated": "7.100kWh",
+  "peak": "1.873kW",
+  "time": "2:55PM",
+  "conditions": "Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20261004",
+  "generated": "11.690kWh",
+  "peak": "2.091kW",
+  "time": "12:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 32C"
+ },
+ {
+  "date": "20261005",
+  "generated": "10.591kWh",
+  "peak": "2.137kW",
+  "time": "12:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 32C"
+ },
+ {
+  "date": "20261006",
+  "generated": "9.952kWh",
+  "peak": "2.076kW",
+  "time": "12:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 32C"
+ },
+ {
+  "date": "20261007",
+  "generated": "8.696kWh",
+  "peak": "1.803kW",
+  "time": "12:30PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "date": "20261008",
+  "generated": "8.063kWh",
+  "peak": "2.802kW",
+  "time": "12:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "23 to 32C"
+ },
+ {
+  "date": "20261009",
+  "generated": "0.000kWh",
+  "peak": "0.000kW",
+  "time": "12:00AM",
+  "conditions": "Not Sure",
+  "temp": "26 to 27C"
+ }
+]

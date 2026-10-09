@@ -1,0 +1,38 @@
+{
+  "sites": {
+    "bmt": {
+      "name": "BMT Punjab",
+      "lat": 31.63,
+      "lng": 74.82,
+      "tilt_deg": 5,
+      "azimuth_deg": 180,
+      "kwp_dc": 56.6,
+      "ac_kw": 55.0,
+      "pvoutput_uid": 63115,
+      "pvoutput_sid": 56151,
+      "role": "held-out + training after backfill",
+      "data_policy": "public 30-day window + viewer-session backfill (not our system)"
+    },
+    "manalil": {
+      "name": "Manalil Veedu",
+      "lat": 8.95,
+      "lng": 76.92,
+      "tilt_deg": 17,
+      "azimuth_deg": 0,
+      "kwp_dc": 3.09,
+      "ac_kw": 3.0,
+      "pvoutput_uid": 114530,
+      "pvoutput_sid": 99833,
+      "install_date": "2023-06-13",
+      "role": "primary training site",
+      "data_policy": "own system"
+    },
+    "maha_ref": {
+      "name": "Maharashtra reference site (modelled only)",
+      "lat": 19.47695,
+      "lng": 76.816406,
+      "role": "irradiance reference / dashboard demo",
+      "data_policy": "atlas + era5 only, no monitoring"
+    }
+  }
+}

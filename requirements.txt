@@ -1,0 +1,8 @@
+requests
+pandas
+numpy
+pvlib
+lightgbm
+scikit-learn
+pyarrow
+pytest

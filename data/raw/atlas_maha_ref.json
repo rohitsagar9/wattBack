@@ -1,0 +1,147 @@
+{
+ "loc": {
+  "lat": 19.47695,
+  "lng": 76.816406
+ },
+ "ghi_kwh_m2": 1913.578125,
+ "pvout_kwh_kwp": 1583.9088134765625,
+ "dni_kwh_m2": 1381.8203125,
+ "dif_kwh_m2": 944.2421875,
+ "gti_kwh_m2": 2035.7265625,
+ "temp_c": 26.9375,
+ "opta_deg": 22,
+ "elevation_m": 396,
+ "monthly_ghi_kwh_m2": [
+  151.59375,
+  162.125,
+  200.046875,
+  202.46875,
+  203.484375,
+  150.1484375,
+  120.3125,
+  127.53125,
+  141.328125,
+  161.6640625,
+  148.3203125,
+  144.5546875
+ ],
+ "monthly_pvout_kwh_kwp": [
+  148.33502197265625,
+  146.3067626953125,
+  162.3160400390625,
+  149.4000244140625,
+  141.76300048828125,
+  106.79998779296875,
+  89.06298828125,
+  97.80499267578125,
+  114.75,
+  141.3599853515625,
+  141.239990234375,
+  144.77001953125
+ ],
+ "layers": {
+  "GHI": {
+   "method": "Solar model",
+   "period": {
+    "from": "satregion",
+    "to": "2025"
+   },
+   "sources": [
+    "Solargis solar model (Solargis)"
+   ],
+   "updated": "2026-04-01",
+   "version": "2.2.68",
+   "unit": "kWh/m2"
+  },
+  "PVOUT_csi": {
+   "method": "PV simulation model",
+   "period": {
+    "from": "satregion",
+    "to": "2025"
+   },
+   "sources": [
+    "GHI, DNI, TEMP, OPTA, ALBEDO, ELE (Solargis)"
+   ],
+   "updated": "2026-04-01",
+   "version": "2.2.68",
+   "unit": "kWh/kWp"
+  },
+  "DNI": {
+   "method": "Solar model",
+   "period": {
+    "from": "satregion",
+    "to": "2025"
+   },
+   "sources": [
+    "Solargis solar model (Solargis)"
+   ],
+   "updated": "2026-04-01",
+   "version": "2.2.68",
+   "unit": "kWh/m2"
+  },
+  "DIF": {
+   "method": "Solar model",
+   "period": {
+    "from": "satregion",
+    "to": "2025"
+   },
+   "sources": [
+    "Solargis solar model (Solargis)"
+   ],
+   "updated": "2026-04-01",
+   "version": "2.2.68",
+   "unit": "kWh/m2"
+  },
+  "GTI_opta": {
+   "method": "Solar model",
+   "period": {
+    "from": "satregion",
+    "to": "2025"
+   },
+   "sources": [
+    "DNI, GHI, OPTA, ALBEDO, ELE (Solargis)"
+   ],
+   "updated": "2026-04-01",
+   "version": "2.2.68",
+   "unit": "kWh/m2"
+  },
+  "TEMP": {
+   "method": "Data processing",
+   "period": {
+    "from": "1994",
+    "to": "2025"
+   },
+   "sources": [
+    "ERA (ECMWF)"
+   ],
+   "updated": "2026-03-01",
+   "version": "2.2.67",
+   "unit": "\u00b0C"
+  },
+  "OPTA": {
+   "method": "PV simulation model",
+   "period": {
+    "from": "satregion",
+    "to": "2025"
+   },
+   "sources": [
+    "GHI, DNI, ALBEDO (Solargis)"
+   ],
+   "updated": "2026-04-01",
+   "version": "2.2.68",
+   "unit": "\u00b0"
+  },
+  "ELE": {
+   "method": "Data merging, cleaning, processing",
+   "sources": [
+    "SRTM v4.1 (CGIAR CSI)",
+    "Viewfinder Panoramas (Jonathan de Ferranti BA)",
+    "GEBCO_2014 Grid (GEBCO)"
+   ],
+   "updated": "2019-02-01",
+   "version": "2.1.27",
+   "unit": "m"
+  }
+ },
+ "fetched_at": "2026-10-09T09:35:55.270097+00:00"
+}

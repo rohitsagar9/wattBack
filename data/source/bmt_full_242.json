@@ -1,0 +1,1938 @@
+[
+ {
+  "date": "20260101",
+  "generated": "2.058kWh",
+  "peak": "1.750kW",
+  "time": "10:10AM",
+  "conditions": "Showers",
+  "temp": "-"
+ },
+ {
+  "date": "20260102",
+  "generated": "17.824kWh",
+  "peak": "5.570kW",
+  "time": "11:40AM",
+  "conditions": "Partly Cloudy",
+  "temp": "-"
+ },
+ {
+  "date": "20260103",
+  "generated": "7.772kWh",
+  "peak": "2.070kW",
+  "time": "11:15AM",
+  "conditions": "Cloudy",
+  "temp": "-"
+ },
+ {
+  "date": "20260104",
+  "generated": "10.747kWh",
+  "peak": "3.430kW",
+  "time": "12:25PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "-"
+ },
+ {
+  "date": "20260105",
+  "generated": "21.844kWh",
+  "peak": "8.510kW",
+  "time": "12:50PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260106",
+  "generated": "25.752kWh",
+  "peak": "7.460kW",
+  "time": "12:55PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260107",
+  "generated": "5.948kWh",
+  "peak": "1.430kW",
+  "time": "3:00PM",
+  "conditions": "Cloudy",
+  "temp": "-"
+ },
+ {
+  "date": "20260108",
+  "generated": "11.135kWh",
+  "peak": "2.940kW",
+  "time": "2:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "-"
+ },
+ {
+  "date": "20260109",
+  "generated": "23.568kWh",
+  "peak": "6.790kW",
+  "time": "12:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260110",
+  "generated": "19.567kWh",
+  "peak": "5.880kW",
+  "time": "2:25PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260111",
+  "generated": "9.781kWh",
+  "peak": "6.710kW",
+  "time": "2:10PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "-"
+ },
+ {
+  "date": "20260112",
+  "generated": "18.410kWh",
+  "peak": "6.430kW",
+  "time": "1:50PM",
+  "conditions": "Partly Cloudy",
+  "temp": "-"
+ },
+ {
+  "date": "20260113",
+  "generated": "9.773kWh",
+  "peak": "3.060kW",
+  "time": "2:15PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "-"
+ },
+ {
+  "date": "20260114",
+  "generated": "13.837kWh",
+  "peak": "4.370kW",
+  "time": "2:40PM",
+  "conditions": "Partly Cloudy",
+  "temp": "-"
+ },
+ {
+  "date": "20260115",
+  "generated": "20.096kWh",
+  "peak": "7.140kW",
+  "time": "1:30PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260116",
+  "generated": "16.686kWh",
+  "peak": "5.980kW",
+  "time": "1:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "-"
+ },
+ {
+  "date": "20260117",
+  "generated": "2.175kWh",
+  "peak": "3.170kW",
+  "time": "3:35PM",
+  "conditions": "Showers",
+  "temp": "-"
+ },
+ {
+  "date": "20260118",
+  "generated": "25.442kWh",
+  "peak": "5.970kW",
+  "time": "12:00PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260119",
+  "generated": "32.822kWh",
+  "peak": "6.320kW",
+  "time": "12:10PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260120",
+  "generated": "25.095kWh",
+  "peak": "7.100kW",
+  "time": "12:50PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260121",
+  "generated": "24.557kWh",
+  "peak": "6.860kW",
+  "time": "12:00PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260122",
+  "generated": "25.620kWh",
+  "peak": "25.942kW",
+  "time": "5:05PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260123",
+  "generated": "46.801kWh",
+  "peak": "17.290kW",
+  "time": "12:35PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260124",
+  "generated": "45.190kWh",
+  "peak": "14.070kW",
+  "time": "11:50AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260125",
+  "generated": "76.746kWh",
+  "peak": "14.330kW",
+  "time": "12:35PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260126",
+  "generated": "44.801kWh",
+  "peak": "16.580kW",
+  "time": "12:30PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260127",
+  "generated": "19.059kWh",
+  "peak": "24.852kW",
+  "time": "12:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260128",
+  "generated": "131.604kWh",
+  "peak": "23.953kW",
+  "time": "12:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260129",
+  "generated": "144.224kWh",
+  "peak": "26.669kW",
+  "time": "12:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260130",
+  "generated": "121.617kWh",
+  "peak": "26.164kW",
+  "time": "12:40PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260131",
+  "generated": "97.428kWh",
+  "peak": "21.315kW",
+  "time": "12:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260201",
+  "generated": "103.185kWh",
+  "peak": "20.813kW",
+  "time": "1:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260202",
+  "generated": "44.495kWh",
+  "peak": "20.738kW",
+  "time": "10:55AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260203",
+  "generated": "129.416kWh",
+  "peak": "23.364kW",
+  "time": "12:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260204",
+  "generated": "91.707kWh",
+  "peak": "22.783kW",
+  "time": "1:30PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260205",
+  "generated": "144.016kWh",
+  "peak": "28.288kW",
+  "time": "12:55PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260206",
+  "generated": "127.242kWh",
+  "peak": "22.887kW",
+  "time": "12:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260207",
+  "generated": "151.098kWh",
+  "peak": "25.195kW",
+  "time": "12:35PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260208",
+  "generated": "151.757kWh",
+  "peak": "25.940kW",
+  "time": "12:40PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260209",
+  "generated": "120.419kWh",
+  "peak": "25.212kW",
+  "time": "1:50PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260210",
+  "generated": "114.624kWh",
+  "peak": "22.331kW",
+  "time": "1:05PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260211",
+  "generated": "138.361kWh",
+  "peak": "25.422kW",
+  "time": "1:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260212",
+  "generated": "127.415kWh",
+  "peak": "25.913kW",
+  "time": "12:25PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260213",
+  "generated": "131.919kWh",
+  "peak": "24.035kW",
+  "time": "12:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260214",
+  "generated": "117.210kWh",
+  "peak": "22.606kW",
+  "time": "12:05PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260215",
+  "generated": "132.461kWh",
+  "peak": "22.720kW",
+  "time": "12:45PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260216",
+  "generated": "121.800kWh",
+  "peak": "22.289kW",
+  "time": "12:25PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260217",
+  "generated": "0.009kWh",
+  "peak": "0.039kW",
+  "time": "4:40PM",
+  "conditions": "Showers",
+  "temp": "-"
+ },
+ {
+  "date": "20260218",
+  "generated": "0.002kWh",
+  "peak": "0.000kW",
+  "time": "12:00AM",
+  "conditions": "Showers",
+  "temp": "-"
+ },
+ {
+  "date": "20260219",
+  "generated": "0.004kWh",
+  "peak": "0.029kW",
+  "time": "2:10PM",
+  "conditions": "Showers",
+  "temp": "-"
+ },
+ {
+  "date": "20260220",
+  "generated": "0.350kWh",
+  "peak": "1.097kW",
+  "time": "5:35PM",
+  "conditions": "Showers",
+  "temp": "-"
+ },
+ {
+  "date": "20260221",
+  "generated": "127.600kWh",
+  "peak": "23.250kW",
+  "time": "12:50PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260222",
+  "generated": "125.299kWh",
+  "peak": "21.295kW",
+  "time": "12:30PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260223",
+  "generated": "122.574kWh",
+  "peak": "20.899kW",
+  "time": "12:50PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260224",
+  "generated": "110.113kWh",
+  "peak": "20.979kW",
+  "time": "12:35PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260225",
+  "generated": "121.379kWh",
+  "peak": "20.768kW",
+  "time": "11:50AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260226",
+  "generated": "19.179kWh",
+  "peak": "9.097kW",
+  "time": "9:05AM",
+  "conditions": "Partly Cloudy",
+  "temp": "-"
+ },
+ {
+  "date": "20260227",
+  "generated": "117.406kWh",
+  "peak": "20.773kW",
+  "time": "12:50PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260228",
+  "generated": "135.272kWh",
+  "peak": "22.191kW",
+  "time": "1:05PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260301",
+  "generated": "142.825kWh",
+  "peak": "23.164kW",
+  "time": "12:40PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260302",
+  "generated": "123.006kWh",
+  "peak": "23.757kW",
+  "time": "1:35PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260303",
+  "generated": "141.904kWh",
+  "peak": "22.924kW",
+  "time": "12:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260304",
+  "generated": "123.449kWh",
+  "peak": "21.063kW",
+  "time": "12:45PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260305",
+  "generated": "136.267kWh",
+  "peak": "21.816kW",
+  "time": "12:40PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260306",
+  "generated": "113.181kWh",
+  "peak": "21.752kW",
+  "time": "12:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260307",
+  "generated": "127.959kWh",
+  "peak": "21.168kW",
+  "time": "12:10PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260308",
+  "generated": "114.719kWh",
+  "peak": "20.131kW",
+  "time": "12:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260309",
+  "generated": "67.999kWh",
+  "peak": "19.080kW",
+  "time": "11:40AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260310",
+  "generated": "101.085kWh",
+  "peak": "21.119kW",
+  "time": "1:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260311",
+  "generated": "170.390kWh",
+  "peak": "33.908kW",
+  "time": "1:05PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260312",
+  "generated": "165.874kWh",
+  "peak": "32.577kW",
+  "time": "11:20AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260313",
+  "generated": "188.792kWh",
+  "peak": "34.496kW",
+  "time": "1:40PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260314",
+  "generated": "204.251kWh",
+  "peak": "40.340kW",
+  "time": "12:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260315",
+  "generated": "41.988kWh",
+  "peak": "24.027kW",
+  "time": "11:40AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260316",
+  "generated": "126.893kWh",
+  "peak": "42.365kW",
+  "time": "1:50PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260317",
+  "generated": "214.574kWh",
+  "peak": "42.262kW",
+  "time": "1:00PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260318",
+  "generated": "39.789kWh",
+  "peak": "6.930kW",
+  "time": "11:30AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260319",
+  "generated": "70.265kWh",
+  "peak": "20.737kW",
+  "time": "9:15AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260320",
+  "generated": "160.859kWh",
+  "peak": "45.104kW",
+  "time": "12:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260321",
+  "generated": "188.586kWh",
+  "peak": "34.736kW",
+  "time": "11:50AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260322",
+  "generated": "242.879kWh",
+  "peak": "36.844kW",
+  "time": "11:20AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260323",
+  "generated": "224.503kWh",
+  "peak": "36.694kW",
+  "time": "1:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260324",
+  "generated": "138.329kWh",
+  "peak": "35.017kW",
+  "time": "12:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260325",
+  "generated": "201.181kWh",
+  "peak": "35.983kW",
+  "time": "12:10PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260326",
+  "generated": "190.035kWh",
+  "peak": "36.396kW",
+  "time": "1:25PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260327",
+  "generated": "231.474kWh",
+  "peak": "34.733kW",
+  "time": "12:25PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260328",
+  "generated": "199.999kWh",
+  "peak": "36.520kW",
+  "time": "12:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260329",
+  "generated": "139.500kWh",
+  "peak": "37.965kW",
+  "time": "12:05PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260330",
+  "generated": "176.562kWh",
+  "peak": "39.434kW",
+  "time": "1:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260331",
+  "generated": "235.212kWh",
+  "peak": "38.829kW",
+  "time": "1:00PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260401",
+  "generated": "194.195kWh",
+  "peak": "40.528kW",
+  "time": "1:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260402",
+  "generated": "243.814kWh",
+  "peak": "37.129kW",
+  "time": "1:10PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260403",
+  "generated": "110.572kWh",
+  "peak": "40.243kW",
+  "time": "2:05PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260404",
+  "generated": "167.966kWh",
+  "peak": "42.980kW",
+  "time": "1:25PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260405",
+  "generated": "275.830kWh",
+  "peak": "37.965kW",
+  "time": "12:40PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260406",
+  "generated": "79.209kWh",
+  "peak": "30.310kW",
+  "time": "10:20AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260407",
+  "generated": "54.188kWh",
+  "peak": "17.508kW",
+  "time": "12:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260408",
+  "generated": "187.300kWh",
+  "peak": "41.158kW",
+  "time": "1:35PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260409",
+  "generated": "167.856kWh",
+  "peak": "42.334kW",
+  "time": "11:50AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260410",
+  "generated": "148.273kWh",
+  "peak": "37.973kW",
+  "time": "12:40PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260411",
+  "generated": "245.635kWh",
+  "peak": "35.981kW",
+  "time": "12:05PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260412",
+  "generated": "282.157kWh",
+  "peak": "38.230kW",
+  "time": "12:25PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260413",
+  "generated": "101.908kWh",
+  "peak": "33.109kW",
+  "time": "10:30AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260414",
+  "generated": "243.919kWh",
+  "peak": "36.994kW",
+  "time": "12:05PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260415",
+  "generated": "261.691kWh",
+  "peak": "36.797kW",
+  "time": "12:25PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260416",
+  "generated": "218.090kWh",
+  "peak": "36.131kW",
+  "time": "11:55AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260417",
+  "generated": "172.132kWh",
+  "peak": "40.550kW",
+  "time": "12:35PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260418",
+  "generated": "245.721kWh",
+  "peak": "34.291kW",
+  "time": "12:25PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260419",
+  "generated": "157.038kWh",
+  "peak": "38.050kW",
+  "time": "12:05PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260420",
+  "generated": "249.651kWh",
+  "peak": "35.159kW",
+  "time": "12:30PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260421",
+  "generated": "252.836kWh",
+  "peak": "35.358kW",
+  "time": "12:30PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260422",
+  "generated": "223.587kWh",
+  "peak": "33.252kW",
+  "time": "12:55PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260423",
+  "generated": "212.811kWh",
+  "peak": "30.248kW",
+  "time": "12:30PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260424",
+  "generated": "232.012kWh",
+  "peak": "32.090kW",
+  "time": "12:35PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260425",
+  "generated": "184.890kWh",
+  "peak": "36.933kW",
+  "time": "12:05PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260426",
+  "generated": "243.035kWh",
+  "peak": "33.135kW",
+  "time": "12:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260427",
+  "generated": "202.344kWh",
+  "peak": "33.163kW",
+  "time": "12:05PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260428",
+  "generated": "151.682kWh",
+  "peak": "30.465kW",
+  "time": "2:45PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260429",
+  "generated": "269.744kWh",
+  "peak": "36.240kW",
+  "time": "12:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260430",
+  "generated": "246.700kWh",
+  "peak": "41.363kW",
+  "time": "11:20AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260501",
+  "generated": "257.081kWh",
+  "peak": "35.498kW",
+  "time": "12:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260502",
+  "generated": "255.870kWh",
+  "peak": "34.833kW",
+  "time": "11:40AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260503",
+  "generated": "10.569kWh",
+  "peak": "9.001kW",
+  "time": "9:25AM",
+  "conditions": "Cloudy",
+  "temp": "-"
+ },
+ {
+  "date": "20260504",
+  "generated": "262.928kWh",
+  "peak": "38.590kW",
+  "time": "12:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260505",
+  "generated": "282.433kWh",
+  "peak": "38.046kW",
+  "time": "11:50AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260506",
+  "generated": "251.579kWh",
+  "peak": "38.204kW",
+  "time": "12:30PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260507",
+  "generated": "239.613kWh",
+  "peak": "36.759kW",
+  "time": "12:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260508",
+  "generated": "230.697kWh",
+  "peak": "32.019kW",
+  "time": "11:30AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260509",
+  "generated": "191.493kWh",
+  "peak": "29.734kW",
+  "time": "11:45AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260510",
+  "generated": "191.045kWh",
+  "peak": "27.225kW",
+  "time": "12:25PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260511",
+  "generated": "178.100kWh",
+  "peak": "36.405kW",
+  "time": "11:45AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260512",
+  "generated": "213.523kWh",
+  "peak": "31.898kW",
+  "time": "12:45PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260513",
+  "generated": "193.960kWh",
+  "peak": "31.157kW",
+  "time": "1:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260514",
+  "generated": "244.149kWh",
+  "peak": "35.773kW",
+  "time": "12:40PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260515",
+  "generated": "228.254kWh",
+  "peak": "39.860kW",
+  "time": "12:30PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260516",
+  "generated": "262.714kWh",
+  "peak": "35.243kW",
+  "time": "12:40PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260517",
+  "generated": "261.546kWh",
+  "peak": "34.805kW",
+  "time": "12:10PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260518",
+  "generated": "247.715kWh",
+  "peak": "34.043kW",
+  "time": "11:55AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260519",
+  "generated": "247.605kWh",
+  "peak": "33.606kW",
+  "time": "12:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260520",
+  "generated": "235.816kWh",
+  "peak": "33.783kW",
+  "time": "12:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260521",
+  "generated": "201.577kWh",
+  "peak": "33.757kW",
+  "time": "12:00PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260522",
+  "generated": "215.328kWh",
+  "peak": "32.831kW",
+  "time": "12:25PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260523",
+  "generated": "221.019kWh",
+  "peak": "32.331kW",
+  "time": "12:05PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260524",
+  "generated": "201.771kWh",
+  "peak": "35.046kW",
+  "time": "12:30PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260525",
+  "generated": "219.495kWh",
+  "peak": "32.381kW",
+  "time": "12:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260526",
+  "generated": "181.382kWh",
+  "peak": "32.955kW",
+  "time": "12:30PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260527",
+  "generated": "237.943kWh",
+  "peak": "32.312kW",
+  "time": "12:40PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260528",
+  "generated": "189.859kWh",
+  "peak": "32.727kW",
+  "time": "11:10AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260529",
+  "generated": "241.286kWh",
+  "peak": "32.052kW",
+  "time": "12:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260530",
+  "generated": "34.546kWh",
+  "peak": "28.919kW",
+  "time": "3:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "-"
+ },
+ {
+  "date": "20260531",
+  "generated": "236.323kWh",
+  "peak": "39.541kW",
+  "time": "10:45AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260601",
+  "generated": "112.793kWh",
+  "peak": "33.104kW",
+  "time": "2:05PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260602",
+  "generated": "247.087kWh",
+  "peak": "34.589kW",
+  "time": "11:35AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260603",
+  "generated": "286.542kWh",
+  "peak": "36.666kW",
+  "time": "12:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260604",
+  "generated": "236.810kWh",
+  "peak": "35.933kW",
+  "time": "12:25PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260605",
+  "generated": "284.954kWh",
+  "peak": "36.449kW",
+  "time": "12:25PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260606",
+  "generated": "277.884kWh",
+  "peak": "35.194kW",
+  "time": "12:25PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260607",
+  "generated": "287.572kWh",
+  "peak": "36.750kW",
+  "time": "12:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260608",
+  "generated": "267.772kWh",
+  "peak": "35.504kW",
+  "time": "1:05PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260609",
+  "generated": "254.515kWh",
+  "peak": "35.887kW",
+  "time": "1:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260610",
+  "generated": "257.690kWh",
+  "peak": "34.358kW",
+  "time": "12:10PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260611",
+  "generated": "232.780kWh",
+  "peak": "32.760kW",
+  "time": "12:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260612",
+  "generated": "266.638kWh",
+  "peak": "39.904kW",
+  "time": "11:50AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260613",
+  "generated": "233.702kWh",
+  "peak": "41.635kW",
+  "time": "10:25AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260614",
+  "generated": "289.864kWh",
+  "peak": "37.436kW",
+  "time": "12:40PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260615",
+  "generated": "282.812kWh",
+  "peak": "36.166kW",
+  "time": "12:25PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260616",
+  "generated": "188.629kWh",
+  "peak": "42.710kW",
+  "time": "11:05AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260617",
+  "generated": "258.736kWh",
+  "peak": "34.730kW",
+  "time": "12:50PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260618",
+  "generated": "234.464kWh",
+  "peak": "38.802kW",
+  "time": "11:10AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260619",
+  "generated": "222.259kWh",
+  "peak": "42.068kW",
+  "time": "11:45AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260620",
+  "generated": "236.388kWh",
+  "peak": "39.978kW",
+  "time": "10:50AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260621",
+  "generated": "245.564kWh",
+  "peak": "35.247kW",
+  "time": "12:35PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260622",
+  "generated": "255.926kWh",
+  "peak": "38.313kW",
+  "time": "12:25PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260623",
+  "generated": "215.310kWh",
+  "peak": "36.603kW",
+  "time": "12:45PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260624",
+  "generated": "199.046kWh",
+  "peak": "35.150kW",
+  "time": "12:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260625",
+  "generated": "110.587kWh",
+  "peak": "31.272kW",
+  "time": "3:35PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260626",
+  "generated": "206.229kWh",
+  "peak": "42.137kW",
+  "time": "11:00AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260627",
+  "generated": "257.203kWh",
+  "peak": "33.428kW",
+  "time": "12:30PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260628",
+  "generated": "232.763kWh",
+  "peak": "32.753kW",
+  "time": "12:25PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260629",
+  "generated": "228.518kWh",
+  "peak": "33.257kW",
+  "time": "1:45PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260630",
+  "generated": "193.132kWh",
+  "peak": "30.407kW",
+  "time": "12:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260701",
+  "generated": "198.647kWh",
+  "peak": "33.306kW",
+  "time": "11:25AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260702",
+  "generated": "253.730kWh",
+  "peak": "39.627kW",
+  "time": "11:40AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260703",
+  "generated": "268.609kWh",
+  "peak": "38.324kW",
+  "time": "11:45AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260704",
+  "generated": "235.216kWh",
+  "peak": "39.393kW",
+  "time": "11:35AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260705",
+  "generated": "223.677kWh",
+  "peak": "33.692kW",
+  "time": "12:35PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260706",
+  "generated": "97.201kWh",
+  "peak": "31.585kW",
+  "time": "2:25PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260707",
+  "generated": "202.587kWh",
+  "peak": "35.196kW",
+  "time": "11:45AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260708",
+  "generated": "193.905kWh",
+  "peak": "40.394kW",
+  "time": "12:40PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260709",
+  "generated": "1.532kWh",
+  "peak": "0.474kW",
+  "time": "7:25PM",
+  "conditions": "Showers",
+  "temp": "-"
+ },
+ {
+  "date": "20260710",
+  "generated": "1.239kWh",
+  "peak": "0.173kW",
+  "time": "4:30PM",
+  "conditions": "Showers",
+  "temp": "-"
+ },
+ {
+  "date": "20260711",
+  "generated": "1.390kWh",
+  "peak": "0.187kW",
+  "time": "11:45AM",
+  "conditions": "Showers",
+  "temp": "-"
+ },
+ {
+  "date": "20260712",
+  "generated": "72.568kWh",
+  "peak": "42.403kW",
+  "time": "2:00PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260713",
+  "generated": "191.775kWh",
+  "peak": "47.679kW",
+  "time": "12:50PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260714",
+  "generated": "227.657kWh",
+  "peak": "47.441kW",
+  "time": "12:55PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260715",
+  "generated": "247.745kWh",
+  "peak": "41.523kW",
+  "time": "11:55AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260716",
+  "generated": "220.820kWh",
+  "peak": "36.940kW",
+  "time": "12:40PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260717",
+  "generated": "217.465kWh",
+  "peak": "34.458kW",
+  "time": "12:00PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260718",
+  "generated": "195.943kWh",
+  "peak": "36.346kW",
+  "time": "12:35PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260719",
+  "generated": "172.810kWh",
+  "peak": "33.934kW",
+  "time": "11:15AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260720",
+  "generated": "139.928kWh",
+  "peak": "30.034kW",
+  "time": "2:45PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260721",
+  "generated": "11.825kWh",
+  "peak": "5.334kW",
+  "time": "12:15PM",
+  "conditions": "Cloudy",
+  "temp": "-"
+ },
+ {
+  "date": "20260831",
+  "generated": "228.855kWh",
+  "peak": "32.689kW",
+  "time": "1:05PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260901",
+  "generated": "182.540kWh",
+  "peak": "37.110kW",
+  "time": "11:15AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260902",
+  "generated": "201.059kWh",
+  "peak": "33.417kW",
+  "time": "12:10PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260903",
+  "generated": "186.954kWh",
+  "peak": "32.077kW",
+  "time": "12:35PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260904",
+  "generated": "165.382kWh",
+  "peak": "32.450kW",
+  "time": "1:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260905",
+  "generated": "139.692kWh",
+  "peak": "32.143kW",
+  "time": "12:00PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260906",
+  "generated": "201.891kWh",
+  "peak": "38.315kW",
+  "time": "12:35PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260907",
+  "generated": "227.309kWh",
+  "peak": "35.230kW",
+  "time": "12:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260908",
+  "generated": "223.474kWh",
+  "peak": "33.659kW",
+  "time": "12:10PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260909",
+  "generated": "57.890kWh",
+  "peak": "31.183kW",
+  "time": "12:40PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260910",
+  "generated": "211.280kWh",
+  "peak": "33.752kW",
+  "time": "1:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260911",
+  "generated": "225.514kWh",
+  "peak": "32.279kW",
+  "time": "11:45AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260912",
+  "generated": "128.980kWh",
+  "peak": "30.544kW",
+  "time": "10:40AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260913",
+  "generated": "198.652kWh",
+  "peak": "33.826kW",
+  "time": "11:45AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260914",
+  "generated": "191.386kWh",
+  "peak": "31.163kW",
+  "time": "1:35PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260915",
+  "generated": "171.634kWh",
+  "peak": "33.841kW",
+  "time": "11:10AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260916",
+  "generated": "168.777kWh",
+  "peak": "33.466kW",
+  "time": "12:30PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260917",
+  "generated": "145.066kWh",
+  "peak": "38.566kW",
+  "time": "11:05AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260918",
+  "generated": "205.835kWh",
+  "peak": "33.863kW",
+  "time": "12:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260919",
+  "generated": "181.071kWh",
+  "peak": "31.896kW",
+  "time": "12:55PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260920",
+  "generated": "182.311kWh",
+  "peak": "34.847kW",
+  "time": "1:05PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260921",
+  "generated": "185.715kWh",
+  "peak": "35.150kW",
+  "time": "12:35PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260922",
+  "generated": "152.531kWh",
+  "peak": "30.483kW",
+  "time": "12:40PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260923",
+  "generated": "88.514kWh",
+  "peak": "28.554kW",
+  "time": "12:10PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260924",
+  "generated": "154.550kWh",
+  "peak": "30.281kW",
+  "time": "12:35PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260925",
+  "generated": "140.567kWh",
+  "peak": "30.820kW",
+  "time": "12:45PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260926",
+  "generated": "173.417kWh",
+  "peak": "32.210kW",
+  "time": "12:00PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260927",
+  "generated": "167.277kWh",
+  "peak": "30.117kW",
+  "time": "12:35PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260928",
+  "generated": "65.686kWh",
+  "peak": "13.140kW",
+  "time": "11:30AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260929",
+  "generated": "192.038kWh",
+  "peak": "31.576kW",
+  "time": "12:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20260930",
+  "generated": "186.795kWh",
+  "peak": "31.420kW",
+  "time": "12:25PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20261001",
+  "generated": "149.322kWh",
+  "peak": "29.513kW",
+  "time": "11:55AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20261002",
+  "generated": "148.523kWh",
+  "peak": "26.696kW",
+  "time": "12:10PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20261003",
+  "generated": "145.006kWh",
+  "peak": "26.704kW",
+  "time": "12:25PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20261004",
+  "generated": "158.234kWh",
+  "peak": "26.609kW",
+  "time": "12:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20261005",
+  "generated": "143.483kWh",
+  "peak": "26.312kW",
+  "time": "12:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20261006",
+  "generated": "154.874kWh",
+  "peak": "25.623kW",
+  "time": "12:10PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20261007",
+  "generated": "135.207kWh",
+  "peak": "26.576kW",
+  "time": "12:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20261008",
+  "generated": "120.535kWh",
+  "peak": "23.828kW",
+  "time": "12:30PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "date": "20261009",
+  "generated": "0.000kWh",
+  "peak": "0.000kW",
+  "time": "12:00AM",
+  "conditions": "Not Sure",
+  "temp": "-"
+ }
+]

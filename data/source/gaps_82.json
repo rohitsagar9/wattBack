@@ -1,0 +1,740 @@
+[
+ {
+  "site": "bmt",
+  "date": "20260722",
+  "generated": "{point.y} ' ,valueSuffix: 'kWh' ,valueDecimals: 3 } ,legend: {layout: 'horizontal', itemStyle: {color: theme.label_colour}, itemHoverStyle: {color: theme.label_hover}, itemHiddenStyle:{color: theme.graph_legend_item_hidden}} ,credits: {enabled: false} , plotOptions: { areaspline: { fillOpacity: .60, lineWidth: theme.graph_line_width, shadow: false, states: { hover: { lineWidth: theme.graph_line_width } } ,marker: { enabled: false, states: { hover: { enabled: true, symbol: 'circle', radius: 4, lineWidth: 1 } } } } ,spline: { lineWidth: theme.graph_line_width, states: { hover: { lineWidth: theme.graph_line_width } }, shadow: false, dashStyle: 'Solid', marker: { enabled: true, symbol: 'circle', radius: 0, states: { hover: { enabled: true, symbol: 'circle', radius: 3, lineWidth: 1 } } }, cursor: 'pointer', point: { events: { click: function() { if(this.options.url != null) { location.href = this.options.url; } } } } } ,column: { pointPadding: 0, borderWidth: 0, borderRadius: 0, shadow: false } } ,series:[ { name: 'Generation', color: '#ccff66', type: 'column', data: [104.605,74.491,210.756,149.129,239.820,202.215,83.458,101.786,217.591,115.850,209.788,230.914,148.990,181.793,183.544,232.255,193.827,88.929,144.676,154.485,145.865,248.283,237.960,117.026,199.087,190.371,222.081,255.829,154.953,160.380,162.817,228.771,228.093,233.630,198.110,217.670,232.895,227.474,209.531,219.848], visible: true }, { id: 'efficiency', name: 'Efficiency', color: '#339933', type: 'spline', yAxis: 1, tooltip: {valueSuffix: 'kWh/kW'}, data: [{y:1.847, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260722'},{y:1.316, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260723'},{y:3.722, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260724'},{y:2.634, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260725'},{y:4.235, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260726'},{y:3.571, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260727'},{y:1.474, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260728'},{y:1.798, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260729'},{y:3.843, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260730'},{y:2.046, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260731'},{y:3.705, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260801'},{y:4.078, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260802'},{y:2.631, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260803'},{y:3.210, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260804'},{y:3.241, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260805'},{y:4.102, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260806'},{y:3.423, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260807'},{y:1.570, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260808'},{y:2.555, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260809'},{y:2.728, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260810'},{y:2.576, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260811'},{y:4.385, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260812'},{y:4.202, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260813'},{y:2.067, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260814'},{y:3.516, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260815'},{y:3.362, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260816'},{y:3.922, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260817'},{y:4.518, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260818'},{y:2.736, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260819'},{y:2.832, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260820'},{y:2.875, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260821'},{y:4.040, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260822'},{y:4.028, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260823'},{y:4.126, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260824'},{y:3.499, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260825'},{y:3.844, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260826'},{y:4.113, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260827'},{y:4.017, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260828'},{y:3.700, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260829'},{y:3.883, marker: {symbol: 'url(images/sun.png)'}, url:'intraday.jsp?id=63115&sid=56151&dt=20260830'}], visible: true, marker:{enabled:prefs.no_icon!=1?true:false} } ] }); $(\"#bar1\").progress({showActivity:false}); $(\"#bar2\").progress({showActivity:false}); $(\"#bar1,#bar2\").css(\"background\", theme.progress_bar_background); $(\"#bar1\").click(function(){ $(\".targetbar1\").hide(); $(\".targetbar2\").show(); }); $(\"#bar2\").click(function(){ $(\".targetbar2\").hide(); $(\".targetbar1\").show(); }); $(\"a.toggleBarTarget\").click(function(){ $(\".targetbar1\").hide(); $(\".targetbar2\").show(); }); $(\"a.toggleBarElapse\").click(function(){ $(\".targetbar2\").hide(); $(\".targetbar1\").show(); }); $(\"a.toggleGeneration\").click(function(){ $(\"#rank-info-generation\").hide(); $(\"#rank-info-efficiency\").show(); }); $(\"a.toggleEfficiency\").click(function(){ $(\"#rank-info-efficiency\").hide(); $(\"#rank-info-generation\").show(); }); $(\"#tbl_main\").on(\"click\", \"tr\", function(e) {doRowSelect(this, e, \"tbl_main\")}); if(currentView == 0) $(\"a.viewstandard\").css(\"color\", \"#CCFF66\"); else if(currentView == 1) $(\"a.viewdetailed\").css(\"color\", \"#A9D0F5\"); else if(currentView == 2) $(\"a.viewtou\").css(\"color\", \"#FF2E47\"); else if(currentView == 3) $(\"a.viewgen\").css(\"color\", \"#FCD116\"); $(\"#query\").autocomplete('interface/r2/search.jsp', { width: 300, minChars: 2, max: 30, cacheLength: 0, delay: 800, scroll: true, scrollHeight: 300, formatItem: function(data, i, n, value) {return \" \" + value.split(\";\")[0] + \" \";}, formatResult: function(data, value) {return value.split(\";\")[1];}, extraParams: { sid:'56151',postcode:'null',country:'109'} }); $('#query').result(function(event, data, formatted) { var id = formatted.split(\";\")[2]; compare(id); }); $('.gallery').each(function() { $(this).magnificPopup({ delegate: 'a', type: 'image', gallery: { enabled:true } }); }); $(\".system1\").cluetip({splitTitle: '|', clickThrough: true, width: 340, waitImage: false, cluetipClass: theme.name}); $(\"a.shelp\").cluetip({splitTitle: '|', waitImage: false, width: 350, sticky: true, clickThrough: false, closePosition: 'title', activation: 'click', cluetipClass: theme.name}); $(\"a.im\").cluetip({splitTitle: '|', sticky: true, closePosition: 'title', activation: 'click', width: 400, waitImage: false, cluetipClass: theme.name}); $(\"a.readim\").cluetip({sticky: true, closePosition: 'title', activation: 'click', width: 400 , waitImage: false , ajaxSettings: { type: \"GET\", url: \"readim.jsp\", dataType: \"html\" } , ajaxProcess: function(data) { data = $(data).not('style, meta, link, script, title'); return data; } , cluetipClass: theme.name }); $(\"[rel='tooltip']\").tooltip({html: true}); window.onload = function() { document.onselectstart = function() { return false; } } if(prefs.graph_only == 1) { $('#content').hide(); $('#header').hide(); $('#othersystems').hide(); $('#submenu').hide(); $('#pagediv1').hide(); $('#dashboard').hide(); $('#targetbar').hide(); $('#maximise').show(); } }); &#9632; &#9632; &#9632; &#9632; Maximise Live | Weekly | Monthly | Yearly | Summary | Map | Statistics | Weather | Seasonal | Record Dates | Send \">Message | Favourite | Block | Customise | Minimise Generation 426 of 52439 &#9660; 1 Efficiency 10821 of 17158 &#9650; 4 &middot; 3 Followers &middot; 0 Following &middot; 1 Team &middot; 271.5 MWh &middot; 290.5 T CO 2 676 Barrels 7450 Trees 123170 L Petrol 12105 BBQs 44 Houses 61 Cars &middot; 2 Systems &middot; 0 Comments MSB",
+  "peak": "",
+  "time": "",
+  "conditions": "",
+  "temp": ""
+ },
+ {
+  "site": "bmt",
+  "date": "20260830",
+  "generated": "219.848kWh",
+  "peak": "32.509kW",
+  "time": "12:40PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260829",
+  "generated": "209.531kWh",
+  "peak": "34.470kW",
+  "time": "12:05PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260828",
+  "generated": "227.474kWh",
+  "peak": "33.932kW",
+  "time": "1:30PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260827",
+  "generated": "232.895kWh",
+  "peak": "32.539kW",
+  "time": "12:30PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260826",
+  "generated": "217.670kWh",
+  "peak": "35.300kW",
+  "time": "1:00PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260825",
+  "generated": "198.110kWh",
+  "peak": "38.795kW",
+  "time": "12:45PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260824",
+  "generated": "233.630kWh",
+  "peak": "37.396kW",
+  "time": "12:45PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260823",
+  "generated": "228.093kWh",
+  "peak": "36.425kW",
+  "time": "12:00PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260822",
+  "generated": "228.771kWh",
+  "peak": "35.388kW",
+  "time": "12:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260821",
+  "generated": "162.817kWh",
+  "peak": "41.116kW",
+  "time": "12:05PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260820",
+  "generated": "160.380kWh",
+  "peak": "39.247kW",
+  "time": "12:35PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260819",
+  "generated": "154.953kWh",
+  "peak": "35.697kW",
+  "time": "1:05PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260818",
+  "generated": "255.829kWh",
+  "peak": "43.838kW",
+  "time": "12:10PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260817",
+  "generated": "222.081kWh",
+  "peak": "37.923kW",
+  "time": "12:45PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260816",
+  "generated": "190.371kWh",
+  "peak": "38.556kW",
+  "time": "11:05AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260815",
+  "generated": "199.087kWh",
+  "peak": "35.470kW",
+  "time": "12:30PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260814",
+  "generated": "117.026kWh",
+  "peak": "27.896kW",
+  "time": "1:35PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260813",
+  "generated": "237.960kWh",
+  "peak": "37.333kW",
+  "time": "11:30AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260812",
+  "generated": "248.283kWh",
+  "peak": "37.122kW",
+  "time": "12:40PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260811",
+  "generated": "145.865kWh",
+  "peak": "34.168kW",
+  "time": "12:30PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260810",
+  "generated": "154.485kWh",
+  "peak": "34.366kW",
+  "time": "2:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260809",
+  "generated": "144.676kWh",
+  "peak": "45.080kW",
+  "time": "12:40PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260808",
+  "generated": "88.929kWh",
+  "peak": "17.271kW",
+  "time": "9:40AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260807",
+  "generated": "193.827kWh",
+  "peak": "38.842kW",
+  "time": "1:45PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260806",
+  "generated": "232.255kWh",
+  "peak": "37.316kW",
+  "time": "12:40PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260805",
+  "generated": "183.544kWh",
+  "peak": "36.008kW",
+  "time": "12:25PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260804",
+  "generated": "181.793kWh",
+  "peak": "38.337kW",
+  "time": "2:05PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260803",
+  "generated": "148.990kWh",
+  "peak": "41.381kW",
+  "time": "12:50PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260802",
+  "generated": "230.914kWh",
+  "peak": "40.881kW",
+  "time": "12:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260801",
+  "generated": "209.788kWh",
+  "peak": "46.382kW",
+  "time": "11:30AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260731",
+  "generated": "115.850kWh",
+  "peak": "36.324kW",
+  "time": "2:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260730",
+  "generated": "217.591kWh",
+  "peak": "38.296kW",
+  "time": "12:40PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260729",
+  "generated": "101.786kWh",
+  "peak": "29.867kW",
+  "time": "3:15PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260728",
+  "generated": "83.458kWh",
+  "peak": "40.883kW",
+  "time": "12:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260727",
+  "generated": "202.215kWh",
+  "peak": "39.040kW",
+  "time": "1:20PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260726",
+  "generated": "239.820kWh",
+  "peak": "42.111kW",
+  "time": "12:50PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260725",
+  "generated": "149.129kWh",
+  "peak": "43.065kW",
+  "time": "12:45PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260724",
+  "generated": "210.756kWh",
+  "peak": "41.333kW",
+  "time": "12:25PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260723",
+  "generated": "74.491kWh",
+  "peak": "20.338kW",
+  "time": "12:50PM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "bmt",
+  "date": "20260722",
+  "generated": "104.605kWh",
+  "peak": "19.484kW",
+  "time": "8:10AM",
+  "conditions": "Fine",
+  "temp": "-"
+ },
+ {
+  "site": "manalil",
+  "date": "20260722",
+  "generated": "{point.y} ' ,valueSuffix: 'kWh' ,valueDecimals: 3 } ,legend: {layout: 'horizontal', itemStyle: {color: theme.label_colour}, itemHoverStyle: {color: theme.label_hover}, itemHiddenStyle:{color: theme.graph_legend_item_hidden}} ,credits: {enabled: false} , plotOptions: { areaspline: { fillOpacity: .60, lineWidth: theme.graph_line_width, shadow: false, states: { hover: { lineWidth: theme.graph_line_width } } ,marker: { enabled: false, states: { hover: { enabled: true, symbol: 'circle', radius: 4, lineWidth: 1 } } } } ,spline: { lineWidth: theme.graph_line_width, states: { hover: { lineWidth: theme.graph_line_width } }, shadow: false, dashStyle: 'Solid', marker: { enabled: true, symbol: 'circle', radius: 0, states: { hover: { enabled: true, symbol: 'circle', radius: 3, lineWidth: 1 } } }, cursor: 'pointer', point: { events: { click: function() { if(this.options.url != null) { location.href = this.options.url; } } } } } ,column: { pointPadding: 0, borderWidth: 0, borderRadius: 0, shadow: false } } ,series:[ { name: 'Generation', color: '#ccff66', type: 'column', data: [14.633,14.024,15.372,14.770,15.084,15.028,14.452,12.876,15.009,13.243,2.076,8.406,9.802,6.458,13.383,6.809,9.546,6.416,12.940,14.756,12.698,12.704,14.670,14.511,13.325,13.202,12.286,15.047,14.921,13.031,12.370,12.668,12.195,11.356,11.467,10.201,11.587,13.195,13.712,12.096], visible: true }, { id: 'efficiency', name: 'Efficiency', color: '#339933', type: 'spline', yAxis: 1, tooltip: {valueSuffix: 'kWh/kW'}, data: [{y:4.736, url:'intraday.jsp?id=114530&sid=99833&dt=20260722'},{y:4.539, url:'intraday.jsp?id=114530&sid=99833&dt=20260723'},{y:4.975, url:'intraday.jsp?id=114530&sid=99833&dt=20260724'},{y:4.780, url:'intraday.jsp?id=114530&sid=99833&dt=20260725'},{y:4.882, url:'intraday.jsp?id=114530&sid=99833&dt=20260726'},{y:4.863, url:'intraday.jsp?id=114530&sid=99833&dt=20260727'},{y:4.677, url:'intraday.jsp?id=114530&sid=99833&dt=20260728'},{y:4.167, url:'intraday.jsp?id=114530&sid=99833&dt=20260729'},{y:4.857, url:'intraday.jsp?id=114530&sid=99833&dt=20260730'},{y:4.286, url:'intraday.jsp?id=114530&sid=99833&dt=20260731'},{y:0.672, url:'intraday.jsp?id=114530&sid=99833&dt=20260801'},{y:2.720, url:'intraday.jsp?id=114530&sid=99833&dt=20260802'},{y:3.172, url:'intraday.jsp?id=114530&sid=99833&dt=20260803'},{y:2.090, url:'intraday.jsp?id=114530&sid=99833&dt=20260804'},{y:4.331, url:'intraday.jsp?id=114530&sid=99833&dt=20260805'},{y:2.204, url:'intraday.jsp?id=114530&sid=99833&dt=20260806'},{y:3.089, url:'intraday.jsp?id=114530&sid=99833&dt=20260807'},{y:2.076, url:'intraday.jsp?id=114530&sid=99833&dt=20260808'},{y:4.188, url:'intraday.jsp?id=114530&sid=99833&dt=20260809'},{y:4.775, url:'intraday.jsp?id=114530&sid=99833&dt=20260810'},{y:4.109, url:'intraday.jsp?id=114530&sid=99833&dt=20260811'},{y:4.111, url:'intraday.jsp?id=114530&sid=99833&dt=20260812'},{y:4.748, url:'intraday.jsp?id=114530&sid=99833&dt=20260813'},{y:4.696, url:'intraday.jsp?id=114530&sid=99833&dt=20260814'},{y:4.312, url:'intraday.jsp?id=114530&sid=99833&dt=20260815'},{y:4.272, url:'intraday.jsp?id=114530&sid=99833&dt=20260816'},{y:3.976, url:'intraday.jsp?id=114530&sid=99833&dt=20260817'},{y:4.870, url:'intraday.jsp?id=114530&sid=99833&dt=20260818'},{y:4.829, url:'intraday.jsp?id=114530&sid=99833&dt=20260819'},{y:4.217, url:'intraday.jsp?id=114530&sid=99833&dt=20260820'},{y:4.003, url:'intraday.jsp?id=114530&sid=99833&dt=20260821'},{y:4.100, url:'intraday.jsp?id=114530&sid=99833&dt=20260822'},{y:3.947, url:'intraday.jsp?id=114530&sid=99833&dt=20260823'},{y:3.675, url:'intraday.jsp?id=114530&sid=99833&dt=20260824'},{y:3.711, url:'intraday.jsp?id=114530&sid=99833&dt=20260825'},{y:3.301, url:'intraday.jsp?id=114530&sid=99833&dt=20260826'},{y:3.750, url:'intraday.jsp?id=114530&sid=99833&dt=20260827'},{y:4.270, url:'intraday.jsp?id=114530&sid=99833&dt=20260828'},{y:4.438, url:'intraday.jsp?id=114530&sid=99833&dt=20260829'},{y:3.915, url:'intraday.jsp?id=114530&sid=99833&dt=20260830'}], visible: true, marker:{enabled:prefs.no_icon!=1?true:false} } ] }); $(\"#bar1\").progress({showActivity:false}); $(\"#bar2\").progress({showActivity:false}); $(\"#bar1,#bar2\").css(\"background\", theme.progress_bar_background); $(\"#bar1\").click(function(){ $(\".targetbar1\").hide(); $(\".targetbar2\").show(); }); $(\"#bar2\").click(function(){ $(\".targetbar2\").hide(); $(\".targetbar1\").show(); }); $(\"a.toggleBarTarget\").click(function(){ $(\".targetbar1\").hide(); $(\".targetbar2\").show(); }); $(\"a.toggleBarElapse\").click(function(){ $(\".targetbar2\").hide(); $(\".targetbar1\").show(); }); $(\"a.toggleGeneration\").click(function(){ $(\"#rank-info-generation\").hide(); $(\"#rank-info-efficiency\").show(); }); $(\"a.toggleEfficiency\").click(function(){ $(\"#rank-info-efficiency\").hide(); $(\"#rank-info-generation\").show(); }); $(\"#tbl_main\").on(\"click\", \"tr\", function(e) {doRowSelect(this, e, \"tbl_main\")}); if(currentView == 0) $(\"a.viewstandard\").css(\"color\", \"#CCFF66\"); else if(currentView == 1) $(\"a.viewdetailed\").css(\"color\", \"#A9D0F5\"); else if(currentView == 2) $(\"a.viewtou\").css(\"color\", \"#FF2E47\"); else if(currentView == 3) $(\"a.viewgen\").css(\"color\", \"#FCD116\"); $(\"#query\").autocomplete('interface/r2/search.jsp', { width: 300, minChars: 2, max: 30, cacheLength: 0, delay: 800, scroll: true, scrollHeight: 300, formatItem: function(data, i, n, value) {return \" \" + value.split(\";\")[0] + \" \";}, formatResult: function(data, value) {return value.split(\";\")[1];}, extraParams: { sid:'99833',postcode:'null',country:'109'} }); $('#query').result(function(event, data, formatted) { var id = formatted.split(\";\")[2]; compare(id); }); $('.gallery').each(function() { $(this).magnificPopup({ delegate: 'a', type: 'image', gallery: { enabled:true } }); }); $(\".system1\").cluetip({splitTitle: '|', clickThrough: true, width: 300, waitImage: false, cluetipClass: theme.name}); $(\"a.shelp\").cluetip({splitTitle: '|', waitImage: false, width: 350, sticky: true, clickThrough: false, closePosition: 'title', activation: 'click', cluetipClass: theme.name}); $(\"a.im\").cluetip({splitTitle: '|', sticky: true, closePosition: 'title', activation: 'click', width: 400, waitImage: false, cluetipClass: theme.name}); $(\"a.readim\").cluetip({sticky: true, closePosition: 'title', activation: 'click', width: 400 , waitImage: false , ajaxSettings: { type: \"GET\", url: \"readim.jsp\", dataType: \"html\" } , ajaxProcess: function(data) { data = $(data).not('style, meta, link, script, title'); return data; } , cluetipClass: theme.name }); $(\"[rel='tooltip']\").tooltip({html: true}); window.onload = function() { document.onselectstart = function() { return false; } } if(prefs.graph_only == 1) { $('#content').hide(); $('#header').hide(); $('#othersystems').hide(); $('#submenu').hide(); $('#pagediv1').hide(); $('#dashboard').hide(); $('#targetbar').hide(); $('#maximise').show(); } }); &#9632; &#9632; &#9632; &#9632; Maximise Live | Weekly | Monthly | Yearly | Summary | Map | Statistics | Weather | Seasonal | Record Dates | Send \">Message | Favourite | Block | Customise | Minimise Generation 27707 of 52439 &#9650; 7 Efficiency 5398 of 17158 &#9660; 3 &middot; 0 Followers &middot; 0 Following &middot; 1 Photo &middot; 12.3 MWh &middot; 13.2 T CO 2 31 Barrels 339 Trees 5597 L Petrol 550 BBQs 2 Houses 3 Cars &middot; 0 Comments",
+  "peak": "",
+  "time": "",
+  "conditions": "",
+  "temp": ""
+ },
+ {
+  "site": "manalil",
+  "date": "20260830",
+  "generated": "12.096kWh",
+  "peak": "2.309kW",
+  "time": "1:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "26 to 30C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260829",
+  "generated": "13.712kWh",
+  "peak": "2.316kW",
+  "time": "12:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 30C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260828",
+  "generated": "13.195kWh",
+  "peak": "2.340kW",
+  "time": "1:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260827",
+  "generated": "11.587kWh",
+  "peak": "2.744kW",
+  "time": "11:25AM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260826",
+  "generated": "10.201kWh",
+  "peak": "2.704kW",
+  "time": "12:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 28C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260825",
+  "generated": "11.467kWh",
+  "peak": "2.482kW",
+  "time": "1:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 29C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260824",
+  "generated": "11.356kWh",
+  "peak": "2.662kW",
+  "time": "12:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 30C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260823",
+  "generated": "12.195kWh",
+  "peak": "2.576kW",
+  "time": "2:40PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260822",
+  "generated": "12.668kWh",
+  "peak": "2.265kW",
+  "time": "1:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 31C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260821",
+  "generated": "12.370kWh",
+  "peak": "2.459kW",
+  "time": "1:15PM",
+  "conditions": "Partly Cloudy",
+  "temp": "26 to 30C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260820",
+  "generated": "13.031kWh",
+  "peak": "2.338kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 30C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260819",
+  "generated": "14.921kWh",
+  "peak": "2.286kW",
+  "time": "12:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260818",
+  "generated": "15.047kWh",
+  "peak": "2.337kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260817",
+  "generated": "12.286kWh",
+  "peak": "2.373kW",
+  "time": "12:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260816",
+  "generated": "13.202kWh",
+  "peak": "2.541kW",
+  "time": "12:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 30C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260815",
+  "generated": "13.325kWh",
+  "peak": "2.238kW",
+  "time": "1:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260814",
+  "generated": "14.511kWh",
+  "peak": "2.692kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260813",
+  "generated": "14.670kWh",
+  "peak": "2.302kW",
+  "time": "12:15PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 29C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260812",
+  "generated": "12.704kWh",
+  "peak": "2.418kW",
+  "time": "1:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 28C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260811",
+  "generated": "12.698kWh",
+  "peak": "2.691kW",
+  "time": "12:45PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 28C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260810",
+  "generated": "14.756kWh",
+  "peak": "2.404kW",
+  "time": "12:35PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 28C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260809",
+  "generated": "12.940kWh",
+  "peak": "2.605kW",
+  "time": "12:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 28C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260808",
+  "generated": "6.416kWh",
+  "peak": "1.823kW",
+  "time": "11:55AM",
+  "conditions": "Cloudy",
+  "temp": "24 to 27C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260807",
+  "generated": "9.546kWh",
+  "peak": "2.809kW",
+  "time": "12:20PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 27C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260806",
+  "generated": "6.809kWh",
+  "peak": "2.126kW",
+  "time": "11:15AM",
+  "conditions": "Cloudy",
+  "temp": "24 to 28C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260805",
+  "generated": "13.383kWh",
+  "peak": "2.818kW",
+  "time": "1:20PM",
+  "conditions": "Partly Cloudy",
+  "temp": "23 to 28C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260804",
+  "generated": "6.458kWh",
+  "peak": "2.281kW",
+  "time": "1:45PM",
+  "conditions": "Cloudy",
+  "temp": "24 to 28C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260803",
+  "generated": "9.802kWh",
+  "peak": "2.303kW",
+  "time": "12:35PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 26C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260802",
+  "generated": "8.406kWh",
+  "peak": "2.444kW",
+  "time": "2:00PM",
+  "conditions": "Mostly Cloudy",
+  "temp": "24 to 29C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260801",
+  "generated": "2.076kWh",
+  "peak": "0.880kW",
+  "time": "11:20AM",
+  "conditions": "Showers",
+  "temp": "24 to 26C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260731",
+  "generated": "13.243kWh",
+  "peak": "2.381kW",
+  "time": "12:15PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260730",
+  "generated": "15.009kWh",
+  "peak": "2.220kW",
+  "time": "12:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260729",
+  "generated": "12.876kWh",
+  "peak": "2.692kW",
+  "time": "2:30PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260728",
+  "generated": "14.452kWh",
+  "peak": "2.351kW",
+  "time": "1:10PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260727",
+  "generated": "15.028kWh",
+  "peak": "2.371kW",
+  "time": "3:05PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260726",
+  "generated": "15.084kWh",
+  "peak": "2.355kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260725",
+  "generated": "14.770kWh",
+  "peak": "2.328kW",
+  "time": "12:00PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 29C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260724",
+  "generated": "15.372kWh",
+  "peak": "2.287kW",
+  "time": "12:25PM",
+  "conditions": "Partly Cloudy",
+  "temp": "25 to 30C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260723",
+  "generated": "14.024kWh",
+  "peak": "2.313kW",
+  "time": "11:45AM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 29C"
+ },
+ {
+  "site": "manalil",
+  "date": "20260722",
+  "generated": "14.633kWh",
+  "peak": "2.269kW",
+  "time": "11:55AM",
+  "conditions": "Partly Cloudy",
+  "temp": "24 to 29C"
+ }
+]
