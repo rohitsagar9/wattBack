@@ -1,14 +1,41 @@
 import json
 
 from django.shortcuts import get_object_or_404, render
+from django.utils.text import slugify
 
 from wattback.loss.counterfactual import cleaning_counterfactual
 
+from . import storage
 from .models import DailyRecord, LossRecord, OutageAlert, RunMeta, Site
 
 ORACLE_START = "2026-09-01"
 ORACLE_END = "2026-09-29"
 LOSS_COLS = ["aoi", "temp", "soiling", "dc_cable", "inv_conv", "clip", "ac_cable"]
+
+PARKS = [
+    {"key": "bmt", "name": "BMT Punjab · 56.6 kWp demo system",
+     "lat": 31.63, "lng": 74.82, "tilt": 5, "az": 180, "kwp": 56.6, "ac": 55.0,
+     "seeded": True},
+    {"key": "manalil", "name": "Manalil Veedu · 3.09 kWp home demo",
+     "lat": 8.95, "lng": 76.92, "tilt": 17, "az": 0, "kwp": 3.09, "ac": 3.0,
+     "seeded": True},
+    {"key": "bhadla", "name": "Bhadla Solar Park, Rajasthan",
+     "lat": 27.54, "lng": 71.91, "tilt": 27, "az": 180, "kwp": 1000, "ac": 1000},
+    {"key": "pavagada", "name": "Pavagada Solar Park, Karnataka",
+     "lat": 14.27, "lng": 77.35, "tilt": 14, "az": 180, "kwp": 1000, "ac": 1000},
+    {"key": "charanka", "name": "Charanka Solar Park, Gujarat",
+     "lat": 23.75, "lng": 71.10, "tilt": 24, "az": 180, "kwp": 1000, "ac": 1000},
+    {"key": "rewa", "name": "Rewa Solar, Madhya Pradesh",
+     "lat": 24.53, "lng": 81.30, "tilt": 25, "az": 180, "kwp": 1000, "ac": 1000},
+    {"key": "kurnool", "name": "Kurnool Solar, Andhra Pradesh",
+     "lat": 15.68, "lng": 78.28, "tilt": 16, "az": 180, "kwp": 1000, "ac": 1000},
+    {"key": "ananthapur", "name": "Ananthapur Solar, Andhra Pradesh",
+     "lat": 14.62, "lng": 77.60, "tilt": 15, "az": 180, "kwp": 1000, "ac": 1000},
+    {"key": "mandsaur", "name": "Mandsaur Solar, Madhya Pradesh",
+     "lat": 24.08, "lng": 74.68, "tilt": 24, "az": 180, "kwp": 1000, "ac": 1000},
+    {"key": "neyveli", "name": "Neyveli Solar, Tamil Nadu",
+     "lat": 11.61, "lng": 79.49, "tilt": 12, "az": 180, "kwp": 1000, "ac": 1000},
+]
 
 IMPACT = {
     "india_rooftop_gw": 32.59,
@@ -39,6 +66,52 @@ def _counterfactual(site: Site) -> dict | None:
 
 def story(request):
     return render(request, "dashboard/story.html", {"active": "story"})
+
+
+def onboard(request):
+    error = ""
+    if request.method == "POST" and request.POST.get("save") == "1":
+        try:
+            lat = float(request.POST.get("lat", ""))
+            lng = float(request.POST.get("lon", ""))
+            kwp = float(request.POST.get("kwp") or 0)
+        except ValueError:
+            lat = lng = kwp = 0.0
+            error = "Latitude, longitude and capacity are required."
+        if not error and not (-90 <= lat <= 90 and -180 <= lng <= 180 and kwp > 0):
+            error = "Check your coordinates and system capacity (kWp > 0)."
+        if not error:
+            name = (request.POST.get("name") or "").strip() or \
+                f"My rooftop ({lat:.2f}, {lng:.2f})"
+            base = slugify(name)[:44] or "rooftop"
+            key, i = base, 2
+            while Site.objects.filter(key=key).exists():
+                key, i = f"{base}-{i}", i + 1
+            tilt = float(request.POST.get("tilt") or round(abs(lat)))
+            az = float(request.POST.get("az") or 180)
+            ac = float(request.POST.get("ac") or round(kwp * 0.8, 1))
+            site = Site.objects.create(
+                key=key, name=name, lat=lat, lng=lng, tilt_deg=tilt,
+                azimuth_deg=az, kwp_dc=kwp, ac_kw=ac,
+                role="onboarded via /onboard wizard",
+                data_policy="owner-entered specs; ERA5 + Atlas + PVGIS extract at onboarding",
+                pvoutput_api_key=(request.POST.get("pvkey") or "").strip()[:200],
+                pvoutput_system_id=(request.POST.get("pvsid") or "").strip()[:50],
+            )
+            res = storage.save_system({
+                "key": site.key, "name": site.name, "lat": lat, "lng": lng,
+                "tilt_deg": tilt, "azimuth_deg": az, "kwp_dc": kwp,
+                "ac_kw": ac, "pvoutput_api_key": site.pvoutput_api_key,
+                "pvoutput_system_id": site.pvoutput_system_id,
+                "source": "onboard",
+            })
+            return render(request, "dashboard/onboard.html", {
+                "active": "onboard", "parks": PARKS,
+                "saved": site, "storage": res, "error": "",
+            })
+    return render(request, "dashboard/onboard.html", {
+        "active": "onboard", "parks": PARKS, "saved": None, "error": error,
+    })
 
 
 def overview(request):

@@ -40,11 +40,14 @@ def fetch_era5_daily(
     }
     last_err: Exception | None = None
     data = None
+    tzname = ""
     for attempt in range(max_retries):
         try:
             resp = requests.get(ARCHIVE_URL, params=params, timeout=60)
             resp.raise_for_status()
-            data = resp.json()["daily"]
+            payload = resp.json()
+            data = payload["daily"]
+            tzname = payload.get("timezone") or ""
             break
         except Exception as exc:  # noqa: BLE001
             last_err = exc
@@ -69,6 +72,7 @@ def fetch_era5_daily(
         print(f"  era5: dropping {nulls} day(s) with null GHI (latency)")
         df = df.dropna(subset=["ghi_kwh_m2"]).reset_index(drop=True)
     df["ghi_kwh_m2"] = df["ghi_kwh_m2"].astype(float)
+    df.attrs["timezone"] = tzname
     return df
 
 def _cached(name: str, fetch) -> pd.DataFrame:

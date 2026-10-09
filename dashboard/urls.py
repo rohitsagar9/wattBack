@@ -6,6 +6,7 @@ app_name = "dashboard"
 
 urlpatterns = [
     path("", views.story, name="story"),
+    path("onboard/", views.onboard, name="onboard"),
     path("app/", views.overview, name="overview"),
     path("app/site/<slug:key>/", views.site_detail, name="site_detail"),
     path("app/outages/", views.outages, name="outages"),

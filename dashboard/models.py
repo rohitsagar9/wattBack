@@ -12,6 +12,8 @@ class Site(models.Model):
     ac_kw = models.FloatField(default=0)
     role = models.CharField(max_length=200, blank=True)
     data_policy = models.CharField(max_length=200, blank=True)
+    pvoutput_api_key = models.CharField(max_length=200, blank=True, default="")
+    pvoutput_system_id = models.CharField(max_length=50, blank=True, default="")
 
     def __str__(self) -> str:
         return self.name

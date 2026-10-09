@@ -121,3 +121,43 @@ class WattBackEndToEnd(TestCase):
         text = out.getvalue()
         self.assertIn("DRY RUN", text)
         self.assertIn("WattBack outage alert", text)
+
+    # ---- onboarding (P1) -------------------------------------------------
+    def test_onboard_page(self):
+        r = self.client.get("/onboard/")
+        self.assertEqual(r.status_code, 200)
+        self.assertContains(r, "USE MY LOCATION")
+        self.assertContains(r, "pvoutput.org/register.html")
+        self.assertContains(r, "Bhadla Solar Park")
+
+    def test_onboard_save_creates_site(self):
+        r = self.client.post("/onboard/", {
+            "save": "1", "lat": "28.6139", "lon": "77.2090", "kwp": "4.0",
+            "tilt": "28", "az": "180", "name": "Test Rooftop Delhi",
+            "ac": "3.2", "pvkey": "abc123"})
+        self.assertEqual(r.status_code, 200)
+        self.assertContains(r, "SAVED")
+        s = Site.objects.get(name="Test Rooftop Delhi")
+        self.assertEqual(s.kwp_dc, 4.0)
+        self.assertEqual(s.pvoutput_api_key, "abc123")
+        self.assertIn("onboarded", s.role)
+
+    def test_onboard_save_rejects_bad_coords(self):
+        r = self.client.post("/onboard/", {
+            "save": "1", "lat": "999", "lon": "77.2", "kwp": "4"})
+        self.assertContains(r, "CHECK INPUT", status_code=200)
+        self.assertFalse(Site.objects.filter(name__contains="999").exists())
+
+    def test_extract_requires_coords(self):
+        r = self.client.get("/api/v1/extract/")
+        self.assertEqual(r.status_code, 400)
+        self.assertIn("error", r.json())
+
+    def test_storage_dual_mode_db_only(self):
+        from unittest.mock import patch
+
+        from dashboard import storage
+        with patch.dict("os.environ", {"AWS_ACCESS_KEY_ID": "",
+                                       "AWS_PROFILE": ""}):
+            res = storage.save_system({"key": "x"})
+        self.assertEqual(res["mode"], "db-only")

@@ -11,4 +11,5 @@ urlpatterns = [
     path("outages/", api.outages, name="outages"),
     path("cleaning/", api.cleaning, name="cleaning"),
     path("impact/", api.impact, name="impact"),
+    path("extract/", api.extract, name="extract"),
 ]

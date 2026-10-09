@@ -141,3 +141,94 @@ def cleaning(request):
 
 def impact(request):
     return JsonResponse(IMPACT)
+
+
+def _sunpath(lat: float, lng: float, tzname: str) -> dict:
+    try:
+        from zoneinfo import ZoneInfo
+
+        import pandas as pd
+        from pvlib.solarposition import get_solarposition
+
+        tz = ZoneInfo(tzname or "UTC")
+        now = pd.Timestamp.now(tz)
+        times = pd.date_range(now.normalize(), periods=96, freq="15min", tz=tz)
+        sp = get_solarposition(times, lat, lng, altitude=0)
+        pts = [{"az": round(float(a), 1), "el": round(float(e), 1),
+                "hh": round(i * 0.25, 2)}
+               for i, (a, e) in enumerate(
+                   zip(sp["azimuth"], sp["elevation"]))]
+        now_sp = get_solarposition(pd.DatetimeIndex([now]), lat, lng,
+                                   altitude=0)
+        return {
+            "date": now.date().isoformat(), "tz": tzname or "UTC",
+            "points": pts,
+            "now": {"az": round(float(now_sp["azimuth"].iloc[0]), 1),
+                    "el": round(float(now_sp["elevation"].iloc[0]), 1)},
+        }
+    except Exception as exc:  # noqa: BLE001
+        return {"error": f"{type(exc).__name__}: {exc}"}
+
+
+def extract(request):
+    """Onboarding extraction: ERA5 recent stats + Atlas LTA + PVGIS baseline
+    + terrain horizon + sun path for an arbitrary point."""
+    try:
+        lat = float(request.GET["lat"])
+        lng = float(request.GET["lon"])
+    except (KeyError, ValueError, TypeError):
+        return JsonResponse({"error": "lat and lon are required"}, status=400)
+    if not (-90 <= lat <= 90 and -180 <= lng <= 180):
+        return JsonResponse({"error": "lat/lon out of range"}, status=400)
+    tilt = float(request.GET.get("tilt") or round(abs(lat)))
+    az = float(request.GET.get("az") or 180)
+    kwp = float(request.GET.get("kwp") or 1)
+    out: dict = {"lat": lat, "lon": lng, "tilt": tilt, "az": az,
+                 "kwp": kwp, "timezone": "UTC", "sources": {}}
+
+    try:
+        from datetime import date, timedelta
+
+        from wattback.ingest.weather import fetch_era5_daily
+        end = date.today() - timedelta(days=1)
+        df = fetch_era5_daily(lat, lng, end - timedelta(days=60), end)
+        out["timezone"] = df.attrs.get("timezone") or "UTC"
+        out["recent60"] = {
+            "mean_ghi": round(float(df["ghi_kwh_m2"].mean()), 2),
+            "rain_days": int((df["precip_mm"] >= 1).sum()),
+            "rain_mm": round(float(df["precip_mm"].sum()), 1),
+            "tmean_c": round(float(df["tmean_c"].mean()), 1),
+            "tmax_c": round(float(df["tmax_c"].max()), 1),
+        }
+        out["sources"]["era5"] = "ok"
+    except Exception as exc:  # noqa: BLE001
+        out["sources"]["era5"] = f"failed: {exc}"
+
+    try:
+        from wattback.ingest.atlas import fetch_lta
+        lta = fetch_lta(lat, lng)
+        out["atlas"] = {k: lta[k] for k in
+                        ("ghi_kwh_m2", "pvout_kwh_kwp", "opta_deg", "temp_c")}
+        out["sources"]["atlas"] = "ok"
+    except Exception as exc:  # noqa: BLE001
+        out["sources"]["atlas"] = f"failed: {exc}"
+
+    try:
+        from wattback.ingest.pvgis import pvgis_baseline
+        out["pvgis"] = pvgis_baseline(lat, lng, tilt, az, kwp)
+        out["sources"]["pvgis"] = ("ok" if "error" not in out["pvgis"]
+                                   else out["pvgis"]["error"])
+    except Exception as exc:  # noqa: BLE001
+        out["sources"]["pvgis"] = f"failed: {exc}"
+        out["pvgis"] = {"error": str(exc)}
+
+    try:
+        from wattback.ingest.pvgis import horizon_profile
+        out["horizon"] = horizon_profile(lat, lng)
+        out["sources"]["horizon"] = "ok" if out["horizon"] else "unavailable"
+    except Exception as exc:  # noqa: BLE001
+        out["horizon"] = None
+        out["sources"]["horizon"] = f"failed: {exc}"
+
+    out["sunpath"] = _sunpath(lat, lng, out["timezone"])
+    return JsonResponse(out)

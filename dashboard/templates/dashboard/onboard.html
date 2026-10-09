@@ -1,0 +1,344 @@
+{% extends "dashboard/base.html" %}
+{% block title %}Onboard — WattBack{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+{% endblock %}
+{% block content %}
+<h1>{% if saved %}System saved{% else %}Onboard your roof{% endif %}</h1>
+
+{% if saved %}
+<p class="sub">Your system is registered. The map, shading view and baseline for this
+point are one click away; extraction runs live whenever you ask.</p>
+<div class="banner">
+  <span class="ok">SAVED</span> <b>{{ saved.name }}</b> · {{ saved.kwp_dc }} kWp ·
+  tilt {{ saved.tilt_deg }}° · az {{ saved.azimuth_deg }}° ·
+  {{ saved.lat }}, {{ saved.lng }}
+  <br><span class="muted mono">storage: {{ storage.mode }} ({{ storage.detail }})
+  {% if saved.pvoutput_api_key %} · PVOutput key stored{% endif %}</span>
+</div>
+<div class="cta-row">
+  <a class="btn" href="/app/?site={{ saved.key }}">OPEN DASHBOARD →</a>
+  <a class="btn ghost" href="/app/?site=bmt">SEE SEEDED DEMO (BMT)</a>
+  <a class="btn ghost" href="/onboard/">ONBOARD ANOTHER</a>
+</div>
+
+{% else %}
+{% if error %}<div class="banner"><span class="bad">CHECK INPUT</span> {{ error }}</div>{% endif %}
+<div class="formrow mono" style="font-weight:700">
+  <span class="pill">01 LOCATION</span> <span class="muted">→</span>
+  <span class="pill">02 SYSTEM</span> <span class="muted">→</span>
+  <span class="pill">03 EXTRACT &amp; VERIFY</span>
+</div>
+
+<form id="ow" method="post" action="/onboard/">{% csrf_token %}
+<input type="hidden" name="save" value="1">
+<input type="hidden" name="lat" id="f_lat">
+<input type="hidden" name="lon" id="f_lon">
+<input type="hidden" name="tilt" id="f_tilt" value="28">
+<input type="hidden" name="az" id="f_az" value="180">
+<input type="hidden" name="kwp" id="f_kwp" value="4">
+<input type="hidden" name="ac" id="f_ac" value="3.2">
+
+<!-- STEP 1 -->
+<section class="step" id="s1">
+  <div class="grid g2">
+    <div class="card a-acid">
+      <h3>01 · Location</h3>
+      <p class="muted">Enter coordinates, use your device location, or pick a known
+      Indian solar system.</p>
+      <div class="formrow">
+        <label class="mono">LAT<br><input type="text" id="i_lat" inputmode="decimal" size="10" placeholder="28.6139"></label>
+        <label class="mono">LON<br><input type="text" id="i_lon" inputmode="decimal" size="10" placeholder="77.2090"></label>
+        <button type="button" class="btn" onclick="geo()">⌖ USE MY LOCATION</button>
+      </div>
+      <p class="muted mono" id="geo_msg"></p>
+      <label class="mono">OR PICK A SYSTEM<br>
+        <select id="park" onchange="pickPark()">
+          <option value="">custom coordinates</option>
+          {% for p in parks %}
+          <option value="{{ p.key }}" data-lat="{{ p.lat }}" data-lng="{{ p.lng }}"
+            data-tilt="{{ p.tilt }}" data-az="{{ p.az }}" data-kwp="{{ p.kwp }}"
+            data-ac="{{ p.ac }}" data-name="{{ p.name }}"
+            data-seeded="{{ p.seeded|yesno:'1,0' }}">{{ p.name }}</option>
+          {% endfor %}
+        </select>
+      </label>
+    </div>
+    <div class="card term">
+      <h3>map_locator.log</h3>
+      <div id="map1" style="height:330px;border:2px solid #0E131F"></div>
+      <p class="muted mono" id="map_note">satellite imagery: Esri · streets: OpenStreetMap</p>
+    </div>
+  </div>
+  <div class="cta-row"><button type="button" class="btn" onclick="go(2)">NEXT: SYSTEM DETAILS →</button></div>
+</section>
+
+<!-- STEP 2 -->
+<section class="step" id="s2" hidden>
+  <div class="grid g2">
+    <div class="card a-violet">
+      <h3>02 · System details</h3>
+      <label class="mono">NAME<br><input type="text" name="name" id="f_name" placeholder="My rooftop" size="24"></label>
+      <div class="formrow">
+        <label class="mono">kWp (DC)<br><input type="text" id="i_kwp" value="4" size="6" oninput="syncKwp()"></label>
+        <label class="mono">AC kW<br><input type="text" id="i_ac" value="3.2" size="6" oninput="document.getElementById('f_ac').value=this.value"></label>
+        <label class="mono">TILT °<br><input type="text" id="i_tilt" value="28" size="6" oninput="document.getElementById('f_tilt').value=this.value"></label>
+        <label class="mono">AZIMUTH °<br><input type="text" id="i_az" value="180" size="6" oninput="document.getElementById('f_az').value=this.value"></label>
+      </div>
+      <p class="muted mono">azimuth 180 = south · 0 = north (site convention).
+      Defaults: tilt ≈ latitude, az = 180.</p>
+    </div>
+    <div class="card a-amber">
+      <h3>02b · Data source (optional)</h3>
+      <p>For automatic daily kWh, register a free PVOutput account and paste your key:
+      100+ inverter brands push there.</p>
+      <p><a class="btn ghost" href="https://pvoutput.org/register.html" target="_blank" rel="noopener">REGISTER ON PVOUTPUT ↗</a></p>
+      <label class="mono">API KEY<br><input type="text" name="pvkey" size="28" placeholder="optional"></label><br><br>
+      <label class="mono">SYSTEM ID<br><input type="text" name="pvsid" size="10" placeholder="optional"></label>
+      <p class="muted mono">No PVOutput? No problem: step 4 lets you log kWh manually.</p>
+    </div>
+  </div>
+  <div class="cta-row">
+    <button type="button" class="btn ghost" onclick="go(1)">← BACK</button>
+    <button type="button" class="btn" onclick="go(3)">EXTRACT FROM SATELLITE DATA →</button>
+  </div>
+</section>
+
+<!-- STEP 3 -->
+<section class="step" id="s3" hidden>
+  <div class="card a-acid">
+    <h3>03 · Extract &amp; verify</h3>
+    <p class="muted">We pull your point from three independent sources:
+      <b>ERA5 reanalysis</b> (recent weather), <b>Global Solar Atlas</b> (long-term yield),
+      <b>PVGIS</b> (EU Commission baseline), plus terrain horizon for shading.</p>
+    <div id="extract_status" class="mono"></div>
+    <div id="extract_nums" class="impact" style="margin-top:14px"></div>
+    <div id="extract_src" class="formrow" style="margin-top:12px"></div>
+  </div>
+  <div class="grid g2" style="margin-top:16px">
+    <div class="card term"><h3>map_verify.log</h3>
+      <div id="map2" style="height:330px;border:2px solid #0E131F"></div></div>
+    <div class="card"><h3>shading_view.svg</h3>
+      <div id="shade_box" class="mono muted">loading terrain horizon + sun path…</div></div>
+  </div>
+  <div class="cta-row">
+    <button type="button" class="btn ghost" onclick="go(2)">← BACK</button>
+    <button type="submit" class="btn">SAVE MY SYSTEM →</button>
+  </div>
+</section>
+</form>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function () {
+  var map1 = null, map2 = null, marker1 = null, marker2 = null, extracted = false;
+  var $ = function (id) { return document.getElementById(id); };
+
+  function leafletReady() { return typeof L !== 'undefined'; }
+
+  function baseLayers() {
+    var esri = L.tileLayer(
+      'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+      { maxZoom: 18, attribution: 'Imagery © Esri · Maxar · Earthstar Geographics' });
+    var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+      { maxZoom: 19, attribution: '© OpenStreetMap contributors' });
+    return { 'Satellite (Esri)': esri, 'Streets (OSM)': osm };
+  }
+
+  function mkMap(id) {
+    if (!leafletReady()) {
+      $(id).innerHTML = '<p class="muted mono">map library unavailable; check connection</p>';
+      return null;
+    }
+    var layers = baseLayers();
+    var m = L.map(id, { layers: [layers['Satellite (Esri)']] }).setView([20.5, 78.9], 5);
+    L.control.layers(layers, null, { position: 'topleft' }).addTo(m);
+    return m;
+  }
+
+  function fly(m, lat, lng, popupText) {
+    if (!m) return;
+    m.setView([lat, lng], 14);
+    if (!marker1 || m === map1) {
+      if (m === map1) { if (marker1) m.removeLayer(marker1);
+        marker1 = L.marker([lat, lng]).addTo(m).bindPopup(popupText || '').openPopup(); }
+      else { if (marker2) m.removeLayer(marker2);
+        marker2 = L.marker([lat, lng]).addTo(m).bindPopup(popupText || '').openPopup(); }
+    }
+  }
+
+  function coords() {
+    var lat = parseFloat($('i_lat').value), lng = parseFloat($('i_lon').value);
+    if (isNaN(lat) || isNaN(lng)) return null;
+    return [lat, lng];
+  }
+
+  window.syncCoords = function () {
+    var c = coords();
+    if (!c) return;
+    $('f_lat').value = c[0]; $('f_lon').value = c[1];
+    if (!map1) map1 = mkMap('map1');
+    fly(map1, c[0], c[1], 'lat ' + c[0].toFixed(4) + ', lon ' + c[1].toFixed(4));
+  };
+
+  window.geo = function () {
+    var msg = $('geo_msg');
+    if (!navigator.geolocation) {
+      msg.textContent = 'geolocation unsupported. Enter coordinates or pick a system';
+      return;
+    }
+    msg.textContent = 'locating…';
+    navigator.geolocation.getCurrentPosition(function (p) {
+      $('i_lat').value = p.coords.latitude.toFixed(4);
+      $('i_lon').value = p.coords.longitude.toFixed(4);
+      msg.textContent = 'location set from device';
+      syncCoords();
+    }, function () {
+      msg.textContent = 'location blocked (needs HTTPS). Enter coordinates or pick a system';
+    }, { timeout: 9000 });
+  };
+
+  window.pickPark = function () {
+    var opt = $('park').selectedOptions[0];
+    if (!opt || !opt.value) return;
+    var d = opt.dataset;
+    $('i_lat').value = d.lat; $('i_lon').value = d.lng;
+    $('f_tilt').value = d.tilt; $('i_tilt').value = d.tilt;
+    $('f_az').value = d.az; $('i_az').value = d.az;
+    $('f_kwp').value = d.kwp; $('i_kwp').value = d.kwp;
+    $('f_ac').value = d.ac; $('i_ac').value = d.ac;
+    $('f_name').value = d.name.split('·')[0].trim();
+    syncCoords();
+  };
+
+  window.syncKwp = function () {
+    var k = parseFloat($('i_kwp').value) || 0;
+    $('f_kwp').value = k;
+    $('i_ac').value = (k * 0.8).toFixed(1);
+    $('f_ac').value = $('i_ac').value;
+  };
+
+  window.go = function (n) {
+    if (n >= 2 && !coords()) {
+      $('geo_msg').innerHTML = '<span class="bad">SET LOCATION FIRST</span> enter lat/lon or pick a system';
+      document.getElementById('s1').scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+    document.querySelectorAll('.step').forEach(function (s) { s.hidden = true; });
+    var el = document.getElementById('s' + n);
+    el.hidden = false;
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (n === 1 && !map1) map1 = mkMap('map1');
+    if (n === 3) {
+      if (!map2) { map2 = mkMap('map2'); }
+      if (map2) setTimeout(function () { map2.invalidateSize(); }, 120);
+      var c = coords(); if (c) fly(map2, c[0], c[1], $('f_name').value || 'your system');
+      runExtract();
+    }
+    if (n === 1 && map1) setTimeout(function () { map1.invalidateSize(); }, 120);
+  };
+
+  function chip(label, val) {
+    var okk = (val === 'ok');
+    return '<span class="' + (okk ? 'ok' : 'warn') + '">' + label +
+      (okk ? ' ✓' : ' ⚠ ' + String(val).slice(0, 40)) + '</span>';
+  }
+
+  function runExtract() {
+    if (extracted) return;
+    extracted = true;
+    var c = coords();
+    var status = $('extract_status');
+    status.innerHTML = '<span style="color:var(--mut)">>> querying ERA5 · Global Solar Atlas · PVGIS (EU JRC)…</span>';
+    var url = '/api/v1/extract/?lat=' + c[0] + '&lon=' + c[1] +
+      '&tilt=' + $('f_tilt').value + '&az=' + $('f_az').value + '&kwp=' + $('f_kwp').value;
+    fetch(url).then(function (r) { return r.json(); }).then(function (d) {
+      if (d.error) { status.innerHTML = '<span class="bad">' + d.error + '</span>'; return; }
+      status.innerHTML = '<span class="ok">EXTRACTION COMPLETE</span> · timezone ' + (d.timezone || 'UTC');
+      var cards = '';
+      function card(label, value, unit, cls) {
+        return '<div class="' + (cls || '') + '"><h3>' + label + '</h3><b>' +
+          value + (unit ? ' ' + unit : '') + '</b></div>';
+      }
+      if (d.atlas) {
+        cards += card('Atlas long-term GHI', d.atlas.ghi_kwh_m2, 'kWh/m²/yr');
+        cards += card('Atlas PVOUT', d.atlas.pvout_kwh_kwp, 'kWh/kWp/yr');
+        cards += card('Recommended tilt', d.atlas.opta_deg, '° (optimal)', 'a-acid');
+      }
+      if (d.pvgis && !d.pvgis.error) {
+        cards += card('PVGIS baseline (EU)', d.pvgis.annual_kwh, 'kWh/yr', 'a-violet');
+      }
+      if (d.recent60) {
+        cards += card('Recent 60d mean GHI', d.recent60.mean_ghi, 'kWh/m²/day');
+        cards += card('Rain days (60d)', d.recent60.rain_days, 'days');
+        cards += card('Max temp (60d)', d.recent60.tmax_c, '°C', 'a-amber');
+      }
+      $('extract_nums').innerHTML = cards || '<div class="muted">no data returned</div>';
+      $('extract_src').innerHTML = Object.keys(d.sources || {}).map(function (k) {
+        return chip(k, d.sources[k]);
+      }).join(' ');
+      drawShade(d);
+    }).catch(function (e) {
+      status.innerHTML = '<span class="bad">extraction failed: ' + e + '</span>';
+      extracted = false;
+    });
+  }
+
+  function drawShade(d) {
+    var box = $('shade_box');
+    var sp = d.sunpath || {};
+    if (sp.error || !sp.points || !sp.points.length) {
+      box.innerHTML = '<span class="muted">sun path unavailable for this point</span>';
+      return;
+    }
+    var W = 640, H = 300, ML = 42, MR = 12, MT = 14, MB = 30;
+    var X = function (az) { return ML + (((az % 360) + 360) % 360) / 360 * (W - ML - MR); };
+    var Y = function (el) { return MT + (92 - el) / 107 * (H - MT - MB); };
+    var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Sun path over terrain horizon" style="width:100%;height:auto">';
+    for (var a = 0; a <= 360; a += 45)
+      svg += '<line x1="' + X(a) + '" y1="' + MT + '" x2="' + X(a) + '" y2="' + (H - MB) + '" stroke="rgba(14,19,31,.14)"/>';
+    for (var e = 0; e <= 90; e += 30)
+      svg += '<line x1="' + ML + '" y1="' + Y(e) + '" x2="' + (W - MR) + '" y2="' + Y(e) + '" stroke="rgba(14,19,31,.14)"/>';
+    var hz = (d.horizon && d.horizon.points) ? d.horizon.points : null;
+    if (hz && hz.length) {
+      var hp = hz.slice().sort(function (p, q) { return p.az - q.az; });
+      var path = 'M ' + X(hp[0].az) + ' ' + Y(hp[0].el);
+      hp.forEach(function (p) { path += ' L ' + X(p.az) + ' ' + Y(p.el); });
+      path += ' L ' + X(hp[hp.length - 1].az) + ' ' + (H - MB) + ' L ' + X(hp[0].az) + ' ' + (H - MB) + ' Z';
+      svg += '<path d="' + path + '" fill="#0E131F" opacity="0.92"/>';
+    }
+    var pp = sp.points.filter(function (p) { return p.el > -6; });
+    var line = pp.map(function (p, i) {
+      return (i ? 'L ' : 'M ') + X(p.az) + ' ' + Y(p.el);
+    }).join(' ');
+    svg += '<path d="' + line + '" fill="none" stroke="#FF9800" stroke-width="3.2"/>';
+    if (sp.now && sp.now.el > -6)
+      svg += '<circle cx="' + X(sp.now.az) + '" cy="' + Y(sp.now.el) + '" r="7" fill="#00FF88" stroke="#0E131F" stroke-width="3"/>';
+    ['N', 'E', 'S', 'W'].forEach(function (t, i) {
+      svg += '<text x="' + X(i * 90) + '" y="' + (H - 10) + '" text-anchor="middle" font-family="monospace" font-size="13" fill="#0E131F">' + t + '</text>';
+    });
+    [0, 30, 60, 90].forEach(function (t) {
+      svg += '<text x="6" y="' + (Y(t) + 4) + '" font-family="monospace" font-size="11" fill="#0E131F">' + t + '°</text>';
+    });
+    svg += '</svg>';
+    box.innerHTML = svg +
+      '<p class="muted mono" style="margin:6px 0 0">' +
+      (hz ? 'ink = terrain horizon (PVGIS) · amber = today’s sun path · green = now'
+          : 'terrain horizon unavailable; sun path only') + '</p>';
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    ['i_lat', 'i_lon'].forEach(function (id) {
+      $(id).addEventListener('change', syncCoords);
+      $(id).addEventListener('input', function () {
+        $('f_lat').value = $('i_lat').value; $('f_lon').value = $('i_lon').value;
+      });
+    });
+    setTimeout(function () { if (!map1) map1 = mkMap('map1'); }, 300);
+  });
+})();
+</script>
+{% endblock %}
