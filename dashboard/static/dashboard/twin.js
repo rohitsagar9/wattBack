@@ -161,7 +161,9 @@ let renderer = null, scene = null, camera = null, controls = null, sunRig = null
   sunRing = null, sunGlow = null, sunLight = null, ambLight = null, hemiLight = null,
   panelMesh = null, panelData = [], obsGroup = null, groundMesh = null, rainPts = null,
   cloudGroup = null, birdGroup = null, arcGroup = null, sceneOK = false,
-  radarGrp = null, stars = null, dustMotes = null;
+  radarGrp = null, stars = null, dustMotes = null,
+  houseGrp = null, panelMat = null, skyMesh = null, skyCv = null, skyTex = null,
+  moonRig = null, windowMat = null, doorMat = null;
 let obsTags = [], shadowMeshes = [], sunTag = null, diodeTag = null;
 const raycaster = new THREE.Raycaster();
 const SPAN_BASE = 70;
@@ -234,6 +236,8 @@ function initScene() {
   if (ov) ov.appendChild(sunTag);
 
   makeGround();
+  makeSky();
+  makeMoon();
   makeStars();
   makeDust();
   makeClouds();
@@ -262,8 +266,8 @@ function makeGround() {
   const grid = new THREE.GridHelper(span, Math.round(span / 2), '#00FF88', 'rgba(0,255,136,.14)');
   grid.position.y = 0.012;
   grid.material.transparent = true;
-  if (Array.isArray(grid.material)) grid.material.forEach((m) => { m.opacity = 0.35; m.transparent = true; });
-  else { grid.material.opacity = 0.35; }
+  if (Array.isArray(grid.material)) grid.material.forEach((m) => { m.opacity = 0.2; m.transparent = true; });
+  else { grid.material.opacity = 0.2; }
   scene.add(grid);
   // range rings — OSINT map language
   [10, 20, 30].forEach((r) => {
@@ -274,14 +278,14 @@ function makeGround() {
     }
     const ring = new THREE.Line(
       new THREE.BufferGeometry().setFromPoints(pts),
-      new THREE.LineBasicMaterial({ color: '#00FF88', transparent: true, opacity: 0.2 }));
+      new THREE.LineBasicMaterial({ color: '#00FF88', transparent: true, opacity: 0.12 }));
     scene.add(ring);
   });
   // radar sweep wedge
   radarGrp = new THREE.Group();
   const sweep = new THREE.Mesh(
     new THREE.PlaneGeometry(span * 0.46, 0.7),
-    new THREE.MeshBasicMaterial({ color: '#00FF88', transparent: true, opacity: 0.33,
+    new THREE.MeshBasicMaterial({ color: '#00FF88', transparent: true, opacity: 0.2,
       side: THREE.DoubleSide, depthWrite: false }));
   sweep.rotation.x = -Math.PI / 2;
   sweep.position.set(span * 0.23, 0.05, 0);
@@ -324,6 +328,55 @@ function buildSunRig() {
   sunRig.add(sunGlow);
   sunRig.position.set(0, 52, 0);
   scene.add(sunRig);
+}
+
+const SKY_PAL = {
+  night: ['#04060E', '#0A101C', '#16203A'],
+  dusk: ['#2A1B4A', '#8A3E6B', '#FF9800'],
+  day: ['#1E5AA8', '#4E8FD6', '#A8C8E8'],
+  cloudy: ['#39404C', '#6B7280', '#9AA1AC'],
+};
+
+function makeSky() {
+  skyCv = document.createElement('canvas');
+  skyCv.width = 2; skyCv.height = 256;
+  skyTex = new THREE.CanvasTexture(skyCv);
+  skyTex.colorSpace = THREE.SRGBColorSpace;
+  skyMesh = new THREE.Mesh(
+    new THREE.SphereGeometry(320, 24, 16),
+    new THREE.MeshBasicMaterial({ map: skyTex, side: THREE.BackSide,
+      fog: false, depthWrite: false }));
+  skyMesh.renderOrder = -10;
+  scene.add(skyMesh);
+  paintSky('night');
+}
+
+function paintSky(key) {
+  const pal = SKY_PAL[key] || SKY_PAL.night;
+  const x = skyCv.getContext('2d');
+  const g = x.createLinearGradient(0, 0, 0, 256);
+  g.addColorStop(0, pal[0]);
+  g.addColorStop(0.55, pal[1]);
+  g.addColorStop(1, pal[2]);
+  x.fillStyle = g;
+  x.fillRect(0, 0, 2, 256);
+  skyTex.needsUpdate = true;
+  if (scene.fog) scene.fog.color.set(pal[2]);
+  if (scene.background && scene.background.isColor) scene.background.set(pal[2]);
+}
+
+function makeMoon() {
+  moonRig = new THREE.Group();
+  const disc = new THREE.Mesh(
+    new THREE.SphereGeometry(1.6, 18, 18),
+    new THREE.MeshBasicMaterial({ color: '#D9E2F0' }));
+  const glow = new THREE.Sprite(new THREE.SpriteMaterial({
+    map: softDiscTexture('rgba(217,226,240,.5)', 'rgba(217,226,240,0)'),
+    transparent: true, depthWrite: false }));
+  glow.scale.set(9, 9, 1);
+  moonRig.add(disc); moonRig.add(glow);
+  moonRig.visible = false;
+  scene.add(moonRig);
 }
 
 function makeStars() {
@@ -455,6 +508,15 @@ function rebuildScene() {
   shadowMeshes.forEach((m) => { scene.remove(m); m.geometry.dispose(); m.material.dispose(); });
   shadowMeshes = [];
   if (diodeTag) { diodeTag.remove(); diodeTag = null; }
+  if (houseGrp) {
+    scene.remove(houseGrp);
+    houseGrp.traverse((n) => {
+      if (n.geometry) n.geometry.dispose();
+      if (n.material && n.material !== doorMat && n.material !== windowMat &&
+          n.material.dispose) n.material.dispose();
+    });
+    houseGrp = null;
+  }
   clearArcs();
   buildArray();
   buildObstacles();
@@ -479,52 +541,119 @@ function arrayFootprint() {
 function buildArray() {
   const fp = arrayFootprint();
   const tilt = (CFG.tilt || 25) * DEG;
+  const W = Math.max(3, fp.halfW);            // ridge-to-ridge width
+  const D = Math.max(3, fp.halfD);            // front-to-back depth
+  const u = { x: fp.u.x, z: fp.u.z };         // ridge axis (polygon edge)
+  const v = { x: -u.z, z: u.x };
   const azR = (CFG.az || 180) * DEG;
-  const face = { x: Math.sin(azR), z: -Math.cos(azR) };  // where panels face
-  const axis = new THREE.Vector3(face.z, 0, -face.x).normalize();
-  const quat = new THREE.Quaternion().setFromAxisAngle(axis, tilt);
-  const PW = 1.0, PL = 1.7, GAP = 0.06, ROW_GAP = 0.35;
-  const slopeStep = PL * Math.cos(tilt) + ROW_GAP;
-  const cols = Math.max(1, Math.min(40, Math.floor(fp.halfW / (PW + GAP))));
-  const rows = Math.max(1, Math.min(24, Math.floor(fp.halfD / slopeStep)));
-  let n = cols * rows;
-  if (n > 360) n = 360;
-  const geo = new THREE.BoxGeometry(PW - GAP, 0.04, PL - GAP);
-  const mat = new THREE.MeshStandardMaterial({ color: '#FFFFFF', roughness: 0.4, metalness: 0.3,
-    map: panelTex() });
-  panelMesh = new THREE.InstancedMesh(geo, mat, n);
+  const siteFace = { x: Math.sin(azR), z: -Math.cos(azR) };
+  const face = (v.x * siteFace.x + v.z * siteFace.z) >= 0 ? v : { x: -v.x, z: -v.z };
+  const u3 = new THREE.Vector3(u.x, 0, u.z).normalize();
+  const yaw = Math.atan2(face.x, face.z);
+  const qYaw = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), yaw);
+  const qTilt = new THREE.Quaternion().setFromAxisAngle(u3, tilt);
+  const quat = qTilt.clone().multiply(qYaw);
+  const sinT = Math.sin(tilt), cosT = Math.cos(tilt);
+  const wallH = Math.min(5.2, 2.25 + (D / 2) * sinT);
+  const slopeLen = D / cosT + 0.45;
+  const c = fp.c;
+
+  if (!houseGrp) { houseGrp = new THREE.Group(); scene.add(houseGrp); }
+  houseGrp.position.set(c.x, 0, c.z);
+  houseGrp.scale.setScalar(1);
+
+  // ---- walls + gabled skillion roof ----
+  const walls = new THREE.Mesh(
+    new THREE.BoxGeometry(W + 0.5, wallH, D + 0.5),
+    new THREE.MeshLambertMaterial({ color: '#E8E2D4' }));
+  walls.position.y = wallH / 2;
+  walls.castShadow = true;
+  walls.receiveShadow = true;
+  inkEdges(walls, '#0E131F', 0.5);
+  houseGrp.add(walls);
+
+  const roof = new THREE.Mesh(
+    new THREE.BoxGeometry(W + 1.0, 0.15, slopeLen),
+    new THREE.MeshLambertMaterial({ color: '#2A3548' }));
+  roof.quaternion.copy(quat);
+  roof.position.y = wallH + 0.07;
+  roof.castShadow = true;
+  roof.receiveShadow = true;
+  inkEdges(roof, '#00FF88', 0.35);
+  houseGrp.add(roof);
+
+  // ---- door + windows on the front (sun-facing) wall ----
+  if (!doorMat) doorMat = new THREE.MeshLambertMaterial({ color: '#4A3826' });
+  if (!windowMat) {
+    windowMat = new THREE.MeshLambertMaterial({
+      color: '#1A2438', emissive: '#FFB347', emissiveIntensity: 0 });
+  }
+  const front = (D + 0.5) / 2 + 0.03;
+  const door = new THREE.Mesh(new THREE.BoxGeometry(0.95, 2.05, 0.1), doorMat);
+  door.position.set(face.x * front - u.x * W * 0.26, 1.03, face.z * front - u.z * W * 0.26);
+  door.rotation.y = yaw;
+  inkEdges(door, '#0E131F', 0.65);
+  houseGrp.add(door);
+  [W * 0.14, W * 0.36].forEach((along) => {
+    const win = new THREE.Mesh(new THREE.BoxGeometry(1.05, 0.95, 0.08), windowMat);
+    win.position.set(face.x * front + u.x * along, wallH * 0.58, face.z * front + u.z * along);
+    win.rotation.y = yaw;
+    inkEdges(win, '#0E131F', 0.7);
+    houseGrp.add(win);
+  });
+
+  // ---- chimney on the high (back) slope ----
+  const bBack = -(slopeLen / 2 - 0.9);
+  const chimney = new THREE.Mesh(
+    new THREE.BoxGeometry(0.55, 1.15, 0.55),
+    new THREE.MeshLambertMaterial({ color: '#6B5B4B' }));
+  chimney.position.set(
+    face.x * (bBack * cosT) + u.x * (W * 0.3),
+    wallH - bBack * sinT + 0.5,
+    face.z * (bBack * cosT) + u.z * (W * 0.3));
+  chimney.castShadow = true;
+  inkEdges(chimney, '#0E131F', 0.6);
+  houseGrp.add(chimney);
+
+  // ---- panels mounted flush on the roof slope ----
+  const PW = 1.0, PL = 1.7, GAP = 0.06, ROW_GAP = 0.28;
+  const slopeStep = PL + ROW_GAP;
+  const cols = Math.max(1, Math.min(40, Math.floor((W + 0.7) / (PW + GAP))));
+  const rows = Math.max(1, Math.min(20, Math.floor((slopeLen - 0.3) / slopeStep)));
+  const n = Math.min(360, cols * rows);
+  const geo = new THREE.BoxGeometry(PW - GAP, 0.045, PL - GAP);
+  panelMat = new THREE.MeshStandardMaterial({
+    color: '#FFFFFF', roughness: 0.4, metalness: 0.3,
+    map: panelTex(), transparent: true, opacity: 1 });
+  panelMesh = new THREE.InstancedMesh(geo, panelMat, n);
   panelMesh.castShadow = true;
   panelMesh.receiveShadow = true;
   const m4 = new THREE.Matrix4();
   const pos = new THREE.Vector3();
-  const h0 = 0.45;
-  const strings = 3;
-  const perStringCols = Math.ceil(cols / strings);
+  const one = new THREE.Vector3(1, 1, 1);
+  const nrm = { x: face.x * sinT, y: cosT, z: face.z * sinT };
+  const perStringCols = Math.ceil(cols / 3);
   for (let i = 0; i < n; i++) {
     const col = i % cols;
     const row = Math.floor(i / cols);
     const a = (col - (cols - 1) / 2) * (PW + GAP);
     const b = (row - (rows - 1) / 2) * slopeStep;
     pos.set(
-      fp.c.x + fp.u.x * a + face.x * b * Math.cos(tilt),
-      h0 + b * Math.sin(tilt) + 0.03,
-      fp.c.z + fp.u.z * a + face.z * b * Math.cos(tilt));
-    m4.compose(pos, quat, new THREE.Vector3(1, 1, 1));
+      c.x + u.x * a + face.x * b * cosT + nrm.x * 0.17,
+      wallH - b * sinT + nrm.y * 0.17,
+      c.z + u.z * a + face.z * b * cosT + nrm.z * 0.17);
+    m4.compose(pos, quat, one);
     panelMesh.setMatrixAt(i, m4);
     panelMesh.setColorAt(i, new THREE.Color('#16324F'));
-    panelData.push({ pos: pos.clone(), string: Math.min(strings - 1, Math.floor(col / perStringCols)), shaded: false });
+    panelData.push({
+      pos: pos.clone(),
+      string: Math.min(2, Math.floor(col / perStringCols)),
+      shaded: false });
   }
   panelMesh.instanceMatrix.needsUpdate = true;
   if (panelMesh.instanceColor) panelMesh.instanceColor.needsUpdate = true;
   scene.add(panelMesh);
-  // illustrative building volume under the array
-  const bGeo = new THREE.BoxGeometry(fp.halfW + 1.5, h0 + 0.08, fp.halfD + 1.2);
-  const bMat = new THREE.MeshLambertMaterial({ color: '#8B8578' });
-  const bld = new THREE.Mesh(bGeo, bMat);
-  bld.position.set(fp.c.x, (h0 + 0.08) / 2 - 0.02, fp.c.z);
-  bld.castShadow = true;
-  bld.receiveShadow = true;
-  obsGroup.add(bld);
+  S._gen = { t: 0 };   // house build-in animation
 }
 
 function buildObstacles() {
@@ -788,6 +917,15 @@ function animate(ts) {
     camera.position.lerpVectors(S.intro.from, S.intro.to, e);
     if (S.intro.t >= 1) controls.enabled = true;
   }
+  // house "generate" pop-in after rebuilds
+  if (houseGrp && S._gen && S._gen.t < 1) {
+    S._gen.t = Math.min(1, S._gen.t + dt / 0.55);
+    const g = S._gen.t;
+    const c1 = 1.70158, c3 = c1 + 1;
+    const e = 1 + c3 * Math.pow(g - 1, 3) + c1 * Math.pow(g - 1, 2);
+    houseGrp.scale.setScalar(Math.max(0.001, e));
+    if (panelMat) panelMat.opacity = Math.min(1, g * 1.8);
+  }
   // radar sweep + sun ring spin/pulse
   if (radarGrp) radarGrp.rotation.y += dt * 0.785;
   if (sunRing) {
@@ -867,6 +1005,16 @@ function applyScene() {
   }
   scene.background = sky;
   if (scene.fog) scene.fog.color.copy(sky);
+  // gradient sky dome palette (changes with time of day + weather)
+  const skyKey = night ? 'night' : (el < 8 ? 'dusk' : (st.mode === 'cloudy' ? 'cloudy' : 'day'));
+  if (skyKey !== S._skyKey) { S._skyKey = skyKey; paintSky(skyKey); }
+  // moon opposite the sun, up only at night
+  if (moonRig) {
+    moonRig.visible = night;
+    if (night) moonRig.position.copy(sunWorld((az + 180) % 360, Math.max(14, -el * 0.8), 52));
+  }
+  // windows glow after dark
+  if (windowMat) windowMat.emissiveIntensity = night ? 1.5 : 0;
   $('twin_scene').classList.toggle('hot', st.mode === 'hot');
 
   // coral shadow footprints (the "shadow stalker" overlay)
@@ -928,6 +1076,7 @@ function refreshShading() {
   const blocked = el < horizonEl(az);
   const dir = sunWorld(az, el, 1).normalize();
   const targets = obsGroup.children.filter((c) => c !== groundMesh);
+  if (houseGrp) targets.push(houseGrp);
   let shadedCount = 0;
   const strHit = {};
   for (let i = 0; i < panelData.length; i++) {
