@@ -5,6 +5,7 @@
    World convention: x = east, y = up, z = south (north = -z), metres. */
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
 const DEG = Math.PI / 180;
 const CFG = JSON.parse(document.getElementById('twin_cfg').textContent);
@@ -189,22 +190,29 @@ function initScene() {
   renderer.setSize(host.clientWidth || 640, host.clientHeight || 460);
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.08;
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
   host.insertBefore(renderer.domElement, host.firstChild);
 
   scene = new THREE.Scene();
   scene.background = new THREE.Color('#0E131F');
   scene.fog = new THREE.Fog('#0E131F', 90, 280);
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
 
-  camera = new THREE.PerspectiveCamera(48, (host.clientWidth || 640) / (host.clientHeight || 460), 0.1, 600);
+  camera = new THREE.PerspectiveCamera(42, (host.clientWidth || 640) / (host.clientHeight || 460), 0.1, 600);
   camera.position.set(72, 58, 82);
   controls = new OrbitControls(camera, renderer.domElement);
-  controls.target.set(0, 1, 0);
+  controls.target.set(0, 1.5, 0);
   controls.enableDamping = true;
+  controls.dampingFactor = 0.07;
+  controls.zoomToCursor = true;
   controls.maxDistance = 160;
   controls.minDistance = 6;
   controls.maxPolarAngle = 1.48;
   controls.enabled = false;                       // enabled after fly-in
-  S.intro = { t: 0, from: camera.position.clone(), to: new THREE.Vector3(28, 22, 30) };
+  S.intro = { t: 0, from: camera.position.clone(), to: new THREE.Vector3(24, 16, 28) };
 
   hemiLight = new THREE.HemisphereLight('#8FB7FF', '#3A3428', 0.55);
   scene.add(hemiLight);
@@ -213,6 +221,8 @@ function initScene() {
   sunLight = new THREE.DirectionalLight('#FFF3D6', 1.1);
   sunLight.castShadow = true;
   sunLight.shadow.mapSize.set(2048, 2048);
+  sunLight.shadow.bias = -0.0004;
+  sunLight.shadow.normalBias = 0.03;
   const sc = sunLight.shadow.camera;
   sc.left = -SPAN_BASE; sc.right = SPAN_BASE; sc.top = SPAN_BASE; sc.bottom = -SPAN_BASE;
   sc.near = 1; sc.far = 260;
@@ -565,7 +575,7 @@ function buildArray() {
   // ---- walls + gabled skillion roof ----
   const walls = new THREE.Mesh(
     new THREE.BoxGeometry(W + 0.5, wallH, D + 0.5),
-    new THREE.MeshLambertMaterial({ color: '#E8E2D4' }));
+    new THREE.MeshStandardMaterial({ color: '#E8E2D4', roughness: 0.9, metalness: 0 }));
   walls.position.y = wallH / 2;
   walls.castShadow = true;
   walls.receiveShadow = true;
@@ -574,7 +584,7 @@ function buildArray() {
 
   const roof = new THREE.Mesh(
     new THREE.BoxGeometry(W + 1.0, 0.15, slopeLen),
-    new THREE.MeshLambertMaterial({ color: '#2A3548' }));
+    new THREE.MeshStandardMaterial({ color: '#2A3548', roughness: 0.55, metalness: 0.2 }));
   roof.quaternion.copy(quat);
   roof.position.y = wallH + 0.07;
   roof.castShadow = true;
@@ -622,8 +632,10 @@ function buildArray() {
   const rows = Math.max(1, Math.min(20, Math.floor((slopeLen - 0.3) / slopeStep)));
   const n = Math.min(360, cols * rows);
   const geo = new THREE.BoxGeometry(PW - GAP, 0.045, PL - GAP);
-  panelMat = new THREE.MeshStandardMaterial({
-    color: '#FFFFFF', roughness: 0.4, metalness: 0.3,
+  panelMat = new THREE.MeshPhysicalMaterial({
+    color: '#FFFFFF', roughness: 0.16, metalness: 0.5,
+    clearcoat: 0.85, clearcoatRoughness: 0.12,
+    envMapIntensity: 0.7,
     map: panelTex(), transparent: true, opacity: 1 });
   panelMesh = new THREE.InstancedMesh(geo, panelMat, n);
   panelMesh.castShadow = true;
@@ -993,6 +1005,8 @@ function applyScene() {
   sunLight.target.position.set(0, 0, 0);
   const boost = blocked || night ? 0 : Math.min(1, Math.max(0.05, Math.sin(Math.max(el, 0) * DEG)));
   sunLight.intensity = night ? 0 : (blocked ? 0 : boost * 1.25);
+  // golden hour warmth → white noon
+  sunLight.color.copy(_flashC.set('#FF9800')).lerp(_tmpC.set('#FFF6E0'), Math.min(1, el / 40));
   ambLight.intensity = night ? 0.10 : (blocked ? 0.42 : 0.22);
   hemiLight.intensity = night ? 0.18 : (st.mode === 'cloudy' ? 0.75 : 0.5);
   const sky = new THREE.Color('#0E131F');
