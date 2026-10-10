@@ -9,3 +9,9 @@ venv/
 *.log
 db.sqlite3
 staticfiles/
+
+# blog-style docs (kept local only)
+docs/WRITEUP.md
+docs/VIDEO_SCRIPT.md
+data/raw/cache/
+
