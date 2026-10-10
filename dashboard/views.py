@@ -447,3 +447,23 @@ def cleaning(request):
         "active": "cleaning",
     }
     return render(request, "dashboard/cleaning.html", ctx)
+
+
+def twin(request):
+    key = request.GET.get("site", "bmt")
+    site = get_object_or_404(Site, key=key)
+    cfg = {
+        "site": site.key,
+        "name": site.name,
+        "lat": site.lat, "lng": site.lng,
+        "tilt": site.tilt_deg or 28, "az": site.azimuth_deg or 180,
+        "kwp": site.kwp_dc or 1,
+        "api": f"/api/v1/twin/?site={site.key}",
+        "today": date_cls.today().isoformat(),
+    }
+    return render(request, "dashboard/twin.html", {
+        "sites": Site.objects.order_by("key"),
+        "site": site,
+        "cfg_json": json.dumps(cfg),
+        "active": "twin",
+    })

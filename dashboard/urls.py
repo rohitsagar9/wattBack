@@ -12,4 +12,5 @@ urlpatterns = [
     path("app/outages/", views.outages, name="outages"),
     path("app/cleaning/", views.cleaning, name="cleaning"),
     path("app/analytics/", views.analytics, name="analytics"),
+    path("app/twin/", views.twin, name="twin"),
 ]

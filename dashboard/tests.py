@@ -1,5 +1,6 @@
 import json
 from io import StringIO
+from unittest.mock import patch
 
 from django.core.management import call_command
 from django.test import TestCase
@@ -214,3 +215,118 @@ class WattBackEndToEnd(TestCase):
                                        "AWS_PROFILE": ""}):
             res = storage.save_system({"key": "x"})
         self.assertEqual(res["mode"], "db-only")
+
+
+class TwinAPITests(TestCase):
+    """Digital twin: any-date sun path, 7-day state machine, no-rain sim."""
+
+    @classmethod
+    def setUpTestData(cls):
+        call_command("load_wattback", verbosity=0)
+
+    def _frame(self, year=2025, rain_recent=False):
+        import pandas as pd
+        days = pd.date_range(f"{year - 1}-12-01", f"{year}-12-31", freq="D")
+        n = len(days)
+        precip = [0.0] * n
+        if rain_recent:  # 2 mm/day for the 5 days ending 2025-06-21
+            for i, d in enumerate(days):
+                if pd.Timestamp("2025-06-17") <= d <= pd.Timestamp("2025-06-21"):
+                    precip[i] = 2.0
+        return pd.DataFrame({
+            "date": days,
+            "ghi_kwh_m2": [5.0] * n,
+            "tmean_c": [25.0] * n,
+            "tmax_c": [30.0] * n,
+            "tmin_c": [20.0] * n,
+            "precip_mm": precip,
+            "cloud_pct": [40.0] * n,
+            "wind_max_kmh": [10.0] * n,
+        })
+
+    def test_twin_requires_coords(self):
+        r = self.client.get("/api/v1/twin/")
+        self.assertEqual(r.status_code, 400)
+        self.assertIn("error", r.json())
+
+    def test_twin_bad_date(self):
+        r = self.client.get("/api/v1/twin/?lat=28&lon=77&date=not-a-date")
+        self.assertEqual(r.status_code, 400)
+
+    def test_twin_bad_year(self):
+        r = self.client.get("/api/v1/twin/?lat=28&lon=77&year=abc")
+        self.assertEqual(r.status_code, 400)
+
+    def test_twin_page_renders(self):
+        r = self.client.get("/app/twin/")
+        self.assertEqual(r.status_code, 200)
+        self.assertContains(r, "twin_scene")
+        self.assertContains(r, "DIGITAL TWIN")
+
+    @patch("dashboard.api._twin_sim6m")
+    @patch("dashboard.api._weather_frame")
+    @patch("wattback.ingest.pvgis.horizon_profile")
+    def test_twin_shape_summer_day(self, hz, wf, sim):
+        hz.return_value = {"points": [{"az": 180.0, "el": 2.0}]}
+        wf.return_value = self._frame()
+        sim.return_value = {"months": [], "total_inr": 0, "final_soil": None}
+        r = self.client.get("/api/v1/twin/?lat=28.61&lon=77.21&date=2025-06-21")
+        d = r.json()
+        self.assertEqual(r.status_code, 200)
+        self.assertEqual(len(d["weather_year"]), 365)
+        self.assertEqual(d["sunpath"]["date"], "2025-06-21")
+        self.assertEqual(len(d["sunpath"]["points"]), 96)
+        self.assertIsNone(d["sunpath"]["now"])
+        self.assertGreater(max(p["el"] for p in d["sunpath"]["points"]), 70)
+        st = d["state"]
+        self.assertEqual(st["mode"], "dusty")
+        self.assertEqual(st["days_since_rain"], 999)
+        self.assertEqual(st["visual_soil"], 0.15)
+        self.assertEqual(d["horizon"], {"points": [{"az": 180.0, "el": 2.0}]})
+        self.assertEqual(d["sim6m"]["months"], [])
+        self.assertEqual(d["consts"]["rain_partial_min_mm"], 1.0)
+        self.assertEqual(d["sources"]["era5"], "ok")
+
+    @patch("dashboard.api._twin_sim6m")
+    @patch("dashboard.api._weather_frame")
+    @patch("wattback.ingest.pvgis.horizon_profile", return_value=None)
+    def test_twin_rain_recent_resets_visual_soil(self, _hz, wf, sim):
+        wf.return_value = self._frame(rain_recent=True)
+        sim.return_value = {"months": []}
+        r = self.client.get("/api/v1/twin/?lat=28.61&lon=77.21&date=2025-06-21")
+        st = r.json()["state"]
+        self.assertEqual(st["mode"], "rain_clean")
+        self.assertEqual(st["rain_7d"], 10.0)
+        self.assertEqual(st["days_since_rain"], 0)
+        self.assertLess(st["visual_soil"], 0.05)
+        self.assertEqual(r.json()["sources"]["horizon"], "unavailable")
+
+    @patch("dashboard.api._twin_sim6m")
+    @patch("dashboard.api._weather_frame")
+    @patch("wattback.ingest.pvgis.horizon_profile", return_value=None)
+    def test_twin_site_param_uses_db(self, _hz, wf, sim):
+        wf.return_value = self._frame()
+        sim.return_value = {"months": []}
+        r = self.client.get("/api/v1/twin/?site=bmt&date=2025-06-21")
+        d = r.json()
+        self.assertAlmostEqual(d["lat"], 31.63)
+        self.assertEqual(d["kwp"], 56.6)
+        self.assertEqual(d["tilt"], 5.0)
+        self.assertEqual(d["az"], 180.0)
+
+    def test_sim6m_run_no_rain_scenario(self):
+        import pandas as pd
+        from dashboard.api import _sim6m_run
+        idx = pd.date_range("2025-04-01", periods=24 * 45, freq="h")
+        wx = pd.DataFrame({"time": idx, "ghi_wm2": 500.0, "precip_mm": 3.0})
+        pm = pd.DataFrame({"time": idx, "pm2_5": 20.0, "pm10": 50.0})
+        out = _sim6m_run(wx, pm, tilt=28.0, kwp=10.0, end_iso="2025-05-15")
+        self.assertLess(out["final_soil"], 1.0)
+        self.assertGreater(out["final_soil"], 0.85)
+        self.assertGreater(out["total_kwh"], 0)
+        self.assertGreater(out["total_inr"], 0)
+        months = [m["month"] for m in out["months"]]
+        self.assertIn("2025-04", months)
+        self.assertIn("2025-05", months)
+        self.assertEqual(out["pr_assumed"], 0.80)
+        self.assertEqual(out["months"][-1]["cum_kwh"], out["total_kwh"])

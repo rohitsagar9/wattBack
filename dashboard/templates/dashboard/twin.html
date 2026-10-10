@@ -1,0 +1,106 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+{% block title %}Digital Twin · WattBack{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script type="importmap">
+{"imports": {
+  "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+}}
+</script>
+{% endblock %}
+{% block content %}
+<h1>DIGITAL TWIN</h1>
+<p class="sub">Draw your array on satellite imagery, drop a tank or a tree, then scrub
+any day of the year. Sun position is pvlib, weather is ERA5, soiling runs the
+same tiered-wash engine as the dashboard — no fake numbers, only scene dressing.</p>
+
+<div class="formrow">
+  <form method="get" action="/app/twin/" class="formrow" style="margin:0">
+    <label class="mono">SITE
+      <select name="site" onchange="this.form.submit()">
+        {% for s in sites %}
+        <option value="{{ s.key }}" {% if s.key == site.key %}selected{% endif %}>{{ s.name }} · {{ s.kwp_dc }} kWp</option>
+        {% endfor %}
+      </select>
+    </label>
+  </form>
+  <span class="pill">{{ site.lat }}, {{ site.lng }} · tilt {{ site.tilt_deg }}° · az {{ site.azimuth_deg }}°</span>
+  <span id="storage_chip" class="pill">geom: loading…</span>
+</div>
+
+<div class="twin-grid">
+  <div class="card">
+    <h3>roof_draw.log</h3>
+    <div id="twin_map"></div>
+    <p class="muted mono" id="draw_help" style="margin:10px 0 8px">click the satellite map to set array corners (3+), or use the buttons</p>
+    <div class="formrow" style="margin:0 0 10px">
+      <button type="button" class="btn ghost" id="btn_array">DRAW ARRAY</button>
+      <button type="button" class="btn ghost" id="btn_obstacle">DROP OBSTACLE</button>
+      <button type="button" class="btn ghost" id="btn_preset">DEFAULT ARRAY</button>
+      <button type="button" class="btn ghost" id="btn_clear">CLEAR</button>
+    </div>
+    <div class="formrow" style="margin:0 0 10px" id="obs_form" hidden>
+      <label class="mono">TYPE
+        <select id="obs_type">
+          <option value="tank">water tank</option>
+          <option value="tree">tree</option>
+          <option value="pole">pole / mast</option>
+        </select>
+      </label>
+      <label class="mono">HEIGHT m
+        <input type="number" id="obs_h" value="2.5" step="0.1" min="0.3" max="30" size="5">
+      </label>
+      <button type="button" class="btn" id="obs_confirm">CONFIRM OBSTACLE</button>
+      <span class="muted mono" id="obs_pending">click map first</span>
+    </div>
+    <ul id="obs_list" class="mono" style="margin:0;padding-left:18px;font-size:12.5px"></ul>
+  </div>
+
+  <div class="card term" id="scene_card">
+    <h3>twin_scene.webgl</h3>
+    <div id="twin_scene"></div>
+    <div id="scene_hud" class="twin-hud" style="margin-top:10px"></div>
+  </div>
+</div>
+
+<div class="card" style="margin-top:16px">
+  <h3>time_scrub.ctrl</h3>
+  <div class="scrub">
+    <label class="mono">DAY <span id="day_label" class="pill">—</span>
+      <input type="range" id="day_slider" min="1" max="365" value="1" style="width:100%">
+    </label>
+    <label class="mono">TIME <span id="time_label" class="pill">12:00</span>
+      <input type="range" id="time_slider" min="0" max="95" value="48" style="width:100%">
+    </label>
+    <div class="formrow" style="margin:6px 0 0">
+      <button type="button" class="btn" id="btn_play">▶ PLAY DAY</button>
+      <button type="button" class="btn ghost" id="btn_sweep">↻ SWEEP YEAR</button>
+      <button type="button" class="btn ghost" id="btn_noon">NOON</button>
+      <span class="muted mono" id="scrub_status">loading sun path…</span>
+    </div>
+  </div>
+</div>
+
+<div class="grid g2" style="margin-top:16px">
+  <div class="card term">
+    <h3>diagnostic.log</h3>
+    <div id="twin_log"><p class="muted mono">waiting for scene…</p></div>
+  </div>
+  <div class="card">
+    <h3>no_rain_6mo.chart <span class="muted" style="text-transform:none">scenario, not history</span></h3>
+    <div class="chart sm"><canvas id="sim_chart"></canvas></div>
+    <p class="mono muted" id="sim_summary" style="margin:8px 0 0">loading HSU scenario…</p>
+  </div>
+</div>
+
+<p class="muted mono" style="margin-top:14px;font-size:12px">obstacle heights are user-entered (not surveyed) · building volume is illustrative ·
+weather = ERA5 reanalysis (not live radar) · visual soiling approximates the engine; dashboard counters stay engine-true</p>
+
+<script id="twin_cfg" type="application/json">{{ cfg_json|safe }}</script>
+{% endblock %}
+{% block scripts %}
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script type="module" src="{% static 'dashboard/twin.js' %}"></script>
+{% endblock %}

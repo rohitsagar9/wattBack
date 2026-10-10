@@ -194,3 +194,32 @@ ol.ladder li b{color:var(--paper);font-size:14px}
 @media (max-width:760px){
   ol.ladder li{grid-template-columns:1fr;gap:4px}
 }
+
+/* ---- digital twin ---- */
+.twin-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:16px}
+@media(max-width:920px){.twin-grid{grid-template-columns:1fr}}
+#twin_map{height:340px;border:2px solid var(--ink)}
+#twin_scene{height:430px;background:var(--term);border:2px solid var(--ink);position:relative;overflow:hidden}
+#twin_scene canvas{display:block}
+#twin_scene .heat{position:absolute;inset:auto 0 0 0;height:38%;pointer-events:none;opacity:0;transition:opacity .4s;
+  background:linear-gradient(transparent,rgba(255,152,0,.22));mix-blend-mode:screen}
+#twin_scene.hot .heat{opacity:1;animation:shimmer 1.6s ease-in-out infinite alternate}
+@keyframes shimmer{from{transform:translateY(0)}to{transform:translateY(-5px)}}
+#twin_scene.night::after{content:"";position:absolute;inset:0;background:rgba(8,13,26,.35);pointer-events:none}
+.twin-hud{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+.scrub label{display:block;margin:9px 0;font-size:12px}
+input[type=range]{-webkit-appearance:none;appearance:none;background:transparent;width:100%;height:24px;cursor:crosshair}
+input[type=range]::-webkit-slider-runnable-track{height:10px;background:var(--paper);border:2px solid var(--ink)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:22px;background:var(--acid);
+  border:2px solid var(--ink);box-shadow:2px 2px 0 var(--ink);margin-top:-9px}
+input[type=range]::-moz-range-track{height:10px;background:var(--paper);border:2px solid var(--ink)}
+input[type=range]::-moz-range-thumb{width:16px;height:20px;border-radius:0;background:var(--acid);
+  border:2px solid var(--ink);box-shadow:2px 2px 0 var(--ink)}
+#twin_log{font:12.5px/1.5 "Space Mono",monospace;display:grid;gap:6px;max-height:210px;overflow:auto}
+#twin_log div{padding:5px 9px;border-left:3px solid var(--acid);background:rgba(255,255,255,.04);color:#DDE5F2}
+#twin_log div.w{border-color:var(--amber)}
+#twin_log div.b{border-color:var(--coral)}
+#twin_log div.n{border-color:#4CC2FF}
+#obs_list li{margin:4px 0}
+#obs_list button{font:700 10px "Space Mono",monospace;border:2px solid var(--ink);background:var(--coral);
+  color:var(--ink);cursor:crosshair;margin-left:6px;padding:1px 6px;box-shadow:2px 2px 0 var(--ink)}
