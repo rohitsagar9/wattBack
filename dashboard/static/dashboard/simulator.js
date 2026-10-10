@@ -13,7 +13,7 @@ const IST = 5.5;
 const $ = (id) => document.getElementById(id);
 const CFG = JSON.parse(document.getElementById('twin_cfg').textContent || '{}');
 
-const VIZAG = { lat: 17.7042, lng: 83.2986, name: 'Visakhapatnam (demo)' };
+const VIZAG = { lat: 17.70384, lng: 83.29859, name: 'Visakhapatnam (demo)' };
 const PRESETS = [
   { key: 'vizag', name: 'Visakhapatnam, India', sub: '17.704°N 83.299°E · demo site', lat: VIZAG.lat, lng: VIZAG.lng },
   CFG && CFG.lat ? { key: 'site', name: `WattBack ${CFG.name || CFG.site || 'site'}`, sub: `${(+CFG.lat).toFixed(4)}° ${(+CFG.lng).toFixed(4)}°`, lat: +CFG.lat, lng: +CFG.lng } : null,
@@ -22,8 +22,8 @@ const PRESETS = [
   { key: 'blr', name: 'Bengaluru, India', sub: '12.972°N 77.595°E', lat: 12.9716, lng: 77.5946 },
 ].filter(Boolean);
 
-const INIT_VIEW = { center: [VIZAG.lng, VIZAG.lat], zoom: 19.8, pitch: 55, bearing: -25 };
-const HOUSE_W = 12, HOUSE_D = 8;
+const INIT_VIEW = { center: [VIZAG.lng, VIZAG.lat], zoom: 19.4, pitch: 55, bearing: -25 };
+const HOUSE_W = 15, HOUSE_D = 10;
 
 const state = {
   anchor: { lat: VIZAG.lat, lng: VIZAG.lng },
@@ -159,7 +159,7 @@ function initMap() {
       bearing: INIT_VIEW.bearing,
       maxPitch: 70,
       minZoom: 2,
-      maxZoom: 22,
+      maxZoom: 20,
       attributionControl: false,
       dragRotate: true,
       pitchWithRotate: true,
@@ -199,12 +199,13 @@ function flyToLoc(p) {
     [p.lng - 0.04, p.lat - 0.04],
     [p.lng + 0.04, p.lat + 0.04],
   ]);
-  map.flyTo({ center: [p.lng, p.lat], zoom: 19.8, pitch: 55, bearing: -25, duration: 2600 });
+  map.flyTo({ center: [p.lng, p.lat], zoom: 19.4, pitch: 55, bearing: -25, duration: 2600 });
   $('loc_name').textContent = p.name;
   $('coord_meta').textContent = `${p.lat.toFixed(4)}° ${p.lng.toFixed(4)}°`;
   document.querySelectorAll('.loc-item').forEach((el) => {
     el.classList.toggle('active', el.dataset.key === p.key);
   });
+  seedDemoObs();
   rebuildScene();
   buildSunArc();
   applyScene();
@@ -407,20 +408,37 @@ function panelTex() {
   const cv = document.createElement('canvas');
   cv.width = 128; cv.height = 224;
   const x = cv.getContext('2d');
-  x.fillStyle = '#0E2A55';
+  const g = x.createLinearGradient(0, 0, 128, 224);
+  g.addColorStop(0, '#0D3B8F');
+  g.addColorStop(0.5, '#0A2E70');
+  g.addColorStop(1, '#0D3B8F');
+  x.fillStyle = g;
   x.fillRect(0, 0, 128, 224);
-  x.strokeStyle = 'rgba(120,170,255,.55)';
-  x.lineWidth = 2;
+  x.strokeStyle = 'rgba(170,205,255,.65)';
+  x.lineWidth = 2.2;
   const cols = 6, rows = 10;
   for (let i = 1; i < cols; i++) {
-    x.beginPath(); x.moveTo(i * 128 / cols, 0); x.lineTo(i * 128 / cols, 224); x.stroke();
+    x.beginPath(); x.moveTo(i * 128 / cols, 4); x.lineTo(i * 128 / cols, 220); x.stroke();
   }
   for (let j = 1; j < rows; j++) {
-    x.beginPath(); x.moveTo(0, j * 224 / rows); x.lineTo(128, j * 224 / rows); x.stroke();
+    x.beginPath(); x.moveTo(4, j * 224 / rows); x.lineTo(124, j * 224 / rows); x.stroke();
   }
-  x.strokeStyle = 'rgba(180,210,255,.85)';
-  x.lineWidth = 4;
-  x.strokeRect(2, 2, 124, 220);
+  x.strokeStyle = '#D5E2F5';
+  x.lineWidth = 5;
+  x.strokeRect(2.5, 2.5, 123, 219);
+  return new THREE.CanvasTexture(cv);
+}
+
+function contactTex() {
+  const cv = document.createElement('canvas');
+  cv.width = cv.height = 128;
+  const x = cv.getContext('2d');
+  const g = x.createRadialGradient(64, 64, 8, 64, 64, 62);
+  g.addColorStop(0, 'rgba(0,0,0,.5)');
+  g.addColorStop(0.6, 'rgba(0,0,0,.22)');
+  g.addColorStop(1, 'rgba(0,0,0,0)');
+  x.fillStyle = g;
+  x.fillRect(0, 0, 128, 128);
   return new THREE.CanvasTexture(cv);
 }
 
@@ -454,67 +472,123 @@ function buildHouse() {
   const tilt = state.tilt * DEG;
   const sinT = Math.sin(tilt), cosT = Math.cos(tilt);
   const W = HOUSE_W, D = HOUSE_D;
-  const wallH = Math.min(5.2, 2.25 + (D / 2) * sinT);
-  const slopeLen = D / cosT + 0.45;
-  const u = new THREE.Vector3(1, 0, 0);                    // ridge = east–west
+  const wallH = 3.0;
+  const roofY = wallH + 0.18;                // top of roof slab
+  const u = new THREE.Vector3(1, 0, 0);
   const quat = new THREE.Quaternion().setFromAxisAngle(u, tilt);
 
   houseGrp = new THREE.Group();
-  // face local +Z toward the configured azimuth
   houseGrp.rotation.y = (180 - state.az) * DEG;
   scene.add(houseGrp);
 
+  // soft contact shadow so the house sits on the ground
+  const blob = new THREE.Mesh(
+    new THREE.CircleGeometry(Math.hypot(W, D) * 0.62, 36),
+    new THREE.MeshBasicMaterial({ map: contactTex(), transparent: true,
+      depthWrite: false, opacity: 0.85 }));
+  blob.rotation.x = -Math.PI / 2;
+  blob.position.y = 0.03;
+  houseGrp.add(blob);
+
+  // plinth
+  const plinth = new THREE.Mesh(
+    new THREE.BoxGeometry(W + 1.1, 0.5, D + 1.1),
+    new THREE.MeshStandardMaterial({ color: '#8F8270', roughness: 0.95 }));
+  plinth.position.y = 0.25;
+  plinth.castShadow = true;
+  plinth.receiveShadow = true;
+  houseGrp.add(plinth);
+
+  // walls
   const walls = new THREE.Mesh(
     new THREE.BoxGeometry(W + 0.5, wallH, D + 0.5),
-    new THREE.MeshStandardMaterial({ color: '#EDE6D6', roughness: 0.92, metalness: 0 }));
+    new THREE.MeshStandardMaterial({ color: '#E6DAC2', roughness: 0.88 }));
   walls.position.y = wallH / 2;
   walls.castShadow = true;
   walls.receiveShadow = true;
-  inkEdges(walls, '#1A2233', 0.5);
+  inkEdges(walls, '#3A3226', 0.35);
   houseGrp.add(walls);
 
-  const roof = new THREE.Mesh(
-    new THREE.BoxGeometry(W + 1.0, 0.15, slopeLen),
-    new THREE.MeshStandardMaterial({ color: '#39445C', roughness: 0.6, metalness: 0.15 }));
-  roof.quaternion.copy(quat);
-  roof.position.y = wallH + 0.07;
-  roof.castShadow = true;
-  roof.receiveShadow = true;
-  inkEdges(roof, '#0A0F18', 0.55);
-  houseGrp.add(roof);
+  // flat concrete roof slab
+  const slab = new THREE.Mesh(
+    new THREE.BoxGeometry(W + 0.9, 0.18, D + 0.9),
+    new THREE.MeshStandardMaterial({ color: '#B5A88E', roughness: 0.92 }));
+  slab.position.y = wallH + 0.09;
+  slab.castShadow = true;
+  slab.receiveShadow = true;
+  houseGrp.add(slab);
 
-  const doorMat = new THREE.MeshLambertMaterial({ color: '#5A4330' });
-  const door = new THREE.Mesh(new THREE.BoxGeometry(0.95, 2.05, 0.1), doorMat);
-  door.position.set(-W * 0.24, 1.03, (D + 0.5) / 2 + 0.02);
-  inkEdges(door, '#1A2233', 0.6);
+  // parapet
+  const paraMat = new THREE.MeshStandardMaterial({ color: '#D9CDB5', roughness: 0.9 });
+  const paraH = 0.85, paraT = 0.16;
+  [
+    [W + 0.9, paraH, paraT, 0, roofY + paraH / 2, (D + 0.9) / 2 - paraT / 2],
+    [W + 0.9, paraH, paraT, 0, roofY + paraH / 2, -(D + 0.9) / 2 + paraT / 2],
+    [paraT, paraH, D + 0.9 - paraT * 2, (W + 0.9) / 2 - paraT / 2, roofY + paraH / 2, 0],
+    [paraT, paraH, D + 0.9 - paraT * 2, -(W + 0.9) / 2 + paraT / 2, roofY + paraH / 2, 0],
+  ].forEach(([sx, sy, sz, px, py, pz]) => {
+    const m = new THREE.Mesh(new THREE.BoxGeometry(sx, sy, sz), paraMat);
+    m.position.set(px, py, pz);
+    m.castShadow = true;
+    m.receiveShadow = true;
+    houseGrp.add(m);
+  });
+
+  // stair headroom (mumty)
+  const mumty = new THREE.Mesh(
+    new THREE.BoxGeometry(2.8, 2.5, 2.6),
+    new THREE.MeshStandardMaterial({ color: '#DED2BA', roughness: 0.9 }));
+  mumty.position.set(-W / 2 + 2.0, roofY + 1.25, -D / 2 + 1.8);
+  mumty.castShadow = true;
+  inkEdges(mumty, '#3A3226', 0.4);
+  houseGrp.add(mumty);
+  const mDoor = new THREE.Mesh(
+    new THREE.BoxGeometry(0.8, 1.7, 0.08),
+    new THREE.MeshLambertMaterial({ color: '#4A3826' }));
+  mDoor.position.set(-W / 2 + 2.0, roofY + 0.85, -D / 2 + 1.8 + 1.32);
+  houseGrp.add(mDoor);
+
+  // rooftop water tank on a raised platform
+  const plat = new THREE.Mesh(
+    new THREE.BoxGeometry(1.8, 0.45, 1.8),
+    new THREE.MeshStandardMaterial({ color: '#9A8E7A', roughness: 0.92 }));
+  plat.position.set(W / 2 - 1.8, roofY + 0.225, -D / 2 + 1.9);
+  plat.castShadow = true;
+  houseGrp.add(plat);
+  const tank = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.72, 0.72, 1.35, 18),
+    new THREE.MeshStandardMaterial({ color: '#17171E', roughness: 0.45 }));
+  tank.position.set(W / 2 - 1.8, roofY + 0.45 + 0.675, -D / 2 + 1.9);
+  tank.castShadow = true;
+  inkEdges(tank, '#8A93A6', 0.4);
+  houseGrp.add(tank);
+
+  // front door + windows
+  const door = new THREE.Mesh(
+    new THREE.BoxGeometry(1.0, 2.1, 0.1),
+    new THREE.MeshLambertMaterial({ color: '#5A4330' }));
+  door.position.set(-W * 0.22, 1.05, (D + 0.5) / 2 + 0.02);
+  inkEdges(door, '#3A3226', 0.5);
   houseGrp.add(door);
-  const winMat = new THREE.MeshLambertMaterial({ color: '#20304A' });
-  [W * 0.12, W * 0.34].forEach((x) => {
-    const win = new THREE.Mesh(new THREE.BoxGeometry(1.05, 0.95, 0.08), winMat);
-    win.position.set(x, wallH * 0.58, (D + 0.5) / 2 + 0.02);
-    inkEdges(win, '#1A2233', 0.65);
+  const winMat = new THREE.MeshLambertMaterial({ color: '#243652' });
+  [W * 0.1, W * 0.3].forEach((x) => {
+    const win = new THREE.Mesh(new THREE.BoxGeometry(1.15, 1.0, 0.08), winMat);
+    win.position.set(x, 1.7, (D + 0.5) / 2 + 0.02);
+    inkEdges(win, '#3A3226', 0.55);
     houseGrp.add(win);
   });
 
-  const bBack = -(slopeLen / 2 - 0.9);
-  const chimney = new THREE.Mesh(
-    new THREE.BoxGeometry(0.55, 1.15, 0.55),
-    new THREE.MeshLambertMaterial({ color: '#7A6A58' }));
-  chimney.position.set(W * 0.3, wallH - bBack * sinT + 0.5, bBack * cosT);
-  chimney.castShadow = true;
-  inkEdges(chimney, '#1A2233', 0.6);
-  houseGrp.add(chimney);
-
-  // panels flush on the slope
-  const PW = 1.0, PL = 1.7, GAP = 0.07, ROW_GAP = 0.3;
-  const slopeStep = PL + ROW_GAP;
-  const cols = Math.max(2, Math.min(14, Math.floor((W + 0.7) / (PW + GAP))));
-  const rows = Math.max(1, Math.min(8, Math.floor((slopeLen - 0.3) / slopeStep)));
-  const n = cols * rows;
-  const geo = new THREE.BoxGeometry(PW - GAP, 0.05, PL - GAP);
+  // ---- panels on tilted mount rails above the flat roof ----
+  const PW = 1.0, PL = 1.7, GAPX = 0.12;
+  const cols = 9, rowsN = 3;
+  const stepZ = PL * cosT + 0.55;
+  const rowLen = cols * (PW + GAPX) - GAPX;
+  const railH = 0.30;                       // low-edge height above roof
+  const n = cols * rowsN;
+  const geo = new THREE.BoxGeometry(PW - 0.04, 0.045, PL - 0.04);
   panelMat = new THREE.MeshPhysicalMaterial({
-    color: '#FFFFFF', roughness: 0.15, metalness: 0.45,
-    clearcoat: 0.9, clearcoatRoughness: 0.1, envMapIntensity: 0.65,
+    color: '#FFFFFF', roughness: 0.14, metalness: 0.5,
+    clearcoat: 0.9, clearcoatRoughness: 0.08, envMapIntensity: 0.7,
     map: panelTex() });
   panelMesh = new THREE.InstancedMesh(geo, panelMat, n);
   panelMesh.castShadow = true;
@@ -522,17 +596,47 @@ function buildHouse() {
   const m4 = new THREE.Matrix4();
   const pos = new THREE.Vector3();
   const one = new THREE.Vector3(1, 1, 1);
-  for (let i = 0; i < n; i++) {
-    const col = i % cols;
-    const row = Math.floor(i / cols);
-    const a = (col - (cols - 1) / 2) * (PW + GAP);
-    const b = (row - (rows - 1) / 2) * slopeStep;
-    pos.set(a, wallH - b * sinT + 0.17 * cosT, b * cosT + 0.17 * sinT);
-    m4.compose(pos, quat, one);
-    panelMesh.setMatrixAt(i, m4);
-    panelMesh.setColorAt(i, new THREE.Color('#1E6DD8'));
-    const world = pos.clone().applyQuaternion(houseGrp.quaternion);
-    panelData.push({ pos: world, shaded: false });
+  const railMat = new THREE.MeshStandardMaterial({ color: '#9AA3B0', roughness: 0.35, metalness: 0.75 });
+  const postMat = railMat;
+  for (let row = 0; row < rowsN; row++) {
+    const b = (row - (rowsN - 1) / 2) * stepZ + 0.6;   // shift rows back (leave front roof walkway)
+    const yLow = roofY + railH;
+    const yHigh = yLow + PL * sinT;
+    const zLow = b + (PL / 2) * cosT;
+    const zHigh = b - (PL / 2) * cosT;
+    // rails
+    const frontRail = new THREE.Mesh(new THREE.BoxGeometry(rowLen + 0.2, 0.07, 0.07), railMat);
+    frontRail.position.set(0, yLow, zLow);
+    frontRail.castShadow = true;
+    houseGrp.add(frontRail);
+    const backRail = new THREE.Mesh(new THREE.BoxGeometry(rowLen + 0.2, 0.07, 0.07), railMat);
+    backRail.position.set(0, yHigh, zHigh);
+    backRail.castShadow = true;
+    houseGrp.add(backRail);
+    // posts
+    [-rowLen / 2 + 0.25, 0, rowLen / 2 - 0.25].forEach((px) => {
+      const fh = yLow - roofY;
+      const fp = new THREE.Mesh(new THREE.BoxGeometry(0.07, fh, 0.07), postMat);
+      fp.position.set(px, roofY + fh / 2, zLow);
+      fp.castShadow = true;
+      houseGrp.add(fp);
+      const bh = yHigh - roofY;
+      const bp = new THREE.Mesh(new THREE.BoxGeometry(0.07, bh, 0.07), postMat);
+      bp.position.set(px, roofY + bh / 2, zHigh);
+      bp.castShadow = true;
+      houseGrp.add(bp);
+    });
+    // panels for this row
+    for (let col = 0; col < cols; col++) {
+      const i = row * cols + col;
+      const a = (col - (cols - 1) / 2) * (PW + GAPX);
+      pos.set(a, (yLow + yHigh) / 2 + 0.04, b);
+      m4.compose(pos, quat, one);
+      panelMesh.setMatrixAt(i, m4);
+      panelMesh.setColorAt(i, new THREE.Color('#1565C0'));
+      const world = pos.clone().applyQuaternion(houseGrp.quaternion);
+      panelData.push({ pos: world, shaded: false });
+    }
   }
   panelMesh.instanceMatrix.needsUpdate = true;
   if (panelMesh.instanceColor) panelMesh.instanceColor.needsUpdate = true;
@@ -616,6 +720,20 @@ function defaultObsFor(type, h) {
   if (type === 'tree') return 6;
   if (type === 'wall') return 2.5;
   return 2.3;
+}
+
+function seedDemoObs() {
+  const a = state.anchor;
+  const mLng = 111320 * Math.cos(a.lat * DEG);
+  const mk = (dx, dz, type, h) => ({
+    lat: a.lat - dz / 111320, lng: a.lng + dx / mLng, type, h,
+  });
+  state.obs = [
+    mk(11.5, 9.0, 'tree', 7.0),
+    mk(-10.0, 11.0, 'tree', 5.5),
+    mk(13.5, -4.0, 'tree', 6.2),
+    mk(-12.0, -9.0, 'wall', 2.2),
+  ];
 }
 
 /* ================= sun path arc ================= */
@@ -1018,7 +1136,7 @@ function wireUI() {
     if (!map) return;
     map.easeTo({
       center: [state.anchor.lng, state.anchor.lat],
-      zoom: 19.8, pitch: 55, bearing: -25, duration: 1400,
+      zoom: 19.4, pitch: 55, bearing: -25, duration: 1400,
     });
     $('btn_2d').classList.remove('active');
     $('btn_3d').classList.add('active');
@@ -1067,6 +1185,7 @@ function boot() {
     return;
   }
   wireUI();
+  seedDemoObs();
   const mapOk = initMap();
   const threeOk = initThree();
   if (threeOk) {
