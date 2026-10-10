@@ -55,6 +55,7 @@
       <h4>Map layer</h4>
       <div class="seg" role="group">
         <button type="button" class="seg-btn active" data-layer="sat">Satellite</button>
+        <button type="button" class="seg-btn" data-layer="esri">Esri</button>
         <button type="button" class="seg-btn" data-layer="dark">Dark</button>
         <button type="button" class="seg-btn" data-layer="osm">Street</button>
       </div>
@@ -113,10 +114,10 @@
         <h3><i data-lucide="clock"></i> Time of Day</h3>
         <div class="time-row">
           <i data-lucide="sunrise" class="dim-ic"></i>
-          <input type="range" id="time_slider" min="0" max="1425" step="15" value="720">
+          <input type="range" id="time_slider" min="0" max="1425" step="15" value="930">
           <i data-lucide="sunset" class="dim-ic"></i>
         </div>
-        <p class="time-readout"><span id="time_label">12:00</span> <span class="tz">IST</span></p>
+        <p class="time-readout"><span id="time_label">15:30</span> <span class="tz">IST</span></p>
       </section>
 
       <section class="ctl-sec">
@@ -188,6 +189,8 @@
       <span><i class="sw sw-red"></i>Shadowed panels</span>
       <span><i class="sw sw-grey"></i>Obstacles</span>
     </div>
+
+    <div id="attrib">Imagery © Google</div>
   </main>
 </div>
 

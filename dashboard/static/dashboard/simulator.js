@@ -22,13 +22,15 @@ const PRESETS = [
   { key: 'blr', name: 'Bengaluru, India', sub: '12.972°N 77.595°E', lat: 12.9716, lng: 77.5946 },
 ].filter(Boolean);
 
-const INIT_VIEW = { center: [VIZAG.lng, VIZAG.lat], zoom: 19.4, pitch: 55, bearing: -25 };
-const HOUSE_W = 15, HOUSE_D = 10;
+const INIT_VIEW = { center: [VIZAG.lng, VIZAG.lat], zoom: 21.8, pitch: 46, bearing: -32 };
+const INTRO_VIEW = { zoom: 19.6, pitch: 60, bearing: -50 };
+const VIEW_PAD = { top: 74, right: 300, bottom: 110, left: 80 };
+const HOUSE_W = 22, HOUSE_D = 15;
 
 const state = {
   anchor: { lat: VIZAG.lat, lng: VIZAG.lng },
   date: (CFG && CFG.today) || new Date().toISOString().slice(0, 10),
-  timeMin: 720,
+  timeMin: 930,
   tilt: 10,
   az: 180,
   sunPathOn: true,
@@ -51,7 +53,7 @@ let map = null;
 let renderer = null, scene = null, camera = null;
 let sunLight = null, ambLight = null, hemiLight = null;
 let houseGrp = null, panelMesh = null, panelMat = null, panelData = [];
-let obsGroup = null, arcGroup = null, sunRig = null, sunGlow = null;
+let obsGroup = null, nbrGroup = null, arcGroup = null, sunRig = null, sunGlow = null;
 let rainPts = null, cloudGroup = null, shadowCatcher = null, groundFallback = null;
 let rafId = 0, lastTS = 0, disposed = false;
 let _bgKey = '';
@@ -125,13 +127,18 @@ const MAP_STYLE = {
   sources: {
     sat: {
       type: 'raster',
+      tiles: ['https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'],
+      tileSize: 256, attribution: 'Imagery © Google', maxzoom: 21,
+    },
+    esri: {
+      type: 'raster',
       tiles: ['https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'],
-      tileSize: 256, attribution: 'Esri, Maxar, Earthstar',
+      tileSize: 256, attribution: 'Esri, Maxar, Earthstar', maxzoom: 19,
     },
     dark: {
       type: 'raster',
       tiles: ['https://basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'],
-      tileSize: 256, attribution: 'CARTO',
+      tileSize: 256, attribution: '© CARTO, OSM',
     },
     osm: {
       type: 'raster',
@@ -142,9 +149,16 @@ const MAP_STYLE = {
   layers: [
     { id: 'bg', type: 'background', paint: { 'background-color': '#7EB6E8' } },
     { id: 'sat', type: 'raster', source: 'sat' },
+    { id: 'esri', type: 'raster', source: 'esri', layout: { visibility: 'none' } },
     { id: 'dark', type: 'raster', source: 'dark', layout: { visibility: 'none' } },
     { id: 'osm', type: 'raster', source: 'osm', layout: { visibility: 'none' } },
   ],
+};
+const LAYER_ATTRIB = {
+  sat: 'Imagery © Google',
+  esri: 'Imagery © Esri, Maxar',
+  dark: '© CARTO, OSM',
+  osm: '© OpenStreetMap',
 };
 
 function initMap() {
@@ -154,12 +168,13 @@ function initMap() {
       container: 'map',
       style: MAP_STYLE,
       center: INIT_VIEW.center,
-      zoom: INIT_VIEW.zoom,
-      pitch: INIT_VIEW.pitch,
-      bearing: INIT_VIEW.bearing,
+      zoom: INTRO_VIEW.zoom,
+      pitch: INTRO_VIEW.pitch,
+      bearing: INTRO_VIEW.bearing,
       maxPitch: 70,
       minZoom: 2,
-      maxZoom: 20,
+      maxZoom: 22,
+      padding: VIEW_PAD,
       attributionControl: false,
       dragRotate: true,
       pitchWithRotate: true,
@@ -183,13 +198,30 @@ function initMap() {
 function onMapReady() {
   $('loading').classList.add('hide');
   applyScene();
+  startIntro();
+}
+
+function startIntro() {
+  if (!map) return;
+  const final = {
+    center: [state.anchor.lng, state.anchor.lat],
+    zoom: INIT_VIEW.zoom, pitch: INIT_VIEW.pitch, bearing: INIT_VIEW.bearing,
+    padding: VIEW_PAD,
+  };
+  if (navigator.webdriver) { map.jumpTo(final); return; }   // automated capture: skip cinematic
+  map.easeTo({
+    ...final,
+    duration: 2800, easing: (t) => 1 - Math.pow(1 - t, 3),
+  });
 }
 
 function setBaseLayer(id) {
   state.layer = id;
-  ['sat', 'dark', 'osm'].forEach((L) => {
+  ['sat', 'esri', 'dark', 'osm'].forEach((L) => {
     if (map.getLayer(L)) map.setLayoutProperty(L, 'visibility', L === id ? 'visible' : 'none');
   });
+  const attrib = $('attrib');
+  if (attrib) attrib.textContent = LAYER_ATTRIB[id] || '';
 }
 
 function flyToLoc(p) {
@@ -199,7 +231,11 @@ function flyToLoc(p) {
     [p.lng - 0.04, p.lat - 0.04],
     [p.lng + 0.04, p.lat + 0.04],
   ]);
-  map.flyTo({ center: [p.lng, p.lat], zoom: 19.4, pitch: 55, bearing: -25, duration: 2600 });
+  map.flyTo({
+    center: [p.lng, p.lat],
+    zoom: INIT_VIEW.zoom, pitch: INIT_VIEW.pitch, bearing: INIT_VIEW.bearing,
+    duration: 3200, padding: VIEW_PAD, essential: true,
+  });
   $('loc_name').textContent = p.name;
   $('coord_meta').textContent = `${p.lat.toFixed(4)}° ${p.lng.toFixed(4)}°`;
   document.querySelectorAll('.loc-item').forEach((el) => {
@@ -244,8 +280,8 @@ function initThree() {
   sunLight = new THREE.DirectionalLight('#FFF3D6', 1.3);
   sunLight.castShadow = true;
   sunLight.shadow.mapSize.set(2048, 2048);
-  sunLight.shadow.bias = -0.0004;
-  sunLight.shadow.normalBias = 0.03;
+  sunLight.shadow.bias = -0.0002;
+  sunLight.shadow.normalBias = 0.12;   // ≥1.5 shadow texels — kills grazing-sun acne
   const sc = sunLight.shadow.camera;
   sc.left = -70; sc.right = 70; sc.top = 70; sc.bottom = -70;
   sc.near = 1; sc.far = 320;
@@ -254,6 +290,8 @@ function initThree() {
 
   obsGroup = new THREE.Group();
   scene.add(obsGroup);
+  nbrGroup = new THREE.Group();
+  scene.add(nbrGroup);
   arcGroup = new THREE.Group();
   scene.add(arcGroup);
   cloudGroup = new THREE.Group();
@@ -303,6 +341,12 @@ function syncCamera() {
   const g = dM * Math.cos(pitch);
   const h = Math.max(2, dM * Math.sin(pitch));
   camera.position.set(c.x - Math.sin(bear) * g, h, c.z + Math.cos(bear) * g);
+  // viewport padding shifts where MapLibre draws the center on screen —
+  // mirror that shift so the 3D overlay stays glued to the imagery
+  const cw = renderer.domElement.clientWidth || 800;
+  const chh = renderer.domElement.clientHeight || 600;
+  const p = map.project([center.lng, center.lat]);
+  camera.setViewOffset(cw, chh, cw / 2 - p.x, chh / 2 - p.y, cw, chh);
   camera.lookAt(c.x, 0, c.z);
 }
 
@@ -387,8 +431,8 @@ function makeClouds() {
   for (let i = 0; i < 9; i++) {
     const sp = new THREE.Sprite(new THREE.SpriteMaterial({
       map: tex, transparent: true, opacity: 0, depthWrite: false }));
-    sp.position.set((Math.random() - 0.5) * 140, 34 + Math.random() * 16, (Math.random() - 0.5) * 140);
-    sp.scale.set(26 + Math.random() * 26, 11 + Math.random() * 8, 1);
+    sp.position.set((Math.random() - 0.5) * 240, 115 + Math.random() * 55, (Math.random() - 0.5) * 240);
+    sp.scale.set(40 + Math.random() * 45, 16 + Math.random() * 12, 1);
     sp.userData.speed = 0.5 + Math.random() * 0.8;
     cloudGroup.add(sp);
   }
@@ -472,7 +516,7 @@ function buildHouse() {
   const tilt = state.tilt * DEG;
   const sinT = Math.sin(tilt), cosT = Math.cos(tilt);
   const W = HOUSE_W, D = HOUSE_D;
-  const wallH = 3.0;
+  const wallH = 3.4;
   const roofY = wallH + 0.18;                // top of roof slab
   const u = new THREE.Vector3(1, 0, 0);
   const quat = new THREE.Quaternion().setFromAxisAngle(u, tilt);
@@ -580,7 +624,7 @@ function buildHouse() {
 
   // ---- panels on tilted mount rails above the flat roof ----
   const PW = 1.0, PL = 1.7, GAPX = 0.12;
-  const cols = 9, rowsN = 3;
+  const cols = 12, rowsN = 4;
   const stepZ = PL * cosT + 0.55;
   const rowLen = cols * (PW + GAPX) - GAPX;
   const railH = 0.30;                       // low-edge height above roof
@@ -614,7 +658,7 @@ function buildHouse() {
     backRail.castShadow = true;
     houseGrp.add(backRail);
     // posts
-    [-rowLen / 2 + 0.25, 0, rowLen / 2 - 0.25].forEach((px) => {
+    [-rowLen / 2 + 0.25, -rowLen / 6, rowLen / 6, rowLen / 2 - 0.25].forEach((px) => {
       const fh = yLow - roofY;
       const fp = new THREE.Mesh(new THREE.BoxGeometry(0.07, fh, 0.07), postMat);
       fp.position.set(px, roofY + fh / 2, zLow);
@@ -641,6 +685,60 @@ function buildHouse() {
   panelMesh.instanceMatrix.needsUpdate = true;
   if (panelMesh.instanceColor) panelMesh.instanceColor.needsUpdate = true;
   houseGrp.add(panelMesh);
+}
+
+/* Procedural neighborhood context (OSM has no footprints here).
+   Offsets hand-tuned to match the residential cluster in the imagery. */
+function buildNeighbors() {
+  if (!nbrGroup) return;
+  clearGroup(nbrGroup);
+  const walls = ['#E8DCC4', '#D9C9AC', '#F0E8D8', '#CBB896', '#E2D2B8', '#DCCBA8', '#EADFC8'];
+  const slabs = ['#B5A88E', '#A89880', '#C0B39A', '#9C8F78'];
+  // [dx, dz, w, d, h, wallIdx, hasTank]
+  const defs = [
+    [-5, -22, 12, 9, 6.5, 0, true],
+    [17, -18, 10, 8, 5.5, 1, false],
+    [26, 2, 9, 11, 7.0, 2, true],
+    [20, 20, 11, 9, 5.0, 3, false],
+    [-3, 27, 13, 10, 6.0, 4, true],
+    [-23, 18, 9, 9, 4.5, 5, false],
+    [-27, -5, 10, 12, 6.8, 6, true],
+  ];
+  defs.forEach(([dx, dz, w, d, h, wi, hasTank], i) => {
+    const g = new THREE.Group();
+    const bld = new THREE.Mesh(
+      new THREE.BoxGeometry(w, h, d),
+      new THREE.MeshStandardMaterial({ color: walls[wi], roughness: 0.9 }));
+    bld.position.y = h / 2;
+    bld.castShadow = true;
+    bld.receiveShadow = true;
+    inkEdges(bld, '#3A3226', 0.3);
+    g.add(bld);
+    const roof = new THREE.Mesh(
+      new THREE.BoxGeometry(w + 0.4, 0.16, d + 0.4),
+      new THREE.MeshStandardMaterial({ color: slabs[i % slabs.length], roughness: 0.93 }));
+    roof.position.y = h + 0.08;
+    roof.castShadow = true;
+    roof.receiveShadow = true;
+    g.add(roof);
+    if (hasTank) {
+      const plat = new THREE.Mesh(
+        new THREE.BoxGeometry(1.5, 0.35, 1.5),
+        new THREE.MeshStandardMaterial({ color: '#9A8E7A', roughness: 0.92 }));
+      plat.position.set(w / 2 - 1.4, h + 0.16 + 0.175, -d / 2 + 1.5);
+      plat.castShadow = true;
+      g.add(plat);
+      const tank = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.6, 0.6, 1.15, 14),
+        new THREE.MeshStandardMaterial({ color: '#1B1B24', roughness: 0.45 }));
+      tank.position.set(w / 2 - 1.4, h + 0.16 + 0.35 + 0.575, -d / 2 + 1.5);
+      tank.castShadow = true;
+      g.add(tank);
+    }
+    g.position.set(dx, 0, dz);
+    g.rotation.y = ((i * 37) % 11 - 5) * 0.018;
+    nbrGroup.add(g);
+  });
 }
 
 /* ================= obstacles ================= */
@@ -729,10 +827,14 @@ function seedDemoObs() {
     lat: a.lat - dz / 111320, lng: a.lng + dx / mLng, type, h,
   });
   state.obs = [
-    mk(11.5, 9.0, 'tree', 7.0),
-    mk(-10.0, 11.0, 'tree', 5.5),
-    mk(13.5, -4.0, 'tree', 6.2),
-    mk(-12.0, -9.0, 'wall', 2.2),
+    mk(14, 11, 'tree', 7.5),
+    mk(-13, 14, 'tree', 6.0),
+    mk(19, -7, 'tree', 8.0),
+    mk(-16, -11, 'tree', 5.5),
+    mk(8, 21, 'tree', 6.5),
+    mk(-10, 24, 'tree', 7.0),
+    mk(25, 12, 'tree', 6.2),
+    mk(-22, 5, 'wall', 2.4),
   ];
 }
 
@@ -750,7 +852,7 @@ function buildSunArc() {
   clearArcs();
   if (!arcGroup) return;
   const doy = dayOfYearOf(state.date);
-  const R = 62;
+  const R = 48;
   const pts = [];
   for (let h = 0; h <= 24; h += 0.2) {
     const sp = solarPos(doy, h, state.anchor.lat, state.anchor.lng);
@@ -759,8 +861,8 @@ function buildSunArc() {
   if (pts.length > 1) {
     const geo = new THREE.BufferGeometry().setFromPoints(pts);
     const mat = new THREE.LineDashedMaterial({
-      color: '#FFC83D', dashSize: 1.4, gapSize: 1.0,
-      transparent: true, opacity: 0.92 });
+      color: '#FFC83D', dashSize: 1.0, gapSize: 0.8,
+      transparent: true, opacity: 0.65 });
     const line = new THREE.Line(geo, mat);
     line.computeLineDistances();
     arcGroup.add(line);
@@ -770,7 +872,7 @@ function buildSunArc() {
     if (hr == null) return;
     const sp = solarPos(doy, hr, state.anchor.lat, state.anchor.lng);
     const m = new THREE.Mesh(
-      new THREE.SphereGeometry(0.7, 10, 10),
+      new THREE.SphereGeometry(0.5, 10, 10),
       new THREE.MeshBasicMaterial({ color }));
     m.position.copy(sunWorld(sp.az, 0.4, R));
     arcGroup.add(m);
@@ -786,6 +888,7 @@ function refreshShading(az, el) {
   const dir = sunWorld(az, el, 1).normalize();
   const targets = [];
   if (obsGroup) obsGroup.children.forEach((c) => targets.push(c));
+  if (nbrGroup) nbrGroup.children.forEach((c) => targets.push(c));
   if (houseGrp) targets.push(houseGrp);
   for (let i = 0; i < panelData.length; i++) {
     let shaded = el <= 1;
@@ -859,8 +962,11 @@ function applyScene() {
   if (obsGroup) obsGroup.visible = state.obstaclesOn;
   if (rainPts) rainPts.visible = state.rainOn;
   if (cloudGroup) {
+    // fade cloud discs out as the camera drops toward property zoom so
+    // they never wash the ground view (sun-dimming still applies)
+    const zf = Math.min(1, Math.max(0, (20.6 - map.getZoom()) / 1.2));
     cloudGroup.children.forEach((cl) => {
-      cl.material.opacity = cloud * 0.85;
+      cl.material.opacity = cloud * 0.85 * zf;
     });
   }
 
@@ -882,6 +988,7 @@ function mixHex(a, b, t) {
 function rebuildScene() {
   if (!scene) return;
   buildHouse();
+  buildNeighbors();
   rebuildObstacles();
   applyScene();
 }
@@ -1134,12 +1241,9 @@ function wireUI() {
   $('compass').addEventListener('click', () => map && map.easeTo({ bearing: 0, duration: 500 }));
   $('btn_reset').addEventListener('click', () => {
     if (!map) return;
-    map.easeTo({
-      center: [state.anchor.lng, state.anchor.lat],
-      zoom: 19.4, pitch: 55, bearing: -25, duration: 1400,
-    });
     $('btn_2d').classList.remove('active');
     $('btn_3d').classList.add('active');
+    startIntro();
   });
   $('btn_2d').addEventListener('click', () => {
     if (!map) return;
@@ -1151,7 +1255,7 @@ function wireUI() {
     if (!map) return;
     $('btn_3d').classList.add('active');
     $('btn_2d').classList.remove('active');
-    map.easeTo({ pitch: 55, duration: 700 });
+    map.easeTo({ pitch: INIT_VIEW.pitch, duration: 700 });
   });
 
   window.addEventListener('keydown', (e) => {
