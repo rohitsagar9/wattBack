@@ -1,113 +1,203 @@
-{% extends "dashboard/base.html" %}
 {% load static %}
-{% block title %}Digital Twin · WattBack{% endblock %}
-{% block extra_head %}
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solar Digital Twin · WattBack</title>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<link rel="stylesheet" href="{% static 'dashboard/simulator.css' %}">
 <script type="importmap">
 {"imports": {
   "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
   "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
 }}
 </script>
-{% endblock %}
-{% block content %}
-<h1>DIGITAL TWIN</h1>
-<p class="sub">Draw your array on satellite imagery, drop a tank or a tree, then scrub
-any day of the year. Sun position is pvlib, weather is ERA5, soiling runs the
-same tiered-wash engine as the dashboard — no fake numbers, only scene dressing.</p>
+</head>
+<body>
 
-<div class="formrow">
-  <form method="get" action="/app/twin/" class="formrow" style="margin:0">
-    <label class="mono">SITE
-      <select name="site" onchange="this.form.submit()">
-        {% for s in sites %}
-        <option value="{{ s.key }}" {% if s.key == site.key %}selected{% endif %}>{{ s.name }} · {{ s.kwp_dc }} kWp</option>
-        {% endfor %}
-      </select>
-    </label>
-  </form>
-  <span class="pill">{{ site.lat }}, {{ site.lng }} · tilt {{ site.tilt_deg }}° · az {{ site.azimuth_deg }}°</span>
-  <span id="storage_chip" class="pill">geom: loading…</span>
-</div>
-
-<div class="twin-grid">
-  <div class="card">
-    <h3>roof_draw.log</h3>
-    <div id="twin_map"></div>
-    <p class="muted mono" id="draw_help" style="margin:10px 0 8px">click the satellite map to set array corners (3+), or use the buttons</p>
-    <div class="formrow" style="margin:0 0 10px">
-      <button type="button" class="btn ghost" id="btn_array">DRAW ARRAY</button>
-      <button type="button" class="btn ghost" id="btn_obstacle">DROP OBSTACLE</button>
-      <button type="button" class="btn ghost" id="btn_preset">DEFAULT ARRAY</button>
-      <button type="button" class="btn ghost" id="btn_clear">CLEAR</button>
-    </div>
-    <div class="formrow" style="margin:0 0 10px" id="obs_form" hidden>
-      <label class="mono">TYPE
-        <select id="obs_type">
-          <option value="tank">water tank</option>
-          <option value="tree">tree</option>
-          <option value="pole">pole / mast</option>
-        </select>
-      </label>
-      <label class="mono">HEIGHT m
-        <input type="number" id="obs_h" value="2.5" step="0.1" min="0.3" max="30" size="5">
-      </label>
-      <button type="button" class="btn" id="obs_confirm">CONFIRM OBSTACLE</button>
-      <span class="muted mono" id="obs_pending">click map first</span>
-    </div>
-    <ul id="obs_list" class="mono" style="margin:0;padding-left:18px;font-size:12.5px"></ul>
-  </div>
-
-  <div class="card term" id="scene_card">
-    <h3><span class="dot-live"></span>twin_scene.webgl</h3>
-    <div id="twin_scene">
-      <div id="scene_overlay">
-        <div class="compass"><span class="n">N</span><span class="e">E</span><span class="s">S</span><span class="w">W</span></div>
+<div id="app">
+  <header id="topbar">
+    <div class="brand">
+      <svg class="sun-ic" viewBox="0 0 24 24" width="26" height="26" fill="none"
+           stroke="#FFC83D" stroke-width="2" stroke-linecap="round">
+        <circle cx="12" cy="12" r="4.5" fill="#FFC83D" stroke="none"/>
+        <path d="M12 1.5v2.5M12 20v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M1.5 12H4M20 12h2.5M4.2 19.8 6 18M18 6l1.8-1.8"/>
+      </svg>
+      <div class="titles">
+        <h1>SOLAR DIGITAL TWIN</h1>
+        <p id="loc_name">Visakhapatnam, India</p>
       </div>
-      <div class="heat"></div>
-      <div class="crt"></div>
-      <div class="vignette"></div>
     </div>
-    <div id="scene_hud" class="twin-hud"></div>
-  </div>
-</div>
+    <div class="top-meta">
+      <span id="sun_meta" class="meta-chip">—</span>
+      <span id="coord_meta" class="meta-chip">17.7042°N 83.2986°E</span>
+    </div>
+  </header>
 
-<div class="card" style="margin-top:16px">
-  <h3><span class="dot-live"></span>time_scrub.ctrl</h3>
-  <div class="scrub">
-    <label class="mono">DAY <span id="day_label" class="readout">—</span>
-      <input type="range" id="day_slider" min="1" max="365" value="1" style="width:100%">
-    </label>
-    <label class="mono">TIME <span id="time_label" class="readout">12:00</span>
-      <input type="range" id="time_slider" min="0" max="95" value="48" style="width:100%">
-    </label>
-    <div class="formrow" style="margin:6px 0 0">
-      <button type="button" class="btn" id="btn_play">▶ PLAY DAY</button>
-      <button type="button" class="btn ghost" id="btn_sweep">↻ SWEEP YEAR</button>
-      <button type="button" class="btn ghost" id="btn_noon">NOON</button>
-      <span class="muted mono" id="scrub_status">loading sun path…</span>
+  <nav id="toolbar" aria-label="Map tools">
+    <button type="button" class="tool-btn active" id="tool_layers" title="Map layers" aria-label="Map layers">
+      <i data-lucide="layers"></i>
+    </button>
+    <button type="button" class="tool-btn" id="tool_location" title="Location presets" aria-label="Location presets">
+      <i data-lucide="map-pin"></i>
+    </button>
+    <button type="button" class="tool-btn" id="tool_measure" title="Measure distance" aria-label="Measure distance">
+      <i data-lucide="ruler"></i>
+    </button>
+    <button type="button" class="tool-btn" id="tool_settings" title="Installation settings" aria-label="Installation settings">
+      <i data-lucide="settings"></i>
+    </button>
+  </nav>
+
+  <div id="tool_pop" class="tool-pop" hidden>
+    <div id="pop_layers" class="pop-body">
+      <h4>Map layer</h4>
+      <div class="seg" role="group">
+        <button type="button" class="seg-btn active" data-layer="sat">Satellite</button>
+        <button type="button" class="seg-btn" data-layer="dark">Dark</button>
+        <button type="button" class="seg-btn" data-layer="osm">Street</button>
+      </div>
+    </div>
+    <div id="pop_location" class="pop-body" hidden>
+      <h4>Location</h4>
+      <div class="loc-list" id="loc_list"></div>
+    </div>
+    <div id="pop_measure" class="pop-body" hidden>
+      <h4>Measure</h4>
+      <p class="pop-hint" id="measure_hint">Click two points on the map.</p>
+      <div class="pop-row">
+        <span id="measure_out" class="measure-out">—</span>
+        <button type="button" class="mini-btn" id="measure_clear">Clear</button>
+      </div>
+    </div>
+    <div id="pop_settings" class="pop-body" hidden>
+      <h4>Array orientation</h4>
+      <label class="ctl-lab">Tilt <span id="tilt_val" class="val">10°</span>
+        <input type="range" id="tilt_slider" min="0" max="60" step="1" value="10">
+      </label>
+      <label class="ctl-lab">Azimuth <span id="az_val" class="val">180° S</span>
+        <input type="range" id="az_slider" min="0" max="359" step="1" value="180">
+      </label>
+      <h4 style="margin-top:14px">Add obstacle</h4>
+      <div class="seg" role="group" id="add_obs_seg">
+        <button type="button" class="seg-btn" data-add="tree">Tree</button>
+        <button type="button" class="seg-btn" data-add="wall">Wall</button>
+        <button type="button" class="seg-btn" data-add="tank">Tank</button>
+      </div>
+      <label class="ctl-lab">Height <span id="obs_h_val" class="val">2.5 m</span>
+        <input type="range" id="obs_h_slider" min="0.5" max="12" step="0.1" value="2.5">
+      </label>
+      <p class="pop-hint" id="add_obs_hint">Pick a type, then click the map to place it.</p>
+      <div class="obs-chips" id="obs_chips"></div>
     </div>
   </div>
+
+  <main id="stage">
+    <div id="map"></div>
+    <div id="twin_scene">
+      <div id="three_canvas_host"></div>
+      <div id="measure_layer" hidden></div>
+      <div id="scene_fallback" hidden></div>
+    </div>
+
+    <div id="loading" class="loading">
+      <div class="spin"></div>
+      <span>loading map &amp; scene…</span>
+    </div>
+
+    <aside id="controls" aria-label="Simulator controls">
+      <h2><i data-lucide="sun"></i> SIMULATOR CONTROLS</h2>
+
+      <section class="ctl-sec">
+        <h3><i data-lucide="clock"></i> Time of Day</h3>
+        <div class="time-row">
+          <i data-lucide="sunrise" class="dim-ic"></i>
+          <input type="range" id="time_slider" min="0" max="1425" step="15" value="720">
+          <i data-lucide="sunset" class="dim-ic"></i>
+        </div>
+        <p class="time-readout"><span id="time_label">12:00</span> <span class="tz">IST</span></p>
+      </section>
+
+      <section class="ctl-sec">
+        <h3><i data-lucide="calendar"></i> Date / Season</h3>
+        <input type="date" id="date_input" class="date-in">
+        <div class="seg" id="season_seg" role="group">
+          <button type="button" class="seg-btn" data-month="3">Mar EQ</button>
+          <button type="button" class="seg-btn" data-month="6">Jun</button>
+          <button type="button" class="seg-btn" data-month="9">Sep EQ</button>
+          <button type="button" class="seg-btn" data-month="12">Dec</button>
+        </div>
+      </section>
+
+      <section class="ctl-sec toggles">
+        <label class="tgl-row">
+          <span class="tgl-lab"><i data-lucide="route"></i> Sun Path</span>
+          <input type="checkbox" id="tgl_sunpath" checked><span class="switch"></span>
+        </label>
+        <label class="tgl-row">
+          <span class="tgl-lab"><i data-lucide="layers-2"></i> Shadows</span>
+          <input type="checkbox" id="tgl_shadows" checked><span class="switch"></span>
+        </label>
+        <label class="tgl-row">
+          <span class="tgl-lab"><i data-lucide="trees"></i> Trees &amp; Obstacles</span>
+          <input type="checkbox" id="tgl_obstacles" checked><span class="switch"></span>
+        </label>
+        <label class="tgl-row">
+          <span class="tgl-lab"><i data-lucide="cloud-rain"></i> Rain</span>
+          <input type="checkbox" id="tgl_rain"><span class="switch"></span>
+        </label>
+        <label class="tgl-row">
+          <span class="tgl-lab"><i data-lucide="cloud"></i> Cloud Cover</span>
+          <input type="checkbox" id="tgl_clouds"><span class="switch"></span>
+        </label>
+        <label class="ctl-lab cloud-only" id="cloud_lab" hidden>Cover <span id="cloud_val" class="val">40%</span>
+          <input type="range" id="cloud_slider" min="0" max="100" step="1" value="40">
+        </label>
+      </section>
+
+      <p class="panel-foot" id="weather_status">manual controls always available</p>
+    </aside>
+
+    <div id="nav_cluster">
+      <div id="compass" title="Compass — click to face north">
+        <svg viewBox="0 0 48 48" width="46" height="46">
+          <circle cx="24" cy="24" r="21" class="cmp-ring"/>
+          <g id="cmp_needle">
+            <polygon points="24,7 28,26 24,22 20,26" class="cmp-n"/>
+            <polygon points="24,41 28,22 24,26 20,22" class="cmp-s"/>
+          </g>
+          <text x="24" y="6.5" text-anchor="middle" class="cmp-letter">N</text>
+        </svg>
+      </div>
+      <div class="seg view-seg" role="group">
+        <button type="button" class="seg-btn" id="btn_2d">2D</button>
+        <button type="button" class="seg-btn active" id="btn_3d">3D</button>
+      </div>
+      <div class="zoom-stack">
+        <button type="button" class="zbtn" id="btn_zoom_in" aria-label="Zoom in">+</button>
+        <button type="button" class="zbtn" id="btn_zoom_out" aria-label="Zoom out">−</button>
+      </div>
+      <button type="button" class="zbtn wide" id="btn_reset" title="Reset camera">
+        <i data-lucide="locate-fixed"></i>
+      </button>
+    </div>
+
+    <div id="legend">
+      <span><i class="sw sw-blue"></i>Solar panels</span>
+      <span><i class="sw sw-red"></i>Shadowed panels</span>
+      <span><i class="sw sw-grey"></i>Obstacles</span>
+    </div>
+  </main>
 </div>
 
-<div class="grid g2" style="margin-top:16px">
-  <div class="card term">
-    <h3><span class="dot-live"></span>diagnostic.log</h3>
-    <div id="twin_log"><p class="muted mono">waiting for scene…</p></div>
-  </div>
-  <div class="card">
-    <h3>no_rain_6mo.chart <span class="muted" style="text-transform:none">scenario, not history</span></h3>
-    <div class="chart sm"><canvas id="sim_chart"></canvas></div>
-    <p class="mono muted" id="sim_summary" style="margin:8px 0 0">loading HSU scenario…</p>
-  </div>
+<div id="fatal" hidden>
+  <p><strong>Solar Digital Twin</strong> needs WebGL. The rest of <a href="/">WattBack</a> still works.</p>
 </div>
 
-<p class="muted mono" style="margin-top:14px;font-size:12px">obstacle heights are user-entered (not surveyed) · building volume is illustrative ·
-weather = ERA5 reanalysis (not live radar) · visual soiling approximates the engine; dashboard counters stay engine-true</p>
-
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="https://unpkg.com/lucide@0.454.0/dist/umd/lucide.min.js"></script>
 <script id="twin_cfg" type="application/json">{{ cfg_json|safe }}</script>
-{% endblock %}
-{% block scripts %}
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script type="module" src="{% static 'dashboard/twin.js' %}"></script>
-{% endblock %}
+<script type="module" src="{% static 'dashboard/simulator.js' %}"></script>
+</body>
+</html>
