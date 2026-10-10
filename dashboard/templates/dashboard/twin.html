@@ -59,19 +59,26 @@ same tiered-wash engine as the dashboard — no fake numbers, only scene dressin
   </div>
 
   <div class="card term" id="scene_card">
-    <h3>twin_scene.webgl</h3>
-    <div id="twin_scene"></div>
-    <div id="scene_hud" class="twin-hud" style="margin-top:10px"></div>
+    <h3><span class="dot-live"></span>twin_scene.webgl</h3>
+    <div id="twin_scene">
+      <div id="scene_overlay">
+        <div class="compass"><span class="n">N</span><span class="e">E</span><span class="s">S</span><span class="w">W</span></div>
+      </div>
+      <div class="heat"></div>
+      <div class="crt"></div>
+      <div class="vignette"></div>
+    </div>
+    <div id="scene_hud" class="twin-hud"></div>
   </div>
 </div>
 
 <div class="card" style="margin-top:16px">
-  <h3>time_scrub.ctrl</h3>
+  <h3><span class="dot-live"></span>time_scrub.ctrl</h3>
   <div class="scrub">
-    <label class="mono">DAY <span id="day_label" class="pill">—</span>
+    <label class="mono">DAY <span id="day_label" class="readout">—</span>
       <input type="range" id="day_slider" min="1" max="365" value="1" style="width:100%">
     </label>
-    <label class="mono">TIME <span id="time_label" class="pill">12:00</span>
+    <label class="mono">TIME <span id="time_label" class="readout">12:00</span>
       <input type="range" id="time_slider" min="0" max="95" value="48" style="width:100%">
     </label>
     <div class="formrow" style="margin:6px 0 0">
@@ -85,7 +92,7 @@ same tiered-wash engine as the dashboard — no fake numbers, only scene dressin
 
 <div class="grid g2" style="margin-top:16px">
   <div class="card term">
-    <h3>diagnostic.log</h3>
+    <h3><span class="dot-live"></span>diagnostic.log</h3>
     <div id="twin_log"><p class="muted mono">waiting for scene…</p></div>
   </div>
   <div class="card">

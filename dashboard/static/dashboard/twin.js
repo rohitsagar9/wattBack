@@ -157,12 +157,16 @@ function renderObsList() {
 }
 
 /* ---------- Three.js scene ---------- */
-let renderer = null, scene = null, camera = null, controls = null, sunMesh = null,
-  sunLight = null, ambLight = null, hemiLight = null, panelMesh = null,
-  panelData = [], obsGroup = null, groundMesh = null, rainPts = null,
-  cloudGroup = null, birdGroup = null, arcGroup = null, sceneOK = false;
+let renderer = null, scene = null, camera = null, controls = null, sunRig = null,
+  sunRing = null, sunGlow = null, sunLight = null, ambLight = null, hemiLight = null,
+  panelMesh = null, panelData = [], obsGroup = null, groundMesh = null, rainPts = null,
+  cloudGroup = null, birdGroup = null, arcGroup = null, sceneOK = false,
+  radarGrp = null, stars = null, dustMotes = null;
+let obsTags = [], shadowMeshes = [], sunTag = null, diodeTag = null;
 const raycaster = new THREE.Raycaster();
 const SPAN_BASE = 70;
+const _tmpC = new THREE.Color();
+const _flashC = new THREE.Color();
 
 function sceneSpan() {
   let ext = 20;
@@ -180,24 +184,25 @@ function initScene() {
     return false;
   }
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  renderer.setSize(host.clientWidth || 640, host.clientHeight || 430);
+  renderer.setSize(host.clientWidth || 640, host.clientHeight || 460);
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-  host.appendChild(renderer.domElement);
-  host.insertAdjacentHTML('beforeend', '<div class="heat"></div>');
+  host.insertBefore(renderer.domElement, host.firstChild);
 
   scene = new THREE.Scene();
   scene.background = new THREE.Color('#0E131F');
-  scene.fog = new THREE.Fog('#0E131F', 80, 260);
+  scene.fog = new THREE.Fog('#0E131F', 90, 280);
 
-  camera = new THREE.PerspectiveCamera(48, (host.clientWidth || 640) / (host.clientHeight || 430), 0.1, 600);
-  camera.position.set(28, 22, 30);
+  camera = new THREE.PerspectiveCamera(48, (host.clientWidth || 640) / (host.clientHeight || 460), 0.1, 600);
+  camera.position.set(72, 58, 82);
   controls = new OrbitControls(camera, renderer.domElement);
   controls.target.set(0, 1, 0);
   controls.enableDamping = true;
   controls.maxDistance = 160;
   controls.minDistance = 6;
   controls.maxPolarAngle = 1.48;
+  controls.enabled = false;                       // enabled after fly-in
+  S.intro = { t: 0, from: camera.position.clone(), to: new THREE.Vector3(28, 22, 30) };
 
   hemiLight = new THREE.HemisphereLight('#8FB7FF', '#3A3428', 0.55);
   scene.add(hemiLight);
@@ -212,10 +217,7 @@ function initScene() {
   scene.add(sunLight);
   scene.add(sunLight.target);
 
-  sunMesh = new THREE.Mesh(
-    new THREE.SphereGeometry(1.5, 20, 20),
-    new THREE.MeshBasicMaterial({ color: '#FFE57A' }));
-  scene.add(sunMesh);
+  buildSunRig();
 
   obsGroup = new THREE.Group();
   scene.add(obsGroup);
@@ -226,13 +228,20 @@ function initScene() {
   birdGroup = new THREE.Group();
   scene.add(birdGroup);
 
+  sunTag = document.createElement('div');
+  sunTag.className = 'scene-tag';
+  const ov = $('scene_overlay');
+  if (ov) ov.appendChild(sunTag);
+
   makeGround();
+  makeStars();
+  makeDust();
   makeClouds();
   makeBirds();
   makeRain();
 
   window.addEventListener('resize', () => {
-    const w = host.clientWidth || 640, h = host.clientHeight || 430;
+    const w = host.clientWidth || 640, h = host.clientHeight || 460;
     renderer.setSize(w, h);
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
@@ -246,14 +255,142 @@ function makeGround() {
   const span = sceneSpan();
   const geo = new THREE.PlaneGeometry(span, span);
   geo.rotateX(-Math.PI / 2);
-  const mat = new THREE.MeshLambertMaterial({ color: '#5C6B4A' });
+  const mat = new THREE.MeshLambertMaterial({ color: '#232D42' });
   groundMesh = new THREE.Mesh(geo, mat);
   groundMesh.receiveShadow = true;
   scene.add(groundMesh);
-  const grid = new THREE.GridHelper(span, Math.round(span / 2), '#0E131F', 'rgba(14,19,31,.35)');
-  grid.position.y = 0.01;
+  const grid = new THREE.GridHelper(span, Math.round(span / 2), '#00FF88', 'rgba(0,255,136,.14)');
+  grid.position.y = 0.012;
+  grid.material.transparent = true;
+  if (Array.isArray(grid.material)) grid.material.forEach((m) => { m.opacity = 0.35; m.transparent = true; });
+  else { grid.material.opacity = 0.35; }
   scene.add(grid);
+  // range rings — OSINT map language
+  [10, 20, 30].forEach((r) => {
+    const pts = [];
+    for (let a = 0; a <= 72; a++) {
+      const th = (a / 72) * Math.PI * 2;
+      pts.push(new THREE.Vector3(Math.cos(th) * r, 0.02, Math.sin(th) * r));
+    }
+    const ring = new THREE.Line(
+      new THREE.BufferGeometry().setFromPoints(pts),
+      new THREE.LineBasicMaterial({ color: '#00FF88', transparent: true, opacity: 0.2 }));
+    scene.add(ring);
+  });
+  // radar sweep wedge
+  radarGrp = new THREE.Group();
+  const sweep = new THREE.Mesh(
+    new THREE.PlaneGeometry(span * 0.46, 0.7),
+    new THREE.MeshBasicMaterial({ color: '#00FF88', transparent: true, opacity: 0.33,
+      side: THREE.DoubleSide, depthWrite: false }));
+  sweep.rotation.x = -Math.PI / 2;
+  sweep.position.set(span * 0.23, 0.05, 0);
+  radarGrp.add(sweep);
+  scene.add(radarGrp);
   loadTileTexture(span);
+}
+
+function inkEdges(mesh, color, opacity) {
+  const line = new THREE.LineSegments(
+    new THREE.EdgesGeometry(mesh.geometry, 25),
+    new THREE.LineBasicMaterial({ color: color || '#00FF88', transparent: true,
+      opacity: opacity == null ? 0.9 : opacity }));
+  mesh.add(line);
+  return line;
+}
+
+function buildSunRig() {
+  sunRig = new THREE.Group();
+  const core = new THREE.Mesh(
+    new THREE.SphereGeometry(0.95, 20, 20),
+    new THREE.MeshBasicMaterial({ color: '#FFE57A' }));
+  sunRig.add(core);
+  sunRing = new THREE.Group();
+  const ring = new THREE.Mesh(
+    new THREE.TorusGeometry(1.9, 0.06, 8, 48),
+    new THREE.MeshBasicMaterial({ color: '#00FF88' }));
+  const cross = new THREE.LineSegments(
+    new THREE.BufferGeometry().setFromPoints([
+      new THREE.Vector3(-2.7, 0, 0), new THREE.Vector3(2.7, 0, 0),
+      new THREE.Vector3(0, -2.7, 0), new THREE.Vector3(0, 2.7, 0)]),
+    new THREE.LineBasicMaterial({ color: '#00FF88' }));
+  sunRing.add(ring); sunRing.add(cross);
+  sunRing.rotation.x = Math.PI / 2;
+  sunRig.add(sunRing);
+  sunGlow = new THREE.Sprite(new THREE.SpriteMaterial({
+    map: softDiscTexture('rgba(255,229,122,.6)', 'rgba(255,229,122,0)'),
+    transparent: true, depthWrite: false }));
+  sunGlow.scale.set(11, 11, 1);
+  sunRig.add(sunGlow);
+  sunRig.position.set(0, 52, 0);
+  scene.add(sunRig);
+}
+
+function makeStars() {
+  const N = 240, pos = new Float32Array(N * 3);
+  for (let i = 0; i < N; i++) {
+    const th = Math.random() * Math.PI * 2, ph = Math.random() * Math.PI * 0.42;
+    pos[i * 3] = Math.cos(th) * Math.cos(ph) * 230;
+    pos[i * 3 + 1] = Math.sin(ph) * 230 + 10;
+    pos[i * 3 + 2] = Math.sin(th) * Math.cos(ph) * 230;
+  }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  stars = new THREE.Points(g, new THREE.PointsMaterial({
+    color: '#DDE5F2', size: 1.1, transparent: true, opacity: 0, sizeAttenuation: false }));
+  scene.add(stars);
+}
+
+function makeDust() {
+  const N = 130, pos = new Float32Array(N * 3);
+  for (let i = 0; i < N; i++) {
+    pos[i * 3] = (Math.random() - 0.5) * 70;
+    pos[i * 3 + 1] = 0.4 + Math.random() * 4.5;
+    pos[i * 3 + 2] = (Math.random() - 0.5) * 70;
+  }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  dustMotes = new THREE.Points(g, new THREE.PointsMaterial({
+    color: '#C9B896', size: 0.2, transparent: true, opacity: 0 }));
+  scene.add(dustMotes);
+}
+
+function panelTex() {
+  const cv = document.createElement('canvas');
+  cv.width = cv.height = 64;
+  const x = cv.getContext('2d');
+  x.fillStyle = '#D7DEE8';
+  x.fillRect(0, 0, 64, 64);
+  x.strokeStyle = '#5E6E82';
+  x.lineWidth = 1;
+  for (let i = 1; i < 3; i++) {
+    x.beginPath(); x.moveTo(i * 21, 2); x.lineTo(i * 21, 62); x.stroke();
+    x.beginPath(); x.moveTo(2, i * 16); x.lineTo(62, i * 16); x.stroke();
+  }
+  x.strokeStyle = '#2A3A50';
+  x.lineWidth = 4;
+  x.strokeRect(1, 1, 62, 62);
+  const t = new THREE.CanvasTexture(cv);
+  t.colorSpace = THREE.SRGBColorSpace;
+  return t;
+}
+
+function projectTag(el, pos) {
+  const host = $('twin_scene');
+  const v = pos.clone().project(camera);
+  if (v.z > 1 || Math.abs(v.x) > 1.15 || Math.abs(v.y) > 1.15) { el.classList.remove('on'); return; }
+  el.style.left = ((v.x * 0.5 + 0.5) * host.clientWidth) + 'px';
+  el.style.top = ((-v.y * 0.5 + 0.5) * host.clientHeight) + 'px';
+  el.classList.add('on');
+}
+
+function updateTags() {
+  if (sunTag && sunRig) {
+    if (sunRig.visible) { sunTag.textContent = 'SUN · EL ' + (S._sunEl || 0).toFixed(0) + '° AZ ' + (S._sunAz || 0).toFixed(0) + '°'; projectTag(sunTag, sunRig.position); }
+    else sunTag.classList.remove('on');
+  }
+  obsTags.forEach((t) => projectTag(t.el, t.pos));
+  if (diodeTag && diodeTag._pos) projectTag(diodeTag, diodeTag._pos);
 }
 
 /* Esri tiles → CanvasTexture. CORS-safe path with silent grid fallback. */
@@ -279,7 +416,7 @@ function loadTileTexture(span) {
       const tex = new THREE.CanvasTexture(cv);
       tex.colorSpace = THREE.SRGBColorSpace;
       groundMesh.material.map = tex;
-      groundMesh.material.color.set('#FFFFFF');
+      groundMesh.material.color.set('#8A97AB');   // dim cool tint — satellite, not photo
       groundMesh.material.needsUpdate = true;
     } catch (e) { /* tainted canvas — keep plain ground */ }
   };
@@ -306,9 +443,18 @@ function rebuildScene() {
   panelData = [];
   while (obsGroup.children.length) {
     const c = obsGroup.children.pop();
+    c.traverse((n) => {
+      if (n.geometry) n.geometry.dispose();
+      if (n.material) n.material.dispose();
+    });
     if (c.geometry) c.geometry.dispose();
     if (c.material) c.material.dispose();
   }
+  obsTags.forEach((t) => t.el.remove());
+  obsTags = [];
+  shadowMeshes.forEach((m) => { scene.remove(m); m.geometry.dispose(); m.material.dispose(); });
+  shadowMeshes = [];
+  if (diodeTag) { diodeTag.remove(); diodeTag = null; }
   clearArcs();
   buildArray();
   buildObstacles();
@@ -344,7 +490,8 @@ function buildArray() {
   let n = cols * rows;
   if (n > 360) n = 360;
   const geo = new THREE.BoxGeometry(PW - GAP, 0.04, PL - GAP);
-  const mat = new THREE.MeshStandardMaterial({ color: '#16324F', roughness: 0.45, metalness: 0.25 });
+  const mat = new THREE.MeshStandardMaterial({ color: '#FFFFFF', roughness: 0.4, metalness: 0.3,
+    map: panelTex() });
   panelMesh = new THREE.InstancedMesh(geo, mat, n);
   panelMesh.castShadow = true;
   panelMesh.receiveShadow = true;
@@ -381,10 +528,11 @@ function buildArray() {
 }
 
 function buildObstacles() {
+  const ov = $('scene_overlay');
   S.obs.forEach((o) => {
     const p = ll2m(o.lat, o.lng);
     const h = Math.max(0.3, o.h || 2);
-    let mesh;
+    let w = 1.5;
     if (o.type === 'tree') {
       const grp = new THREE.Group();
       const trunk = new THREE.Mesh(
@@ -393,36 +541,58 @@ function buildObstacles() {
       trunk.position.y = h * 0.225;
       const canopy = new THREE.Mesh(
         new THREE.SphereGeometry(Math.max(0.6, h * 0.28), 12, 10),
-        new THREE.MeshLambertMaterial({ color: '#2F6B33' }));
+        new THREE.MeshLambertMaterial({ color: '#2F6B33', transparent: true, opacity: 0.85 }));
       canopy.position.y = h * 0.45 + h * 0.22;
+      inkEdges(canopy, '#FF9800', 0.75);
       grp.add(trunk); grp.add(canopy);
       grp.position.set(p.x, 0, p.z);
       grp.traverse((c) => { c.castShadow = true; });
       obsGroup.add(grp);
-      return;
+      w = Math.max(1.4, h * 0.55);
     } else if (o.type === 'pole') {
-      mesh = new THREE.Mesh(
+      const mesh = new THREE.Mesh(
         new THREE.BoxGeometry(0.14, h, 0.14),
-        new THREE.MeshLambertMaterial({ color: '#6B7280' }));
+        new THREE.MeshLambertMaterial({ color: '#6B7280', transparent: true, opacity: 0.9 }));
       mesh.position.set(p.x, h / 2, p.z);
+      inkEdges(mesh, '#FF9800');
+      mesh.castShadow = true;
+      obsGroup.add(mesh);
+      w = 0.35;
     } else { // tank
       const grp = new THREE.Group();
       const body = new THREE.Mesh(
         new THREE.CylinderGeometry(0.65, 0.65, h * 0.7, 14),
-        new THREE.MeshLambertMaterial({ color: '#1F3B63' }));
+        new THREE.MeshLambertMaterial({ color: '#1F3B63', transparent: true, opacity: 0.78 }));
       body.position.y = h * 0.55 + h * 0.35;
+      inkEdges(body, '#FF9800');
       const legs = new THREE.Mesh(
         new THREE.BoxGeometry(0.9, h * 0.55, 0.9),
         new THREE.MeshLambertMaterial({ color: '#4A5262' }));
       legs.position.y = h * 0.275;
+      inkEdges(legs, '#FF9800', 0.5);
       grp.add(body); grp.add(legs);
       grp.position.set(p.x, 0, p.z);
       grp.traverse((c) => { c.castShadow = true; });
       obsGroup.add(grp);
-      return;
+      w = 1.5;
     }
-    mesh.castShadow = true;
-    obsGroup.add(mesh);
+    // floating mono tag over the obstacle
+    if (ov) {
+      const tag = document.createElement('div');
+      tag.className = 'scene-tag obs';
+      tag.textContent = o.type.toUpperCase() + ' ' + h + 'M';
+      ov.appendChild(tag);
+      obsTags.push({ el: tag, pos: new THREE.Vector3(p.x, h + 0.9, p.z) });
+    }
+    // coral shadow-footprint quad (updated every applyScene)
+    const sgeo = new THREE.PlaneGeometry(1, 1);
+    sgeo.rotateX(-Math.PI / 2);
+    const smesh = new THREE.Mesh(sgeo, new THREE.MeshBasicMaterial({
+      color: '#FF3B30', transparent: true, opacity: 0.24, depthWrite: false }));
+    smesh.position.set(p.x, 0.035, p.z);
+    smesh.visible = false;
+    scene.add(smesh);
+    shadowMeshes.push({ mesh: smesh, x: p.x, z: p.z, h, w });
   });
 }
 
@@ -609,7 +779,26 @@ function animate(ts) {
   if (!sceneOK) return;
   const dt = Math.min(0.05, ((ts || 0) - (lastTS || ts || 0)) / 1000);
   lastTS = ts || 0;
+  const t = (ts || 0) / 1000;
   if (S.playing) tickPlay(dt);
+  // camera fly-in on first load
+  if (S.intro && S.intro.t < 1) {
+    S.intro.t = Math.min(1, S.intro.t + dt / 1.3);
+    const e = 1 - Math.pow(1 - S.intro.t, 3);
+    camera.position.lerpVectors(S.intro.from, S.intro.to, e);
+    if (S.intro.t >= 1) controls.enabled = true;
+  }
+  // radar sweep + sun ring spin/pulse
+  if (radarGrp) radarGrp.rotation.y += dt * 0.785;
+  if (sunRing) {
+    sunRing.rotation.z += dt * 0.9;
+    const pulse = 1 + Math.sin(t * 2.2) * 0.07;
+    sunRing.scale.set(pulse, pulse, pulse);
+  }
+  if (sunGlow) {
+    const gp = 10.5 + Math.sin(t * 1.7) * 1.2;
+    sunGlow.scale.set(gp, gp, 1);
+  }
   // clouds drift
   const st = stateAt(S.dayIdx);
   const cloudAmt = st.cur && st.cur.cloud != null ? st.cur.cloud / 100 : 0;
@@ -619,7 +808,6 @@ function animate(ts) {
     if (c.position.x > 60) c.position.x = -60;
   });
   // birds when cloudy
-  const t = (ts || 0) / 1000;
   birdGroup.children.forEach((b) => {
     const u = b.userData;
     b.material.opacity = cloudAmt > 0.5 ? 0.9 : 0;
@@ -635,6 +823,18 @@ function animate(ts) {
     }
     p.needsUpdate = true;
   }
+  // dust motes drift
+  if (dustMotes && dustMotes.material.opacity > 0.01) dustMotes.rotation.y += dt * 0.06;
+  // diode-stress flash on shaded panels
+  if (panelMesh && panelMesh.instanceColor && S._shaded && S._shaded.count && (S._sunEl || 0) > 0) {
+    const k = (Math.sin(t * 5) + 1) / 2;
+    _flashC.set('#FF3B30').lerp(_tmpC.set('#FF9800'), k * 0.55);
+    for (let i = 0; i < panelData.length; i++) {
+      if (panelData[i].shaded) panelMesh.setColorAt(i, _flashC);
+    }
+    panelMesh.instanceColor.needsUpdate = true;
+  }
+  updateTags();
   controls.update();
   renderer.render(scene, camera);
 }
@@ -646,15 +846,17 @@ function applyScene() {
   const { az, el } = sunNow();
   const blocked = el < horizonEl(az);
   const night = el <= 0;
-  sunMesh.position.copy(sunWorld(az, el, 52));
-  sunMesh.visible = !night;
+  S._sunAz = az; S._sunEl = el;
+  if (sunRig) {
+    sunRig.position.copy(sunWorld(az, el, 52));
+    sunRig.visible = !night;
+  }
   sunLight.position.copy(sunWorld(az, el, 90));
   sunLight.target.position.set(0, 0, 0);
   const boost = blocked || night ? 0 : Math.min(1, Math.max(0.05, Math.sin(Math.max(el, 0) * DEG)));
   sunLight.intensity = night ? 0 : (blocked ? 0 : boost * 1.25);
   ambLight.intensity = night ? 0.10 : (blocked ? 0.42 : 0.22);
   hemiLight.intensity = night ? 0.18 : (st.mode === 'cloudy' ? 0.75 : 0.5);
-  // sky colour
   const sky = new THREE.Color('#0E131F');
   if (!night) {
     const day = new THREE.Color(st.mode === 'cloudy' ? '#5A6472' : '#2E6FBF');
@@ -666,7 +868,22 @@ function applyScene() {
   scene.background = sky;
   if (scene.fog) scene.fog.color.copy(sky);
   $('twin_scene').classList.toggle('hot', st.mode === 'hot');
-  $('twin_scene').classList.toggle('night', night);
+
+  // coral shadow footprints (the "shadow stalker" overlay)
+  shadowMeshes.forEach((s) => {
+    if (night || el < 3) { s.mesh.visible = false; return; }
+    const len = Math.min(70, s.h / Math.tan(el * DEG));
+    if (len < 0.4) { s.mesh.visible = false; return; }
+    const dxs = -Math.sin(az * DEG), dzs = Math.cos(az * DEG);
+    s.mesh.visible = true;
+    s.mesh.scale.set(s.w, 1, len);
+    s.mesh.position.set(s.x + dxs * len / 2, 0.035, s.z + dzs * len / 2);
+    s.mesh.rotation.y = Math.atan2(dxs, dzs);
+  });
+
+  // stars + dust motes
+  if (stars) stars.material.opacity = night ? 0.85 : 0;
+  if (dustMotes) dustMotes.material.opacity = Math.min(0.55, (st.soil / 0.15) * 0.55);
 
   // panel colours: clean ↔ dusty, shaded coral, hot amber tint
   if (panelMesh && panelMesh.instanceColor) {
@@ -685,8 +902,24 @@ function applyScene() {
     panelMesh.instanceColor.needsUpdate = true;
   }
   refreshShading();
+
+  // diode tag over the array
+  const sh = S._shaded || { count: 0, strings: {} };
+  const strKeys = Object.keys(sh.strings);
+  if (!night && strKeys.length && $('scene_overlay')) {
+    if (!diodeTag) {
+      diodeTag = document.createElement('div');
+      diodeTag.className = 'scene-tag diode';
+      diodeTag._pos = new THREE.Vector3(0, 2.6, 0);
+      $('scene_overlay').appendChild(diodeTag);
+    }
+    diodeTag.textContent = 'S' + (Number(strKeys[0]) + 1) + ' DIODE CONDUCTING';
+  } else if (diodeTag) { diodeTag.remove(); diodeTag = null; }
+
   updateHUD(st, az, el, blocked, night);
-  updateLog(st, az, el, blocked, night);
+  const sig = [st.cur && st.cur.d, st.mode, Math.round(st.soil * 100), Math.round(st.derate),
+    st.daysSince, sh.count, strKeys.join(','), blocked, night].join('|');
+  if (sig !== S._logSig) { S._logSig = sig; updateLog(st, az, el, blocked, night); }
 }
 
 function refreshShading() {
@@ -720,22 +953,45 @@ function fmtTime(slot) {
   return String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0');
 }
 
+function cell(lab, val, cls) {
+  return '<div class="hud-cell" data-lab="' + lab + '"><span class="lab">' + lab +
+    '</span><span class="val ' + (cls || '') + '">' + val + '</span></div>';
+}
+
 function updateHUD(st, az, el, blocked, night) {
   const hud = $('scene_hud');
+  if (!hud) return;
   const iso = st.cur ? st.cur.d : '—';
   const soilPct = (st.soil * 100).toFixed(1);
   const sh = S._shaded || { count: 0, strings: {} };
   const strKeys = Object.keys(sh.strings);
-  const modeCls = { rain_clean: 'ok', cloudy: '', hot: 'bad', dusty: 'warn', normal: '' }[st.mode] || '';
+  const ghi = st.cur ? (st.cur.ghi || 0) : 0;
+  const bleed = (S.C.inr_per_kwh || 8) * CFG.kwp * ghi * (S.C.pr_scene || 0.8) * st.soil;
+  const modeCls = { hot: 'badv', dusty: 'warnv', cloudy: 'warnv' }[st.mode] || '';
+  const shadowTxt = night ? 'night' : (sh.count ? sh.count + 'p' + (strKeys.length ? ' · S' + (Number(strKeys[0]) + 1) : '') : 'clear');
+  const shadowCls = !night && sh.count ? 'badv' : '';
   hud.innerHTML =
-    '<span class="pill">' + iso + ' · ' + fmtTime(S.timeSlot) + '</span>' +
-    '<span class="pill">sun ' + el.toFixed(0) + '° el · ' + az.toFixed(0) + '° az' + (blocked && !night ? ' · terrain-blocked' : '') + '</span>' +
-    '<span class="pill ' + modeCls + '">' + st.mode.replace('_', ' ') + '</span>' +
-    '<span class="pill">soil ' + soilPct + '%</span>' +
-    '<span class="pill">derate −' + st.derate.toFixed(1) + '%</span>' +
-    (sh.count && !night ? '<span class="pill zero">shadow ' + sh.count + ' panels' +
-      (strKeys.length ? ' · string S' + (Number(strKeys[0]) + 1) + ' diode' : '') + '</span>' : '') +
-    (night ? '<span class="pill">night — arrays idle</span>' : '');
+    cell('date · time', iso.slice(5) + ' ' + fmtTime(S.timeSlot)) +
+    cell('sun', el.toFixed(0) + '° ' + az.toFixed(0) + (blocked && !night ? ' blk' : ''), blocked && !night ? 'warnv' : '') +
+    cell('mode', st.mode.replace('_', ' '), modeCls) +
+    cell('soil', soilPct + '%', st.soil >= 0.05 ? 'warnv' : '') +
+    cell('derate', '−' + st.derate.toFixed(1) + '%', st.derate > 5 ? 'badv' : '') +
+    cell('shadow', shadowTxt, shadowCls) +
+    cell('bleed', bleed >= 0.5 ? '₹' + Math.round(bleed) + '/d' : '₹0', bleed >= 1 ? 'warnv' : '');
+  // flash cells whose value changed
+  const prev = S._hudPrev || {};
+  const next = {};
+  hud.querySelectorAll('.hud-cell').forEach((c) => {
+    const lab = c.dataset.lab;
+    const v = c.querySelector('.val').textContent;
+    next[lab] = v;
+    if (prev[lab] !== undefined && prev[lab] !== v) {
+      c.classList.remove('flash');
+      void c.offsetWidth;
+      c.classList.add('flash');
+    }
+  });
+  S._hudPrev = next;
 }
 
 function updateLog(st, az, el, blocked, night) {
@@ -769,7 +1025,8 @@ function updateLog(st, az, el, blocked, night) {
     lines.push(['n', 'Terrain horizon (' + (S.H && S.H.points ? S.H.points.length + ' pts' : 'none') + ') clips sun below ' + horizonEl(az).toFixed(1) + '° at this azimuth']);
   }
   if (night) lines.push(['n', 'Sun below horizon — scene shows ambient only; tomorrow starts ' + (st.cur ? nextRainText() : '')]);
-  log.innerHTML = lines.map((l) => '<div class="' + l[0] + '">' + l[1] + '</div>').join('');
+  log.innerHTML = lines.map((l, i) =>
+    '<div class="' + l[0] + '" style="animation-delay:' + (i * 70) + 'ms">' + l[1] + '</div>').join('');
 }
 
 function nextRainText() {
@@ -913,6 +1170,7 @@ function boot() {
     if (S.mode === 'array' && S.poly.length >= 3) {
       S.mode = 'idle';
       $('btn_array').textContent = 'DRAW ARRAY';
+      $('btn_array').classList.remove('active');
       $('draw_help').textContent = 'array saved — ' + S.poly.length + ' corners';
       saveGeom();
       rebuildScene();
@@ -922,12 +1180,17 @@ function boot() {
     S.poly = [];
     redrawGeomLayers();
     $('btn_array').textContent = 'FINISH ARRAY';
+    $('btn_array').classList.add('active');
+    $('btn_obstacle').classList.remove('active');
     $('draw_help').textContent = 'click map to set corners (3+), then press FINISH';
     rebuildScene();
   };
   $('btn_obstacle').onclick = () => {
     if (S.mode === 'array' && S.poly.length >= 3) { S.mode = 'idle'; saveGeom(); rebuildScene(); }
     S.mode = 'obs';
+    $('btn_obstacle').classList.add('active');
+    $('btn_array').classList.remove('active');
+    $('btn_array').textContent = 'DRAW ARRAY';
     $('obs_form').hidden = false;
     $('obs_pending').textContent = 'click map to place';
     $('draw_help').textContent = 'obstacle mode: click the map next to the array, set height, CONFIRM';
@@ -941,6 +1204,7 @@ function boot() {
     });
     S.pending = null;
     S.mode = 'idle';
+    $('btn_obstacle').classList.remove('active');
     $('obs_form').hidden = true;
     $('draw_help').textContent = 'obstacle added — it will cast real shadows at sun angles';
     saveGeom();
@@ -950,12 +1214,18 @@ function boot() {
   $('btn_preset').onclick = () => {
     S.poly = presetPoly();
     S.mode = 'idle';
+    $('btn_array').classList.remove('active');
+    $('btn_obstacle').classList.remove('active');
+    $('btn_array').textContent = 'DRAW ARRAY';
     redrawGeomLayers();
     saveGeom();
     rebuildScene();
   };
   $('btn_clear').onclick = () => {
     S.poly = []; S.obs = []; S.mode = 'idle';
+    $('btn_array').classList.remove('active');
+    $('btn_obstacle').classList.remove('active');
+    $('btn_array').textContent = 'DRAW ARRAY';
     $('obs_form').hidden = true;
     redrawGeomLayers();
     saveGeom();
