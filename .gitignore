@@ -10,9 +10,9 @@ venv/
 db.sqlite3
 staticfiles/
 
-# blog-style docs (kept local only)
-docs/WRITEUP.md
-docs/VIDEO_SCRIPT.md
+# blog-style docs (now public for judges)
+# docs/WRITEUP.md
+# docs/VIDEO_SCRIPT.md
 data/raw/cache/
 
 

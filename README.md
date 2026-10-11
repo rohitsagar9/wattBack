@@ -2,6 +2,8 @@
 
 **Know what your rooftop solar *should* have produced — and exactly where the missing units went.**
 
+**Live demo (AWS Elastic Beanstalk):** http://wattback.eba-yjd2vepx.ap-south-1.elasticbeanstalk.com
+
 Rooftop PV silently loses 3–10% of its yield to soiling, outages, shading, temperature
 derate, clipping and inverter faults. Owners see only the electricity bill, never the loss.
 WattBack builds an expected-vs-actual generation baseline for any system from public
