@@ -51,10 +51,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "wattback_web.wsgi.application"
 
+# On Elastic Beanstalk, /var/app/current is replaced every deploy — keep the
+# SQLite file outside it (SQLITE_PATH) so data survives. Local default unchanged.
+_SQLITE = os.environ.get("SQLITE_PATH") or str(BASE_DIR / "db.sqlite3")
+if os.environ.get("SQLITE_PATH"):
+    os.makedirs(os.path.dirname(_SQLITE) or ".", exist_ok=True)
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "NAME": _SQLITE,
     }
 }
 
