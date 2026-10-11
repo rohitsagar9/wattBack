@@ -467,3 +467,11 @@ def twin(request):
         "cfg_json": json.dumps(cfg),
         "active": "twin",
     })
+
+
+def planner(request):
+    """SolarCraft — 2D Minecraft-style rooftop solar planner (client-side)."""
+    return render(request, "dashboard/planner.html", {
+        "active": "planner",
+        "today": date_cls.today().isoformat(),
+    })

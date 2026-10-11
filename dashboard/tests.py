@@ -330,3 +330,29 @@ class TwinAPITests(TestCase):
         self.assertIn("2025-05", months)
         self.assertEqual(out["pr_assumed"], 0.80)
         self.assertEqual(out["months"][-1]["cum_kwh"], out["total_kwh"])
+
+
+class PlannerPageTests(TestCase):
+    """SolarCraft 2D rooftop planner page."""
+
+    @classmethod
+    def setUpTestData(cls):
+        call_command("load_wattback", verbosity=0)
+
+    def test_planner_page_renders(self):
+        r = self.client.get("/app/planner/")
+        self.assertEqual(r.status_code, 200)
+        self.assertContains(r, "sc_canvas")
+        self.assertContains(r, "SOLARCRAFT")
+        self.assertContains(r, "sc_wizard")
+
+    def test_planner_has_required_inputs(self):
+        r = self.client.get("/app/planner/")
+        for marker in ("w_lat", "w_lng", "w_orient", "w_ptilt", "w_floors", "w_w", "w_d"):
+            self.assertContains(r, marker)
+
+    def test_planner_nav_link(self):
+        r = self.client.get("/app/?site=bmt")
+        self.assertEqual(r.status_code, 200)
+        self.assertContains(r, "/app/planner/")
+

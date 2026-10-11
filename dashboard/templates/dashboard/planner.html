@@ -1,0 +1,173 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+
+{% block title %}SolarCraft — Rooftop Planner | WattBack{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'dashboard/planner.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="sc-app">
+
+  <!-- Top bar -->
+  <header id="sc-top">
+    <div class="sc-brand">SOLARCRAFT<span>rooftop planner</span></div>
+    <div class="sc-proj" id="sc_proj_name">Untitled project</div>
+    <div class="sc-dims" id="sc_dims">—</div>
+    <div class="sc-top-actions">
+      <button id="sc_undo" title="Undo (Ctrl+Z)">↶ Undo</button>
+      <button id="sc_redo" title="Redo (Ctrl+Y)">↷ Redo</button>
+      <button id="sc_save" title="Save to browser">Save</button>
+      <button id="sc_load" title="Load saved">Load</button>
+      <button id="sc_new" class="sc-accent" title="New project">＋ New</button>
+    </div>
+  </header>
+
+  <div id="sc-body">
+    <!-- Left toolbar -->
+    <aside id="sc-tools">
+      <button class="sc-tool on" data-tool="select" title="Select / move (V)">⬚<span>Select</span></button>
+      <button class="sc-tool" data-tool="building" title="Building footprint">⌂<span>House</span></button>
+      <button class="sc-tool" data-tool="neighbor" title="Neighbor building">▦<span>Nbr</span></button>
+      <button class="sc-tool" data-tool="tree" title="Tree">♣<span>Tree</span></button>
+      <button class="sc-tool" data-tool="tank" title="Water tank (required)">◉<span>Tank</span></button>
+      <button class="sc-tool" data-tool="mumty" title="Stair / mumty room">▲<span>Mumty</span></button>
+      <button class="sc-tool" data-tool="wall" title="Boundary wall">▬<span>Wall</span></button>
+      <button class="sc-tool" data-tool="pole" title="Antenna / pole">▮<span>Pole</span></button>
+      <hr>
+      <button class="sc-tool" data-tool="panel" title="Place single panel">▢<span>Panel</span></button>
+      <button class="sc-tool" data-tool="row" title="Place panel row">▦<span>Row</span></button>
+      <button class="sc-tool" data-tool="measure" title="Measure distance (M)">↔<span>Meas</span></button>
+      <button class="sc-tool" data-tool="delete" title="Delete under cursor">✕<span>Delete</span></button>
+      <hr>
+      <button id="sc_suggest" class="sc-tool sc-accent" title="Recommend panel zones">★<span>Suggest</span></button>
+      <button id="sc_clear_panels" class="sc-tool" title="Remove all panels">⌫<span>Clear PV</span></button>
+    </aside>
+
+    <!-- Canvas stage -->
+    <section id="sc-stage">
+      <canvas id="sc_canvas"></canvas>
+      <div id="sc_hud">
+        <span id="sc_sun_info">sun —</span>
+        <span id="sc_cursor_info"></span>
+        <span id="sc_scale_bar"></span>
+      </div>
+      <div id="sc_banner" hidden></div>
+      <!-- Project creation wizard -->
+      <div id="sc_wizard" class="sc-modal">
+        <div class="sc-modal-card">
+          <h2>New SolarCraft project</h2>
+          <p class="sc-sub">Build a scaled top-down model of your rooftop.</p>
+          <div class="sc-form">
+            <label>Building type
+              <select id="w_type">
+                <option value="house">Individual house</option>
+                <option value="apartment">Apartment building</option>
+                <option value="custom">Custom</option>
+              </select>
+            </label>
+            <div class="sc-row2">
+              <label>Footprint width <input id="w_w" type="number" value="33" min="8" max="200" step="0.5"> <span class="wu" data-unit>ft</span></label>
+              <label>Footprint depth <input id="w_d" type="number" value="66" min="8" max="200" step="0.5"> <span class="wu" data-unit>ft</span></label>
+            </div>
+            <div class="sc-row2">
+              <label>Units
+                <select id="w_units"><option value="ft">feet</option><option value="m">metres</option></select>
+              </label>
+              <label>Floors <input id="w_floors" type="number" value="2" min="1" max="20"></label>
+            </div>
+            <div class="sc-row2">
+              <label>Floor height <input id="w_floorh" type="number" value="10" min="8" max="20" step="0.5"> <span class="wu" data-unit>ft</span></label>
+              <label>Orientation (facade)°
+                <input id="w_orient" type="number" value="180" min="0" max="359" step="1">
+              </label>
+            </div>
+            <div class="sc-row2">
+              <label>Latitude <input id="w_lat" type="number" value="17.7038" step="0.0001"></label>
+              <label>Longitude <input id="w_lng" type="number" value="83.2986" step="0.0001"></label>
+            </div>
+            <div class="sc-row2">
+              <label>TZ offset (h) <input id="w_tz" type="number" value="5.5" step="0.25"></label>
+              <label>Project name <input id="w_name" type="text" value="My rooftop" maxlength="40"></label>
+            </div>
+            <details>
+              <summary>Advanced — panel &amp; terrace</summary>
+              <div class="sc-row2">
+                <label>Panel width <input id="w_pw" type="number" value="3.3" min="1" max="10" step="0.1"> ft</label>
+                <label>Panel depth <input id="w_pd" type="number" value="5.5" min="1" max="15" step="0.1"> ft</label>
+              </div>
+              <div class="sc-row2">
+                <label>Panel kW <input id="w_pk" type="number" value="0.4" min="0.1" max="2" step="0.05"></label>
+                <label>Panel tilt° <input id="w_ptilt" type="number" value="10" min="0" max="60"></label>
+              </div>
+              <div class="sc-row2">
+                <label>Parapet setback <input id="w_setback" type="number" value="0.5" min="0" max="3" step="0.1"> ft</label>
+                <label>Terrace inset (usable) <input id="w_inset" type="number" value="1" min="0" max="6" step="0.5"> ft</label>
+              </div>
+            </details>
+          </div>
+          <div class="sc-modal-actions">
+            <button id="w_start" class="sc-accent">Create model →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right properties panel -->
+    <aside id="sc-props">
+      <h3 id="sc_sel_title">Properties</h3>
+      <div id="sc_sel_none" class="sc-muted">Nothing selected.<br>Click an object on the roof.</div>
+      <div id="sc_sel_form" hidden>
+        <div class="sc-prop"><span>Kind</span><b id="p_kind">—</b></div>
+        <label>X <input id="p_x" type="number" step="0.1"></label>
+        <label>Y <input id="p_y" type="number" step="0.1"></label>
+        <label>W <input id="p_w" type="number" step="0.1" min="0.3"></label>
+        <label>D <input id="p_d" type="number" step="0.1" min="0.3"></label>
+        <label>Height <input id="p_h" type="number" step="0.5" min="0.3"></label>
+        <label>Rotation° <input id="p_rot" type="number" step="15" min="0" max="345"></label>
+        <label id="p_floors_row">Floors <input id="p_floors" type="number" min="1" max="30"></label>
+        <button id="p_delete" class="sc-danger">Delete object</button>
+      </div>
+      <hr>
+      <h3>Sun position</h3>
+      <div class="sc-prop"><span>Azimuth</span><b id="sc_az">—</b></div>
+      <div class="sc-prop"><span>Elevation</span><b id="sc_el">—</b></div>
+      <div class="sc-prop"><span>Shadow dir</span><b id="sc_shdir">—</b></div>
+      <hr>
+      <h3>Energy estimate</h3>
+      <div id="sc_energy">
+        <div class="sc-prop"><span>Panels</span><b id="e_n">0</b></div>
+        <div class="sc-prop"><span>DC kWp</span><b id="e_kwp">0</b></div>
+        <div class="sc-prop"><span>Est. kWh/yr</span><b id="e_kwh">—</b></div>
+        <div class="sc-prop"><span>Shading loss</span><b id="e_loss">—</b></div>
+        <div class="sc-prop"><span>vs suggested</span><b id="e_vs">—</b></div>
+        <p class="sc-est">ESTIMATE · clear-sky model · no weather API</p>
+      </div>
+      <hr>
+      <h3>Layout</h3>
+      <div class="sc-prop"><span>Roof usable</span><b id="e_area">—</b></div>
+      <div class="sc-prop"><span>Remaining</span><b id="e_free">—</b></div>
+      <div class="sc-prop"><span>Max panels</span><b id="e_max">—</b></div>
+    </aside>
+  </div>
+
+  <!-- Bottom sun bar -->
+  <footer id="sc-bottom">
+    <label>Date <input id="sc_date" type="date" value="{{ today }}"></label>
+    <label class="sc-time">Time <input id="sc_time" type="range" min="300" max="1140" step="5" value="720"> <b id="sc_time_lab">12:00</b></label>
+    <div id="sc_legend">
+      <span class="lg g">good sun</span>
+      <span class="lg a">partial</span>
+      <span class="lg r">shaded</span>
+      <span class="lg s">shadow</span>
+      <span class="lg p">panel</span>
+    </div>
+    <button id="sc_play" title="Animate day">▶ day</button>
+  </footer>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="module" src="{% static 'dashboard/planner.js' %}"></script>
+{% endblock %}

@@ -52,6 +52,12 @@ CSV export exists.
    terrain-horizon × sun-path shading view), the dashboard + analytics heatmap, and a
    cleaning page with a five-rung **action ladder** (soiling → shading → wiring →
    inverter → grid); JSON API under `/api/v1/` for machines
+7. **SolarCraft rooftop planner** (`/app/planner/`) — Minecraft-style 2D canvas tool:
+   scaled house/terrace model with obstacles (mandatory water tank, trees, mumty,
+   neighbours), geometrically correct sun shadows from NOAA solar position, a
+   per-cell solar-access heatmap, one-click **Suggest** panel layout with collision
+   detection, and client-side energy/shading estimates — vanilla ES modules, zero
+   build step, zero external APIs
 
 ### Web app & API
 
@@ -64,6 +70,7 @@ CSV export exists.
 | `/app/outages/` | Detected outages with duration, kWh and ₹ lost, SNS publish state |
 | `/app/cleaning/` | Counterfactual calculator + action ladder + wash log + manual kWh entry |
 | `/app/analytics/` | Yearly generation, month×year PR heatmap, gen-vs-GHI, PVGIS cross-check, site map |
+| `/app/planner/` | SolarCraft: 2D rooftop model, sun-path shadows, shading heatmap, panel suggest engine |
 | `/admin/` | Django admin over all imported data |
 
 JSON under **`/api/v1/`**: `sites/` · `daily/?site=&start=&end=` ·
