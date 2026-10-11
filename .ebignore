@@ -10,6 +10,4 @@ venv/
 .vscode/
 *.log
 db.sqlite3
-staticfiles/
-*.png
 *.ipynb
